@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="37px" viewBox="0 0 36 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>particle-3@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="13.0906281%" y1="-32.560007%" x2="70.8251375%" y2="88.3780221%" id="linearGradient-1">
+            <stop stop-color="#BE0E13" offset="0%"></stop>
+            <stop stop-color="#BB0E13" offset="54.1339348%"></stop>
+            <stop stop-color="#890608" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="31.3209417%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#CF181E" offset="0%"></stop>
+            <stop stop-color="#A10A0D" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="superhot_short" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="particle-3">
+            <polygon id="Path-12" fill="url(#linearGradient-1)" points="16.0800004 0 26.1300007 16.7500004 21.4400005 36.8500009 35.5100009 32.1600008 33.5000008 11.3900003"></polygon>
+            <polygon id="Path-13" fill="url(#linearGradient-2)" points="16.0800004 0 21.4400005 36.8500009 26.1300007 16.7500004"></polygon>
+            <polygon id="Path-13" fill="#CC1E1D" points="16.0800004 0 21.4400005 36.8500009 0 26.8000007"></polygon>
+        </g>
+    </g>
+</svg>

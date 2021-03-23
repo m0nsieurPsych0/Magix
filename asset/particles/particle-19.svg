@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="28px"
+   height="33px"
+   viewBox="0 0 28 33"
+   version="1.1"
+   id="svg20"
+   sodipodi:docname="particle-19.svg"
+   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     id="namedview22"
+     showgrid="false"
+     inkscape:zoom="25.727273"
+     inkscape:cx="14"
+     inkscape:cy="16.5"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg20" />
+  <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+  <title
+     id="title2">particle-19@3x</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <defs
+     id="defs11">
+    <linearGradient
+       x1="23.255728"
+       y1="27.501813"
+       x2="6.7011442"
+       y2="35.124482"
+       id="linearGradient-1"
+       gradientTransform="scale(1.3008873,0.76870612)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#BE0E13"
+         offset="0%"
+         id="stop6" />
+      <stop
+         stop-color="#890608"
+         offset="100%"
+         id="stop8" />
+    </linearGradient>
+  </defs>
+  <g
+     id="superhot_short"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     transform="matrix(1,0,0,-1,0,32.86)">
+    <g
+       id="particle-19">
+      <polygon
+         id="Path-11"
+         fill="#cc1e1d"
+         points="0,16.74 22.32,21.7 24.8,2.48 3.72,4.4139692e-15 " />
+      <polygon
+         id="polygon14"
+         fill="#fb0204"
+         points="22.32,21.7 24.8,2.48 27.28,28.52 " />
+      <polygon
+         id="polygon16"
+         fill="url(#linearGradient-1)"
+         points="0,16.74 22.32,21.7 27.28,28.52 13.64,32.86 "
+         style="fill:url(#linearGradient-1)" />
+    </g>
+  </g>
+</svg>

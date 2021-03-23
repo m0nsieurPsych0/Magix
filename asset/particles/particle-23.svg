@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="31px" viewBox="0 0 27 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>particle-23@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="superhot_short" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="particle-23">
+            <polygon id="Path-18" fill="#8D0709" points="9 0 0 12 2 23 9 21"></polygon>
+            <polygon id="Path-18" fill="#F00407" points="15 31 2 23 9 21"></polygon>
+            <polygon id="Path-18" fill="#CC1E1D" points="15 31 27 9 9 21"></polygon>
+            <polygon id="Path-18" fill="#A60B0E" points="9 0 27 9 9 21"></polygon>
+            <polygon id="Path-19" fill="#FFFFFF" points="27 9 23 21 15 31"></polygon>
+        </g>
+    </g>
+</svg>

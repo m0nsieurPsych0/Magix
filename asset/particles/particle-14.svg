@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="48px" viewBox="0 0 41 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>particle-14</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="91.7783875%" y1="64.7719574%" x2="26.936404%" y2="64.7719574%" id="linearGradient-1">
+            <stop stop-color="#BE0E13" offset="0%"></stop>
+            <stop stop-color="#890608" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="superhot_short" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="particle-14">
+            <polygon id="Path-8" fill="#CC1E1D" points="12.7999997 -4.56967787e-15 26.2399994 0 40.3199991 26.8799994 40.3199991 47.3599989 21.1199995 42.879999"></polygon>
+            <polygon id="Path-7" fill="url(#linearGradient-1)" points="0 15.3599997 3.19999993 40.3199991 21.1199995 42.879999 40.3199991 26.8799994 12.7999997 0"></polygon>
+            <polygon id="Path-9" fill="#890608" points="3.19999993 40.3199991 22.3999995 46.079999 40.3199991 47.3599989 21.1199995 42.879999"></polygon>
+        </g>
+    </g>
+</svg>

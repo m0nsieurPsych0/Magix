@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="30px" viewBox="0 0 29 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>particle-16@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="superhot_short" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="particle-16">
+            <polygon id="Path-16" fill="#A80B0F" points="14 0 0 15 13 5"></polygon>
+            <polygon id="Path-16" fill="#F00407" points="18 30 0 15 13 5"></polygon>
+            <polygon id="Path-16" fill="#A10A0D" points="18 30 29 20 13 5"></polygon>
+            <polygon id="Path-16" fill="#FFFFFF" points="14 0 27 9 29 20 13 5"></polygon>
+        </g>
+    </g>
+</svg>

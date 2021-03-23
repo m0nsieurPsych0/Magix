@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="62px" viewBox="0 0 59 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>particle-1@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="110.898395%" y1="-10.1051477%" x2="31.9554013%" y2="86.1434331%" id="linearGradient-1">
+            <stop stop-color="#BE0E13" offset="0%"></stop>
+            <stop stop-color="#890608" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="superhot_short" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="particle-1">
+            <polygon id="Path-3" fill="#CC1E1D" points="34.9440008 28.2240006 58.4640013 25.5360006 25.5360006 61.8240014"></polygon>
+            <polygon id="Path-3" fill="#9E0204" points="34.9440008 28.2240006 32.9280007 0 0 53.7600012"></polygon>
+            <polygon id="Path-3" fill="#FB0204" points="34.9440008 28.2240006 32.9280007 0 58.4640013 25.5360006"></polygon>
+            <polygon id="Path-3" fill="url(#linearGradient-1)" points="34.9440008 28.2240006 25.5360006 61.8240014 0 53.7600012"></polygon>
+        </g>
+    </g>
+</svg>
