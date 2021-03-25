@@ -1,0 +1,103 @@
+/**
+ * SC / main / history
+ */
+var SC = (function()
+{
+    // private
+    function _construct()
+    {
+        initEvents();
+        checkState();
+        startItem(currentItem);
+    }
+    ;
+
+    var currentItem;
+
+    function initEvents()
+    {
+        if (window.addEventListener) {
+            window.addEventListener('popstate', function(e) {
+                var returnLocation = history.location || document.location;
+                //console.log('history => ', returnLocation.href);
+                // just post
+                //alert( "We returned to the page with a link: " + returnLocation.href );
+				checkState();
+				startItem(currentItem);
+            });
+        } else {
+            // ie7 & co
+            window.attachEvent('popstate', function(e) {
+                var returnLocation = history.location || document.location;
+                //console.log('history => ', returnLocation.href);
+                // just post
+                //alert( "We returned to the page with a link: " + returnLocation.href );
+				checkState();
+				startItem(currentItem);
+            });
+        }
+    }
+    ;
+
+    function checkState()
+    {
+        var res = history.location.pathname.replace(SC.BasePath, '');
+        var path = res.split('/');
+        path.shift();
+        var lang = path.shift();
+        path = path.join('/');
+        var itemFromUrl = SC.viewFromLang(lang, path);
+        currentItem = itemFromUrl;
+		
+        /*var p = location.pathname.split('/'),
+         r = p[ p.length-1 ];
+         console.log( 'start to: '+r + ' '+p);
+         var itemFromUrl = SC.viewFromLang(p[ p.length-2 ] , r);
+         currentItem = itemFromUrl; //r;
+         */
+    }
+    ;
+
+    function startItem(item)
+    {
+        SC.loadRub(item);
+    }
+    ;
+
+    function updHistory(e)
+    {
+        //console.log('push => ', $(e).data('item') );
+        history.pushState({state: $(e).data('item')}, $(e).attr('title'), $(e).attr('href'));
+    }
+    ;
+    
+    function forceRoot()
+    {
+    	history.pushState({state: 'home'}, '', SC.BasePath);
+    }
+
+    // public
+    this.History = function()
+    {
+        //console.log('loader',el);
+        _construct();
+    };
+
+    this.CheckState = function()
+    {
+        checkState();
+    }
+
+    this.UpdateHistory = function(e)
+    {
+        updHistory(e);
+    }
+    
+    this.ForceRoot = function()
+    {
+    	forceRoot();
+    }
+
+    return this;
+    
+}).apply(SC);

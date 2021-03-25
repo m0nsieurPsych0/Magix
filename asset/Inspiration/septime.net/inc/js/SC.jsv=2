@@ -1,0 +1,61 @@
+/**
+ * SC / main
+ */
+var SC = (function () {
+
+    function _construct() {
+        // called now when loading finished (SC.loading.html.js => showInterface)
+        //initFeature(SC.History);
+        //initFeature(SC.Nav);
+        initFeature(SC.Loading);
+        initFeature(SC.Ui);
+    }
+
+    function initFeature(feature) {
+        if (typeof(feature) === 'function') {
+            feature();
+        } else {
+            console.log('warning : feature no available');
+        }
+    }
+
+    // public
+    this.init = function () {
+        _construct();
+    };
+
+    // convert URL => Key
+    this.viewFromLang = function (lang, url) {
+
+        // split '/' and reconstructs keys (for instance : agence/presentation => agency/intro)
+        var items = url.split('/');
+        var i = 0;
+        var newString = "";
+        var item;
+        var notFound = false;
+        for (i = 0; i < items.length; i++) {
+            item = items[i];
+            //newString += site_slugs_conf[lang] && site_slugs_conf[lang][item] ? site_slugs_conf[lang][item] : item;
+            if (site_slugs_conf[lang] && site_slugs_conf[lang][item]) {
+                newString += site_slugs_conf[lang][item];
+            } else {
+                notFound = true;
+            }
+            newString += '/';
+        }
+        newString = newString.slice(0, -1);
+
+        if (notFound) {
+            // aucune url ne correspond  : redirection vers la home
+            newString = 'home';
+            SC.ForceRoot();
+        }
+
+        return newString;
+    };
+
+    this.initFeature = initFeature;
+
+    return this;
+})();
+

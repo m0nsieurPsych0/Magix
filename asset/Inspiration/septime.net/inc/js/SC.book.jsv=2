@@ -1,0 +1,1337 @@
+/**
+ * SC / portfolio
+ */
+var SC = (function () {
+  this.defaultBackground = 'medias/projects/background-city.jpg';
+  this.defaultBackgroundLight = 'medias/projects/background-city-light.jpg?v=2';
+
+  var $main = $('#item-book'),
+    /**
+     * UL contenant les logos
+     * @type jQuery
+     */
+    $list,
+    /**
+     * Conteneur de la liste des logos
+     * @type jQuery
+     */
+    $container,
+    /**
+     * Contient les backgrounds
+     * @type jQuery
+     */
+    $bgs,
+    /**
+     * Image : Backgorund principal de la ville
+     * @type jQuery
+     */
+    $mainBg,
+    /**
+     * Image : Contient un background
+     * @type jQuery
+     */
+    $otherBg,
+    /**
+     * Image : Background actuellement affiché
+     * @type jQuery
+     */
+    $currentBg,
+    /**
+     * Image : Fine bande dépliable
+     * @type jQuery
+     */
+    $colored,
+    /**
+     * Image : Contient la bande dépliable
+     * @type jQuery
+     */
+    $coloredCont,
+    /**
+     * LI : Rubrique courante de la navigation principale du site
+     * @type jQuery
+     */
+    $siteCurrentLi,
+    /**
+     * Contient les détails des projets (titre, desc, compatibilité + année + Ouvrir
+     * @type jQuery
+     */
+    $descCont,
+    /**
+     * Flêche de navigation verticale du carrousel des médias
+     * @type jQuery
+     */
+    $mediasArrows,
+    /**
+     * Flêche de navigation du carrousel de logo
+     * @type jQuery
+     */
+    $logoArrows,
+    /**
+     * Bouton de fermeture des détails
+     * @type jQuery
+     */
+    $close,
+    /**
+     * Contient le carrousel des médias
+     * @type jQuery
+     */
+    $carouselMediasCont,
+    // halfRedOffset, // TODO implémenter avec window resize
+    /**
+     * Indique si le background a déjà été changé
+     * @type Boolean
+     */
+    backgroundAlreadyChanged = false,
+    /**
+     * Chemin vers une image vide blank.png
+     * @type String
+     */
+    blankImgPath,
+    /**
+     * Indique si les details sont ouverts
+     * @type Boolean
+     */
+    isDetailsOpened = false,
+    /**
+     * Indique si la bande fini est déployée
+     * @type Boolean
+     */
+    isExpanded = false,
+    /**
+     * Indique si le bloc détail a été demandé avant que la bande soit déployée
+     * @type Boolean
+     */
+    detailsAsked = false,
+    /**
+     * Contient les identifiants des timemouts en attente
+     * @type Array
+     */
+    timeouts = [],
+    /**
+     * Intervalle du timer pour le défilement automatique du carrousel de détail
+     */
+    karOuselInterval,
+    /**
+     * Largeur des backgrounds
+     * @type Number
+     */
+    BACKGROUND_WIDTH = 1600,
+    /**
+     * Largeur d'un item du carousel de logos
+     * @type Number
+     */
+    LOGO_ITEM_WIDTH = 150,
+    /**
+     * Largeur de la bande colorée
+     * @type Number
+     */
+    COLORED_WIDTH = 150,
+    /**
+     * Décallage des éléments du détail pour l'effet vague
+     * @type Number
+     */
+    DETAILS_ITEMS_WAVE_DECAL = 20,
+    /**
+     * Largeur maximale des éléments du bloc détail
+     * @type Number
+     */
+    DETAILS_MAX_WIDTH = 350,
+    /**
+     * Largeur maximale des éléments du bloc détail
+     * @type Number
+     */
+    DETAILS_MIN_WIDTH = 250,
+    /**
+     * Marge à gauche du bloc détail
+     * @type Number
+     */
+    DETAILS_LEFT_MARGIN = 35,
+    /**
+     * Marge à droite du bloc détail
+     * @type Number
+     */
+    DETAILS_RIGHT_MARGIN = 10,
+    /**
+     * Ratio à partir duquel la largeur du carrousel des médias
+     * est réduite indépendamment de la hauteur de la fenêtre
+     * @type Number
+     */
+    RATIO_RESP_CAROUSEL_WIDTH = 0.7
+  ;
+
+  var init = function () {
+
+
+    // pause video (because a lot of animations)
+    SC.UI.hideCurrentVideo();
+    SC.UI.pauseCurrentVideo();
+    //SC.UI.pauseCurrentSound();
+    SC.UI.hideCurrentImage();
+    SC.UI.hideBg();
+
+    // Init nav
+    $siteCurrentLi = $('#menu-nav .menu-item a[data-item="book"]').parent().addClass('current');
+    $('#menu-nav .menu-item').not('.current')
+    //.css('background-color', 'rgba(55, 65, 85, 0.25)')
+      .on('mouseover', function (e) {
+        e.preventDefault();
+      })
+    ;
+    $siteCurrentLi.css('background-color', '#E10203;');
+
+    // init css
+    // permet transitions sur l'alpha des logos
+    $('#content').css({width: '100%', left: '0%', 'z-index': 'auto'});
+    $('body').css('background', '#000000');
+
+    // Load additionnal style and javascript
+    $('head')
+    //.append('<link rel="stylesheet" href="inc/css/book.css" class="book-head" />')
+      .append('<script src="inc/js/vendor/jquery.easing.1.3.min.js" class="book-head"></script>')
+      .append('<script src="inc/js/vendor/jquery.easing.compatibility.min.js" class="book-head"></script>');
+
+    // Empty useless items
+    $main.show().empty();
+
+    // Image vide
+    blankImgPath = book.baseUrl + 'inc/im/blank.png';
+
+    createArchitecture();
+
+    resizeBg();
+    $(window).on('resize', function (e) {
+      resizeBg();
+    });
+
+    /*
+    if (is_MOBILE || is_TABLET) {
+        $.fx.interval = 150;
+    }
+    */
+
+    // Création du carousel de logo
+    $list.karOusel({
+      step: 2,
+      itemWidth: 160,
+      duration: 500,
+      navPrevious: '#item-book-left',
+      navNext: '#item-book-right'
+    }).on({
+      'karOusel.beforeMove': function () {
+        removeEvents();
+      },
+      'karOusel.afterMove': function () {
+        addEvents();
+      }
+    });
+
+    $('#item-book').show();
+
+    // anim thumbs
+    $('#nav_wrapper').css('z-index', 'auto');
+    $list.children().show();
+    $list.children().hide().delay(950).fadeIn(500, function () {
+      $('#nav_wrapper').css('z-index', '2');
+    });
+
+    $('#site-nav > ul > li.current a').addClass('no-bg');
+
+    $('#item-book-left, #item-book-right').hide();
+
+    $('#nav_wrapper').animate({'margin-top': '-197px'}, 500, function () {
+      $('#menu-nav li.current').animate({
+        'min-height': '150px'
+      }, 500, function () {
+        $('#item-book-left, #item-book-right').fadeIn(250, function () {
+          SC.isLoaded();
+        });
+        doBlink($logoArrows.find('.arrow'), 5, 500);
+        addEvents();
+      });
+    });
+
+    $(window).on('resizestop', onResize);
+
+  };
+
+  var load = function () {
+    init();
+  };
+
+  var unload = function () {
+
+    var duration = 500;
+    var delayClosing = isDetailsOpened ? 600 : 0;
+
+    // relaunch video and audio
+    SC.UI.showBg();
+    SC.UI.showCurrentImage();
+    SC.UI.startCurrentVideo();
+    SC.UI.showCurrentVideo();
+    //SC.UI.startCurrentSound();
+
+    if (isDetailsOpened) {
+      // detail of book item is opened, we close it first
+      $('#item-book-close').click(); // => closeDetails
+      $('#item-book-extra').fadeOut(duration);
+    }
+
+    // anim thumbs
+    $('#nav_wrapper').css('z-index', 'auto');
+    $list.children().delay(delayClosing).fadeOut(duration, function () {
+      $('#nav_wrapper').css('z-index', '2');
+    });
+
+    // reduce menu 'Book'
+    $('#menu-nav li.current').delay(duration + delayClosing).animate({
+      'min-height': '30px'
+    }, duration * 0.5);
+
+    // hide arrows
+    $('#item-book-left, #item-book-right').delay(delayClosing).fadeOut(duration);
+
+    // recenter menu
+    $('#nav_wrapper').delay(delayClosing + (duration / 2)).animate({'margin-top': '-130px'}, duration, function () {
+      // --- animation done
+
+      //$('#menu-nav .menu-item').css('background-color', 'transparent');
+      $('#site-nav > ul > li.current a').removeClass('no-bg');
+      $siteCurrentLi.removeClass('current');
+      $siteCurrentLi.css('background-color', 'transparent');
+      // setup content
+      $('#content').css({width: '65%', left: '35%', 'z-index': '3'});
+      $('head .book-head').remove();
+      $main.hide();
+
+      // delete extra for book
+      $('#item-book-extra').remove();
+      // console.log('unloaded !');
+
+      SC.isUnloaded(); // unloaded !
+
+    });
+
+    //$('#site-nav > ul > li.current a').css('background', 'rgba(55, 65, 85, 0.25)');
+
+    //$('#nav_wrapper').css('z-index', '2');
+
+  };
+
+  /**
+   * Appelé lorsque le redimensionnement est terminé
+   * @returns {undefined}
+   */
+  var onResize = function () {
+    var w = $(window).width(),
+      h = $(window).height();
+    // Redimensionne la hauteur de l'élément
+    $main
+      .find('.resp-height')
+      .filter(onResizeFilter)
+      .animate({
+        height: h
+      });
+
+    // Redimensionne la largeur et la hauteur avec la valeur hauteur
+    $main
+      .find('.resp-height-match')
+      .filter(onResizeFilter)
+      .animate({
+        height: h,
+        width: h
+      });
+
+    // Déplace chaque élément sur la propriété data-move-prop,
+    // sur data-move-value avec une extra de data-move-extra
+    $main
+      .find('.resp-move')
+      .filter(onResizeFilter)
+      .each(function () {
+        var $me = $(this),
+          prop = {},
+          val = $me.attr('data-move-value');
+        prop[$me.attr('data-move-prop')] = parseInt(val == 'width' ? w : h) + parseInt($me.attr('data-move-extra'));
+        $(this).animate(prop);
+      })
+    ;
+
+    // Appelle la fonction $(item).data('resp-callback')
+    $main
+      .find('.resp-callback')
+      .filter(onResizeFilter)
+      .each(function () {
+        var callback = $(this).data('resp-callback');
+        if (typeof callback == 'function')
+          callback.apply(this, [w, h]);
+      });
+  };
+
+  /**
+   * Applique des filtres de ratio et de taille sur les callbacks
+   * @returns {Boolean}
+   */
+  var onResizeFilter = function () {
+    var w = $(window).width(),
+      h = $(window).height(),
+      r = w / h,
+      minWidth,
+      ratio = parseFloat($(this).attr('data-resp-lte-ratio'))
+    ;
+    // Ratio doit être inférieur ou égal
+    if (ratio >= r)
+      return false;
+    // Ratio doit être supérieur ou égal
+    ratio = parseFloat($(this).attr('data-resp-gte-ratio'));
+    if (ratio && ratio <= r)
+      return false;
+
+    // Width doit être inférieure ou égale à la valeur attribut
+    minWidth = parseInt($(this).attr('data-resp-lte-width'));
+    if (minWidth >= w)
+      return false;
+
+    // Width doit être supérieur ou égale à la valeur attribut
+    minWidth = parseInt($(this).attr('data-resp-gte-width'));
+    if (minWidth && minWidth <= w)
+      return false;
+    return true;
+  };
+
+  /**
+   * Créé la structure DOM de base avec carrousel des médias, flêches, bande dépliable...
+   * @returns {undefined}
+   */
+  var createArchitecture = function () {
+
+    // remove extra
+    //$('#item-book-extra').remove();
+
+    $('body').css('background-color', SC.UI.getTheme() == 'dark' ? '#000000' : '#FFFFFF');
+
+    var $extra = $('<div id="item-book-extra"></div>');
+    $('body').prepend($extra);
+    // Images de fonds background
+    $bgs = $('<div id="item-book-bg"></div>')
+      .css({
+        height: $(window).height() + 'px',
+        width: $(window).width() + 'px'
+      })
+      // permet l'affichage des backgrounds étant donné que le parent est en overflow:hidden
+      .addClass('resp-callback')
+      .data('resp-callback', function () {
+        $(this).css({
+          height: $(window).height() + 'px',
+          width: $(window).width() + 'px'
+        });
+      })
+    ;
+
+    $extra.append($bgs);
+    $mainBg = $('<img src="' + book.baseUrl + (SC.UI.getTheme() == 'dark' ? defaultBackground : defaultBackgroundLight) + '" id="main-bg" />');
+    $bgs.append($mainBg);
+
+    // console.log('------------------------------');
+    // console.log($mainBg);
+    // console.log($bgs);
+
+    $currentBg = $('<img src="' + blankImgPath + '" />').css('opacity', 0);
+    $bgs.append($currentBg);
+    $otherBg = $('<img src="' + blankImgPath + '" />').css('opacity', 0);
+    $bgs.append($otherBg);
+
+    // Container de la bande colorée
+    $coloredCont = $('<div id="item-book-colored"><img src="' + blankImgPath + '"></div>');
+    $main.prepend($coloredCont);
+    $colored = $coloredCont.find('img');
+
+    // Container de la bande rouge, avec overflow hidden
+    $container = $('<div id="item-book-container"></div>');
+    $main.append($container);
+    var $listCont = $('<div style="position:relative;"></div>');
+    $container.append($listCont);
+
+    // Bloc de description
+    $descCont = $('<div id="item-book-desc"></div>');
+    $main.append($descCont);
+
+    // Flêches du carrousel de médias
+    $mediasArrows = $('<div id="item-book-arrows">\
+<div class="top" title="' + book.locales.previousMedia + '"></div>\
+<div class="bottom" title="' + book.locales.nextMedia + '"></div></div>').hide();
+    $main.append($mediasArrows);
+    $close = $('<div id="item-book-close" title="' + book.locales.closeMedia + '"><img src="' + blankImgPath + '"></div>').hide();
+    $main.append($close);
+
+    // Flêches du carrousel de logos
+    $logoArrows = $('<div id="item-book-left" class="arrow-container"><div class="arrow"><img src="' + blankImgPath + '"></div></div>\
+<div id="item-book-right" class="arrow-container"><div class="arrow"><img src="' + blankImgPath + '"></div></div>');
+    $main.append($logoArrows);
+
+    // Container de la liste d'articles
+    $list = $('<ul id="item-book-list"></ul>');
+    $listCont.append($list);
+    var list = [];
+    var logoColor = $('body').hasClass('light') ? 'logo_light' : 'logo';
+    for (var bkId in book.items) {
+      var item = book.items[bkId];
+      if (!item.status)
+        continue;
+
+      book.items[bkId] = $.extend({position: {left: 0, top: 0}}, item);
+
+      var title = item.title,
+        logo = item[logoColor]
+        /*
+         date = item.date,
+         bg = item.bg,
+         link = item.link,
+         desc = item.desc
+         */
+      ;
+
+      list.push(
+        '<li class="book-item">' +
+        '<article data-id="' + bkId + '" data-num="0' + list.length + '"> ' +
+        '<img src="' + book.baseUrl + logo + '" alt="' + title + '" width="140" height="140" />' +
+        //'<img src="http://placehold.it/140x140/&text=0' + list.length + '" alt="'+ title +'" width="140" height="140" />' +
+        '<div class="event" title="' + book.locales.open + '">' +
+        '<img src="' + blankImgPath + '" alt="" />' +
+        '</div>' +
+        '</article> ' +
+        '</li>'
+      );
+    }
+
+    // Ajout des LIs de logo dans leur UL
+    $list.append($(list.join('\n')).hide());
+  };
+
+  /**
+   * Ajoute les écouteurs d'évènements relatifs au carrousel de logos
+   * @returns {undefined}
+   */
+  var addEvents = function () {
+    $list.karOusel('addEvents');
+    $logoArrows.css('cursor', 'pointer');
+    $list
+      .on('mouseover', '.event', onRollOver)
+      .on('mouseout', '.event', onRollOut)
+      .on('click tap touchstart', '.event', openDetails)
+      .css('cursor', 'pointer')
+    ;
+  };
+
+  /**
+   * Enlève les écouteurs d'évènements relatifs au carrousel de logos
+   * @returns {undefined}
+   */
+  var removeEvents = function () {
+    $list.karOusel('removeEvents');
+    $logoArrows.css('cursor', 'auto');
+    $list
+      .off('mouseover', '.event', onRollOver)
+      .off('mouseout', '.event', onRollOut)
+      .off('click', '.event', openDetails)
+      .css('cursor', 'auto')
+    ;
+  };
+
+  /**
+   * Appelé lors d'un roll over au dessus d'un logo
+   * @param {Event} e
+   * @returns {undefined}
+   */
+  var onRollOver = function (e) {
+    e.preventDefault();
+    var $me = $(e.currentTarget).parent(),
+      itemId = $me.attr('data-id'),
+      item = book.items[itemId];
+
+    // Avoid the city bg animation queued by onRollOut
+    $mainBg.clearQueue();
+
+    var off = $me.offset();
+    changeBackground(item, off);
+    coloredBackground(item, off, function () {
+      showSmallDescription(item, off);
+      waveDescription();
+      isExpanded = true;
+      // ouverture des details si clic avant la fin de l'ouverture
+      if (detailsAsked) {
+        openDetails(e);
+      }
+    });
+  };
+
+  /**
+   * Appelé lors d'un roll out d'un logo
+   * @param {type} e
+   * @param {type} callback
+   * @param {type} animateCarousel
+   * @returns {undefined}
+   */
+  var onRollOut = function (e, callback, animateCarousel) {
+    e.preventDefault();
+    var $me = $(e.currentTarget).parent(),
+      itemId = $me.attr('data-id'),
+      item = book.items[itemId];
+
+    isExpanded = detailsAsked = false;
+    clearTimeouts();
+
+    // Collapse de la bande colorée
+    $coloredCont
+      .stop(true, false)
+      .animate({height: 0, top: getHalfRedOffset()}, 300, 'easeInQuad')
+    ;
+    (animateCarousel ? $carouselMediasCont.find('ul li:eq(1) img') : $colored)
+      .stop(true, false)
+      .animate(
+        {'margin-top': -getHalfRedOffset()},
+        {duration: 300, easing: 'easeInQuad'}
+      )
+    ;
+
+    // Fade in du fond de la ville
+    $mainBg.stop()
+      .delay(100)
+      .animate({
+        opacity: 1
+      }, {
+        duration: 200,
+        easing: 'easeInCubic'
+      });
+    $otherBg.stop()
+      .animate({opacity: 0}, 400, 'easeInCubic');
+    $currentBg.stop()
+      .animate({opacity: 0}, 400, 'easeInCubic');
+
+    $descCont
+      .fadeOut({duration: 400, easing: 'easeInCubic', complete: callback});
+  };
+
+  /**
+   * Change le fond du site
+   * @param {object} item
+   * @param {object} pos
+   * @returns void
+   */
+  var changeBackground = function (item, pos) {
+
+    var bg = SC.UI.getTheme() == 'dark' ? item.bg : item.bg_light;
+
+    var file = item.bgBack || bg || 'medias/projects/ubisoft-assassins-network-bg.jpg';
+    file = book.baseUrl + file;
+
+    $mainBg.animate({opacity: 0}, 500, 'easeInCubic');
+
+    $otherBg.css('left', -0.5 * BACKGROUND_WIDTH + LOGO_ITEM_WIDTH * 0.5 + pos.left);
+    if (!backgroundAlreadyChanged) {
+      $currentBg.css('left', -0.5 * BACKGROUND_WIDTH + LOGO_ITEM_WIDTH * 0.5 + pos.left);
+      backgroundAlreadyChanged = true;
+    }
+
+    $otherBg.css({'margin-left': item.position.left, 'margin-top': item.position.top});
+
+    $otherBg
+      .attr('src', file)
+      .stop()
+      .animate({opacity: 0.35}, 800, 'easeOutQuad', function () {
+        var tp = $currentBg;
+        $currentBg = $otherBg;
+        $otherBg = tp;
+      })
+    ;
+    $currentBg
+      .stop()
+      .animate({opacity: 0}, 800, 'easeOutQuad')
+    ;
+  };
+
+  /**
+   * Déplie la bande colorée
+   * @param {object} item
+   * @param {object} pos
+   * @param {Function} callback fonction appelée lorsque l'animation est terminée
+   * @returns void
+   */
+  var coloredBackground = function (item, pos, callback) {
+
+    var bg = SC.UI.getTheme() == 'dark' ? item.bg : item.bg_light;
+
+    var file = bg || 'medias/projects/ubisoft-assassins-network-bg.jpg';
+    file = book.baseUrl + file;
+
+    var halfOff = getHalfRedOffset();
+
+    clearTimeouts();
+
+    // Effet de déroulement de la bande
+    $coloredCont
+      .stop(true, false)
+      // On réduit et centre le container
+      .css({
+        left: pos.left,
+        height: 0,
+        top: halfOff
+      })
+    ;
+    $colored
+      .attr('src', file)
+      .stop(true, false)
+      .css({
+        'margin-top': -halfOff,
+        'margin-left': -BACKGROUND_WIDTH * 0.5 + LOGO_ITEM_WIDTH * 0.5 + item.position.left
+      })
+    ;
+
+    // Animations du conteneur et de l'image
+    timeouts[timeouts.length] = setTimeout(function () {
+      // Agrandissement et déplacement vers le haut
+      $coloredCont
+        .stop(true, false)
+        .animate(
+          {
+            height: $(window).height(),
+            top: 0
+          },
+          {
+            duration: 300,
+            easing: 'easeInCubic',
+            // Callback de la fin d'animation
+            complete: callback,
+            queue: false
+          }
+        )
+      ;
+
+      // Déplacement vers le bas
+      $colored
+        .stop(true, false)
+        .animate({'margin-top': 0}, {duration: 300, easing: 'easeInCubic', queue: false});
+    }, 200);
+  };
+
+  /**
+   * Prépare et affiche la description du projet
+   * @param {object} item
+   * @param {object} off
+   * @returns {undefined}
+   */
+  var showSmallDescription = function (item, off) {
+    var windowWidth = $(window).width(),
+      maxWidth = DETAILS_MAX_WIDTH * windowWidth / 1600,
+      detailsWidth = Math.min((windowWidth - LOGO_ITEM_WIDTH - DETAILS_LEFT_MARGIN - DETAILS_RIGHT_MARGIN) * 0.5, DETAILS_MAX_WIDTH),
+      rightOrLeftMargin,
+      project_url, compatibilite, $content, currentDetailsWidth,
+      left,
+      reduceWidth = false,
+      detailsOnLeft = off.left + LOGO_ITEM_WIDTH + DETAILS_LEFT_MARGIN + detailsWidth > windowWidth;
+
+    // Calcul du déplacement du bloc
+    // Si pas la place à droite, on le met à gauche
+    if (detailsOnLeft)
+      rightOrLeftMargin = -(DETAILS_RIGHT_MARGIN + detailsWidth);
+    else
+      rightOrLeftMargin = LOGO_ITEM_WIDTH + DETAILS_LEFT_MARGIN;
+
+    // Déplacement du bloc de description
+    left = off.left + rightOrLeftMargin;
+    if (left < 200) {
+      left = off.left + LOGO_ITEM_WIDTH + DETAILS_LEFT_MARGIN;
+      reduceWidth = true;
+    }
+    $descCont.css({left: left});
+
+    project_url = (item.url[0] || window.location) + '';
+    if (project_url.indexOf('#') == -1)
+      project_url += '#';
+
+    compatibilite = item.devices.length
+      ? '<img src="' + book.baseUrl + 'inc/im/compatibilite-' + item.devices.join('.png" /><img src="' + book.baseUrl + 'inc/im/compatibilite-') + '.png" />'
+      : '<img src="' + book.baseUrl + 'inc/im/compatibilite.png"/>';
+    $content = $('<h2>' + item.title + '</h2>' +
+      '<p>' + item.desc + '</p>' +
+      '<p class="compatibilite">' +
+      //(item.devices.length ? '<img src="' + item.devices.join('"/> <img src="') + '"/>' : '') +
+      compatibilite +
+      (item.date ? '/' + item.date.split('/').shift() : '') +
+      '</p>' +
+      (item.url[0] ? '<p class="open" style="display:none;"><a onclick="SC.openProjectLink(\'' + escape(item.title) + '\');" href="' + project_url + '" class="button" target="_blank" >' + book.locales.openProject + '</a></p>' : '')
+    )
+      .css({'margin-left': DETAILS_ITEMS_WAVE_DECAL + 'px', opacity: 0});
+
+    currentDetailsWidth = reduceWidth ? windowWidth - off.left - LOGO_ITEM_WIDTH - DETAILS_LEFT_MARGIN : detailsWidth;
+    $descCont
+      .empty()
+      .stop()
+      .show()
+      .append($content)
+      // Animation sur la largeur du texte
+      .css({
+        width: Math.min(currentDetailsWidth, DETAILS_MAX_WIDTH) + 'px'
+      });
+  };
+
+  /**
+   * Effet d'apparition décalée des paragraphes de la description
+   * @returns {undefined}
+   */
+  var waveDescription = function () {
+    var animate = function (idx) {
+      $descCont.fadeIn(500);
+      $descCont.children(':eq(' + idx + ')').animate(
+        {'margin-left': '0', opacity: 1},
+        {duration: 500, easing: 'easeOutCubic'}
+      );
+    };
+    for (var i = 0, len = $descCont.children().length; i < len; ++i) {
+      //var locFunc = animate.apply(null, [i]);
+      var locFunc = curry(animate, null, i);
+      timeouts[timeouts.length] = setTimeout(locFunc, i * 150);
+    }
+  };
+
+  /*
+   | GESTION DE L'ÉTAT OUVERT
+   */
+
+  var addDetailsEvents = function () {
+    $('#item-book-close').on('click', closeDetails);
+  };
+
+  var removeDetailsEvents = function () {
+    $('#item-book-close').off('click', closeDetails);
+  };
+
+  /**
+   * sur l'ouverture d'un projet
+   */
+  var openProjectLink = function (item) {
+    // google analytics
+    if (typeof _gaq != 'undefined') {
+      _gaq.push(['_trackEvent', 'Clic', 'openProject', unescape(item), 0, true]);
+    }
+  };
+
+  /**
+   * Ouverture des détails d'un projet
+   * @param {Event} e
+   * @returns {undefined}
+   */
+  var openDetails = function (e) {
+
+    // timer pour les images du portfolio
+    clearInterval(karOuselInterval);
+    karOuselInterval = setInterval(function () {
+      $('#item-book-arrows .bottom').trigger('click');
+    }, 5000);
+
+    isDetailsOpened = true;
+
+    var $me = $(e.currentTarget).parent(),
+      itemId = $me.attr('data-id'),
+      item = book.items[itemId],
+      carouselWidth = getMediaCarouselWidth(),
+      windowHeight = $(window).height(),
+      windowWidth = $(window).width();
+    //var mediasToDisplay = item.medias;
+
+    // google analytics
+    if (typeof _gaq != 'undefined') {
+      _gaq.push(['_trackEvent', 'Clic', 'showProject', item.title, 0, true]);
+    }
+
+    // pour autoriser les clics sur la nav et permettre les fade
+    $('#content').css('z-index', '3');
+    $('#nav_wrapper').css('z-index', 'auto');
+
+    e.preventDefault();
+    if (!isExpanded) {
+      detailsAsked = true;
+      if (is_TABLET) {
+        onRollOver(e);
+      }
+      return false;
+    }
+    detailsAsked = false;
+    /*
+    var $me = $(e.currentTarget).parent(),
+            itemId = $me.attr('data-id'),
+            item = book.items[itemId],
+            carouselWidth = getMediaCarouselWidth(),
+            windowHeight = $(window).height(),
+            windowWidth = $(window).width();
+            */
+    removeEvents();
+
+    // Masque le switcher de thème
+    $('#wrapper-skins').fadeOut(150);
+
+    // Fade du carousel
+    $siteCurrentLi.animate({opacity: 0.15}, {duration: 300, easing: 'easeOutQuad'});
+    $list.animate({opacity: 0.15}, {duration: 300, easing: 'easeInQuad'});
+    $logoArrows.animate({opacity: 0.15}, {duration: 300, easing: 'easeInQuad'});
+
+    // Expensions de la bande colorée
+    $coloredCont
+      .addClass('resp-callback')
+      // Responsive, si ratio supérieur à 0.65, width = height = $(window).height()
+      .data('resp-callback', function (w, h) {
+        $(this).animate({width: getMediaCarouselWidth(), height: h});
+      })
+      .stop(true, true)
+      .animate(
+        {width: getMediaCarouselWidth(), left: 0, top: 0, height: windowHeight},
+        {duration: 400, easing: 'easeOutQuad'}
+      );
+    $colored
+      .stop(true, true)
+      .animate(
+        {'margin-left': (carouselWidth - $colored.width()) * 0.5, 'margin-top': 0},
+        {duration: 400, easing: 'easeOutQuad'}
+      );
+
+    // Déplacement flêches
+    $mediasArrows
+      .show()
+      // Reponsive des flêches de navigation
+      .addClass('resp-callback')
+      .data('resp-callback', function () {
+        $(this).animate({left: getMediaCarouselWidth() + DETAILS_LEFT_MARGIN - 10});
+      })
+      // Déplacement des flêches vers le milieu de la puce du titre
+      .css({left: $descCont.offset().left, opacity: 0, cursor: 'pointer'})
+      .animate(
+        {left: carouselWidth + DETAILS_LEFT_MARGIN - 10, opacity: 1},
+        {duration: 500, easing: 'easeOutQuad'}
+      );
+
+    // Déplacement du bouton de fermeture
+    $close
+      .show()
+      .css({right: '-50px', opacity: 0, cursor: 'pointer'})
+      .animate({right: '18px', opacity: 1}, {duration: 500, easing: 'easeOutQuad'});
+
+    // Déplacement du bloc d'infos
+    $descCont
+    // Déplacement du bloc 50 pixel à droite du carousel de média
+      .addClass('resp-callback')
+      .data('resp-callback', function () {
+        $(this).animate({left: getMediaCarouselWidth() + DETAILS_LEFT_MARGIN});
+      })
+      // Apparition est déplacement
+      .stop(true, true)
+      .show()
+      .animate(
+        {left: carouselWidth + DETAILS_LEFT_MARGIN, opacity: 1},
+        // CRÉATION DU CARROUSEL DE MEDIAS
+        {
+          duration: 600, complete: function () {
+            //var medias = SC.UI.getTheme() == "dark" ? item.medias : item.medias_light;
+            var medias = item.medias;
+            createMediaCarousel(medias);
+          }
+        }
+      )
+      // Reponsive sur la largeur du texte
+      .find('p,h2')
+      .addClass('resp-callback')
+      .data('resp-callback', resizeDetailItems)
+      .each(function () {
+        resizeDetailItems.call(this, windowWidth);
+      })
+      // Apparition du bouton Ouvrir le projet
+      .filter('.open')
+      .fadeIn(
+        {duration: 500, easing: 'easeOutQuad'}
+      );
+
+    // Effet de vague sur la description
+    waveDescription();
+
+    addDetailsEvents();
+  };
+
+  var closeDetails = function (e) {
+
+    clearInterval(karOuselInterval);
+
+    $colored.css({
+      opacity: 1,
+      'margin-top': 0,
+      height: $colored[0].naturalHeight
+    });
+    $coloredCont
+      .css({display: 'block', opacity: 1})
+      .removeClass('resp-callback')
+      .removeData('resp-callback')
+    ;
+    $mediasArrows
+      .removeClass('resp-callback')
+      .removeData('resp-callback')
+      .clearQueue('blink').fadeOut({duration: 500, easing: 'easeInQuad'});
+
+    $descCont
+      .removeClass('resp-callback')
+      .removeData('resp-callback');
+
+    $close.fadeOut({duration: 500, easing: 'easeInQuad'});
+
+    $siteCurrentLi.animate({opacity: 1}, {duration: 500, easing: 'easeInQuad'});
+    $list.animate({opacity: 1}, {duration: 500, easing: 'easeInQuad'});
+    $logoArrows.animate({opacity: 1}, {duration: 500, easing: 'easeInQuad'});
+    onRollOut(e, function () {
+      $('#wrapper-skins').fadeIn(150);
+      $coloredCont.css({width: COLORED_WIDTH + 'px'});
+      $colored.css({'margin-left': 0});
+      removeDetailsEvents();
+      $carouselMediasCont.empty();
+      addEvents();
+    }, true);
+
+    // pour autoriser les clics sur la nav et permettre les fade
+    $('#content').css('z-index', 'auto');
+    setTimeout(function () {
+      $('#nav_wrapper').css('z-index', '2');
+      isDetailsOpened = false;
+    }, 600);
+  };
+
+  /**
+   * Create the medias carousel
+   * @param {array} medias
+   * @returns {undefined}
+   */
+  var createMediaCarousel = function (medias) {
+    /*medias = [
+        'http://tests.linux/charly/7x/www-dev/medias/ubisoft-far-cry-3-bg.jpg',
+        'http://placehold.it/1600x1000/&text=02',
+        'http://tests.linux/charly/7x/www-dev/medias/ubisoft-far-cry-3-bg.jpg',
+        'http://placehold.it/1600x900/&text=04',
+        'http://tests.linux/charly/7x/www-dev/medias/fondation-du-patrimoine-bg.jpg'
+    ];*/
+
+    var mediasToDisplay = [];
+    var mediasToLoad = [];
+    for (var i = 0; i < medias.length; i++) {
+      mediasToDisplay[i] = book.baseUrl + medias[i];
+      mediasToLoad[i] = medias[i];
+    }
+
+    var windowHeight = $(window).height(); //$(window).height();
+
+    mediasToDisplay.splice(0, 0, $colored.attr('src'));
+    $carouselMediasCont = $('<div id="item-book-medias"></div>')
+    //.css('width', windowHeight)
+      .css('width', '100%')
+      .addClass('resp-height-match')
+    ;
+    $coloredCont.append($carouselMediasCont);
+    var $mediasList = $('<ul id="item-book-medias-list"></ul>');
+    list = [];
+    $carouselMediasCont.append($mediasList);
+    for (var i = 0, len = mediasToDisplay.length; i < len; ++i) {
+      //var img = !i ? $colored.attr('src') : 'http://placehold.it/1600x900/&text=0' + list.length;
+
+      var contentItemMedia = '';
+      if (i == 0) {
+        contentItemMedia = '<img src="' + mediasToDisplay[i] + '" alt="" />';
+      } else {
+        contentItemMedia = '<div class="preloader_wrapper"><img class="preloader" src="inc/im/showreel-loader.gif" /></div>';
+      }
+
+      /*list.push(
+              '<li class="book-media">' +
+              //'<article style=""> ' +
+              '<img src="' + mediasToDisplay[i] + '" alt="" />' +
+              //'<img src="' + img + '" alt="" />' +
+              //'</article> ' +
+              '</li>'
+              );
+      */
+
+      list.push(
+        '<li class="book-media media-' + i + '">' +
+        contentItemMedia +
+        '</li>'
+      );
+
+    }
+    var $items = $(list.join('\n')).css({height: windowHeight}).addClass('resp-height');
+
+    // Alignement horizontal et vertical des images...
+    $items
+      .css({visibility: 'hidden', background: '#000'})
+      .find('img').not('.preloader')
+    // ... lorsque les images sont chargées
+      .on('load', function () {
+        var
+          windowHeight = $(window).height(),
+          h = windowHeight, // Math.min(this.height, windowHeight),
+          ratio = this.height / windowHeight,
+          w = this.width / ratio,
+          carouselWidth = getMediaCarouselWidth()
+        ;
+        // Alignement de toutes les images
+        $(this)
+        // Prise en compte des clones
+          .closest('ul').find('li img[src="' + this.src + '"]')
+        //.attr('karOusel.loaded', '1')
+          .css({
+            height: h,
+            left: (carouselWidth - w) * 0.5 + 'px'
+          })
+          .animate(
+            {top: (windowHeight - h) * 0.5 + 'px'},
+            {duration: 300, easing: 'linear'}
+          )
+        ;
+      });
+
+    $mediasList.append($items);
+
+    // Création du carrousel
+    $mediasList
+      .karOusel({
+        step: 1,
+        vertical: true,
+        navPrevious: '#item-book-arrows .top',
+        navNext: '#item-book-arrows .bottom',
+        itemWidth: windowHeight
+      }).on({
+      'karOusel.beforeMove': function () {
+        clearInterval(karOuselInterval);
+        karOuselInterval = setInterval(function () {
+          $('#item-book-arrows .bottom').trigger('click');
+        }, 5000);
+      }
+    })
+    // Responsive : alignement horizontal et vertical des images
+      .addClass('resp-callback')
+      .data('resp-callback', function (newWidth, newHeight) {
+        // Mise à jour des marges des images
+        $(this).find('img').not('.preloader').each(function () {
+          var ratio = this.naturalHeight / newHeight,
+            w = this.naturalWidth / ratio,
+            //h = Math.min(this.naturalHeight, newHeight),
+            containerWidth = getMediaCarouselWidth()
+          ;
+
+          $(this)
+            .animate(
+              {
+                height: newHeight,
+                top: 0, //Math.round((newHeight - h) * 0.5) + 'px',
+                left: Math.round((containerWidth - w) * 0.5) + 'px'
+              },
+              {
+                duration: 300,
+                easing: 'linear'
+              }
+            );
+        });
+
+        // Repositionnement vertical du carrousel
+        $mediasList.karOusel('reposition', newHeight);
+
+      });
+
+    // Redimensionnement de la bande colorée pour éviter un saut avec le carrousel
+    var ratio = $colored[0].naturalHeight / windowHeight,
+      width = $colored[0].naturalWidth / ratio;
+    $colored.animate(
+      {
+        height: windowHeight,
+        'margin-top': 0,
+        'margin-left': Math.round((getMediaCarouselWidth() - width) * 0.5) + 'px'
+      },
+      {
+        duration: 500,
+        delay: 100,
+        complete: function () {
+          $mediasList.find('img')
+          //.filter('[karOusel.loaded="1"]')
+            .css('visibility', 'visible');
+          $colored.css('opacity', 0);
+          // Clignotement de la flêche
+          doBlink($mediasArrows, 6, 500);
+        }
+      }
+    );
+
+    // chargement medias
+    var queue = new createjs.LoadQueue();
+    queue.addEventListener('fileload', function (event) {
+
+      var item = event.item;
+
+      // suppression du loader gif
+      $('.' + item.id + ' .preloader_wrapper').remove();
+      // ajout de l'image chargée
+      $('.' + item.id).append('<img style="visibility:visible;" src="' + item.src + '" alt="" />');
+
+      // reposition image
+      var w = $(window).width(),
+        h = $(window).height();
+      $('.' + item.id).find('img').not('.preloader').each(function () {
+        var ratio = this.naturalHeight / h,
+          w = this.naturalWidth / ratio,
+          //h = Math.min(this.naturalHeight, newHeight),
+          containerWidth = getMediaCarouselWidth()
+        ;
+
+        $(this)
+          .animate(
+            {
+              height: h,
+              top: 0, //Math.round((newHeight - h) * 0.5) + 'px',
+              left: Math.round((containerWidth - w) * 0.5) + 'px'
+            },
+            {
+              duration: 300,
+              easing: 'linear'
+            }
+          );
+      });
+
+    });
+
+    for (var i = 0; i < mediasToLoad.length; i++) {
+      queue.loadFile({id: 'media-' + (i + 1), src: mediasToLoad[i]});
+    }
+
+  };
+
+  /**
+   * Redimensionne les éléments du bloc détail
+   * @param {type} w
+   * @returns {undefined}
+   */
+  var resizeDetailItems = function (w/*, long*/) {
+    $(this).animate(
+      {
+        width:
+        Math.min(
+          w - getMediaCarouselWidth() - DETAILS_LEFT_MARGIN - DETAILS_RIGHT_MARGIN,
+          DETAILS_MAX_WIDTH
+        ) + 'px'
+      }
+      //, { duration: long ? 1500 : 400 }
+    );
+  };
+
+  /*
+   | UTILS
+   */
+  /**
+   * Effectue count effet de clignotement sur item après delay ms
+   * @param {jQuery} item
+   * @param {type} count
+   * @param {type} delay
+   * @returns {undefined}
+   */
+  var doBlink = function (item, count, delay) {
+    count = count || 2;
+    $(item)
+      .stop(true, false)
+      .off('mouseover').on('mouseover', function () {
+      item.clearQueue('blink');
+      item.fadeIn({duration: 300, queue: 'blink'});
+    })
+      .delay(delay, 'blink')
+    ;
+
+    while (count--) {
+      $(item)
+        .fadeOut({duration: 300, queue: 'blink'})
+        .fadeIn({duration: 300, queue: 'blink'})
+        .delay(150, 'blink')
+      ;
+    }
+    $(item).dequeue('blink');
+  };
+
+  /**
+   * resize background mage
+   */
+  var resizeBg = function () {
+    var ww = $(window).width(), wh = $(window).height();
+
+    var bgw = $mainBg.width(), bgh = $mainBg.height();
+    var w = bgw, h = bgh, t = 0, l = 0;
+    var r = 1, rw = ww / bgw, rh = wh / bgh;
+    if (rw > rh) {
+      r = rw;
+      t = Math.ceil(((bgh * r) - wh) / 2) * -1;
+    }
+    else {
+      r = rh;
+      l = Math.ceil(((bgw * r) - ww) / 2) * -1;
+    }
+
+    w = Math.ceil(bgw * r);
+    h = Math.ceil(bgh * r);
+
+    $mainBg.css({'width': w + 'px', 'height': h + 'px', 'top': t + 'px', 'left': l + 'px'});
+    $bgs.css({'width': w + 'px', 'height': h + 'px', 'top': t + 'px', 'left': l + 'px'});
+
+  };
+
+  /**
+   * Récupère la largeur du carrousel de médias en fonction de la largeur et hauteur courante de la fenêtre
+   * @returns {Number}
+   */
+  var getMediaCarouselWidth = function () {
+    var w = $(window).width(),
+      h = $(window).height()
+      //,ratio = h / w
+    ;
+    //if (ratio <= RATIO_RESP_CAROUSEL_WIDTH) {
+    var totalDetailsWidth = DETAILS_MIN_WIDTH + DETAILS_LEFT_MARGIN + DETAILS_RIGHT_MARGIN;
+    if (w - h > totalDetailsWidth) {
+      return h;
+    }
+    return w - totalDetailsWidth;
+  };
+
+  /**
+   * Récupère la position verticale absolue de la moitié des logos
+   * @returns Number
+   */
+  var getHalfRedOffset = function () {
+    var offset = $siteCurrentLi.offset(),
+      h = $siteCurrentLi.height();
+    return offset.top + h * 0.5;
+  };
+
+  /**
+   * Annule tous les callbacks en attente
+   * @returns {undefined}
+   */
+  var clearTimeouts = function () {
+    while (timeouts.length) {
+      clearTimeout(timeouts.pop());
+    }
+  };
+
+  /**
+   * Applique les arguments args sur fn avec la portée scope
+   * @param {Function} fn
+   * @param {type} scope
+   * @returns {Function}
+   */
+  var curry = function (fn, scope) {
+    scope = scope || window;
+    var args = Array.prototype.slice.call(arguments, 2, arguments.length);
+    return function () {
+      return fn.apply(scope, args);//argstotal);
+    };
+  };
+
+  // public
+  this.loadRub_book = init;
+  this.unloadRub_book = unload;
+  this.openProjectLink = openProjectLink;
+  return this;
+}).apply(SC);

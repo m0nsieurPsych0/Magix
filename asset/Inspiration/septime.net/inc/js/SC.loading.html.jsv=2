@@ -1,0 +1,309 @@
+/**
+ * SC / main / loading html
+ */
+var SC = (function () {
+
+    var lastFinishedLoading = "";
+
+    // private
+    function _construct() {
+        $('#site-navigation ul.site-navigation li.menu-item').addClass('hold');
+
+        $('body,html').animate({scrollTop: 0}, 300);
+        setTimeout('SC.LoadingHtml.showLoader()', 1000);
+
+        SC.Loading._ltimer = setInterval('SC.LoadingHtml.checkLoader()', 100);
+
+        if ($.browser.msie && $.browser.version < 9) {
+            $('#site-navigation ul li.menu-item').on('mouseover', 'a', function (e) {
+                e.preventDefault();
+            }).on('mouseout', 'a', function (e) {
+                e.preventDefault();
+            });
+            $('#site-navigation ul')
+                .on('mouseover', 'li.menu-item', function (e) {
+                    e.preventDefault();
+                })
+                .on('mouseout', 'li.menu-item', function (e) {
+                    e.preventDefault();
+                })
+            ;
+        }
+    }
+
+    var HexConverter = {
+        hexDigits: '0123456789ABCDEF',
+        dec2hex: function (dec) {
+            return ("0" + (Number(dec).toString(16))).slice(-2).toUpperCase();
+            // console.log(this.hexDigits[dec >> 4]);
+            return (this.hexDigits[dec >> 4] + this.hexDigits[dec & 15]);
+        },
+        hex2dec: function (hex) {
+            return (parseInt(hex, 16))
+        }
+    };
+    //console.log( $.support['rgba'] );
+
+    var showLoader = function () {
+        $('#loader_progress').addClass('appear');
+        $('#loader_infos div').css('opacity', 0).show().animate({'opacity': 1}, 1000);
+        setTimeout('SC.LoadingHtml.showLoaderLogo()', 750);
+        //setTimeout('showLoaderProgress()', 5000);
+    };
+
+    var showLoaderLogo = function () {
+        $('#loader_logo img').css({'opacity': 0, 'display': 'block'}).show().animate({'opacity': 1, 'top': '30px'}, 1000, function () {
+            $('#loader_logo h1 a').css({'opacity': 0, 'visibility': 'visible'}).show().animate({'opacity': 1}, 450, function () {
+                SC.Loading._loader.steps.logo = true;
+                initPreloading();
+            });
+        });
+    };
+
+    var showLoaderInfos = function () {
+        $('#loader_infos').toggleClass('up');
+    };
+    var showLoaderProgress = function (key) {
+        var $t = $('#loader_progress li[data-type="' + key + '"]');
+        $t.addClass('loaded');
+        return;
+    };
+
+    var initPreloading = function () {
+        var key = SC.Loading.getCurrentLoader();
+        SC.Loading.launchPreload(key);
+    }
+
+
+    var checkLoader = function () {
+        if (!SC.Loading._loader.steps.logo) return false;
+
+        var c = SC.Loading.getCurrentLoader();
+        if (!c) {
+            window.clearInterval(SC.Loading._ltimer);
+            window.clearInterval(SC.Loading._ltimer2);
+            window.clearTimeout(SC.Loading._ltimer3);
+            $('#loader_infos_bot').text(LOC.LOC_UI_READY);
+            $('#loader_infos').addClass('up');
+            //alert('finish');
+            window.setTimeout('SC.LoadingHtml.hideLoader()', 500);
+        }
+        else {
+            //console.log(c);
+            //var $t = $('#loader_progress li[data-type="'+c+'"]');
+            //$('#loader_infos_bot').text( $t.find('span').text() );
+            if (lastFinishedLoading != "") {
+                var $t = $('#loader_progress li[data-type="' + lastFinishedLoading + '"]');
+                $('#loader_infos_bot').text($t.find('span').text());
+            }
+            lastFinishedLoading = c;
+
+            //setTimeout('setGroupLoader("'+c+'")', _loader.groups[c].d);
+            //_ltimer2 = window.setInterval('showLoaderInfos()',2000);
+            //_ltimer3 = window.setTimeout('setGroupLoader("'+c+'")', _loader.groups[c].d + 310);
+
+            /* PRELOAD */
+            //console.log('test1-'+c);
+            //SC.Loading.launchPreload(c);
+            /* PRELOAD END */
+
+            //_ltimer3 = window.setTimeout('setGroupLoader("'+c+'")', _loader.groups[c].d);
+        }
+        if (c != false && !SC.Loading._loader.steps.current) {
+            //console.log(_loader.groups[c].d);
+            SC.Loading._loader.steps.current = c;
+            showLoaderInfos();
+            SC.Loading._ltimer2 = window.setInterval('SC.LoadingHtml.showLoaderInfos()', 1000);
+            //_ltimer2 = window.setInterval('showLoaderInfos()', 2500);
+        }
+    };
+
+    var setGroupLoader = function (key) {
+        //console.log( key );
+
+        /*_loader.groups[key].loaded = true;*/
+
+        //$('#loader_infos').removeClass('up');
+        //window.clearInterval(_ltimer2);
+        showLoaderProgress(key);
+        //_ltimer2 = window.setInterval('showLoaderInfos()',2000);
+    };
+
+    var hideLoader = function () {
+        //$('#loader_progress').addClass('loaded');
+        $('#loader_progress li').stop().animate({
+            'margin-top': '190px', 'height': '0px', 'background': 'black', 'opacity': 0
+        }, 300, function () {
+            $('#loader_infos').stop().animate({'opacity': 0}, 300, function () {
+                $('#loader_logo').stop().animate({'opacity': 0}, 300, function () {
+                    $('#loader').stop().animate({'opacity': 0}, 600, function () {
+                        // hide loader
+                        $('#loader').hide();
+
+                        // affichage de l'interface
+                        showInterface();
+
+                        // preload du light theme
+                        if (!is_TABLET) preloadOtherTheme();
+
+                        return false;
+                    });
+                    return false;
+                });
+                return false;
+            });
+        });
+
+        // init sound, video, image
+        SC.UI.createTags(SC.Loading.getTheme());
+
+        // lauch sound, video, image
+        SC.UI.initInterface(SC.Loading.getTheme());
+
+    };
+
+    var showInterface = function () {
+        // init feature nav and history (load rub)
+        SC.initFeature(SC.History);
+        SC.initFeature(SC.Nav);
+
+        var t = 0;
+        $('#site-navigation ul.site-navigation li.menu-item').each(function (k, v) {
+            if (k != 0) {
+                window.setTimeout('SC.LoadingHtml.showMainNav(' + k + ')', (k * 200) + 1000);
+                t = (k * 200) + 1000;
+            }
+            else {
+                window.setTimeout('SC.LoadingHtml.showMainNav(' + k + ')', 1000);
+                t = 1000;
+            }
+        });
+        window.setTimeout('SC.LoadingHtml.showMainNav(-1)', t + 100);
+        return false;
+    };
+
+    var showMainNav = function (key) {
+        if ($('html.lt-ie9').length || $('html.ie9').length) {
+            if (key === -1) {
+                $('header#branding').css({'opacity': 0, 'visibility': 'visible'}).animate({'opacity': 1}, 1000);
+            }
+            else {
+                $('#site-navigation ul li:eq(' + key + ')')
+                    .animate({'width': '100%'}, 200, function () {
+                        $(this).removeClass('hold').addClass('show');
+                        $(this).find('a')
+                            .animate({'background-color': 'rgba(190,30,30,0.5)'}, 1500);
+                        //.animate({'background-color': jQuery.Color('rgba(190,30,30,0.5)').transition("transparent", 0.5) },1000);
+                        window.setTimeout('SC.LoadingHtml.setMainNav(' + key + ')', 1000);
+
+                    });
+            }
+        }
+        else {
+            if (key === -1) {
+                $('header#branding').css({'opacity': 0, 'visibility': 'visible'}).animate({'opacity': 1}, 1000);
+            }
+            else {
+                //console.log(key);
+                //$li = $('#site-navigation ul li:eq('+key+')');
+                $('#site-navigation ul li:eq(' + key + ')').removeClass('hold').addClass('show');
+                window.setTimeout('SC.LoadingHtml.setMainNav(' + key + ')', 300);
+            }
+        }
+        return false;
+    };
+
+    var setMainNav = function (key) {
+        if ($('html.lt-ie9').length || $('html.ie9').length) {
+            $('#site-navigation ul li:eq(' + key + ') a').animate({'background-color': 'rgba(190,30,30,0)'}, 2500, function () {
+                $(this).removeClass('show');
+            });
+        } else {
+            $('#site-navigation ul li:eq(' + key + ')').removeClass('show');
+        }
+    };
+
+    var preloadOtherTheme = function () {
+        // change theme
+        SC.Loading.setTheme('dark');
+
+        // Reset preload state of the groups
+        $.each(SC.Loading._loader.groups, function (key, group) {
+            SC.Loading._loader.groups[key].loaded = false;
+        });
+
+        // launch upload other theme with a loop
+        SC.Loading._ltimer = setInterval(
+            function () {
+                var c = SC.Loading.getCurrentLoader();//alert('---'+c);
+                // console.log('preload step', c);
+                if (!c) {
+                    // stop loop
+                    window.clearInterval(SC.Loading._ltimer);
+
+                    // add html balises
+                    SC.UI.createTags(SC.Loading.getTheme());
+
+                    // synchro and launch video
+                    // rame trop !!!!!
+                    /*SC.UI.startVideo(SC.UI.video_id+"light");
+                    var current_time = SC.UI.getCurrentTimeVideo(SC.UI.video_id+"dark");
+                    setTimeout(function(){
+                        current_time = current_time + (current_time * 0.068939) + 2.13113 ;
+                        SC.UI.setCurrentTimeVideo(SC.UI.video_id+"light",current_time);
+                    },1000)*/
+
+                    // display btns for theme changes
+                    SC.UI.showThemeUi();
+                } else {
+                    SC.Loading.launchPreload(c);
+                    // console.log("Load other theme : "+c);
+                }
+            }, 100);
+    };
+
+
+    // public
+    this.LoadingHtml = function () {
+        _construct();
+    };
+
+    this.LoadingHtml.checkLoader = function () {
+        checkLoader();
+    };
+
+    this.LoadingHtml.showLoader = function () {
+        showLoader();
+    };
+
+    this.LoadingHtml.showLoaderLogo = function () {
+        showLoaderLogo();
+    };
+
+    this.LoadingHtml.showLoaderInfos = function () {
+        showLoaderInfos();
+    };
+
+
+    this.LoadingHtml.setGroupLoader = function (key) {
+        setGroupLoader(key);
+    };
+
+    this.LoadingHtml.hideLoader = function () {
+        hideLoader();
+    };
+
+    this.LoadingHtml.showMainNav = function (key) {
+        showMainNav(key);
+    };
+
+    this.LoadingHtml.setMainNav = function () {
+        setMainNav();
+    };
+
+    this.LoadingHtml.preloadLightTheme = preloadOtherTheme;
+
+
+    return this;
+
+}).apply(SC);

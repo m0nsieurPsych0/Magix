@@ -1,0 +1,210 @@
+/**
+ * SC / agency
+ */
+var SC = (function()
+{
+
+    function unloadRub(rubs) {
+
+        var rubToUnload = $.isArray(rubs) ? rubs : rubs[0];
+        var duration = 250;
+        var canUnloadBase = false;
+        if (SC.getCurrentWantedItem() != undefined) {
+            if (SC.getCurrentWantedItem().split('/')[0] != "agency") {
+                canUnloadBase = true;
+            }
+        }
+        // can unload the background because we change main rub
+        if (canUnloadBase) {
+            $('#bg-content').fadeOut(duration);
+            // menu
+            $('#site-nav > ul > li a').animate({
+                width: '100%'
+            }, duration * 0.5);
+        }
+
+        // unload content
+        if (rubToUnload != "") {
+            $('#item-agency-' + rubToUnload).fadeOut(duration, function() {
+                // in case the user changed the currentWantedItem
+                // we check one more time
+                if (SC.getCurrentWantedItem() != undefined) {
+                    if (SC.getCurrentWantedItem().split('/')[0] != "agency") {
+                        $('#bg-content').hide();
+                        // menu
+                        $('#site-nav > ul > li a').css('width', '100%');
+                    }
+                }
+                SC.isUnloaded();
+            });
+        } else {
+            SC.isUnloaded();
+        }
+
+    }
+
+    function loadRub(rubs) {
+
+        var duration = 0;
+
+        var isAlreadyOnAgency = false;
+        if (SC.getCurrentItem() != undefined) {
+            if (SC.getCurrentItem().split('/')[0] == "agency") {
+                isAlreadyOnAgency = true;
+            }
+        }
+
+        if ($.isArray(rubs)) {
+            // sous rubrique
+            duration = 500;
+            // show background
+            //$('#bg-content').fadeIn(duration/2);
+            if (!isAlreadyOnAgency) {
+                $('#bg-content')
+                    .show()
+                    .css({ left: '100%', opacity: '0' })
+                    .animate({
+                        left: '35%',
+                        opacity: 1
+                    }, duration * 0.5);
+            }
+
+            // show content item-agency
+            $('#item-agency').fadeIn(duration * 0.5);
+            // hide all article
+            $('#item-agency article').hide();
+            var sousRub = rubs[0];
+
+            switch (sousRub) {
+
+                // ----- INTRO ----- \\
+                case "intro" :
+                case "skills" :
+                case "awards" :
+                case "chairman" :
+                    // --- init de l'anim
+                    $('#item-agency-' + sousRub).show();
+                    $('#item-agency-' + sousRub + ' .content-rub .encart')
+                        .css({
+                            opacity: '0',
+                            'margin-left': '200px'
+                        })
+                        .show()
+                        ;
+                    $('#item-agency-' + sousRub + ' .intro').children()
+                        .css({ opacity: '0', 'margin-top': '-20px' });
+
+                    // h1 text "typewritter" effect
+                    var text = $('#item-agency-' + sousRub + ' .content-rub h1').text();
+                    if (text.indexOf('/') == -1)
+                        text += ' /';
+                    $('#item-agency-' + sousRub + ' .content-rub h1')
+                        .text('')
+                        .teletype({
+                            animDelay: 100,
+                            text: text
+                        });
+
+                    // encart from right
+                    $('#item-agency-' + sousRub + ' .content-rub .encart').animate({
+                        'margin-left': '0px',
+                        opacity: 1
+                    }, duration * 0.5);
+
+                    // paragraphs
+                    var len = $('#item-agency-' + sousRub + ' .intro').children().length;
+                    $('#item-agency-' + sousRub + ' .intro').children().each(function(index) {
+                        $(this)
+                        .delay(duration * 0.25 * index)
+                        .delay(duration * 0.5).animate({
+                            'margin-top': '0px',
+                            opacity: 1
+                        }, duration, function() {
+                            if (index == len - 1) {
+                                SC.isLoaded();
+                            }
+                        });
+                    });
+
+                    break;
+
+                    // ----- CREW ----- \\
+                case "crew" :
+                    // --- init de l'anim
+                    $('#item-agency-' + sousRub).show();
+                    $('#item-agency-' + sousRub + ' .content-rub .encart').show();
+                    $('#item-agency-' + sousRub + ' .content-rub .encart').css('opacity', '0');
+                    $('#item-agency-' + sousRub + ' .content-rub .encart').css('margin-left', '200px');
+                    $('#item-agency-' + sousRub + ' .team p').show();
+                    $('#item-agency-' + sousRub + ' .team p').css('opacity', '0');
+                    $('#item-agency-' + sousRub + ' .team p.left').css('top', '100%');
+                    $('#item-agency-' + sousRub + ' .team p.right').css('right', '-100%');
+
+                    // --- anim
+                    // encart from right
+                    $('#item-agency-' + sousRub + ' .content-rub .encart').delay(duration * 0.5).animate({
+                        'margin-left': '0px',
+                        opacity: 1
+                    }, duration);
+
+                    // one team block from bottom
+                    $('#item-agency-' + sousRub + ' .team p.left').delay(duration * 0.5).animate({
+                        'top': '0%',
+                        opacity: 1
+                    }, duration);
+
+                    // h1 text "typewritter" effect
+                    var text = $('#item-agency-' + sousRub + ' .content-rub h1').text();
+                    if (text.indexOf('/') == -1)
+                        text += ' /';
+                    $('#item-agency-' + sousRub + ' .content-rub h1').text('');
+                    $('#item-agency-' + sousRub + ' .content-rub h1').teletype({
+                        animDelay: 100,
+                        text: text
+                    });
+
+                    // the other block team from right
+                    $('#item-agency-' + sousRub + ' .team p.right').delay(duration * 0.5).animate({
+                        'right': '0%',
+                        opacity: 1
+                    }, duration, function() {
+                        SC.isLoaded();
+                    });
+                    break;
+
+                default:
+
+                    SC.isLoaded();
+            }
+
+
+            // menu : reduce
+            $('#site-nav > ul > li a.active').css('width', '100%');
+            $('#site-nav > ul > li a:not(.active)').animate({
+                width: '35%'
+            }, duration * 0.5);
+
+        } else {
+            duration = 0;
+            // rubrique parente
+            $('#item-agency article').hide();
+            $('#item-agency').fadeIn(500, function() {
+                SC.isLoaded();
+            });
+            $('#item-agency-' + rub).fadeIn();
+
+        }
+    }
+
+
+    // public
+    this.loadRub_agency = function(rubs) {
+        loadRub(rubs);
+    };
+
+    this.unloadRub_agency = function(rubs) {
+        unloadRub(rubs);
+    };
+
+    return this;
+}).apply(SC);

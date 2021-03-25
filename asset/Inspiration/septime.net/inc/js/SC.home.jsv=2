@@ -1,0 +1,21 @@
+/**
+* SC / home
+*/
+var SC = (function()
+{
+	var loadRub = function() {
+		 SC.isLoaded();
+		 $('#content').css("display","none");
+	};
+	
+	var unloadRub = function() {
+		 SC.isUnloaded();
+		 $('#content').css("display","block");
+	}
+	
+    // public
+    this.loadRub_home = loadRub;
+
+    this.unloadRub_home = unloadRub;
+    return this;
+}).apply(SC);

@@ -1,0 +1,743 @@
+/**
+ * SC / agency
+ */
+var SC = (function () {
+
+    // params
+    var _volume = 0.3;
+    var _theme = '';
+    var _conf = {
+        bg:
+            {
+                'dark': [
+
+                    {
+                        'name': 'dark00',
+                        'loaded': false,
+                        'w': 1280,
+                        'h': 720,
+                        'x': 0,
+                        'y': 0,
+                        'z': 50,
+                        'p': '.jpg',
+                        'webm': '.webm',
+                        'mp4': '.mp4',
+                        'ogg': '.ogv',
+                        'flv': '.mp4'
+                    }
+                    //{ 'name':'dark01', 'loaded':false, 'w':800,  'h':450, 'x':0, 'y':0, 'z':40, 'p':'.jpg', 'webm':'.webm', 'mp4':'.mp4', 'ogg':'.ogv', 'flv':'.mp4' },
+                    //{ 'name':'dark02','loaded':false, 'w':800, 'h':450, 'x':0, 'y':0, 'z':30, 'p':'.jpg', 'webm':'.webm', 'mp4':'.mp4', 'ogg':'.ogv', 'flv':'.mp4' },
+                ],
+                'light': [
+
+                    {
+                        'name': 'light00',
+                        'loaded': false,
+                        'w': 1280,
+                        'h': 720,
+                        'x': 0,
+                        'y': 0,
+                        'z': 50,
+                        'p': '.jpg',
+                        'webm': '.webm',
+                        'mp4': '.mp4',
+                        'ogg': '.ogv',
+                        'flv': '.mp4'
+                    }
+                ]
+            }
+    };
+    var image_id = "image-septime-";					// default image id
+    var sound_id = "sound-septime-";					// default sound id
+    var video_id = "video-septime-";					// default video id
+
+    var sound_html_dark;
+    var sound_html_light;
+    var sound_is_playing = false;
+
+    var mute = true;
+    var pause = false;
+
+    function _construct() {
+        _theme = 'light';
+        $("body").addClass(_theme);
+
+        SC.UI.resize();
+        $(window).on('resize', function (e) {
+            SC.UI.resize();
+        });
+
+        // bubble menu : intersepte legend bubble
+
+        // mute sound
+        $('#mute_btn').click(function (e) {
+
+            e.preventDefault();
+            if ($('#mute_btn').hasClass('clicked')) {
+                $('#mute_btn').removeClass('clicked');
+            } else {
+                $('#mute_btn').addClass('clicked');
+            }
+            // mute
+            if (_theme == "dark") {
+                if (mute == false) {
+                    // console.log("Audio Mute dark");
+                    // google analytics
+                    if (typeof _gaq != 'undefined') {
+                        _gaq.push(['_trackEvent', 'Clic', 'video', 'Mute', 0, true]);
+                    }
+                } else {
+                    // console.log("Audio Play dark");
+                }
+            } else {
+                if (mute == false) {
+                    // console.log("Audio Mute light");
+                    // google analytics
+                    if (typeof _gaq != 'undefined') {
+                        _gaq.push(['_trackEvent', 'Clic', 'video', 'Mute', 0, true]);
+                    }
+                } else {
+                    // console.log("Audio Play light");
+                }
+            }
+            mute = !mute;
+            sound_is_playing = !sound_is_playing;
+            createjs.Sound.setMute(mute);
+        });
+
+        // play / pause sound
+        $('#play_btn').click(function (e) {
+            e.preventDefault();
+            if ($('#play_btn').hasClass('clicked')) {
+                $('#play_btn').removeClass('clicked');
+            } else {
+                $('#play_btn').addClass('clicked');
+            }
+
+            if (pause == false) {
+                // pause video
+                pauseCurrentVideo(video_id);
+
+                // google analytics
+                if (typeof _gaq != 'undefined') {
+                    _gaq.push(['_trackEvent', 'Clic', 'video', 'Stop', 0, true]);
+                }
+
+            }
+            else {
+                // play video
+                startCurrentVideo(video_id);
+            }
+
+            if (_theme == "dark") {
+                if (pause == false) {
+                    sound_html_dark.pause();
+                    sound_is_playing = false;
+                    pause = true;
+                }
+                else {
+                    //sound_html_dark.play();
+                    if (!mute && !sound_is_playing) {
+                        sound_html_dark.play();
+                        sound_is_playing = true;
+                    }
+                    pause = false;
+                }
+            }
+            else {
+                if (pause == false) {
+                    sound_html_light.pause();
+                    sound_is_playing = false;
+                    pause = true;
+                }
+                else {
+                    //sound_html_dark.play();
+                    if (!mute && !sound_is_playing) {
+                        sound_html_light.play();
+                        sound_is_playing = true;
+                    }
+                    pause = false;
+                }
+            }
+
+        });
+
+        // animation theme change
+        $('.btn-skin').hover(function (e) {
+            // e.target.id == "btn-skin-dark"
+
+            //alert('hover');
+            // console.log('----hover');
+
+            if (_theme == "dark") {
+                $('#skin-dark').stop(true, true).fadeIn(500);
+            } else {
+                $('#skin-light').stop(true, true).fadeIn(500);
+            }
+
+        }, function (e) {
+            $('#skin-light').stop(true, true).fadeOut(500);
+            $('#skin-dark').stop(true, true).fadeOut(500);
+        });
+
+        // change theme button
+        $('.btn-skin').click(function (e) {
+            if ($(e.target).closest('.disabled').length) {
+                return false;
+            }
+            e.preventDefault();
+            switchTheme();
+        });
+
+        if (mute) {
+            mute = false;
+            $('#mute_btn').trigger('click')
+        }
+    }
+
+    function setVolume(volume) {
+        // mute
+        if (_theme == "dark") {
+            sound_html_dark.setVolume(volume);
+        }
+        else {
+            sound_html_light.setVolume(volume);
+        }
+        mute = volume == 0;
+    }
+
+    // create image
+    function createImage(image_id) {
+        var image = SC.Loader.getResult(image_id);
+        /*var attribut = document.createAttribute("class");
+        attribut.value = 'bg_'+SC.Loading.getTheme()+'_0';
+        image.setAttributeNode(attribut);*/
+        $('#bgs').prepend(image);
+    }
+
+    // show image
+    function showImage(image_id) {
+        $('#bgs #' + image_id).fadeIn();
+    }
+
+    // show current image
+    function showCurrentImage() {
+        showImage(image_id + _theme);
+    }
+
+    // hide image
+    function hideImage(image_id) {
+        $('#bgs #' + image_id).fadeOut(1000);
+    }
+
+    // hide current image
+    function hideCurrentImage() {
+        hideImage(image_id + _theme);
+    }
+
+    // hide all images
+    function hideBg() {
+        //hideImage(image_id+"dark");
+        //hideImage(image_id+"light");
+        $('#bgs').css('display', 'none');
+    }
+
+    function showBg() {
+        $('#bgs').css('display', 'block');
+    }
+
+    // hide / show image
+    function hideShowImage(image_id_old, image_id) {
+        $('#bgs #' + image_id_old).fadeOut(1000, function () {
+            showImage(image_id);
+        });
+    }
+
+    // create sound
+    function createSound(sound_id) {
+        if (!document.getElementById(sound_id)) {
+            //var audio = "<audio id="+sound_id+" controls><source type='audio/mp3' src='http://cdn.linux/bandwidth/500ko/black_256.mp3'></audio>";
+            //var audio = SC.Loader.getResult(sound_id);
+            //$('#bgs').prepend(audio);
+
+            // choice the good audio instance
+            if (SC.Loading.getTheme() == "dark") {
+                /*sound_html_dark = createjs.Sound.play(sound_id, createjs.Sound.INTERRUPT_NONE, 0, 0, false, 0);
+                sound_html_dark.setVolume(_volume);
+                sound_html_dark.pause();*/
+            }
+            else {
+                /*sound_html_light = createjs.Sound.play(sound_id, createjs.Sound.INTERRUPT_NONE, 0, 0, false, 0);
+                sound_html_light.setVolume(_volume);
+                sound_html_light.pause();*/
+            }
+
+            // add id to audio html element
+            /*$.each($('audio'), function(key,element)
+            {
+                if(element.id == "")
+                {
+                    element.id  = sound_id;
+                }
+            })*/
+
+            // activate loop
+            $('audio').attr('loop', 'loop');
+        }
+    }
+
+    // start sound
+    function startSound(sound_id) {
+        if (createjs.Sound.getSrcById(sound_id) === sound_id) {
+            return ;
+        }
+        // Son pas prêt
+        //var audio_html = "<audio controls autoplay='true'><source type='audio/mp3' src='http://cdn.linux/bandwidth/500ko/black_256.mp3'></audio>";
+        //$('#container').prepend(audio_html);
+        //var audio_id = document.getElementById("sound-black-256-mp3");
+        //audio_id.play();
+
+        //var sound_html = document.getElementById(sound_id);
+        //sound_html.volume = 0.1;
+        createjs.Sound.setMute(mute);
+        if (_theme == "dark") {
+            if (!sound_html_dark) {
+                //sound_html_dark = createjs.Sound.play(sound_id, createjs.Sound.INTERRUPT_NONE, 0, 0, false, _volume);
+                sound_html_dark = createjs.Sound.createInstance(sound_id);
+            }
+            sound_html_dark.play(createjs.Sound.INTERRUPT_NONE, 0, 0, -1, _volume);
+            // console.log("AUDIO : start dark");
+        } else {
+            if (!sound_html_light) {
+                //sound_html_light = createjs.Sound.play(sound_id, createjs.Sound.INTERRUPT_NONE, 0, 0, true, _volume);
+                sound_html_light = createjs.Sound.createInstance(sound_id);
+            }
+            sound_html_light.play(createjs.Sound.INTERRUPT_NONE, 0, 0, -1, _volume);
+            // console.log("AUDIO : start light");
+        }
+    }
+
+    // start current sound
+    function startCurrentSound() {
+        startSound(sound_id + _theme);
+    }
+
+    // pause sound
+    function pauseSound(sound_id) {
+        //var sound_html = document.getElementById(sound_id);
+        if (_theme == "dark") {
+            sound_html_dark && sound_html_dark.pause();
+            sound_html_light && sound_html_light.pause();
+            // console.log("AUDIO : pause light");
+        }
+        else {
+            sound_html_light && sound_html_light.pause();
+            sound_html_dark && sound_html_dark.pause();
+            // console.log("AUDIO : pause dark");
+        }
+    }
+
+    // pause current sound
+    function pauseCurrentSound() {
+        // console.log('pause current sound : ' + _theme);
+
+        if (_theme == "dark") {
+            sound_html_dark.pause();
+            // console.log("AUDIO : pause dark");
+        }
+        else {
+            sound_html_light.pause();
+            // console.log("AUDIO : pause light");
+        }
+    }
+
+    // create video
+    function createVideo(video_id, src) {
+        if (!document.getElementById(video_id)) {
+
+            //var video = "<video id="+video_id+" preload='auto' loop='loop' ><source src='"+src+"'></video>";
+            var video = '<video id="' + video_id + '" preload="auto" loop="loop"></video>';
+            $('#bgs').prepend(video);
+
+            for (var i = 0; i < src.length; i++) {
+                var urlVideo = src[i]['src'];
+                var type = src[i]['format'];
+                $('#' + video_id).append("<source src='" + urlVideo + "' type='" + type + "' >");
+            }
+
+            //$('#'+video_id)[0].load();
+            //var video = SC.Loader.getResult(video_id);
+
+            //document.getElementById(video_id).load();
+            //document.getElementById(video_id).play();
+
+            // manage errors
+            /*var myvid = document.getElementById(video_id);
+            if (myvid.error) {
+                 console.log('ERROR : ',myvid.error);
+                 switch (myvid.error.code) {
+                   case MEDIA_ERR_ABORTED:
+                       console.log("You stopped the video.");
+                      break;
+                   case MEDIA_ERR_NETWORK:
+                       console.log("Network error - please try again later.");
+                      break;
+                   case MEDIA_ERR_DECODE:
+                       console.log("Video is broken..");
+                      break;
+                   case MEDIA_ERR_SRC_NOT_SUPPORTED:
+                       console.log("Sorry, your browser can't play this video.");
+                      break;
+                   default:
+                       console.log('An unknown error occurred.');
+                   break;
+                 }
+            }*/
+        }
+    }
+
+    // start video
+    function startVideo(video_id) {
+        if (document.getElementById(video_id)) {
+            var video_html = document.getElementById(video_id);
+            /*var attribut = document.createAttribute("class");
+            attribut.value = 'bg_'+SC.Loading.getTheme()+'_0';
+            video_html.setAttributeNode(attribut);*/
+            video_html.muted = true;
+            video_html.play();
+        }
+    }
+
+    // start current video
+    function startCurrentVideo() {
+        startVideo(video_id + _theme);
+    }
+
+    // pause video
+    function pauseVideo(video_id) {
+        if (document.getElementById(video_id)) {
+            var video_html = document.getElementById(video_id);
+            video_html.pause();
+        }
+    }
+
+    // pause current video
+    function pauseCurrentVideo() {
+        pauseVideo(video_id + _theme);
+    }
+
+    // hide video
+    function hideVideo(video_id) {
+        $('#bgs #' + video_id).fadeOut(1000);
+    }
+
+    function hideCurrentVideo() {
+        hideVideo(video_id + _theme);
+    }
+
+    // show video
+    function showVideo(video_id) {
+        $('#bgs #' + video_id).fadeIn();
+    }
+
+    // show current video
+    function showCurrentVideo() {
+        showVideo(video_id + _theme);
+    }
+
+    // hide / show video
+    function hideShowVideo(video_id_old, video_id) {
+        $('#bgs #' + video_id_old).fadeOut(1000, function () {
+            showVideo(video_id);
+        });
+    }
+
+    // get current time video
+    function getCurrentTimeVideo(video_id) {
+        // console.log('Get current time : ' + $('#bgs #' + video_id)[0].currentTime);
+        return $('#bgs #' + video_id)[0].currentTime;
+    }
+
+    // set current time video
+    function setCurrentTimeVideo(video_id, currentTime) {
+        // console.log('SET current time : ' + currentTime);
+        // console.log($('#bgs #' + video_id));
+        $('#bgs #' + video_id)[0].currentTime = currentTime;
+    }
+
+    // change theme
+    function changeTheme(theme) {
+        if (_theme != theme) {
+            _theme = theme;
+            var old_theme;
+            var current_time;
+
+            // reload du book pour recharger les bonnes images
+            // en fonction du theme
+            if (SC.getCurrentItem() == "book") {
+                SC.unloadRub_book(); // => reload du book
+            }
+
+            // google analytics
+            if (typeof _gaq != 'undefined') {
+                _gaq.push(['_trackEvent', 'Clic', 'changeBackground', theme, 0, true]);
+            }
+
+            // CSS
+            if (theme == "light") {
+                setTimeout(function () {
+                    $("body").addClass("light");
+                }, 500);
+
+                //****** show image
+                SC.UI.hideImage(image_id + "dark");
+                SC.UI.showImage(image_id + "light");
+                // console.log('CHANGE THEME : Show image BG');
+
+                //****** play video
+                SC.UI.pauseVideo(video_id + "dark");
+                SC.UI.hideVideo(video_id + "dark");
+                SC.UI.showVideo(video_id + "light");
+                SC.UI.startVideo(video_id + "light");
+
+                // console.log('CHANGE THEME : Show video BG');
+
+                //****** play sound
+                SC.UI.pauseSound(sound_id + "dark");
+                SC.UI.startSound(sound_id + "light");
+                //if (mute == true) sound_html_light.pause();
+                // console.log('CHANGE THEME : Show sound BG');
+            } else {
+                $("body").removeClass("light");
+
+                //****** show image
+                SC.UI.hideImage(image_id + "light");
+                SC.UI.showImage(image_id + "dark");
+
+                //****** play video
+                SC.UI.pauseVideo(video_id + "light");
+                SC.UI.hideVideo(video_id + "light");
+                SC.UI.showVideo(video_id + "dark");
+                SC.UI.startVideo(video_id + "dark");
+
+                // console.log('CHANGE THEME : Show video BG');
+
+                //****** play sound
+                SC.UI.pauseSound(sound_id + "light");
+                SC.UI.startSound(sound_id + "dark");
+                //if (mute == true) sound_html_dark.pause();
+                // console.log('CHANGE THEME : Show sound BG');
+            }
+
+            // display btns by dafault
+            if ($('#play_btn').hasClass('clicked')) {
+                $('#play_btn').removeClass('clicked');
+                pause = false;
+            }
+
+            // fadeOut hover theme
+            $('#skin-light').stop().fadeOut(500);
+            $('#skin-dark').stop().fadeOut(500);
+
+            if ($('.btn-skin').is(':hover')) {
+                if (_theme == "dark") {
+                    $('#skin-dark').fadeIn(500);
+                } else {
+                    $('#skin-light').fadeIn(500);
+                }
+            }
+        }
+    }
+
+    function switchTheme() {
+        changeTheme(_theme === 'light' ? 'dark' : 'light');
+    }
+
+    function createTags(theme) {
+        //****** create video
+        //SC.UI.createVideo(video_id+theme);
+        //console.log('create video BG');
+
+        //****** create image
+        SC.UI.createImage(image_id + theme);
+        // console.log('create image BG');
+
+        //****** create sound
+        SC.UI.createSound(sound_id + theme);
+        // console.log('create sound BG');
+
+        //****** resize elements on window size
+        setTimeout(function () {
+            SC.UI.resize();
+        }, 500);
+    }
+
+    function initInterface(theme) {
+        //****** play video
+        SC.UI.startVideo(video_id + theme);
+        // console.log('INIT : Show video BG');
+
+        //****** play sound
+        //setTimeout(function() {SC.UI.startSound(sound_id+theme);}, 1200);
+        SC.UI.startSound(sound_id + theme);
+        // console.log('INIT : Show sound BG');
+    }
+
+    function resize() {
+        var ww = $(window).width(), wh = $(window).height();
+        //if (_conf.bg[SC.UI.getTheme()]) {
+
+        $.each(_conf.bg[SC.UI.getTheme()], function (k, bg) {
+            var bgw = bg.w, bgh = bg.h;
+            var w = bgw, h = bgh, t = 0, l = 0;
+            var r = 1, rw = ww / bgw, rh = wh / bgh;
+            if (rw > rh) {
+                r = rw;
+                t = Math.ceil(((bgh * r) - wh) / 2) * -1;
+            }
+            else {
+                r = rh;
+                l = Math.ceil(((bgw * r) - ww) / 2) * -1;
+            }
+
+            // reso < 1280 : scale
+            //if($(window).width() < bgw) {
+            w = Math.ceil(bgw * r);
+            h = Math.ceil(bgh * r);
+            //}
+            // reso > 1280 : no scale
+            /*else
+            {
+                t = Math.ceil((wh -bgh) /2);
+            }*/
+
+            //$('#bgs .bg_'+SC.UI.getTheme()+'_'+k).css({ 'width': w+'px', 'height': h+'px', 'top': t+'px', 'left': l+'px' });
+            $('#bgs *').css({'width': w + 'px', 'height': h + 'px', 'top': t + 'px', 'left': l + 'px'});
+            //console.log("RESIZE : "+SC.UI.getTheme());
+        });
+        //}
+    }
+
+    function showThemeUi() {
+        $('#skins').removeClass('disabled').find('.btn-skin').attr('title', $('#skins').find('.btn-skin').attr('data-title'))
+    }
+
+    /* --- PUBLIQUES --- */
+
+    this.Ui = function () {
+        _construct();
+    };
+
+    this.UI = {};
+    this.UI.createImage = function () {
+        createImage();
+    };
+
+    this.UI.showImage = function (image_id) {
+        showImage(image_id);
+    };
+
+    this.UI.hideImage = function (image_id) {
+        hideImage(image_id);
+    };
+
+    this.UI.hideShowImage = function (image_id_old, image_id) {
+        hideShowImage(image_id_old, image_id);
+    };
+
+    this.UI.startSound = function (sound_id) {
+        startSound(sound_id);
+    };
+
+    this.UI.pauseSound = function (sound_id) {
+        pauseSound(sound_id);
+    };
+
+    this.UI.startVideo = function (video_id, src) {
+        startVideo(video_id, src);
+    };
+
+    this.UI.pauseVideo = function (video_id) {
+        pauseVideo(video_id);
+    };
+
+    this.UI.showVideo = function (video_id) {
+        showVideo(video_id);
+    };
+
+    this.UI.hideVideo = function (video_id) {
+        hideVideo(video_id);
+    };
+
+    this.UI.getCurrentTimeVideo = function (video_id) {
+        return getCurrentTimeVideo(video_id);
+    };
+
+    this.UI.setCurrentTimeVideo = function (video_id, currentTime) {
+        setCurrentTimeVideo(video_id, currentTime);
+    };
+
+    this.UI.hideShowVideo = function (video_id_old, video_id) {
+        hideShowVideo(video_id_old, video_id);
+    };
+
+    this.UI.changeTheme = function (theme) {
+        changeTheme(theme);
+    };
+
+    this.UI.switchTheme = function () {
+        switchTheme();
+    };
+
+    this.UI.initInterface = function (theme) {
+        initInterface(theme);
+    };
+
+    this.UI.resize = function () {
+        resize();
+    };
+
+    this.UI.getTheme = function () {
+        return _theme;
+    };
+
+    this.UI.getPause = function () {
+        return pause;
+    };
+
+    this.UI.getMute = function () {
+        return mute;
+    };
+
+    this.UI.setVolume = function (_volume) {
+        setVolume(_volume);
+    };
+
+    this.UI.getVolume = function () {
+        return _volume;
+    };
+
+    this.UI.showThemeUi = showThemeUi;
+
+    this.UI.createTags = createTags;
+    this.UI.createVideo = createVideo;
+    this.UI.createSound = createSound;
+    this.UI.createImage = createImage;
+
+    this.UI.hideCurrentVideo = hideCurrentVideo;
+    this.UI.pauseCurrentVideo = pauseCurrentVideo;
+    this.UI.hideCurrentImage = hideCurrentImage;
+    this.UI.pauseCurrentSound = pauseCurrentSound;
+    this.UI.showCurrentImage = showCurrentImage;
+    this.UI.startCurrentVideo = startCurrentVideo;
+    this.UI.showCurrentVideo = showCurrentVideo;
+    this.UI.startCurrentSound = startCurrentSound;
+    this.UI.hideBg = hideBg;
+    this.UI.showBg = showBg;
+
+    this.UI.video_id = video_id;
+    this.UI.image_id = image_id;
+    this.UI.sound_id = sound_id;
+
+    return this;
+}).apply(SC);

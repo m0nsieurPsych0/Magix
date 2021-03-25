@@ -1,0 +1,246 @@
+/**
+ * SC / Nav
+ */
+var SC = (function () {
+
+    // private
+    var currentItem;
+    var currentRootLevel;
+    var currentAnim;
+    var isLoading = false;
+    var isLoaded = true;
+    var isUnloaded = true;
+    var currentWantedItem; // what the user want to show
+
+    function _contruct() {
+
+        // all click in nav are intercepted
+        //$("#menu-nav .menu-item a").click(function(e) {
+        $("#main a").click(function (e) {
+
+            if ($(this).data("item")) {
+
+
+                // we modify behavior only if data-item is present
+
+                // and canceled
+                e.preventDefault();
+
+                // set rub in history
+                SC.UpdateHistory($(this)); // we record in history or click via SC.history.js;
+
+                var item = $(this).data('item');
+
+                // the rub is loaded
+                loadRub(item);
+            }
+
+        });
+    }
+
+    /* once rub loaded, this method is called */
+    function isLoadedHook() {
+        isLoaded = true;
+        isLoading = false;
+        currentItem = currentWantedItem;
+
+        // metas
+        // set title
+        if (site_struct[currentItem].name != undefined) {
+            document.title = site_struct[currentItem].metas.title.replace(/"/g, "&quot;");
+        }
+
+        // set meta description
+        $('meta[name=description]').remove();
+        $('head').append('<meta name="description" content="' + site_struct[currentItem].metas.description.replace(/"/g, "&quot;") + '">');
+
+        // set meta keywords
+        $('meta[name=keywords]').remove();
+        $('head').append('<meta name="keywords" content="' + site_struct[currentItem].metas.keywords.replace(/"/g, "&quot;") + '">');
+    }
+
+    /* once rub unloaded, this method is called */
+    function isUnloadedHook() {
+        isUnloaded = true;
+        animateLoadingRub(currentWantedItem);
+    }
+
+    /* mask item  */
+    function unloadRub(item) {
+
+        var rootLevel, duration, toUnload;
+
+        if (item.indexOf('/') != -1) {
+            // more than one level
+            var rubs = item.split('/');
+
+            rootLevel = rubs[0];
+            rubs = rubs.slice(-1);
+
+            toUnload = rubs;
+
+        } else {
+            rootLevel = item;
+            toUnload = item;
+        }
+
+        // we call the specific unload method depending of the file (agency, ...)
+        try {
+            isLoading = true;
+            isUnloaded = false;
+            SC['unloadRub_' + rootLevel](toUnload);
+        } catch (e) {
+            console.log('fail unload, loading rub : ' + currentWantedItem);
+            animateLoadingRub(currentWantedItem);
+            isLoading = false;
+            isUnloaded = true;
+            isLoaded = true;
+        }
+    }
+
+    /* animate to show item */
+    function animateLoadingRub(item) {
+
+        isLoaded = false;
+
+        // ---- MENU HANDLING
+        var menu = $("#menu-nav .menu-item > a").filter(function () {
+            var root = $(this).data('item').split('/')[0];
+            return root == item.split('/')[0];
+        });
+
+        var submenuItem = $("#menu-nav .menu-item .site-subnav a").filter(function () {
+            return $(this).data('item') == item;
+        });
+
+        var rootItem = item.split('/')[0];
+
+        // Active on menu
+        $("#menu-nav .menu-item a").removeClass("active");
+        $(menu).addClass("active");
+        var submenu = $(menu)[0];
+
+        // Deploy submenu (if we need it)
+        if (!currentItem || rootItem != currentRootLevel) {
+            // console.log('deploy');
+            $('.site-subnav').slideUp();
+            $(submenu).parent().find('.site-subnav').slideDown();
+        }
+
+        // Active on submenu
+        $("#menu-nav .menu-item .site-subnav a").removeClass("active-sub").animate({
+                'padding-left': '95px'
+            }, {
+                queue: false,
+                duration: 150
+            }
+        );
+        $(submenuItem).addClass("active-sub");
+        $(submenuItem).animate({'padding-left': '115px'}, 150);
+
+        // -------------------- END MENU HANDLING --------------------
+
+        //$('#main section').hide();
+
+        var rootLevel, duration, toLoad;
+
+        if (item.indexOf('/') != -1 && item.length > 1) {
+            // on est au moins sur un niveau 2 (voire plus)
+            var rubs = item.split('/');
+
+            rootLevel = rubs[0];
+            rubs = rubs.slice(-1);
+
+            toLoad = rubs;
+
+        } else {
+            rootLevel = item;
+            toLoad = item;
+
+
+        }
+
+        // délégation
+        try {
+            SC['loadRub_' + rootLevel](toLoad);
+        } catch (e) {
+            isLoading = false;
+            isUnloaded = true;
+            isLoaded = true;
+        }
+
+
+        currentItem = item;
+        currentRootLevel = rootLevel;
+
+    }
+
+    /* mask current item and show item in param */
+    function loadRub(item) {
+
+        // google analytics
+        if (typeof _gaq != 'undefined') {
+            _gaq.push(['_trackPageview', "/" + LOCALE + "/" + item]);
+        }
+
+        if (isLoading && !isUnloaded) {
+            // current rub not yet unloaded
+            // but user clicked on another rub
+            // unstead loading previous rub
+            // we load directly the wanted rub
+            currentWantedItem = item;
+        }
+
+
+        if (!isLoading) {
+            currentWantedItem = item;
+            var duration = 0;
+            if (currentItem) {
+                unloadRub(currentItem);
+            } else {
+                animateLoadingRub(item);
+            }
+
+            //currentItem = item;
+        }
+        /*else {
+                alert('is loading');
+                }*/
+
+    }
+
+    // -----------------------
+
+    // public
+    this.Nav = function () {
+        _contruct();
+    };
+
+    this.loadRub = function (item) {
+        return loadRub(item);
+    };
+
+    this.unloadRub = function (item) {
+        return unloadRub(item);
+    };
+
+    this.isLoaded = function () {
+        isLoadedHook();
+    }
+
+    this.isUnloaded = function () {
+        isUnloadedHook();
+    }
+
+    this.getCurrentItem = function () {
+        return currentItem;
+    };
+
+    this.getCurrentWantedItem = function () {
+        return currentWantedItem;
+    }
+
+    return this;
+
+}).apply(SC);
+
