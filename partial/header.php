@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>MaGIX</title>
 		<link href="css/global.css" rel="stylesheet" />
-		<script src=""></script>
+		<script src="js/js.js"></script>
 	</head>
 	<body>
 		<header>
