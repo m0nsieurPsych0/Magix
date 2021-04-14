@@ -39,9 +39,10 @@
 
         protected abstract function executeAction();
 
-        /**
-        * data = array('key1' => 'value1', 'key2' => 'value2');
-        */
+        
+        // data = array('key1' => 'value1', 'key2' => 'value2');
+        
+        // Se connecter à l'API de MAGIX
         public function callAPI($service, array $data) {
             $apiURL = "https://magix.apps-de-cours.com/api/" . $service;
 

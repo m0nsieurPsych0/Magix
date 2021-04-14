@@ -1,5 +1,43 @@
 :root {
-  --font-pref: 2.0rem Inconsolata, monospace;
+  --font-pref: 2.75rem Inconsolata, monospace;
+  --scanline-itensity: 0.40;
+  --text-bleed-intensity: 15px;
+  --animation-pulsing: 1.5s ease-out alternate infinite pulsingBG;
+}
+
+/* Animation */
+@keyframes pulsingBG {
+  0% {filter: brightness(1.25);}
+  100% {filter: brightness(1.55);} /* À garder entre 1.5 et 1.75 */
+}
+@keyframes contrastScan {
+  0% {filter: contrast(1);}
+  100% {filter: contrast(2);}
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  
+}
+@keyframes noblink {
+  0% {
+    border-color: transparent;
+  }
+}
+/* Texte automatique */
+.typing{
+  width: 24ch;
+  animation: typing 2s steps(24), noblink .5s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+/* Change le cursor globalement */
+* {
+  cursor: text;
 }
 
 body {
@@ -13,62 +51,37 @@ body {
   padding: 2rem;
   color: white;
   font: var(--font-pref);
-  text-shadow: 0 0 5px #C8C8C8;
-  cursor: text;
- 
+  text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+
+  /* Simule l'éclairage dansant d'un moniteur cathodique */
+  /* L'effet est un peu exagéré, mais est plaisant à l'oeil */
+  animation: 1.5s ease-out alternate infinite pulsingBG;
 }
 
 .scanline {
   position: fixed;
   display: block;
-  top: 0;
-  left: 0;
-  right:0;
-  bottom: 0;
+  top: 0;  left: 0;  right:0;  bottom: 0;
   width: 100vw;
   height: 100vh;
-  /* Je pourrai jouer avec la taille du scanline ici et voir ma préférence */
-  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
-  /* Permet de ne pas intérompre l'intéraction du pointeur */
+
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, var(--scanline-itensity)), rgba(0, 0, 0, var(--scanline-itensity)) 1px, transparent 1px, transparent 2px);
+  /* Permet de ne pas interrompre l'intéraction du pointeur */
   pointer-events: none;
   cursor: text;
-  z-index: 2;
-}
 
+  /* Change le contraste du scanline pour donner l'illusion de mouvement */
+  animation: 10s ease alternate infinite contrastScan;
+}
 
 ::selection {
   background: white ;
   text-shadow: none;
   color:black;
 }
-
-.login-form-frame {
-  position:absolute;
-  top: 40vh;
-  left: 40vw;
+main {
+  display: grid;
+  height: 100%;
 }
 
-.form-label{
-  display: inline;
-}
-.form-separator {
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-.form-input {
-  display: inline;
-}
-.form-input > *{
-  color: white;
-  font: var(--font-pref);
-  text-shadow: 0 0 5px #C8C8C8;
-  background-color: transparent;
-  border:none;
-  outline:none;
-}
-
-/* On devrait surement éliminer ce Bouton */
-button {
-  display: none;
-}
 

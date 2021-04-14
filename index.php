@@ -1,20 +1,19 @@
 <?php
-header('Location: login.php'); // On redirige vers login.php pour l'instant
+    // header('Location: login.php'); // On redirige vers login.php pour l'instant
 ?>
 <?php
     require_once("action/IndexAction.php");
 
     $action = new IndexAction();
     $data = $action->execute();
-
+    $page = "index";
     require_once("partial/header.php");
     
     // index.php?redirect=lobby.php
-
 ?>
-        <main>
-            index.php
-        </main>
+            <main>
+                <canvas id="myCanvas"></canvas>
+            </main>
 
 
 
