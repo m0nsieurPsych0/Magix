@@ -18,6 +18,7 @@
 				if ($page == "login"){
 					?>
 						<link href="css/login.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<script src="js/login.js"></script>
 						<title>__Login__|\/|agix__OS</title>
 					<?php	
@@ -25,6 +26,8 @@
 				if ($page == "home"){
 					?>
 						<link href="css/home.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
+						<script src="js/home.js"></script>
 						<title>__Home__|\/|agix__OS</title>
 					<?php	
 				}				
@@ -36,11 +39,12 @@
 		<body>
 			<header>
 			<?php
-				if ($page == "login"){
-					?><div class="typing">|\/|agix__OS</div><?php	
+				if ($page == "index"){
+					?>
+					<div class="rotate">|\/|agix__OS</div><?php
 				}
 				else {
-					?><div class="typing">|\/|agix__OS</div><?php
+					?><div class="typing">|\/|agix__OS_______________________________________________________________________________________________________________________________________________________________</div><?php
 				}
 				?>
 			</header>

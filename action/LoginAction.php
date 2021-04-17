@@ -10,19 +10,25 @@
 
         protected function executeAction() {
             $hasConnectionError = false;
-
-            $data = [];
-            $data["username"] = "Falcor";
-            $data["password"] = "AAAaaa111";
-    
-            $result = parent::callAPI("signin", $data);
-    
-            if ($result == "INVALID_USERNAME_PASSWORD") {
-                // err
+            
+            if (isset($_POST["username"])){
+                $result = parent::callAPI("signin", $_POST);
+                
+                if ($result == "INVALID_USERNAME_PASSWORD") {
+                    // err
+                    $_POST = array(); 
+                    $hasConnectionError = true;
+                }
+                else {
+                    $_SESSION["username"] = $_POST["username"];
+					$_SESSION["visibility"] = 1;
+                    $_SESSION["key"] = $result->key;
+                    header("location:home.php");
+                    exit;
+                }
             }
-            else {
-                // Pour voir les informations retournées : var_dump($result);exit;
-                $key = $result->key;
-            }
+            
+            return compact("hasConnectionError");
+               
         }
     }

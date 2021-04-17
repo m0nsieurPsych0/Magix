@@ -1,6 +1,8 @@
 /*************************login.php*************************/
 .login-form-frame {
     margin: auto;
+    align-items: center;
+    
 }
 .form-label {
     display: inline;
@@ -17,6 +19,7 @@
     --text-bleed-intensity: 7px;
     color: white;
     font: var(--font-pref);
+    font-size: var(--font-size-res);
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
     background-color: transparent;
     border:none;
@@ -26,4 +29,10 @@
 /* Cache le bouton de connexion */
 button {
     display: none;
+}
+.error-div {
+    /* TODO : Faire disparaître le texte après 5 secondes */
+    color: red;
+    position:absolute;
+    bottom: 35vh;
 }

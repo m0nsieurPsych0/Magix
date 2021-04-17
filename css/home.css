@@ -1,1 +1,80 @@
 /*************************home.php*************************/
+main {
+    display: grid;
+    grid-template-columns: 30vw 70vw;
+    grid-template-rows: auto;
+}
+.sidebar {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+}
+
+.sidebar >.button-wrapper{
+    text-align: left;
+    padding-left: 5vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    
+}
+.sidebar >.menu-title-wrapper{
+    /* background-color: white; */
+    border-color: white;
+    /* border-right: none; */
+    border-bottom-style: solid;
+    border-top-style: solid;
+    
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1/3 1/3 1/3;
+}
+.menu-title {
+    grid-row: 2;
+    text-align: center;
+    color:white;
+}
+button, .button-wrapper {
+    background-color: transparent;
+    --text-bleed-intensity: 7px;
+    border: none;
+    color: white;
+    font: var(--font-pref);
+    font-size: var(--font-size-res);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+    transition-duration: 0.10s ;
+}
+
+button:hover, .button-wrapper:hover > button{
+    background-color: white;
+    text-shadow: none;
+    color:black;
+}
+
+.chat >*{
+    display: grid;
+    grid-template-rows: 15% 85%;
+    position:relative;
+}
+.chat-title{
+    position: relative;
+    padding-bottom: 2vh;
+    /* text-align: center; */
+    border-left-style: solid;
+}
+iframe {
+    display: contents;
+    /* --text-bleed-intensity: 7px;
+    color: white;
+    font: var(--font-pref);
+    font-size: var(--font-size-res);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+     */
+    position: relative;
+    width: 95%;
+    height: 95%;
+    /* iframe frame transparent */
+    border: none;
+    border-left-style: solid;
+
+}

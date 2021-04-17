@@ -1,8 +1,20 @@
+/* sources: https://css-tricks.com/old-timey-terminal-styling/ */
+
 :root {
-  --font-pref: 2.75rem Inconsolata, monospace;
+  --font-pref: 0 Inconsolata, monospace;
   --scanline-itensity: 0.40;
   --text-bleed-intensity: 15px;
-  --animation-pulsing: 1.5s ease-out alternate infinite pulsingBG;
+  --animation-pulsing: 1.25s linear alternate infinite pulsingBG;
+
+   /* 
+   clamp calcul la taille du text en fonction de la largeur de l'écran disponible
+   de tel sorte que le design reste troujours proportionnel peut importe la taille.
+  
+   min width: 400 px -> max width: 3840 px 
+   */
+  --font-size-res: clamp(2.5rem, 2.442rem + 0.233vw, 3.0rem); 
+ 
+
 }
 
 /* Animation */
@@ -19,45 +31,29 @@
   from {
     width: 0;
   }
+  to {
+    width: max(100vw)
+  }
   
 }
-@keyframes noblink {
-  0% {
-    border-color: transparent;
-  }
-}
+
 /* Texte automatique */
 .typing{
-  width: 24ch;
-  animation: typing 2s steps(24), noblink .5s step-end infinite;
+  width: 100vw;
+  animation: typing 0.9s steps(1000), noblink .5s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
 }
 
 /* Change le cursor globalement */
 * {
   cursor: text;
 }
-
-body {
-  background-color: black;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.100), black 120%
-  );
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  padding: 2rem;
-  color: white;
-  font: var(--font-pref);
-  text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
-
-  /* Simule l'éclairage dansant d'un moniteur cathodique */
-  /* L'effet est un peu exagéré, mais est plaisant à l'oeil */
-  animation: 1.5s ease-out alternate infinite pulsingBG;
+::selection {
+  background: white ;
+  text-shadow: none;
+  color:black;
 }
-
 .scanline {
   position: fixed;
   display: block;
@@ -74,14 +70,44 @@ body {
   animation: 10s ease alternate infinite contrastScan;
 }
 
-::selection {
-  background: white ;
-  text-shadow: none;
-  color:black;
+body {
+  display: grid;
+  max-width: 100vw;
+  grid-template-rows:10vh 80vh 15vh;
+
+
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 2rem;
+  
+  /* Background */
+  background-color: black;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.050), black 120% );
+  /* Text settings */
+  color: white;
+  font: var(--font-pref);
+  font-size: var(--font-size-res);
+  text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+
+  /* Simule l'éclairage dansant d'un moniteur cathodique */
+  /* L'effet est un peu exagéré, mais est plaisant à l'oeil */
+  animation: 1.5s ease-out alternate infinite pulsingBG;
+}
+
+
+header {
+  position: relative;
+  overflow: hidden;
 }
 main {
   display: grid;
   height: 100%;
+  width: 100%;
+}
+footer {
+  position:relative;
+  overflow: hidden;
 }
 
 

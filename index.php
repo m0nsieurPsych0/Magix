@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
     // header('Location: login.php'); // On redirige vers login.php pour l'instant
-?>
+?> -->
 <?php
     require_once("action/IndexAction.php");
 

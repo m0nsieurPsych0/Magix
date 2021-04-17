@@ -1,4 +1,3 @@
-// source: https://codepen.io/acarva1/pen/GgbgLe
 
 window.addEventListener("load", () => {
   screenSaver();
@@ -6,30 +5,26 @@ window.addEventListener("load", () => {
   
 })
 
-function floatingText() {
-  let text = document.getElementsByClassName("typing");
-
-}
-
 function exitScreenSaver() {
-  destination = "login.php";
-  node = document.getElementById("myCanvas");
-
-  node.onclick = () => {window.location = destination;}
+  //Lorsq'on sort du screensaver tente d'accéder à home et 
+  //on laisse php s'occuper de vérifier si on est authentifié ou pas.
+  destination = "home.php"; 
+  document.onclick = () =>{window.location = destination;}
   document.onkeyup = () =>{window.location = destination;}
 }
 
 function screenSaver() {
   // Modifiers
   let speedMult = 0.005; // Vitesse de défilement des étoiles
-  let maxStars = 250     // Nombre d'étoiles au maximum
-  let xTrajecMod = 0;    // Modifie la trajectoire
-  let yTrajecMod = 0;    // À '0' les étoiles arrive directement en face
+  let maxStars = 250;    // Nombre d'étoiles au maximum
+  let starSize = 128;    // Taille des étoiles (plus le nombre est élevé plus l'étoile est petite)
+
 
   // Variables
   let starField = [];
   let starCounter = 0;
-
+  let xTrajecMod = 0;
+  let yTrajecMod = 0;
   // Sélectionne le canvas du html
   let myCanvas = document.getElementById("myCanvas");
   let ctx = myCanvas.getContext("2d");
@@ -53,8 +48,93 @@ function screenSaver() {
       this.myY = Math.random() * innerHeight;
       this.myColor = 0;
     }
+
+    mousePos() {
+      // selon le cadran où se trouve le curseur on déplace les étoiles dans cette direction
+      onmousemove = function(e){
+        // dépendemment de la position du curseur on varie la vitesse 
+        let low = 0;
+        let hi = 1;
+        let trajectIntensity = [5, 10];
+        let posx = e.clientX;
+        let posy = e.clientY;
+        let midx = innerWidth/2;
+        let midy = innerHeight/2;
+        let midx_sub = [midx/8, midx/2];
+        let midy_sub = [midy/8, midy/2];
+        
+        // quadran 1 (haut gauche)
+        if (posx <= midx && posy <= midy){
+          if(posx < (midx - midx_sub[hi]) && posy < (midy - midy_sub[hi])){
+            xTrajecMod = -trajectIntensity[hi];
+            yTrajecMod = -trajectIntensity[hi];
+          }
+          else if(posx < (midx - midx_sub[low]) && posy < (midy - midy_sub[low])){
+            xTrajecMod = -trajectIntensity[low];
+            yTrajecMod = -trajectIntensity[low];
+          }
+          else {//centre
+            xTrajecMod = 0;
+            yTrajecMod = 0;
+          }
+        }
+        // quadran 2 (haut droite)
+        else if(posx >= midx && posy <= midy){
+          if(posx > (midx + midx_sub[hi]) && posy < (midy - midy_sub[hi])){
+            xTrajecMod = trajectIntensity[hi];
+            yTrajecMod = -trajectIntensity[hi];
+          }
+          else if(posx > (midx + midx_sub[low]) && posy < (midy - midy_sub[low])){
+            xTrajecMod = trajectIntensity[low];
+            yTrajecMod = -trajectIntensity[low];
+          }
+          else {//centre
+            xTrajecMod = 0;
+            yTrajecMod = 0;
+          }          
+        }
+        // quadran 3 (bas gauche)
+        else if (posx <= midx && posy >= midy){
+          if (posx < (midx - midx_sub[hi]) && posy > (midy + midy_sub[hi])){
+            xTrajecMod = -trajectIntensity[hi];
+            yTrajecMod = trajectIntensity[hi];
+          }
+          else if (posx < (midx - midx_sub[low]) && posy > (midy + midy_sub[low])){
+            xTrajecMod = -trajectIntensity[low];
+            yTrajecMod = trajectIntensity[low];
+          }
+          else {//centre
+            xTrajecMod = 0;
+            yTrajecMod = 0;
+          }
+        }
+        // quadran 4 (bas droite)
+        else if (posx >= midx && posy >= midy){
+          if (posx > (midx + midx_sub[hi]) && posy > (midy + midy_sub[hi])){
+            xTrajecMod = trajectIntensity[hi];
+            yTrajecMod = trajectIntensity[hi];
+          }
+          else if (posx > (midx + midx_sub[low]) && posy > (midy + midy_sub[low])){
+            xTrajecMod = trajectIntensity[low];
+            yTrajecMod = trajectIntensity[low];
+          }
+          else { //centre
+            xTrajecMod = 0;
+            yTrajecMod = 0;
+          }
+        }
+      }
+      onmouseout = () =>{
+        //centre
+        xTrajecMod = 0;
+        yTrajecMod = 0;
+      }
+    }
     
     updatePos() {
+
+      this.mousePos();
+      
       this.myX += xTrajecMod + (this.myX - (innerWidth / 2)) * (speedMult);
       this.myY += yTrajecMod + (this.myY - (innerHeight / 2)) * (speedMult);
       this.updateColor();
@@ -94,20 +174,19 @@ function screenSaver() {
   function draw() {
     // Apparence du fond
     ctx.fillStyle = "rgba(0,0,0,0.2)";
-     // Pour modifier le fond en gradient
-    // ctx.fillStyle = ctx.createRadialGradient(238, 50, 10, 238, 50, 300);
     
     //Apparence des étoiles
     ctx.fillRect(0,0,innerWidth,innerHeight);
    
     for (let i = 0; i < starField.length; i++) {
       ctx.fillStyle = "rgb(" + starField[i].myColor + "," + starField[i].myColor + "," + starField[i].myColor + ")";
-      ctx.fillRect(starField[i].myX,starField[i].myY,starField[i].myColor / 128,starField[i].myColor / 128);
+      ctx.fillRect(starField[i].myX,starField[i].myY,starField[i].myColor / starSize,starField[i].myColor / starSize);
       starField[i].updatePos();
     }
     window.requestAnimationFrame(draw);
   }
 
   init();
+  // Le concept est inspiré de ce code: https://codepen.io/acarva1/pen/GgbgLe
 }
 
