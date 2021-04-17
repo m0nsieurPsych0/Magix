@@ -18,4 +18,8 @@ function screenSaverTimeout () {
         clearTimeout(timeout);
         screenSaverTimeout();
     }
+    document.onmousemove  = () =>{
+        clearTimeout(timeout);
+        screenSaverTimeout();
+    }
 }
