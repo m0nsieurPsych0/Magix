@@ -9,7 +9,6 @@
     $page = "index";
     require_once("partial/header.php");
     
-    // index.php?redirect=lobby.php
 ?>
             <main>
                 <canvas id="myCanvas"></canvas>

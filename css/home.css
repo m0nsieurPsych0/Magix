@@ -44,13 +44,18 @@ button, .button-wrapper {
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
     transition-duration: 0.10s ;
 }
-
+button:focus-visible {
+    /* met les boutons en surbrillance quand il sont en focus par tab */
+    background: white ; 
+    text-shadow: none;
+    color: black;
+    /* outline: none; */
+}
 button:hover, .button-wrapper:hover > button{
     background-color: white;
     text-shadow: none;
     color:black;
 }
-
 .chat >*{
     display: grid;
     grid-template-rows: 15% 85%;
@@ -71,10 +76,16 @@ iframe {
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
      */
     position: relative;
+    /* padding-top: 6vh; */
     width: 95%;
     height: 95%;
+
     /* iframe frame transparent */
     border: none;
     border-left-style: solid;
 
 }
+iframe:focus{
+    outline: none;
+}
+
