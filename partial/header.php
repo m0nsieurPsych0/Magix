@@ -11,6 +11,7 @@
 				if ($page == "index"){
 					?>
 						<link href="css/index.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<script src="js/index.js"></script>
 						<title>__ScreenSaver__|\/|agix__OS</title>
 					<?php	

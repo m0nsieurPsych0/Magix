@@ -1,7 +1,3 @@
-windows.addEventListener("load", () =>{
-    screenSaverTimeout();
-});
-
 const applyStyles = iframe => {
 	let styles = {
 		fontColor: "#FFF",
@@ -13,5 +9,11 @@ const applyStyles = iframe => {
 
 	iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
 }
+
+window.onload = () => {
+    screenSaverTimeout();
+}
+
+
 
 

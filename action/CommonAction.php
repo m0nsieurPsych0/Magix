@@ -38,6 +38,9 @@
 
         public function execute() {
             if (!empty($_GET["logout"])) {
+                if(isset($_SESSION["key"])){
+                    $this->callAPI("signout", array($_SESSION["key"]));
+                }
                 session_unset();
                 session_destroy();
                 session_start();
@@ -62,6 +65,5 @@
 
         protected abstract function executeAction();
 
-        
 
     }

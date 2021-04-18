@@ -8,7 +8,8 @@
 		}
 
 		protected function executeAction() {
-
-			return [];
+			
 		}
+
+	
 	}

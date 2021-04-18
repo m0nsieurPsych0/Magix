@@ -1,4 +1,3 @@
-/* sources: https://css-tricks.com/old-timey-terminal-styling/ */
 
 :root {
   --font-pref: 0 Inconsolata, monospace;
@@ -8,13 +7,11 @@
 
    /* 
    clamp calcul la taille du text en fonction de la largeur de l'écran disponible
-   de tel sorte que le design reste troujours proportionnel peut importe la taille.
+   de tel sorte que le design reste troujours(dans les limites imposées) proportionnel peu importe la taille.
   
    min width: 400 px -> max width: 3840 px 
    */
   --font-size-res: clamp(2.5rem, 2.442rem + 0.233vw, 3.0rem); 
- 
-
 }
 
 /* Animation */
@@ -109,5 +106,5 @@ footer {
   position:relative;
   overflow: hidden;
 }
-
+/* sources: https://css-tricks.com/old-timey-terminal-styling/ */
 
