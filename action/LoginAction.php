@@ -21,7 +21,7 @@
                 }
                 else {
                     $_SESSION["username"] = $_POST["username"];
-					$_SESSION["visibility"] = 1;
+					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
                     $_SESSION["key"] = $result->key;
                     header("location:home.php");
                     exit;

@@ -64,7 +64,10 @@ button:hover, .button-wrapper:hover > button{
 .chat-title{
     position: relative;
     padding-bottom: 2vh;
-    /* text-align: center; */
+    
+    /* Empêcher le texte de wrapper */
+    text-overflow: ellipsis;
+    white-space: nowrap;
     border-left-style: solid;
 }
 iframe {
@@ -76,7 +79,6 @@ iframe {
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
      */
     position: relative;
-    /* padding-top: 6vh; */
     width: 95%;
     height: 95%;
 
