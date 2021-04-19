@@ -6,6 +6,7 @@
     $page = "home";
     $iframe = 'https://magix.apps-de-cours.com/server/#/chat/';
     $iframe .= $_SESSION['key'];
+    
     require_once("partial/header.php");
 ?>
             <main>
@@ -13,8 +14,8 @@
                     <div class="menu-title-wrapper">
                         <div class="menu-title">-=≡ MENU ≡=-</div>
                     </div>
-                    <div class="button-wrapper"><button id="jouer" onclick="window.location.href='#';">__Jouer</button></div>
-                    <div class="button-wrapper"><button id="pratiquer" onclick="window.location.href='#';">__Pratiquer</button></div>
+                    <div class="button-wrapper"><button id="jouer" onclick="window.location.href='?pvp=true';">__Jouer</button></div>
+                    <div class="button-wrapper"><button id="pratiquer" onclick="window.location.href='?pve=true';">__Pratiquer</button></div>
                     <div class="button-wrapper"><button id="screensaver" onclick="window.location.href='index.php';">__ScreenSaver</button></div>
                     <div class="button-wrapper"><button id="quitter" onclick="window.location.href='?logout=true';">__Quitter</button></div>
                 </div>

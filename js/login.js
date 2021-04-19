@@ -2,7 +2,6 @@
 window.addEventListener("load", () => {
     SetFocus();
     screenSaverTimeout();
-    
 })
 
 // Met le username form field en focus
@@ -13,7 +12,7 @@ function SetFocus () {
         input.focus();
     }
     
-    window.onfocus = () => {
-        input.focus();
-    }
+    // window.onfocus = () => {
+    //     input.focus();
+    // }
 }

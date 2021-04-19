@@ -17,7 +17,7 @@
 						</div>
 
 						<div class="form-input">
-							<input type="text" name="username" id="username" />
+							<input type="text" name="username" id="username"/>
 						</div>
 						<div class="form-separator"></div>
 
@@ -26,7 +26,7 @@
 						</div>
 						
 						<div class="form-input">
-							<input type="password" name="password" id="password" />
+							<input type="password" name="password" id="password"/>
 						</div>
 						<div class="form-separator"></div>
 

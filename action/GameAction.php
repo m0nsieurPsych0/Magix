@@ -7,21 +7,11 @@
             parent::__construct(CommonAction::$VISIBILITY_MEMBER);
         }
         protected function executeAction() {
-
-            // check si on joue pvp ou on s'entraîne (pve)
             $data = [];
             $data["key"] = $_SESSION["key"];
-
-
-            $result = parent::callAPI("games/auto-match", $data);
-
-            return [];
-        }
-
-        protected function jouer(){
+            $result = parent::callAPI("games/state", $data);
             
+            return compact('result');
         }
-        protected function pratiquer(){
 
-        }
     }

@@ -16,7 +16,7 @@
                 
                 if ($result == "INVALID_USERNAME_PASSWORD") {
                     // err
-                    $_POST = array(); 
+                    $_POST = array();
                     $hasConnectionError = true;
                 }
                 else {
