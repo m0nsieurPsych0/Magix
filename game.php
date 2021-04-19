@@ -6,8 +6,9 @@
     $page = "game";
     
     require_once("partial/header.php");
-
-    var_dump($data);
+    //test
+    // var_dump($data);
+    var_dump($_SESSION);
 
 ?>
                 <main>

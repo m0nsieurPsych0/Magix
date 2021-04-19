@@ -4,8 +4,8 @@
     $action = new LoginAction();
     $data = $action->execute();
 	$page = "login";
-	
-    require_once("partial/header.php");
+
+	require_once("partial/header.php");
 ?>
 			<main>
 				<div class="login-form-frame">

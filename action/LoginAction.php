@@ -10,20 +10,35 @@
 
         protected function executeAction() {
             $hasConnectionError = false;
-            
-            if (isset($_POST["username"])){
+            // Si on entre le url login.php et qu'on a déjà été identifié par l'API.
+            // On redirige a home.php
+            if(isset($_SESSION['key'])){
+                header(HOME);
+                exit;
+            }
+            // Previent de resoumettre les mêmes données lorsqu'on rafraîchit la page
+            // En affichant le message d'erreur
+            if (!empty($_SESSION['oldpost'])){
+                if ($_SESSION['oldpost'] == $_POST){
+                    unset($_POST);
+                    unset($_SESSION['oldpost']);
+                    header(LOGIN);
+                    exit;
+                }
+            }
+            if (!empty($_POST["username"]) || !empty($_POST["password"])){
                 $result = parent::callAPI("signin", $_POST);
                 
-                if ($result == "INVALID_USERNAME_PASSWORD") {
-                    // err
-                    $_POST = array();
+                if ($result == "INVALID_USERNAME_PASSWORD") {                    
+                    $_SESSION['oldpost'] = $_POST;
                     $hasConnectionError = true;
                 }
                 else {
                     $_SESSION["username"] = $_POST["username"];
 					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
                     $_SESSION["key"] = $result->key;
-                    header("location:home.php");
+                    unset($_SESSION['oldpost']);
+                    header(HOME);
                     exit;
                 }
             }

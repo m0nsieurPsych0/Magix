@@ -4,9 +4,7 @@
     $action = new HomeAction();
     $data = $action->execute();
     $page = "home";
-    $iframe = 'https://magix.apps-de-cours.com/server/#/chat/';
-    $iframe .= $_SESSION['key'];
-    
+    // var_dump($_SESSION);
     require_once("partial/header.php");
 ?>
             <main>
@@ -22,7 +20,7 @@
                 <div class="chat">
                     <div class="chat-title">°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`</div>
                     <iframe onload="applyStyles(this)" 
-                            src=<?php echo($iframe); ?>>
+                            src=<?php echo(CHATURL . $_SESSION['key']); ?>>
                     </iframe>
                 </div>
             </main>
