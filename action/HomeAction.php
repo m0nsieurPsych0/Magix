@@ -11,17 +11,7 @@
 			$data = [];
 			$data["key"] = $_SESSION["key"];
 
-			// Vérifie si on veut logout OU si la clef API est toujours valide
-			if (!empty($_GET["logout"]) || parent::callAPI("games/state", $data) == "INVALID_KEY") {
-                if(isset($_SESSION["key"])){
-                    parent::callAPI("signout", $data);
-                }
-                session_unset();
-                session_destroy();
-                session_start();
-				header(LOGIN);
-				exit;
-            }
+			parent::checkSession($data);
 			
 			// on démarre le match en fonction du type voulu (soit PVP ou PVE(TRAINING))
 			if(!empty($_GET)){

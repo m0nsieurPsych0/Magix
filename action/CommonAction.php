@@ -12,7 +12,6 @@
         public function __construct($pageVisibility) {
             $this->pageVisibility = $pageVisibility;
         }
-        // data = array('key1' => 'value1', 'key2' => 'value2');
         
         // Se connecter à l'API de MAGIX
         public function callAPI($service, array $data) {
@@ -27,13 +26,27 @@
             );
             $context  = stream_context_create($options);
             $result = file_get_contents($apiURL, false, $context);
-
-        if (strpos($result, "<br") !== false) {
+            // !== false ou == true
+            if (strpos($result, "<br") == true) {
                 var_dump($result);
                 exit;
             }
             
             return json_decode($result);
+        }
+
+        public function checkSession($data) {
+            // Vérifie si on veut logout OU si la clef API est toujours valide
+			if (!empty($_GET["logout"]) || CommonAction::callAPI("games/state", $data) == "INVALID_KEY") {
+                if(isset($_SESSION["key"])){
+                    CommonAction::callAPI("signout", $data);
+                }
+                session_unset();
+                session_destroy();
+                session_start();
+				header(LOGIN);
+				exit;
+            }
         }
 
         public function execute() {
@@ -43,7 +56,7 @@
             }
 
             if ($_SESSION["visibility"] < $this->pageVisibility) {
-				header("location:login.php");
+				header(LOGIN);
 				exit;
             }
 

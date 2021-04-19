@@ -4,7 +4,7 @@
     $action = new LoginAction();
     $data = $action->execute();
 	$page = "login";
-
+	// var_dump($_SESSION);
 	require_once("partial/header.php");
 ?>
 			<main>

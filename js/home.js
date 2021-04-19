@@ -14,4 +14,8 @@ window.onload = () => {
     screenSaverTimeout();
 }
 
+window.addEventListener("load", () => {
+    
+})
+
 
