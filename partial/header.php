@@ -35,7 +35,14 @@
 						<script src="js/game.js"></script>
 						<title>__Game__|\/|agix__OS</title>
 					<?php	
-				}					
+				}
+				if ($page == "guide"){
+					?>
+						<link href="css/guide.css" rel="stylesheet" />
+						<!-- <script src="js/guide.js"></script> -->
+						<title>__Guide__|\/|agix__OS</title>
+					<?php	
+				}							
 				
 			?>	
 			

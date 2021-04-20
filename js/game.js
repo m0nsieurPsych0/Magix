@@ -1,6 +1,6 @@
 
 const state = () => {
-    fetch("ajax-state.php", {   // Il faut créer cette page et son contrôleur appelle 
+    fetch("GameAction.php", {   // Il faut créer cette page et son contrôleur appelle 
         method : "POST",       // l’API (games/state)
         credentials: "include"
     })
@@ -16,3 +16,7 @@ const state = () => {
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
+
+
+//Avec innerhtml appendchild removechild
+

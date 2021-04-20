@@ -8,7 +8,7 @@
     define("ERRORCODES", ["INVALID_KEY", "INVALID_GAME_TYPE", "DECK_INCOMPLETE", "MAX_DEATH_THRESHOLD_REACHED"]);
 
     /****************************** redirect ******************************/
-    // Inutiles, fait pour tester les constantes
+    // Pas nécessaire du tout, fait pour tester les constantes
     define("HOME", "location:home.php");
     define("LOGIN", "location:login.php");
     define("INDEX", "location:index.php");

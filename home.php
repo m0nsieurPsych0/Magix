@@ -14,6 +14,7 @@
                     </div>
                     <div class="button-wrapper"><button id="jouer" onclick="window.location.href='?pvp=true';">__Jouer</button></div>
                     <div class="button-wrapper"><button id="pratiquer" onclick="window.location.href='?pve=true';">__Pratiquer</button></div>
+                    <div class="button-wrapper"><button id="guide" onclick="window.location.href='guide.php';">__Guide_Stratégique</button></div>
                     <div class="button-wrapper"><button id="screensaver" onclick="window.location.href='index.php';">__ScreenSaver</button></div>
                     <div class="button-wrapper"><button id="quitter" onclick="window.location.href='?logout=true';">__Quitter</button></div>
                 </div>
