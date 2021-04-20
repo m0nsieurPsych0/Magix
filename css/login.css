@@ -30,18 +30,8 @@
 button {
     display: none;
 }
-@keyframes errorFadeout {
-    0% {opacity: 0;}
-    25%{opacity: .75;}
-    50%{opacity: 1;}
-    100%{opacity: 0;}
-}
 .error-div {
     
-    animation: errorFadeout ease-in-out 5s 2;
-    opacity: 0;
-    color: red;
-    position:absolute;
-    text-shadow: 0 0 var(--text-bleed-intensity) #920909;
     bottom: 35vh;
+    position:absolute;
 }

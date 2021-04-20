@@ -34,7 +34,8 @@
             
             return json_decode($result);
         }
-
+        
+        // Temporaire en attendant que je configure une vérification ajax
         public function checkSession($data) {
             // Vérifie si on veut logout OU si la clef API est toujours valide
 			if (!empty($_GET["logout"]) || CommonAction::callAPI("games/state", $data) == "INVALID_KEY") {

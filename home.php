@@ -4,7 +4,7 @@
     $action = new HomeAction();
     $data = $action->execute();
     $page = "home";
-    // var_dump($_SESSION);
+    // var_dump($data);
     require_once("partial/header.php");
 ?>
             <main>
@@ -22,7 +22,13 @@
                     <iframe onload="applyStyles(this)" 
                             src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                     </iframe>
+                    <?php
+					    if (isset($data["hasConnectionError"])){
+						    ?><div class="error-div"> <?php echo("Erreur: " . $data["errorCode"]); ?> </div><?php
+					    }
+				    ?>
                 </div>
+                
             </main>
 
 

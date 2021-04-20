@@ -1,4 +1,4 @@
-
+/*************************global.php*************************/
 :root {
   --font-pref: 0 Inconsolata, monospace;
   --scanline-itensity: 0.40;
@@ -105,6 +105,22 @@ main {
 footer {
   position:relative;
   overflow: hidden;
+}
+
+.error-div {
+  animation: errorFadeout ease-in-out 5s 2;
+  opacity: 0;
+  color: red;
+  text-shadow: 0 0 var(--text-bleed-intensity) #920909;
+
+  /* Position */
+ 
+}
+@keyframes errorFadeout {
+  0% {opacity: 0;}
+  25%{opacity: .75;}
+  50%{opacity: 1;}
+  100%{opacity: 0;}
 }
 /* sources: https://css-tricks.com/old-timey-terminal-styling/ */
 

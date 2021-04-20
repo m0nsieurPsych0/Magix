@@ -15,7 +15,11 @@ window.onload = () => {
 }
 
 window.addEventListener("load", () => {
-    
+    // KbControl();
 })
+
+function KbControl() {
+    
+}
 
 

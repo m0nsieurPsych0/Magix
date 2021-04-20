@@ -4,13 +4,14 @@ main {
     grid-template-columns: 30vw 70vw;
     grid-template-rows: auto;
 }
+
+/* Sidebar */
 .sidebar {
     position: relative;
     display: grid;
     grid-template-rows: auto;
     align-items: center;
 }
-
 .sidebar >.button-wrapper{
     text-align: left;
     padding-left: 5vw;
@@ -27,10 +28,9 @@ main {
     
     height: 100%;
     display: grid;
-    grid-template-rows: 1/3 1/3 1/3;
+    align-items: center;
 }
 .menu-title {
-    grid-row: 2;
     text-align: center;
     color:white;
 }
@@ -56,10 +56,13 @@ button:hover, .button-wrapper:hover > button{
     text-shadow: none;
     color:black;
 }
+
+/* chat  */
 .chat >*{
     display: grid;
-    grid-template-rows: 15% 85%;
+    grid-template-rows: 15% 75% 10%;
     position:relative;
+    border-left-style: solid;
 }
 .chat-title{
     position: relative;
@@ -68,7 +71,7 @@ button:hover, .button-wrapper:hover > button{
     /* Empêcher le texte de wrapper */
     text-overflow: ellipsis;
     white-space: nowrap;
-    border-left-style: solid;
+    /* border-left-style: solid; */
 }
 iframe {
     /* display: contents; */
@@ -81,16 +84,22 @@ iframe {
     
     position: relative;
     width: 95%;
-    height: 95%;
+    height: 90%;
     padding-left: 1vw;
     padding-right: 1vw;
 
     /* iframe frame transparent */
     border: none;
-    border-left-style: solid;
+    /* border-left-style: solid; */
 
 }
 iframe:focus{
     outline: none;
 }
-
+.error-div{
+    position: relative;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    height: 10%;
+    border-left-style: none;
+}

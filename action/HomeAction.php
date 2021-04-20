@@ -8,6 +8,7 @@
 		}
 		
 		protected function executeAction() {
+			$hasConnectionError = false;
 			$data = [];
 			$data["key"] = $_SESSION["key"];
 
@@ -25,20 +26,17 @@
 
 				$result = parent::callAPI("games/auto-match", $data);
 
-				if($result == "INVALID_KEY" || $result == "INVALID_GAME_TYPE"){
-					
+				foreach (ERRORCODES as $error){
+					if ($result == $error){
+						return compact("hasConnectionError", "error");
+					}
 				}
-				elseif($result == "DECK_INCOMPLETE"){
-
-				}
-				elseif ($result == "MAX_DEATH_THRESHOLD_REACHED"){
-
-				}
+				
 				$_SESSION["gameType"] = $result;
 				header(GAME);
                 exit;
             }
-		
+
 		}
 
 	
