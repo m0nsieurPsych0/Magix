@@ -4,17 +4,11 @@ window.addEventListener("load", () => {
     SetFocus();
 })
 
-
-function saveUsername() {
-    localStorage["Username"] = document.getElementById("username").value;
-}
-
 const loadUsername = () => {
     if (localStorage["Username"] != null){
         document.getElementById("username").value = localStorage["Username"];
     }
 }
-
 
 function SetFocus () {
     window.onfocus = () =>{
