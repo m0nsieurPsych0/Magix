@@ -26,7 +26,7 @@
             );
             $context  = stream_context_create($options);
             $result = file_get_contents($apiURL, false, $context);
-            // !== false ou == true
+            // !== false ou == true ??
             if (strpos($result, "<br") == true) {
                 var_dump($result);
                 exit;
@@ -38,7 +38,7 @@
         // Temporaire en attendant que je configure une vérification ajax
         public function checkSession($data) {
             // Vérifie si on veut logout OU si la clef API est toujours valide
-			if (!empty($_GET["logout"]) || CommonAction::callAPI("games/state", $data) == "INVALID_KEY") {
+			if (!empty($_GET["logout"]) || CommonAction::callAPI("/check-key", $data) == "INVALID_KEY") {
                 if(isset($_SESSION["key"])){
                     CommonAction::callAPI("signout", $data);
                 }

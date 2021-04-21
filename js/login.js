@@ -1,18 +1,28 @@
-  
 window.addEventListener("load", () => {
-    SetFocus();
     screenSaverTimeout();
+    loadUsername();
+    SetFocus();
 })
 
-// Met le username form field en focus
-function SetFocus () {
-    let input = document.getElementById("username");
-    
-    window.onload = () =>{
-        input.focus();
+
+function saveUsername() {
+    localStorage["Username"] = document.getElementById("username").value;
+}
+
+const loadUsername = () => {
+    if (localStorage["Username"] != null){
+        document.getElementById("username").value = localStorage["Username"];
     }
-    
-    // window.onfocus = () => {
-    //     input.focus();
-    // }
+}
+
+
+function SetFocus () {
+    window.onfocus = () =>{
+        if (document.getElementById("username").value != ""){
+            document.getElementById("password").focus();    
+        }
+        else {
+            document.getElementById("username").focus();
+        }
+    }
 }

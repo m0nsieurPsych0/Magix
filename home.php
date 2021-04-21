@@ -4,8 +4,12 @@
     $action = new HomeAction();
     $data = $action->execute();
     $page = "home";
-    // var_dump($data);
+    
+    // var_dump($_SESSION["username"]);
     require_once("partial/header.php");
+    ?>
+        <script>saveUsername( "<?php echo($_SESSION["username"]); ?>" );</script>
+    <?php
 ?>
             <main>
                 <div class="sidebar">

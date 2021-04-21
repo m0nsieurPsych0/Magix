@@ -7,13 +7,7 @@
             parent::__construct(CommonAction::$VISIBILITY_MEMBER);
         }
         protected function executeAction() {
-            $data = [];
-            $data["key"] = $_SESSION["key"];
-            // parent::checkSession($data);
-            
-            $result = parent::callAPI("games/state", $data);
-            
-            return compact('result');
+            return [];
         }
 
     }

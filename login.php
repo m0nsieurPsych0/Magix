@@ -10,6 +10,7 @@
 			<main>
 				<div class="login-form-frame">
 					<!-- autocomplete à «off» pour simuler une fenêtre de terminal -->
+					<!-- Mais le dernier username qui s'est authentifé avec succès est sauvegardé dans localStorage -->
 					<form action="login.php" method="post" autocomplete="off"> 
 												
 						<div class="form-label">
@@ -31,7 +32,7 @@
 						<div class="form-separator"></div>
 
 						<div class="form-input">
-							<button type="submit"></button>
+							<button type="submit" ></button>
 						</div>
 						<div class="form-separator"></div>
 					</form>

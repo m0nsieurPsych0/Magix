@@ -7,7 +7,9 @@
             parent::__construct(CommonAction::$VISIBILITY_MEMBER);
         }
         protected function executeAction() {
-            return [];
+            $result = parent::callAPI("games/state", array("key" => $_SESSION["key"]));
+            
+            return compact("result");
         }
 
     }

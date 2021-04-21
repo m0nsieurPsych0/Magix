@@ -17,7 +17,7 @@
                 exit;
             }
             // Previent de resoumettre les mêmes données lorsqu'on rafraîchit la page
-            // En affichant le message d'erreur
+            // Et d'afficher le message d'erreur pour les même données erronées.
             if (!empty($_SESSION['oldpost'])){
                 if ($_SESSION['oldpost'] == $_POST){
                     unset($_POST);

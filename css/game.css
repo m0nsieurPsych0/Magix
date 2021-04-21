@@ -1,5 +1,21 @@
-/*************************game.php*************************/
-.vardump{
+/*************************game*************************/
+/* .vardump{
     display: relative;
     overflow-y: scroll;
+} */
+.video{
+    /* Entering simulation */
+    position: absolute;
+    /* Exiting simulation */
+}
+main{
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.opponent {
+
+}
+
+.player {
+
 }
