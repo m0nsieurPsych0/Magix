@@ -23,11 +23,17 @@ const state = () => {
 }
 
 const gameAction = (send) =>{
-    // console.log(send);
+    console.log(send);
     let formData = new FormData();
-
-    formData.append("type", send);
-    // console.log(formData);
+    if(send[0] == "PLAY"){
+        console.log("I see PLAY");
+        formData.append("type", send[0])
+        formData.append("uid", send[1])
+    }
+    else{
+        formData.append("type", send);
+    }
+        console.log(formData);
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle
         method : "POST",       // l’API (games/state)
         credentials: "include",
@@ -36,8 +42,8 @@ const gameAction = (send) =>{
     .then(response => response.json())
     .then(data => {
         // game(data);
-        // console.log('then');
-        // console.log(data);
+        console.log('then');
+        console.log(data);
 
     })
 }
@@ -53,7 +59,7 @@ const game = (data) => {
     let player = document.getElementById("player-wrapper").children;
     for (let i = 0; i < player.length; i++){
         let current = player[i].attributes["class"].value;
-        if(current == "player-endTurn" || current == "hand"){
+        if(current == "player-endTurn" || current == "hand" || current == "heroPower"){
             continue;
         }
         document.querySelector("." + current + "#player").innerHTML = current + ": " + data[current];
@@ -66,8 +72,6 @@ const game = (data) => {
         document.querySelector("." + current + "#opponent").innerHTML = current + ": " + data["opponent"][current];
     }
 
-    let playersHand = data.hand;
-    let playersCard = data.board;
 
     createCard(data);
     createPlayersHand(data);
@@ -75,10 +79,10 @@ const game = (data) => {
 }
 
 const createCard = (data) =>{
-    let opponentsCard = data.opponent.board;
-
-    document.getElementById("opponent-board").innerHTML = "";
     let template = document.querySelector("#card-template").innerHTML;
+    
+    let opponentsCard = data.opponent.board;
+    document.getElementById("opponent-board").innerHTML = "";
 
     for (let i = 0; i < opponentsCard.length; i++){
         let div = document.createElement("button");
@@ -94,6 +98,23 @@ const createCard = (data) =>{
         }
         document.getElementById("opponent-board").append(div);
     }
+
+    let playersCard = data.board;
+    document.getElementById("players-board").innerHTML = "";
+    for (let i = 0; i < playersCard.length; i++){
+        let div = document.createElement("button");
+        div.className = "players-card";
+        div.innerHTML = template;
+
+        for (key in playersCard[i]){
+            // if (div.querySelector(key))
+            div.querySelector("#"+key).innerText = key + " " +  playersCard[i][key];
+            // console.log(key + " " +  opponentsCard[i][key]);
+            // console.log(opponentsCard[i]);
+            
+        }
+        document.getElementById("players-board").append(div);
+    }
 }
 
 const createPlayersHand = (data) =>{
@@ -105,10 +126,12 @@ const createPlayersHand = (data) =>{
 
     for (let i = 0; i < hand.length; i++){
         let div = document.createElement("button");
+        
         div.className = "players-hand";
         div.innerHTML = template;
 
         for (key in hand[i]){
+            div.setAttribute("onclick", "gameAction(['PLAY'," + hand[i]['uid'] + "]);");
             div.querySelector("#"+key).innerText = key + " " +  hand[i][key];            
         }
         document.getElementById("players-hand").append(div);
@@ -116,6 +139,9 @@ const createPlayersHand = (data) =>{
 
 }
 
+const attack = (data) =>{
+    //TODO
+}
 
 // Source: https://www.gjtorikian.com/Earthbound-Battle-Backgrounds-JS/
 function background() {

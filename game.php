@@ -12,6 +12,8 @@
                 <main>
                     
                     <div class="opponent-wrapper" id="opponent-wrapper">
+                        <div class="hero" id="opponent"></div>
+                        
                         <div class="trophyCount" id="opponent"></div>
                         <div class="winCount" id="opponent"></div>
                         <div class="lossCount" id="opponent"></div>
@@ -29,7 +31,7 @@
                             opponent
                         </div>
                         
-                        <div class="players-board">player</div>
+                        <div class="players-board" id="players-board">player</div>
                         
                     </div>
                     <div class="player-wrapper" id="player-wrapper">
@@ -41,11 +43,13 @@
                         <div class="mp" id="player"></div>
                         <div class="maxHp" id="player"></div>
                         <div class="maxMp" id="player"></div>
-                        <div class="heroPowerAlreadyUsed" id="player"></div>
+                        
                         <div class="remainingTurnTime" id="player"></div>
                         <div class="hand" id="players-hand" id="player">hand</div>
+                        <div class="heroPowerAlreadyUsed" id="player"></div>
+                        <div class="heroPower" id="player"><button onclick="gameAction('HERO_POWER');"> HERO_POWER </button></div>
+                        <div class="player-endTurn" id="player"><button onclick="gameAction('END_TURN');"> END_TURN </button></div>
                         
-                        <div class="player-endTurn" id="player"><button onclick="gameAction('END_TURN');"> ENDTURN </button></div>
                     </div>
                    
 
