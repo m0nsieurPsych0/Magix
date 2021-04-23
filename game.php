@@ -8,35 +8,68 @@
     require_once("partial/header.php");
 
 ?>
+
                 <main>
-                    <div class="opponent">
-                        <div class="opponent-welcomeText"></div>
-                        <div class="opponent-name"></div>
-                        <div class="opponent-class"></div>
-                        <div class="opponent-life"></div>
-                        <div class="opponent-hp"></div>
-                        <div class="opponent-mp"></div>
-                        <div class="opponent-remainingCards"></div>
-                        <div class="opponent-handSize"></div>
+                    
+                    <div class="opponent-wrapper" id="opponent-wrapper">
+                        <div class="trophyCount" id="opponent"></div>
+                        <div class="winCount" id="opponent"></div>
+                        <div class="lossCount" id="opponent"></div>
+                        <div class="welcomeText" id="opponent"></div>
+                        <div class="heroClass" id="opponent"></div>
+                        <div class="talent" id="opponent"></div>
+                        <div class="remainingCardsCount" id="opponent"></div>
+                        <div class="handSize" id="opponent"></div>
+                        <div class="hp" id="opponent"></div>
+                        <div class="mp" id="opponent"></div>
 
                     </div>
-
-                    <div class="player">
-                        <div class="player-welcomeText"></div>
-                        <div class="player-name"></div>
-                        <div class="player-class"></div>
-                        <div class="player-life"></div>
-                        <div class="player-hp"></div>
-                        <div class="player-mp"></div>
-                        <div class="player-remainingCards"></div>
-                        <div class="player-handSize"></div>
-                        <div class="player-heroPower"></div>
-                        <div class="player-endTurn"></div>
-                        <div class="player-time"></div>
+                    <div class="board">
+                        <div class="opponent-board" id="opponent-board">
+                            opponent
+                        </div>
+                        
+                        <div class="players-board">player</div>
                         
                     </div>
+                    <div class="player-wrapper" id="player-wrapper">
+                        <div class="welcomeText" id="player"></div>
+                        <div class="heroClass" id="player"></div>
+                        <div class="talent"id="player"></div>
+                        <div class="remainingCardsCount" id="player"></div>
+                        <div class="hp" id="player"></div>
+                        <div class="mp" id="player"></div>
+                        <div class="maxHp" id="player"></div>
+                        <div class="maxMp" id="player"></div>
+                        <div class="heroPowerAlreadyUsed" id="player"></div>
+                        <div class="remainingTurnTime" id="player"></div>
+                        <div class="hand" id="players-hand" id="player">hand</div>
+                        
+                        <div class="player-endTurn" id="player"><button onclick="gameAction('END_TURN');"> ENDTURN </button></div>
+                    </div>
+                   
 
-                    <div></div>
+                    <!------------- Section Template -------------->
+
+                    <template class="opponent">
+
+                    </template>
+                    
+                    <template class="card-template" id="card-template">
+                        <div id="id"></div>
+                        <div id="name"></div>
+                        <div id="cost"></div>
+                        <div id="hp"></div>
+                        <div id="baseHP"></div>
+                        <div id="atk"></div>
+                        <div id="state"></div>
+                        <div id="mechanics">
+                            <div id="mechanic-content">
+                            </div>
+                        </div>
+                        <div id="dedicated"></div>
+                        <div id="uid"></div>
+                    </template>
                     
                 </main>
 <?php

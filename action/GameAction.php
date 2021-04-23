@@ -7,6 +7,7 @@
             parent::__construct(CommonAction::$VISIBILITY_MEMBER);
         }
         protected function executeAction() {
+            
             return [];
         }
 

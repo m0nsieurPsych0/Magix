@@ -23,7 +23,7 @@
                     <div class="button-wrapper"><button id="quitter" onclick="window.location.href='?logout=true';">__Quitter</button></div>
                 </div>
                 <div class="chat">
-                    <div class="chat-title">°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`</div>
+                    <div class="chat-title">°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸</div>
                     <iframe onload="applyStyles(this)" 
                             src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                     </iframe>

@@ -3,7 +3,7 @@ const applyStyles = iframe => {
 		fontColor: "#FFF",
         fontGoogleName: "Inconsolata",
         backgroundColor : "rgba(0,0,0,0)",
-        fontSize:"clamp(2.5rem, 2.442rem + 0.233vw, 3.0rem)",
+        fontSize:"clamp(1.0rem, 0.767rem + 0.93vw, 3.0rem)",
         inputBackgroundColor:"white",
         inputFontColor:"black",
         hideIcons: true,
@@ -24,6 +24,7 @@ window.addEventListener("load", () => {
 function KbControl() {
     // TODO
 }
+
 // On sauvegarde le nom d'utilisateur dans LocalStorage
 function saveUsername(username) {
     if (username != null){

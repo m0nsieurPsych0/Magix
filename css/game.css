@@ -8,14 +8,107 @@
     position: absolute;
     /* Exiting simulation */
 }
-main{
+body {
     display:grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr)minmax(0,2fr) minmax(0,1fr);
+    height: 95vh;
+    /* overflow-y: scroll; */
+    
 }
-.opponent {
-
+header{
+    display: none;
+}
+main{
+    position: relative;
+    grid-row: 1/4 ;
+    
+}
+footer{
+    display: none;
+}
+.board {
+    position: relative;
+    grid-row:2/4;
 }
 
-.player {
+/* OPPONENT CSS */
+.opponent-wrapper {
+    position: relative;
+    grid-row:1;
 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+.opponent-wrapper>*{
+    position: relative;
+    grid-column: 1;
+}
+.opponent-wrapper>.hp{
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
+}
+.opponent-wrapper>.mp{
+    position: relative;
+    grid-column: 2;
+    grid-row: 2;
+}
+/*  BOARD */
+/* opponent */
+.opponent-board{
+    grid-row: 2/3;
+    display: flex;
+    /* grid-column: auto; */
+    align-items: center;
+}
+.opponent-board>button{
+    position: relative;
+}
+/* player */
+.players-board{
+    grid-row: 3/4;
+    display: flex;
+    align-items: center;
+}
+.players-board>button{
+    position: relative;
+    grid-column: 3/4;
+}
+
+/* PLAYER CSS */
+.player-wrapper {
+    position: relative;
+    grid-row:4;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+}
+.player-wrapper>*{
+    position: relative;
+    grid-column: 1;
+}
+.player-wrapper>.hand{
+    position: relative;
+    grid-column: 2;
+    grid-row: 1/9;
+    align-self: center;
+}
+.player-wrapper>.player-endTurn{
+    position: relative;
+    grid-column: 3;
+    grid-row: 3/4;
+    text-align: center;
+}
+.player-wrapper>.remainingTurnTime{
+    position: relative;
+    grid-column: 3;
+    grid-row: 1/2;
+    text-align: center;
+}
+.player-wrapper>.heroPowerAlreadyUsed{
+    position: relative;
+    grid-column: 3;
+    grid-row: 5;
+    text-align: center;
 }

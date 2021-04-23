@@ -7,9 +7,20 @@
             parent::__construct(CommonAction::$VISIBILITY_MEMBER);
         }
         protected function executeAction() {
-            $result = parent::callAPI("games/state", array("key" => $_SESSION["key"]));
+            if (isset($_POST["type"])){
+                $data["key"] = $_SESSION["key"];
+                $data["type"] = $_POST["type"];
+
+                $result = parent::callAPI("games/action", $data);
+                // if($result)
+                return compact("result");
+
+            }
+            else{
+                $result = parent::callAPI("games/state", array("key" => $_SESSION["key"]));
+                return compact("result");
+            }
             
-            return compact("result");
         }
 
     }
