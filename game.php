@@ -12,7 +12,7 @@
                 <main>
                     
                     <div class="opponent-wrapper" id="opponent-wrapper">
-                        <div class="hero" id="opponent"></div>
+                        <div class="hero" id="opponent"><button onclick="attack(['hero', 0]);">HERO</div>
                         
                         <div class="trophyCount" id="opponent"></div>
                         <div class="winCount" id="opponent"></div>
@@ -60,19 +60,20 @@
                     </template>
                     
                     <template class="card-template" id="card-template">
-                        <div id="id"></div>
-                        <div id="name"></div>
-                        <div id="cost"></div>
-                        <div id="hp"></div>
-                        <div id="baseHP"></div>
-                        <div id="atk"></div>
-                        <div id="state"></div>
-                        <div id="mechanics">
-                            <div id="mechanic-content">
+                        <div class="id"></div>
+                        <div class="name"></div>
+                        <div class="cost"></div>
+                        <div class="hp"></div>
+                        <div class="baseHP"></div>
+                        <div class="atk"></div>
+                        <div class="state"></div>
+                        <div class="mechanics">
+                            <div class="mechanic-content">
                             </div>
                         </div>
-                        <div id="dedicated"></div>
-                        <div id="uid"></div>
+                        <div class="dedicated"></div>
+                        <!-- NE PAS AFFICHER LE UID -->
+                        <div class="uid"></div>
                     </template>
                     
                 </main>

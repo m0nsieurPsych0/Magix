@@ -34,9 +34,9 @@ function exitScreenSaver() {
   
   function screenSaver() {
     // Modifiers
-    let speedMult = 0.005; // Vitesse de défilement des étoiles
-    let maxStars = 250;    // Nombre d'étoiles au maximum
-    let starSize = 128;    // Taille des étoiles (plus le nombre est élevé plus l'étoile est petite)
+    let speedMult = 0.01; // Vitesse de défilement des étoiles
+    let maxStars = 200;    // Nombre d'étoiles au maximum
+    let starSize = 100;    // Taille des étoiles (plus le nombre est élevé plus l'étoile est petite)(default 128)
   
   
     // Variables
