@@ -63,8 +63,28 @@ const gameAction = (send) =>{
     })
 }
 
+// GLOBAL VARIABLES
+let cardDestination = [
+    {
+        htmlDestination : "players-hand", 
+        dataRoot: "",//data.hand, 
+        className: "players-hand",
+        functionCall: "gameAction(['PLAY', this.id]);"
+    },
+    {
+        htmlDestination : "players-board", 
+        dataRoot: "", //data.board, 
+        className: "players-card",
+        functionCall: "attack([this.className, this.id]);"
+    },
+    {
+        htmlDestination : "opponent-board", 
+        dataRoot: "", //data.opponent.board, 
+        className: "opponent-card",
+        functionCall: "attack([this.className, this.id]);"
+    },
 
-
+];
 
 const game = (data) => {
 
@@ -88,70 +108,35 @@ const game = (data) => {
         document.querySelector("." + current + "#opponent").innerHTML = current + ": " + data["opponent"][current];
     }
 
-    createCard(data);
-    createPlayersHand(data);
-}
 
-const createCard = (data) =>{
-    let template = document.querySelector("#card-template").innerHTML;
+    cardDestination.map(elem => {
+        // console.log(elem);
+        switch(elem.htmlDestination){
+            case "players-hand": elem.dataRoot = data.hand; break;
+            case "players-board": elem.dataRoot = data.board; break;
+            case "opponent-board": elem.dataRoot = data.opponent.board; break;
+        }
+        createCard(elem);
+	});
     
-    let opponentsCard = data.opponent.board;
-    document.getElementById("opponent-board").innerHTML = "";
 
-    for (let i = 0; i < opponentsCard.length; i++){
-        let div = document.createElement("button");
-        div.className = "opponent-card";
-        div.innerHTML = template;
-        div.id = opponentsCard[i]["uid"];
-        for (key in opponentsCard[i]){
-            // div.setAttribute("onclick", "gameAction(['PLAY'," + hand[i]['uid'] + "]);");
-            div.querySelector("."+key).innerText = key + " " +  opponentsCard[i][key];
-            // console.log(key + " " +  opponentsCard[i][key]);
-            // console.log(opponentsCard[i]);
-            
-        }
-        // div.id = opponentsCard[i]["uid"];
-        div.setAttribute("onclick", "attack([this.className, this.id]);");
-        document.getElementById("opponent-board").append(div);
-    }
-
-    let playersCard = data.board;
-    document.getElementById("players-board").innerHTML = "";
-    for (let i = 0; i < playersCard.length; i++){
-        let div = document.createElement("button");
-        div.className = "players-card";
-        div.innerHTML = template;
-        div.id = playersCard[i]["uid"];
-        for (key in playersCard[i]){
-            div.querySelector("."+key).innerText = key + " " +  playersCard[i][key];
-            // console.log(key + " " +  opponentsCard[i][key]);
-            // console.log(opponentsCard[i]);
-            
-        }
-        div.setAttribute("onclick", "attack([this.className, this.id]);");
-        document.getElementById("players-board").append(div);
-    }
 }
 
-const createPlayersHand = (data) =>{
-    let hand = data.hand;
-    // console.log(hand);
+const createCard = (target) => {
 
-    document.getElementById("players-hand").innerHTML = "";
-    let template = document.querySelector("#card-template").innerHTML;
-
-    for (let i = 0; i < hand.length; i++){
+    document.getElementById(target.htmlDestination).innerHTML = "";
+    
+    for (let i = 0; i < target.dataRoot.length; i++){
         let div = document.createElement("button");
-        div.id = hand[i]["uid"];
-        div.className = "players-hand";
-        div.innerHTML = template;
+        div.id = target.dataRoot[i]["uid"];
+        div.className = target.className;
+        div.innerHTML = document.querySelector("#card-template").innerHTML;
 
-        for (key in hand[i]){
-            div.setAttribute("onclick", "gameAction(['PLAY'," + hand[i]['uid'] + "]);");
-            div.querySelector("."+key).innerText = key + " " +  hand[i][key];            
+        for (key in target.dataRoot[i]){
+            div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];            
         }
-        
-        document.getElementById("players-hand").append(div);
+        div.setAttribute("onclick", target.functionCall);
+        document.getElementById(target.htmlDestination).append(div);
     }
 
 }
@@ -165,7 +150,7 @@ const attack = (data) =>{
         console.log("clicked players card");
         Accumulator[1] = data[1];
     }
-    else if(Accumulator[1] != null && data[0] == "opponent-card" || data[0] == "hero"){
+    else if(Accumulator[1] != null && data[0] == "opponent-card" || Accumulator[1] != null && data[0] == "hero"){
         console.log("clicked opponents card");
         Accumulator[2] = data[1];
         Accumulator[0] = 'ATTACK';

@@ -7,7 +7,7 @@
 
    /* 
    clamp calcul la taille du text en fonction de la largeur de l'écran disponible
-   de tel sorte que le design reste troujours(dans les limites imposées) proportionnel peu importe la taille.
+   de tel sorte que le design reste troujours(dans les limites imposées) et proportionnel peu importe la taille.
   
    min width: 400 px -> max width: 3840 px 
    */
