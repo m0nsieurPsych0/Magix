@@ -1,6 +1,6 @@
 
 window.addEventListener("load", () => {
-    resetAccumulator();
+    resetAccumulator(); // initialisé la variable Accumulator
     setTimeout(state(), 1000); // Appel initial (attendre 1 seconde)
     
 });
@@ -49,16 +49,19 @@ const state = () => {
     .then(data => {
     // console.log(data); // contient les cartes/état du jeu.
 
-    if(data == "WAITING"){
-        console.log("I see waiting");
+    switch(data){
+        case "WAITING": 
+            console.log("I see waiting"); 
+            break;
+        case "LAST_GAME_LOST":
+        case "LAST_GAME_WON" :
+        case null: 
+            window.location = "home.php";
+            break;
+        default:
+            game(data);
     }
-    else if(data == "LAST_GAME_LOST" || data == "LAST_GAME_WON" || data == null){
-        window.location = "home.php";
-    }
-    else{
-        game(data);
-    }
-
+    
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
 }
@@ -84,10 +87,10 @@ const gameAction = (send) =>{
         default: formData.append("type", send.type);
     }
 
-    //Ajax request
+    //Envoie les requêtes à API
     console.log(formData);
-    fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle
-        method : "POST",       // l’API (games/state)
+    fetch("ajax.php", { 
+        method : "POST",       
         credentials: "include",
         body: formData
     })
@@ -109,7 +112,7 @@ const game = (data) => {
             case "players-board": elem.dataRoot = data.board; break;
             case "opponent-board": elem.dataRoot = data.opponent.board; break;
         }
-        createCard(elem);
+        createCards(elem);
 	});
     
 }
@@ -136,7 +139,7 @@ const updateGameData = (data) =>{
     }
 }
 
-const createCard = (target) => {
+const createCards = (target) => {
 
     document.getElementById(target.htmlDestination).innerHTML = "";
     
@@ -163,10 +166,9 @@ const attack = (data) =>{
             console.log("clicked players card"); 
             Accumulator.source = data.uid; 
             break;
-        case "hero":
+        case "hero": console.log("clicked opponents Hero");
         case "opponent-card": 
             
-            console.log("clicked opponents Hero");
             if(Accumulator.source != null){
                 console.log("clicked opponents card");
                 Accumulator.destination = data.uid;
