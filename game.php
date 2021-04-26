@@ -12,7 +12,7 @@
                 <main>
                     
                     <div class="opponent-wrapper" id="opponent-wrapper">
-                        <div class="hero" id="opponent"><button onclick="attack(['hero', 0]);">HERO</div>
+                        <div class="hero" id="opponent"><button onclick="attack({nom:'hero', uid: '0'});">HERO</div>
                         
                         <div class="trophyCount" id="opponent"></div>
                         <div class="winCount" id="opponent"></div>
@@ -47,8 +47,8 @@
                         <div class="remainingTurnTime" id="player"></div>
                         <div class="hand" id="players-hand" id="player">hand</div>
                         <div class="heroPowerAlreadyUsed" id="player"></div>
-                        <div class="heroPower" id="player"><button onclick="gameAction('HERO_POWER');"> HERO_POWER </button></div>
-                        <div class="player-endTurn" id="player"><button onclick="gameAction('END_TURN');"> END_TURN </button></div>
+                        <div class="heroPower" id="player"><button onclick="gameAction({type:'HERO_POWER'});"> HERO_POWER </button></div>
+                        <div class="player-endTurn" id="player"><button onclick="gameAction({type:'END_TURN'});"> END_TURN </button></div>
                         
                     </div>
                    

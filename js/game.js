@@ -4,6 +4,40 @@ window.addEventListener("load", () => {
     
 });
 
+// GLOBAL VARIABLES *****************************************
+let cardDestination = [
+    {
+        htmlDestination : "players-hand", 
+        dataRoot: "",//data.hand, 
+        className: "players-hand",
+        functionCall: "gameAction({type: 'PLAY', uid: this.id});"
+    },
+    {
+        htmlDestination : "players-board", 
+        dataRoot: "", //data.board, 
+        className: "players-card",
+        functionCall: "attack({nom: this.className, uid: this.id});"
+    },
+    {
+        htmlDestination : "opponent-board", 
+        dataRoot: "", //data.opponent.board, 
+        className: "opponent-card",
+        functionCall: "attack({nom: this.className, uid: this.id});"
+    },
+
+];
+let Accumulator;
+
+const resetAccumulator = () =>{
+    Accumulator = 
+    {
+        type: 'ATTACK',
+        source:'',
+        destination:''
+    } 
+}
+// ************************************************************
+
 const state = () => {
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle
         method : "POST",       // l’API (games/state)
@@ -16,7 +50,7 @@ const state = () => {
     if(data == "WAITING"){
         console.log("I see waiting");
     }
-    else if(data == "LAST_GAME_LOST" || data == "LAST_GAME_WON" ){
+    else if(data == "LAST_GAME_LOST" || data == "LAST_GAME_WON" || data == null){
         window.location = "home.php";
     }
     else{
@@ -28,26 +62,30 @@ const state = () => {
 }
 
 const gameAction = (send) =>{
+    // console.log("GAME ACTION");
     console.log(send);
+    // console.log(send[0].type);
+
     let formData = new FormData();
 
-    if(send[0] == "END_TURN"){
-        attack(send[0]);
+    if(send.type == "END_TURN"){
+        resetAccumulator();
     }
-    if(send[0] == "PLAY"){
+    if(send.type == "PLAY"){
         console.log("I see PLAY");
-        formData.append("type", send[0])
-        formData.append("uid", send[1])
+        formData.append("type", send.type);
+        formData.append("uid", send.uid);
     }
-    else if(send[0] == "ATTACK"){
+    else if(send.type == "ATTACK"){
         console.log("I see ATTACK");
-        formData.append("type", send[0]);
-        formData.append("uid", send[1]);
-        formData.append("targetuid", send[2]);
+        formData.append("type", send.type);
+        formData.append("uid", send.source);
+        formData.append("targetuid", send.destination);
     }
     else{
-        formData.append("type", send);
+        formData.append("type", send.type);
     }
+
         console.log(formData);
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle
         method : "POST",       // l’API (games/state)
@@ -56,35 +94,12 @@ const gameAction = (send) =>{
     })
     .then(response => response.json())
     .then(data => {
-        // game(data);
         console.log('then');
         console.log(data);
 
     })
 }
 
-// GLOBAL VARIABLES
-let cardDestination = [
-    {
-        htmlDestination : "players-hand", 
-        dataRoot: "",//data.hand, 
-        className: "players-hand",
-        functionCall: "gameAction(['PLAY', this.id]);"
-    },
-    {
-        htmlDestination : "players-board", 
-        dataRoot: "", //data.board, 
-        className: "players-card",
-        functionCall: "attack([this.className, this.id]);"
-    },
-    {
-        htmlDestination : "opponent-board", 
-        dataRoot: "", //data.opponent.board, 
-        className: "opponent-card",
-        functionCall: "attack([this.className, this.id]);"
-    },
-
-];
 
 const game = (data) => {
 
@@ -141,30 +156,24 @@ const createCard = (target) => {
 
 }
 
-// TODO Change for Map()
-let Accumulator = [];
+
 const attack = (data) =>{
     console.log(data);
-        
-    if (data[0] == "players-card"){
+
+    if (data.nom == "players-card"){
         console.log("clicked players card");
-        Accumulator[1] = data[1];
+        Accumulator.source = data.uid;
     }
-    else if(Accumulator[1] != null && data[0] == "opponent-card" || Accumulator[1] != null && data[0] == "hero"){
+    else if(Accumulator.source != null && data.nom == "opponent-card" || Accumulator.source != null && data.nom == "hero"){
         console.log("clicked opponents card");
-        Accumulator[2] = data[1];
-        Accumulator[0] = 'ATTACK';
+        Accumulator.destination = data.uid;
         console.log(Accumulator);
         gameAction(Accumulator);
-        Accumulator = [];
+        resetAccumulator();
     }
-    else if(data == "END_TURN"){
-        Accumulator = [];
-        console.log("reset accumulator");
-    }
-
-    
 }
+
+
 // Source: https://www.gjtorikian.com/Earthbound-Battle-Backgrounds-JS/
 function background() {
 
