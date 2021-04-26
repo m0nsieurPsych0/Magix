@@ -104,7 +104,6 @@ const game = (data) => {
     updateGameData(data);
 
     cardDestination.map(elem => {
-        // console.log(elem);
         switch(elem.htmlDestination){
             case "players-hand": elem.dataRoot = data.hand; break;
             case "players-board": elem.dataRoot = data.board; break;
@@ -177,7 +176,6 @@ const attack = (data) =>{
             }
     }
 }
-
 
 // Source: https://www.gjtorikian.com/Earthbound-Battle-Backgrounds-JS/
 function background() {
