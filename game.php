@@ -45,7 +45,7 @@
                         <div class="maxMp" id="player"></div>
                         
                         <div class="remainingTurnTime" id="player"></div>
-                        <div class="hand" id="players-hand" id="player">hand</div>
+                        <div class="hand" id="players-hand" id="player"></div>
                         <div class="heroPowerAlreadyUsed" id="player"></div>
                         <div class="heroPower" id="player"><button onclick="gameAction({type:'HERO_POWER'});"> HERO_POWER </button></div>
                         <div class="player-endTurn" id="player"><button onclick="gameAction({type:'END_TURN'});"> END_TURN </button></div>
@@ -76,6 +76,18 @@
                         <div class="uid"></div>
                     </template>
                     
+                    
                 </main>
+                <!-- Video intro -->
+                <template id="enterDoor">
+                    <source src="asset\video\enter_door1080p60Med.mp4" type="video/mp4">
+                </template>
+                <!-- Exit door -->
+                <template id="exitDoor">
+                    <video autoplay muted id="enter">
+                        <source id="exit" src="asset\video\exit_door1080p60Med.mp4" type="video/mp4">
+                    </video>
+                </template>
+            
 <?php
 	require_once("partial/footer.php");

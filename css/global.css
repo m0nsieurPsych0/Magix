@@ -81,7 +81,7 @@ footer>.typing{
   top: 0;  left: 0;  right:0;  bottom: 0;
   width: 100vw;
   height: 100vh;
-
+  z-index: 1000;
   background: repeating-linear-gradient(0deg, rgba(0, 0, 0, var(--scanline-itensity)), rgba(0, 0, 0, var(--scanline-itensity)) 1px, transparent 1px, transparent 2px);
   /* Permet de ne pas interrompre l'intéraction du pointeur */
   pointer-events: none;
