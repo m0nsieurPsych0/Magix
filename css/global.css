@@ -96,7 +96,7 @@ body {
   font: var(--font-pref);
   font-size: var(--font-size-res);
   text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
-  box-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+  /* box-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8; */
 
   /* Simule l'éclairage dansant d'un moniteur cathodique */
   /* L'effet est un peu exagéré, mais est plaisant à l'oeil */

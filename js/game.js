@@ -203,41 +203,52 @@ function background() {
 }
 
 function playVideo(source) {
+    // Ne rejoue pas la vidéo 'enter' si on reload la page
+    if (performance.getEntriesByType("navigation")[0].type == "navigate" || source == videoSource.exit ){
     
-    let body = document.body;
-    let video = document.createElement("video");
-    video.id = source == videoSource.enter ? "enter" : "exit";
-    video.setAttribute("onloadedmetadata","this.muted=true"); // Wow. ça c'est sneaky!! Sources: https://stackoverflow.com/questions/51464647/html5-video-doesnt-autoplay-even-while-muted-in-chrome-67-using-angular
-    if(source == videoSource.enter){
-        video.setAttribute("autoplay", "");
-    }
-    video.innerHTML = source;
-    body.append(video);
+        let body = document.body;
+        let video = document.createElement("video");
+        video.id = source == videoSource.enter ? "enter" : "exit";
+        video.setAttribute("onloadedmetadata","this.muted=true"); // Wow. ça c'est sneaky!! Sources: https://stackoverflow.com/questions/51464647/html5-video-doesnt-autoplay-even-while-muted-in-chrome-67-using-angular
+        if(source == videoSource.enter){
+            video.setAttribute("autoplay", "");
+        }
+        video.innerHTML = source;
+        body.append(video);
 
-    if (source == videoSource.enter){
-        let enter = document.getElementById("enter");
-        enter.addEventListener('ended', ()=>{
-            video.remove();
-            loadingChat();
-        }, true );
-        enter.playbackRate = 1.50;
+        if (source == videoSource.enter){
+            let enter = document.getElementById("enter");
+            enter.addEventListener('ended', ()=>{
+                document.querySelector("main").style.visibility = "visible";
+                video.remove();
+                loadingChat();
+            }, true );
+            enter.playbackRate = 1.50;
+
+            
+
+        }
+        else if (!exitPlayed){
+
+            exitPlayed = true;
+            let exit = document.getElementById("exit");
+            exit.addEventListener('ended', () =>{window.location.href = "home.php";}, true);
+
+            // Edge case où si on reviens en arrière sans avoir cliquer préalablement dans la fenêtre de jeu
+            // la vidéo de fin ne joue pas.
+            // C'est à cause de la protection du navigateur qui empêche de la jouer sans l'interraction de l'utilisateur.
+            // Par conséquent, on reste prit dans game.php. 
+            new Promise((resolve, reject) => {
+                resolve(exit.play());
+                reject(setTimeout(() =>{window.location.href = "home.php"}, 1000));
+            });
+        }
     }
-    else if (!exitPlayed){
-        
-        exitPlayed = true;
-        let exit = document.getElementById("exit");
-        exit.addEventListener('ended', function(){window.location.href = "home.php";}, true);
-        
-        // Edge case où si on reviens en arrière sans avoir cliquer préalablement dans la fenêtre de jeu
-        // la vidéo de fin ne joue pas.
-        // C'est à cause de la protection du navigateur qui empêche de la jouer sans l'interraction de l'utilisateur.
-        // Par conséquent, on reste prit dans game.php. 
-        new Promise((resolve, reject) => {
-            resolve(exit.play());
-            reject(setTimeout(() =>{window.location.href = "home.php"}, 1000));
-        });
+    else{
+        document.querySelector("main").style.visibility = "visible";
+        loadingChat();
     }
-}
+}   
 
 
 function catchingBackButtonEvent(global){

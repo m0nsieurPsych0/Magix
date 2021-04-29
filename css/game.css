@@ -4,38 +4,19 @@
     overflow-y: scroll;
 } */
 
-@keyframes videoTransition {
-    0% {opacity: 1;}
-    75%{opacity:1;}
-    98%{opacity: 0.50;}
-    99%{opacity: 0.25;}
-    100%{opacity: 0;}
-}
 video{
-    opacity: 0;
     position: fixed;
     right: 0;
     bottom: 0;
     min-height: 100%;
     min-width: 100%;
 }
-#enter {
-    /* Entering simulation */
-    /* Exiting simulation */
-    animation: videoTransition ease-out 6s 1;
-}
-#exit{
-    opacity: 1;
-}
 
-body {
-    /* overflow-y: scroll; */
-    
-}
 header{
     display: none;
 }
 main{
+    visibility: hidden;
     position: relative;
     display:grid;
     /* grid-template-rows: minmax(0, 1fr) minmax(0,2fr) minmax(0,1fr); */
@@ -51,7 +32,9 @@ footer{
 /* Opponent info */
 #info-wrapper{
     grid-column: 1;
-    padding: 1vw;
+    padding-top: 1vh;
+    padding-right: 1vw;
+
     border-style: solid;
     border-bottom: white;
     border-left: white;
@@ -91,6 +74,7 @@ footer{
 
 }
 #chat{
+    padding-top: 2.5vh;
     width: 100%;
     height: 100%;
 }
@@ -108,10 +92,24 @@ iframe{
     display: grid;
     grid-template-rows: 15% 60% 25%;
 }
+
 #opponent{
     display: flex;
 
 }
+/* .hero{
+    background-image: url(isolatedbrainFromimage.svg);
+    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height:500px ;
+    width: 500px ;
+
+    border: none;
+    
+} */
+
 #board{
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -139,10 +137,7 @@ iframe{
     justify-content: center;
     
 }
-#hand >*{
-    /* align-self: center; */
 
-}
 #player-dashboard{
 
 }
@@ -150,10 +145,8 @@ iframe{
 :is(.players-hand, .players-card, .opponents-card) {
     height: 20vh;
     width: 7vw;
-
+    /* color: black; */
 }
-
-
 
 
 .board {
@@ -170,6 +163,7 @@ iframe{
     position: fixed;
     top: 39vh;
     right:2vw;
+    font-size: 5rem;
     /* z-index: 100; */
 }
 
