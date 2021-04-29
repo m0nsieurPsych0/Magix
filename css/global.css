@@ -12,7 +12,8 @@
    min width: 400 px -> max width: 3840 px 
    */
   /* --font-size-res: clamp(2.5rem, 2.442rem + 0.233vw, 3.0rem);  */
-  --font-size-res: clamp(1.0rem, 0.767rem + 0.93vw, 3.0rem);
+  /* --font-size-res: clamp(1.0rem, 0.767rem + 0.93vw, 3.0rem); */
+  --font-size-res: clamp(1.5rem, 1.326rem + 0.698vw, 3.0rem);
 }
 
 /* Animation */
@@ -26,31 +27,16 @@
 }
 @keyframes EaseIn {
   0% {opacity: 0;}
-  100%{opacity: 1;}
+  100% {opacity: 1;}
 }
 @keyframes typing {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  100% {
-    width: max(100vw);
-    opacity: 1;
-  }
+  0% {width: 0;opacity: 0;}
+  100% {width: max(100vw);opacity: 1;}
 }
 @keyframes typingFooter{
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  80%{
-    width: 0;
-    opacity: 0;
-  }
-  100% {
-    width: max(100vw);
-    opacity: 1;
-  }
+  0% {width: 0;opacity: 0;}
+  80%{width: 0;opacity: 0;}
+  100% {width: max(100vw);opacity: 1;}
 }
 /* Texte automatique */
 .typing {
@@ -83,7 +69,7 @@ footer>.typing{
   height: 100vh;
   z-index: 1000;
   background: repeating-linear-gradient(0deg, rgba(0, 0, 0, var(--scanline-itensity)), rgba(0, 0, 0, var(--scanline-itensity)) 1px, transparent 1px, transparent 2px);
-  /* Permet de ne pas interrompre l'intéraction du pointeur */
+  /* Permet de ne pas interrompre l'intéraction du pointeur avec le contenu en dessous */
   pointer-events: none;
   cursor: text;
 
@@ -110,6 +96,7 @@ body {
   font: var(--font-pref);
   font-size: var(--font-size-res);
   text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+  box-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
 
   /* Simule l'éclairage dansant d'un moniteur cathodique */
   /* L'effet est un peu exagéré, mais est plaisant à l'oeil */

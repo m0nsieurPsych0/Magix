@@ -27,10 +27,8 @@ video{
 #exit{
     opacity: 1;
 }
+
 body {
-    display:grid;
-    grid-template-rows: minmax(0, 1fr)minmax(0,2fr) minmax(0,1fr);
-    height: 95vh;
     /* overflow-y: scroll; */
     
 }
@@ -39,106 +37,139 @@ header{
 }
 main{
     position: relative;
-    grid-row: 1/4 ;
+    display:grid;
+    /* grid-template-rows: minmax(0, 1fr) minmax(0,2fr) minmax(0,1fr); */
+    grid-template-columns: 25%  75%;
+    grid-template-rows: 100%;
+    height: 95vh;
     
 }
 footer{
-    display: unset;
-}
-.board {
-    position: relative;
-    grid-row:2/4;
+    display: none;
 }
 
-/* OPPONENT CSS */
-.opponent-wrapper {
-    position: relative;
-    grid-row:1;
+/* Opponent info */
+#info-wrapper{
+    grid-column: 1;
+    padding: 1vw;
+    border-style: solid;
+    border-bottom: white;
+    border-left: white;
 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#opponent-info{
+    grid-row: 1;
+    display: grid;
+}
+.username{
+    text-align: center;
+}
+.heroclass{
+    display: flex;
+}
+.talent{
+    display: flex;
+}
+#stats{
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
 }
-.opponent-wrapper>*{
-    position: relative;
-    grid-column: 1;
-}
-.opponent-wrapper>.hero{
-    position: relative;
-    grid-column: 2;
-    grid-row: 4;
-}
-.opponent-wrapper>.hp{
-    position: relative;
-    grid-column: 2;
-    grid-row: 1;
-}
-.opponent-wrapper>.mp{
-    position: relative;
-    grid-column: 2;
-    grid-row: 2;
-}
-/*  BOARD */
-/* opponent */
-.opponent-board{
-    grid-row: 2/3;
-    display: flex;
-    /* grid-column: auto; */
-    align-items: center;
-}
-.opponent-board>button{
-    position: relative;
-}
-/* player */
-.players-board{
-    grid-row: 3/4;
-    display: flex;
-    align-items: center;
-}
-.players-board>button{
-    position: relative;
-    grid-column: 3/4;
+:is(#trophy, #win, #loss) {
+    display: grid;
+
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
 }
 
-/* PLAYER CSS */
-.player-wrapper {
-    position: relative;
-    grid-row:4;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
+/* Control center */
+#control-center{
+    grid-row: 2;
+
 }
-.player-wrapper>*{
-    position: relative;
-    grid-column: 1;
+#chat{
+    width: 100%;
+    height: 100%;
 }
-.player-wrapper>.hand{
-    position: relative;
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+#game-wrapper{
     grid-column: 2;
-    grid-row: 1/9;
-    align-self: center;
+    padding-left: 1vw;
+
+    display: grid;
+    grid-template-rows: 15% 60% 25%;
 }
-.player-wrapper>.player-endTurn{
+#opponent{
+    display: flex;
+
+}
+#board{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+#opponent-board{
+    grid-row: 1;
+
+    display: flex;
+}
+#player-board{
+    grid-row: 2;
+
+    display: flex;
+}
+
+#player{
+
+    display: grid;
+    grid-template-columns: 85% 15%;
+
+}
+#hand{
+
+    display: flex;
+    justify-content: center;
+    
+}
+#hand >*{
+    /* align-self: center; */
+
+}
+#player-dashboard{
+
+}
+
+:is(.players-hand, .players-card, .opponents-card) {
+    height: 20vh;
+    width: 7vw;
+
+}
+
+
+
+
+.board {
     position: relative;
-    grid-column: 3;
-    grid-row: 3/4;
-    text-align: center;
+    
 }
-.player-wrapper>.remainingTurnTime{
-    position: relative;
-    grid-column: 3;
-    grid-row: 1/2;
-    text-align: center;
+:is(#opponent-board, #player-board ){
+    display: flex;
+    justify-content: center;
+    align-content: space-evenly;
 }
-.player-wrapper>.heroPowerAlreadyUsed{
-    position: relative;
-    grid-column: 3;
-    grid-row: 5;
-    text-align: center;
+
+.remainingTurnTime{
+    position: fixed;
+    top: 39vh;
+    right:2vw;
+    /* z-index: 100; */
 }
-.player-wrapper>.heroPower{
-    position: relative;
-    grid-column: 3;
-    grid-row: 6;
-    text-align: center;
-}
+

@@ -1,5 +1,5 @@
 // Initialise une fonction qui va intercepter le retour en arrière du navigateur
-// Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit'
+// Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
 (function(global) {catchingBackButtonEvent(global);})(window);
 
 window.addEventListener("load", () => {
@@ -11,13 +11,14 @@ window.addEventListener("load", () => {
 // GLOBAL VARIABLES *****************************************
 let cardDestination = [
     {
-        htmlDestination : "players-hand", 
+        // htmlDestination : "players-hand", 
+        htmlDestination : "hand", 
         dataRoot: "",//data.hand, 
         className: "players-hand",
         functionCall: "gameAction({type: 'PLAY', uid: this.id});"
     },
     {
-        htmlDestination : "players-board", 
+        htmlDestination : "player-board", 
         dataRoot: "", //data.board, 
         className: "players-card",
         functionCall: "attack({nom: this.className, uid: this.id});"
@@ -25,7 +26,7 @@ let cardDestination = [
     {
         htmlDestination : "opponent-board", 
         dataRoot: "", //data.opponent.board, 
-        className: "opponent-card",
+        className: "opponents-card",
         functionCall: "attack({nom: this.className, uid: this.id});"
     },
 
@@ -35,9 +36,8 @@ const videoSource = {
     enter: String.raw`<source src="asset\video\enter_door1080p60Med.mp4" type="video/mp4">`,
     exit: String.raw`<source src="asset\video\exit_door1080p60Med.mp4">`
 };
-
+let exitPlayed = false; //Prévenir que le vidéo exit joue deux fois en terminant une partie
 let Accumulator;
-
 const resetAccumulator = () =>{
     Accumulator = 
     {
@@ -66,8 +66,7 @@ const gameState = () => {
         case "GAME_NOT_FOUND":
         case "":
         case null: 
-            window.location.href = "game.php#!!";
-            // history.go(-1);
+            playVideo(videoSource.exit);
             break;
         default:
             game(data);
@@ -119,8 +118,8 @@ const game = (data) => {
 
     cardDestination.map(elem => {
         switch(elem.htmlDestination){
-            case "players-hand": elem.dataRoot = data.hand; break;
-            case "players-board": elem.dataRoot = data.board; break;
+            case "hand": elem.dataRoot = data.hand; break;
+            case "player-board": elem.dataRoot = data.board; break;
             case "opponent-board": elem.dataRoot = data.opponent.board; break;
         }
         createCards(elem);
@@ -129,26 +128,34 @@ const game = (data) => {
 }
 
 const updateGameData = (data) =>{
-    // player data
-    let player = document.getElementById("player-wrapper").children;
-    for (let i = 0; i < player.length; i++){
-        let current = player[i].attributes["class"].value;
-        if(current == "player-endTurn" || current == "hand" || current == "heroPower"){
-            continue;
+       
+    for (let key in data){
+        switch(key){
+            case "board":       break; //skip
+            case "hand":        break; //skip
+            case "heroClass":   break; //skip 
+            case "talent":      break; //skip 
+            case "welcomeText": break; //skip
+            case "heroPowerAlreadyUsed": break; //skip
+            case "yourTurn": break; //skip
+            case "opponent": 
+                for (let key in data.opponent){
+                    switch(key){
+                        case "board": break;
+                        default: 
+                            document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key];
+                    }
+                };
+                    break;
+            default:
+                document.querySelector("." + key + ".player").innerHTML = data[key];
         }
-        document.querySelector("." + current + "#player").innerHTML = current + ": " + data[current];
-    }   
-    // opponent data
-    let opponent = document.getElementById("opponent-wrapper").children;
-    for (let i = 0; i < opponent.length; i++){
-        let current = opponent[i].attributes["class"].value;
-        if(current == "hero"){
-            continue;
-        }
-
-        document.querySelector("." + current + "#opponent").innerHTML = current + ": " + data["opponent"][current];
+        
     }
+
 }
+
+
 
 const createCards = (target) => {
 
@@ -201,20 +208,34 @@ function playVideo(source) {
     let video = document.createElement("video");
     video.id = source == videoSource.enter ? "enter" : "exit";
     video.setAttribute("onloadedmetadata","this.muted=true"); // Wow. ça c'est sneaky!! Sources: https://stackoverflow.com/questions/51464647/html5-video-doesnt-autoplay-even-while-muted-in-chrome-67-using-angular
-    video.setAttribute("autoplay", "");
+    if(source == videoSource.enter){
+        video.setAttribute("autoplay", "");
+    }
     video.innerHTML = source;
     body.append(video);
 
     if (source == videoSource.enter){
         let enter = document.getElementById("enter");
-        enter.addEventListener('ended', ()=>{video.remove()}, true );
+        enter.addEventListener('ended', ()=>{
+            video.remove();
+            loadingChat();
+        }, true );
         enter.playbackRate = 1.50;
     }
-    else{
+    else if (!exitPlayed){
         
+        exitPlayed = true;
         let exit = document.getElementById("exit");
         exit.addEventListener('ended', function(){window.location.href = "home.php";}, true);
-        exit.play();
+        
+        // Edge case où si on reviens en arrière sans avoir cliquer préalablement dans la fenêtre de jeu
+        // la vidéo de fin ne joue pas.
+        // C'est à cause de la protection du navigateur qui empêche de la jouer sans l'interraction de l'utilisateur.
+        // Par conséquent, on reste prit dans game.php. 
+        new Promise((resolve, reject) => {
+            resolve(exit.play());
+            reject(setTimeout(() =>{window.location.href = "home.php"}, 1000));
+        });
     }
 }
 
@@ -223,16 +244,14 @@ function catchingBackButtonEvent(global){
     // On override le hash de la page jusqu'à ce qu'on n'y retrouve que des '!'
 
     global.location.href += "#";
-    global.setTimeout(function () {
-        global.location.href += "!";
-    }, 50);
+    global.setTimeout(() => {global.location.href += "!";}, 50);
     
 	let loaded = 0;
     let _hash = "!";
 
     // Lorsque qu'un retour en arrière est appelé on intercepte et on fait jouer le vidéo 'exit'
     // Une fois la vidéo terminée on redirige à home.php
-    global.onhashchange = function () {
+    global.onhashchange = () => {
         if (global.location.hash !== _hash && loaded < 5) {
             global.location.hash = _hash;
             loaded ++;
@@ -244,4 +263,16 @@ function catchingBackButtonEvent(global){
     //Source: 
     // https://stackoverflow.com/questions/12381563/how-can-i-stop-the-browser-back-button-using-javascript
     // Demo: https://output.jsbin.com/yaqaho#!
+}
+
+const loadingChat = () =>{
+    // On load le chat après que la vidéo ait joué.
+
+    document.getElementById("control-center").innerHTML = "";
+    
+    let div = document.createElement("div");
+    div.id = "chat"
+    div.innerHTML = document.querySelector("#chat-template").innerHTML;
+    document.getElementById("control-center").append(div);
+    
 }

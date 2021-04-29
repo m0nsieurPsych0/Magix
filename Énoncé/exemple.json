@@ -1,5 +1,6 @@
 // player
-{"remainingTurnTime":2,
+{
+"remainingTurnTime":2,
 "heroPowerAlreadyUsed":false,
 "yourTurn":true,
 "hp":9,

@@ -25,6 +25,7 @@
 				if ($page == "home"){
 					?>
 						<link href="css/home.css" rel="stylesheet" />
+						<script src="js/chat.js"></script>
 						<script src="js/home.js"></script>
 						<title>__Home__|\/|agix__OS</title>
 					<?php	
@@ -32,6 +33,7 @@
 				if ($page == "game"){
 					?>
 						<link href="css/game.css" rel="stylesheet" />
+						<script src="js/chat.js"></script>
 						<script src="js/game.js"></script>
 						<title>__Game__|\/|agix__OS</title>
 					<?php	
@@ -55,7 +57,7 @@
 					?><div class="rotate">|\/|agix__OS</div><?php
 				}
 				elseif ($page == "game"){
-					// ?><div class="typing">|\/|agix__OS____The__G_A_M_E____________________________________________________________________________________________________________________________________________</div><?php
+					?><div class="typing">|\/|agix__OS____The__G_A_M_E____________________________________________________________________________________________________________________________________________</div><?php
 				}
 				else {
 					?><div class="typing">|\/|agix__OS_______________________________________________________________________________________________________________________________________________________________</div><?php

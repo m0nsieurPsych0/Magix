@@ -60,10 +60,11 @@ button:hover, .button-wrapper:hover > button{
 
 /* chat  */
 .chat >*{
-    display: grid;
-    grid-template-rows: 15% 75% 10%;
     position:relative;
     border-left-style: solid;
+    
+    display: grid;
+    grid-template-rows: 15% 75% 10%;
 }
 .chat-title{
     position: relative;
