@@ -1,0 +1,23 @@
+{
+	"heroClass": {
+		"Warrior": "Spawn a 1/1 taunt minion",
+		"Priest": "Give a random friendly minion +2 HP",
+		"Hunter": "Draw 1 card",
+		"Warlock": "Leech 2 HP from the opponent's hero",
+		"Demon Hunter": "Deal 1 HP to the left+right most minions. 2 HP if 1 minion or  2 HP to the hero if no minion.",
+		"Rogue": "Spawn a 1/1 minion with charge and stealth",
+		"Paladin": "Spawn a 0/1 minion that randomly gives +1/+1 to a friendly minion   at the end of your turn",
+		"Shaman": "Spawn a 0/1 minion that deals 2 HP to the opponent's hero at the     end of your turn",
+		"Druid": "Spawn a 1/1 minion, restore 2 HP to your hero",
+		"Mage": "Randomly deal 3 HP to enemies"
+	},
+	"talent": {
+		"Restorer": "Every time you use your hero power, restore 1HP",
+		"LifeBoost": "Start with 5 more HP",
+		"ExtraCard": "Start with an extra card",
+		"SpawnMinion": "Start with a 1/2 minion with taunt and charge",
+		"ExtraCrystal": "Cards in your starting hand cost one less",
+		"ShieldProtection": "Everytime you play a taunt minion, restore 1 HP"
+
+	}
+}

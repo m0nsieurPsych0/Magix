@@ -17,8 +17,8 @@
                                 <div id="class-description"></div>
                             </div>
                             <div class="talent opponent">
-                                talent</div>
                                 <div id="talent-description"></div>
+                            </div>
                             <div id="stats">
                                 <div id="trophy">
                                     Trophy
@@ -46,11 +46,11 @@
                         <div id="opponent">
                             <div class="remainingCardsCount opponent" ></div>
                             <div class="handSize opponent" ></div>
-                            <img src="asset\opponent\isolatedbrainFromimage.svg" id="brain" onclick="attack({nom:'hero', uid: '0'});">
+                            <div class="brain" onclick="attack({nom:'hero', uid: '0'});"><img src="asset\opponent\isolatedbrainFromimage.svg" id="brain" ></div>
                             <div class="hp opponent" ></div>
                             <div class="mp opponent" ></div>
+                            <div class="welcomeText opponent"></div>
                         </div>
-
                         <div class="board" id="board">
                             <div id="opponent-board"></div>
                             <div id="player-board"></div>
@@ -120,7 +120,7 @@
                     
                 </main>
                 
-                <div class="welcomeText opponent"></div>
+                
                 
             
 <?php

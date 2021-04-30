@@ -4,12 +4,21 @@
 
 window.addEventListener("load", () => {
     playVideo(videoSource.enter); // video intro
-    // background();
     resetAccumulator(); // initialisé la variable Accumulator
+    importClassTalentData();
     setTimeout(gameState(), 1000); // Appel initial (attendre 1 seconde)
+    
 });
 
 // GLOBAL VARIABLES *****************************************
+let classTalent;
+const importClassTalentData = () => {
+    fetch("asset/classTalent.json")
+    .then(response => response.json())
+    .then(data => {
+        classTalent = data;
+    })
+}
 let cardDestination = [
     {
         // htmlDestination : "players-hand", 
@@ -58,12 +67,6 @@ const resetAccumulator = () =>{
     } 
 }
 // ************************************************************
-
-// Source: https://www.gjtorikian.com/Earthbound-Battle-Backgrounds-JS/
-
-const background = () => {
-    setupEngine();
-}
 
 const gameState = () => {
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle
@@ -135,7 +138,7 @@ const gameAction = (send) =>{
 }
 
 const game = (data) => {
-
+    
     updateGameData(data);
 
     cardDestination.map(elem => {

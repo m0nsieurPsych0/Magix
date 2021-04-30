@@ -1,3 +1,7 @@
+// On modifie les valeurs pour le fond
+// Il y a deux valeurs à modifier pour chacune des couches
+// 
+
 // give me some JSON based on the "?" params
 function getJsonFromUrl() {
   // var query = location.search.substr(1);
@@ -44,7 +48,7 @@ function parseLayerParam(number, options) {
   // options.firstLayer
   //   ? (canvas.dataset.layerOne = num)
   //   : (canvas.dataset.layerTwo = num);
-  return 200;
+  return options.firstLayer ? (Math.floor((Math.random() * 326))) : (Math.floor((Math.random() * 326)));
 }
 
 function parseFrameskipParam(number) {
@@ -54,7 +58,7 @@ function parseFrameskipParam(number) {
   else if (num < 1 || num > 10) return (num = 1);
 
   // canvas.dataset.frameskip = num;
-  return 269;
+  return 1;
 }
 
 function parseAspectRatioParam(number) {
@@ -64,13 +68,13 @@ function parseAspectRatioParam(number) {
   else if (num != 0 && num != 16 && num != 48 && num != 64) return (num = 0);
 
   // canvas.dataset.aspectRatio = num;
-  return num;
+  return 0;
 }
 
 function parseFullscreen(fullscreen) {
-  if (fullscreen == "true") {
-    setupFullscreen();
-  }
+  // if (fullscreen == "true") {
+  //   setupFullscreen();
+  // }
 }
 
 // function isIOS() {

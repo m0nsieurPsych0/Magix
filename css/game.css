@@ -11,7 +11,9 @@ video{
     min-height: 100%;
     min-width: 100%;
 }
-
+* {
+    cursor: unset;
+}
 header{
     display: none;
 }
@@ -19,14 +21,36 @@ main{
     visibility: hidden;
     position: relative;
     display:grid;
-    /* grid-template-rows: minmax(0, 1fr) minmax(0,2fr) minmax(0,1fr); */
     grid-template-columns: 25%  75%;
     grid-template-rows: 100%;
     height: 95vh;
     
 }
+.scanline {
+    /* On réduit l'intensité sinon le texte des cartes et bouton est illisible */
+    --scanline-itensity: 0.25; 
+
+    position: fixed;
+    display: block;
+    top: 0;  left: 0;  right:0;  bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, var(--scanline-itensity)), rgba(0, 0, 0, var(--scanline-itensity)) 1px, transparent 1px, transparent 2px);
+    /* Permet de ne pas interrompre l'intéraction du pointeur avec le contenu en dessous */
+    pointer-events: none;
+  
+    /* Change le contraste du scanline pour donner l'illusion de mouvement */
+    animation: 10s ease alternate infinite contrastScan;
+}
 footer{
-    display: none;
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    top: 0;  left: 0;  right:0;  bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
 }
 
 /* Opponent info */
