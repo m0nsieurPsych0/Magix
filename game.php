@@ -12,9 +12,8 @@
                 <main>
                     <div id="info-wrapper">
                         <div id="opponent-info">
-                            <div class="username opponent" >username</div>
+                            <div class="username opponent" ></div>
                             <div class="heroClass opponent">
-                                heroclass
                                 <div id="class-description"></div>
                             </div>
                             <div class="talent opponent">
@@ -45,31 +44,33 @@
                     
                     <div id="game-wrapper">
                         <div id="opponent">
-                            <div class="hero opponent" ><button onclick="attack({nom:'hero', uid: '0'});">HERO</button></div>
-                            <div class="welcomeText opponent"  ></div>
                             <div class="remainingCardsCount opponent" ></div>
                             <div class="handSize opponent" ></div>
+                            <img src="asset\opponent\isolatedbrainFromimage.svg" id="brain" onclick="attack({nom:'hero', uid: '0'});">
                             <div class="hp opponent" ></div>
                             <div class="mp opponent" ></div>
                         </div>
 
                         <div class="board" id="board">
-                            <div id="opponent-board">opponent-board</div>
-                            <div id="player-board">player-board</div>
+                            <div id="opponent-board"></div>
+                            <div id="player-board"></div>
+                            <div class="remainingTurnTime player" ></div>
+                            <canvas id="board-background"></canvas>
                         </div>
+                        
                         
                         <div id="player">
                             <div id="hand">
-                                hand
+                                
                             </div>
                             <div id="player-dashboard">
                                 <div class="hp player" ></div>
                                 <div class="mp player" ></div>
-                                <div class="maxHp player" ></div>
-                                <div class="maxMp player" ></div>
                                 <div class="remainingCardsCount player" ></div>
-                                <div class="heroPower player" ><button onclick="gameAction({type:'HERO_POWER'});"> HERO_POWER </button></div>
-                                <div class="player-endTurn player" ><button onclick="gameAction({type:'END_TURN'});"> END_TURN </button></div>
+                                <div id="player-button">
+                                    <button class="heroPower player" onclick="gameAction({type:'HERO_POWER'});"> _HERO_POWER </button>
+                                    <button class="player-endTurn player" onclick="gameAction({type:'END_TURN'});"> _END_TURN </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -118,7 +119,8 @@
                     
                     
                 </main>
-                <div class="remainingTurnTime player" ></div>
+                
+                <div class="welcomeText opponent"></div>
                 
             
 <?php

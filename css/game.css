@@ -1,8 +1,8 @@
 /*************************game*************************/
-/* .vardump{
-    display: relative;
-    overflow-y: scroll;
-} */
+:root {
+    --card-height: 20vh;
+    --card-width: 7vw;
+}
 
 video{
     position: fixed;
@@ -71,7 +71,10 @@ footer{
 /* Control center */
 #control-center{
     grid-row: 2;
-
+    border-style: solid;
+    border-right: white;
+    border-bottom: none;
+    padding-left: 1vw;
 }
 #chat{
     padding-top: 2.5vh;
@@ -84,85 +87,113 @@ iframe{
     border: none;
 }
 
-
+/* GAME STYLE */
 #game-wrapper{
     grid-column: 2;
     padding-left: 1vw;
 
     display: grid;
-    grid-template-rows: 15% 60% 25%;
+    grid-template-rows: 20% 55% 25%;
 }
+
+
+/* OPPONENT DASHBOARD  */
 
 #opponent{
-    display: flex;
+    display: grid;
 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    align-content: center;
 }
-/* .hero{
-    background-image: url(isolatedbrainFromimage.svg);
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    height:500px ;
-    width: 500px ;
+#opponent > *{
+    text-align: center;
+}
+@keyframes BrainRotation {
+    from {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
+img{
+    align-self: center;
+    height:250px ;
+    width: 250px ;
+    animation: 10s linear infinite BrainRotation;
+}
+.welcomeText{
+    position: absolute;
+    top: 7vh;
+    left:75vw;
+}
 
-    border: none;
-    
-} */
+/* GAME BOARD */
 
 #board{
+    position: relative;
+    grid-row: 2;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    align-items: center;
 }
-#opponent-board{
-    grid-row: 1;
-
-    display: flex;
-}
-#player-board{
-    grid-row: 2;
-
-    display: flex;
-}
-
-#player{
-
-    display: grid;
-    grid-template-columns: 85% 15%;
-
-}
-#hand{
-
-    display: flex;
-    justify-content: center;
-    
-}
-
-#player-dashboard{
-
-}
-
-:is(.players-hand, .players-card, .opponents-card) {
-    height: 20vh;
-    width: 7vw;
-    /* color: black; */
-}
-
-
-.board {
-    position: relative;
-    
+canvas{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 99, 71, 0.192); */
+    z-index: -1000;
 }
 :is(#opponent-board, #player-board ){
     display: flex;
     justify-content: center;
     align-content: space-evenly;
 }
+#opponent-board{
+    grid-row: 1;
+    /* padding-top: 2vh; */
+    display: flex;
+}
+#player-board{
+    grid-row: 2;
+    /* padding-bottom: 2vh; */
+    display: flex;
+}
 
+/* PLAYER DASHBOARD  */
+#player{
+    display: grid;
+    grid-template-columns: 85% 15%;
+    align-items: center;
+}
+#hand{
+    display: flex;
+    justify-content: center;
+}
+#player-dashboard{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+#player-button{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+
+/* CARDS STYLE */
+:is(.players-hand, .players-card, .opponents-card) {
+    height: var(--card-height);
+    width: var(--card-width);
+    font: var(--font-pref);
+    font-size: 1rem;
+    /* color: black; */
+}
+
+/* TIMER */
 .remainingTurnTime{
-    position: fixed;
-    top: 39vh;
-    right:2vw;
+    position: absolute;
+    top: 50% - 5rem;
+    right:2.5%;
     font-size: 5rem;
     /* z-index: 100; */
 }

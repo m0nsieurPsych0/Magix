@@ -67,7 +67,12 @@ function exitScreenSaver() {
         this.myY = Math.random() * innerHeight;
         this.myColor = 0;
       }
-  
+      
+      // TODO TODO TODO Changer le calcul de direction pour qu'il soit un pourcentage entre -10 <-> 0 <-> 10
+      // tailleMax/2 *.10 = 10% de la moitié de la taille 
+      // 
+      // donc le cadran du haut-gauche max = -10x et -10y
+      // plus on approche le centre
       mousePos() {
         // selon le cadran où se trouve le curseur on déplace les étoiles dans cette direction
         onmousemove = function(e){

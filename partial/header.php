@@ -33,6 +33,13 @@
 				if ($page == "game"){
 					?>
 						<link href="css/game.css" rel="stylesheet" />
+						<!-- GAME BACKGROUND -->
+							<script src="js/Gamebackground/assets/utils.js"></script>
+    						<script src="js/Gamebackground/assets/form.js"></script>
+    						<script src="js/Gamebackground/assets/history.js"></script>
+    						<script src="js/Gamebackground/assets/history.adapter.native.js"></script>
+							<script src="js/Gamebackground/dist/index.js"></script>
+						<!-- GAME BACKGROUND -->
 						<script src="js/chat.js"></script>
 						<script src="js/game.js"></script>
 						<title>__Game__|\/|agix__OS</title>
