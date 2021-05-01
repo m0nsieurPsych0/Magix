@@ -4,10 +4,9 @@
 
 window.addEventListener("load", () => {
     playVideo(videoSource.enter); // video intro
-    resetAccumulator(); // initialisé la variable Accumulator
+    resetAccumulator(); // initialiser la variable Accumulator
     importClassTalentData();
     setTimeout(gameState(), 1000); // Appel initial (attendre 1 seconde)
-    
 });
 
 // GLOBAL VARIABLES *****************************************
@@ -45,7 +44,7 @@ const videoSource = {
     enter: String.raw`<source src="asset\video\enter_door1080p60Med.mp4" type="video/mp4">`,
     exit: String.raw`<source src="asset\video\exit_door1080p60Med.mp4">`
 };
-let exitPlayed = false; //Prévenir que le vidéo exit joue deux fois en terminant une partie
+let exitPlayed = false; //Prévenir que la vidéo 'exit' joue deux fois en terminant une partie
 let Accumulator;
 let opponentMaxHp = 0;
 let opponentMaxMp = 0;
@@ -157,28 +156,41 @@ const updateGameData = (data) =>{
 
     for (let key in data){
         switch(key){
-            case "board":       break; //skip
-            case "hand":        break; //skip
-            case "heroClass":   break; //skip 
-            case "talent":      break; //skip 
-            case "welcomeText": break; //skip
-            case "heroPowerAlreadyUsed": break; //skip
-            case "yourTurn": break; //skip
-            case "maxHp" : break;
-            case "maxMp" : break;
+            // player
+            // case "board":       break; //skip
+            // case "hand":        break; //skip
+            // case "heroClass":   break; //skip 
+            // case "talent":      break; //skip 
+            // case "welcomeText": break; //skip
+            // case "heroPowerAlreadyUsed": break; //skip
+            // case "yourTurn": break; //skip
+            // case "maxHp" : break;
+            // case "maxMp" : break;
+            case "remainingTurnTime": document.querySelector("." + key + ".player").innerHTML = data[key]; break;
             case "remainingCardsCount" : document.querySelector("." + key + ".player").innerHTML = "Deck: " + data[key]; break;
             case "hp": document.querySelector("." + key + ".player").innerHTML = "Hp: " + data[key] + "/" + data["maxHp"]; break;
             case "mp": document.querySelector("." + key + ".player").innerHTML = "Mp: " + data[key] + "/" + data["maxMp"]; break;
+            
+            // opponent
             case "opponent":
                 for (let key in data.opponent){
                     switch(key){
-                        case "board": break;
-                        case "hp": 
-                            document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + opponentMaxHp; 
+                        case "board": break; //skip
+
+                        case "heroClass":
+                            document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
+                            // Description "heroClass"
+                            document.querySelector("#class-description").innerHTML = classTalent.heroClass[data.opponent[key]];
                             break;
-                        case "mp":
-                            document.querySelector("." + key + ".opponent").innerHTML = "Mp: " + data.opponent[key] + "/" + opponentMaxMp; 
+
+                        case "talent":
+                            document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
+                            // Description "talent"
+                            document.querySelector("#talent-description").innerHTML = classTalent.talent[data.opponent[key]];
                             break;
+
+                        case "hp": document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + opponentMaxHp; break;
+                        case "mp": document.querySelector("." + key + ".opponent").innerHTML = "Mp: " + data.opponent[key] + "/" + opponentMaxMp; break;
                         case "remainingCardsCount" : document.querySelector("." + key + ".opponent").innerHTML = "Deck: " + data.opponent[key]; break;
                         case "handSize" : document.querySelector("." + key + ".opponent").innerHTML = "Hand: " + data.opponent[key]; break;
                         default: 
@@ -187,7 +199,7 @@ const updateGameData = (data) =>{
                 };
                 break;
             default:
-                document.querySelector("." + key + ".player").innerHTML = data[key];
+                break; //skip
         }
         
     }
@@ -329,4 +341,16 @@ const loadingChat = () =>{
     div.innerHTML = document.querySelector("#chat-template").innerHTML;
     document.getElementById("control-center").append(div);
     
+}
+
+const splitWords = (str) =>{
+    let regx = new RegExp('\\B.(?<=[A-Z])');
+    if(regx.test(str)){
+        let split = str.split(regx); //Résultat sans la lettre du split
+        let whole = regx.exec(str) + split[1]; // Recombine le Résultat avec la lettre
+        return split[0].concat(" ",whole); //recombine la string avec un espace en plus
+    }
+    else{
+        return str;
+    }
 }

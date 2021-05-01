@@ -13,12 +13,10 @@
                     <div id="info-wrapper">
                         <div id="opponent-info">
                             <div class="username opponent" ></div>
-                            <div class="heroClass opponent">
-                                <div id="class-description"></div>
-                            </div>
-                            <div class="talent opponent">
-                                <div id="talent-description"></div>
-                            </div>
+                            <div class="heroClass opponent"></div>
+                            <div id="class-description"></div>
+                            <div class="talent opponent"></div>
+                            <div id="talent-description"></div>
                             <div id="stats">
                                 <div id="trophy">
                                     Trophy
