@@ -35,7 +35,7 @@
 						<link href="css/game.css" rel="stylesheet" />
 					<!-- GAME BACKGROUND -->
 						<script src="js/Gamebackground/assets/utils.js"></script>
-						<script src="js/Gamebackground/dist/index.js"></script>
+						<script src="js/Gamebackground/dist/gameBackground.js"></script>
 					<!-- GAME BACKGROUND -->
 						<script src="js/chat.js"></script>
 						<script src="js/game.js"></script>

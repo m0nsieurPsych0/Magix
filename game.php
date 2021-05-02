@@ -14,9 +14,9 @@
                         <div id="opponent-info">
                             <div class="username opponent" ></div>
                             <div class="heroClass opponent"></div>
-                            <div id="class-description"></div>
+                            <div id="class-description" class="opponent"></div>
                             <div class="talent opponent"></div>
-                            <div id="talent-description"></div>
+                            <div id="talent-description" class="opponent"></div>
                             <div id="stats">
                                 <div id="trophy">
                                     Trophy
@@ -93,20 +93,16 @@
 
                     
                     <template class="card-template" id="card-template">
-                        <div class="id"></div>
-                        <div class="name"></div>
+                        <!-- <div class="name"></div> -->
                         <div class="cost"></div>
                         <div class="hp"></div>
-                        <div class="baseHP"></div>
+                        <!-- <div class="baseHP"></div> -->
                         <div class="atk"></div>
                         <div class="state"></div>
                         <div class="mechanics">
                             <div class="mechanic-content">
                             </div>
                         </div>
-                        <div class="dedicated"></div>
-                        <!-- NE PAS AFFICHER LE UID -->
-                        <div class="uid"></div>
                     </template>
                     
                     <template id="chat-template">

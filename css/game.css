@@ -1,8 +1,5 @@
 /*************************game*************************/
-:root {
-    --card-height: 20vh;
-    --card-width: 7vw;
-}
+
 
 video{
     position: fixed;
@@ -63,10 +60,10 @@ footer{
     text-align: center;
 }
 .heroclass{
-    display: flex;
+    /* display: flex; */
 }
 .talent{
-    display: flex;
+    /* display: flex; */
 }
 #stats{
     
@@ -75,7 +72,6 @@ footer{
 }
 :is(#trophy, #win, #loss) {
     display: grid;
-
     grid-template-rows: 1fr 1fr;
     text-align: center;
 }
@@ -86,6 +82,8 @@ footer{
     border-style: solid;
     border-right: white;
     border-bottom: none;
+    box-shadow: inset 0.5rem 0 0.5rem -0.65rem #C8C8C8, 
+    0.5rem 0 0.5rem -0.65rem #C8C8C8;
     padding-left: 1vw;
 }
 #chat{
@@ -198,6 +196,9 @@ canvas{
 
 /* CARDS STYLE */
 :is(.players-hand, .players-card, .opponents-card) {
+    --card-height: 20vh;
+    --card-width: 7vw;
+
     height: var(--card-height);
     width: var(--card-width);
     font: var(--font-pref);
@@ -214,3 +215,30 @@ canvas{
     /* z-index: 100; */
 }
 
+/* END GAME */
+
+@keyframes endGameFadeIn {
+    from {opacity: 0;}
+    to{opacity: 1;}
+}
+:is(#youLost, #youWon, #pressAKey) {
+    position: relative;
+    top: calc(50vh - 20rem);
+    align-self: center;
+    text-align: center;
+    opacity: 1;
+    animation: endGameFadeIn ease-in 2s 1;
+}
+#youLost {
+    color: rgb(122, 16, 16);
+    text-shadow: 0 0 2rem #580f06;
+    font-size: 15rem ;
+}
+#youWon {
+    color: rgb(16, 122, 16);
+    text-shadow: 0 0 2rem  #0f5806;
+    font-size: 15rem ;
+}
+#pressAKey {
+    font-size: 5rem;
+}

@@ -6,7 +6,8 @@ window.addEventListener("load", () => {
     playVideo(videoSource.enter); // video intro
     resetAccumulator(); // initialiser la variable Accumulator
     importClassTalentData();
-    setTimeout(gameState(), 1000); // Appel initial (attendre 1 seconde)
+    gameBackground();
+    setTimeout(gameState(), 1000);// Appel initial (attendre 1 seconde)
 });
 
 // GLOBAL VARIABLES *****************************************
@@ -75,33 +76,35 @@ const gameState = () => {
     .then(response => response.json())
     .then(data => {
     // console.log(data); // contient les cartes/état du jeu.
-    try{
-        switch(data){
-            case "WAITING": 
-                console.log("I see waiting"); 
-                break;
-            case "LAST_GAME_LOST":
-            case "LAST_GAME_WON" :
-            case "GAME_NOT_FOUND":
-            case "":
-            case null: 
-                playVideo(videoSource.exit);
-                break;
-            default:
-                game(data);
+        try{
+            switch(data){
+                case "LAST_GAME_LOST":
+                case "LAST_GAME_WON" :
+                    endScreen(data);
+                    break;
+                case "GAME_NOT_FOUND":
+                case "":
+                case null: 
+                    playVideo(videoSource.exit);
+                    break;
+                case "WAITING": 
+                    console.log("I see waiting");
+                    setTimeout(gameState, 1000);
+                    break;
+                default:
+                    game(data);
+                    setTimeout(gameState, 1000);
+            }
         }
-    }
-    catch(e) {
-        console.log(e);
-        playVideo(videoSource.exit);
-    }
-    
-    setTimeout(gameState, 1000); // Attendre 1 seconde avant de relancer l’appel
+        catch(e) {
+            console.log(e);
+            playVideo(videoSource.exit);
+        }
     })
 }
 
 const gameAction = (send) =>{
-    console.log(send);
+    // console.log(send);
 
     let formData = new FormData();
 
@@ -217,7 +220,11 @@ const createCards = (target) => {
         div.innerHTML = document.querySelector("#card-template").innerHTML;
 
         for (key in target.dataRoot[i]){
-            div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];            
+            
+            if (div.querySelector("."+key) != null){
+                // console.log(div.querySelector("."+key));
+                div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];            
+            }
         }
         div.setAttribute("onclick", target.functionCall);
         document.getElementById(target.htmlDestination).append(div);
@@ -248,6 +255,7 @@ const attack = (data) =>{
 
 function playVideo(source) {
     // Ne rejoue pas la vidéo 'enter' si on reload la page
+    // Fonctionne seulement pour Firefox
     if (performance.getEntriesByType("navigation")[0].type == "navigate" || source == videoSource.exit ){
     
         let body = document.body;
@@ -353,4 +361,47 @@ const splitWords = (str) =>{
     else{
         return str;
     }
+}
+
+const endScreen = (state) =>{
+    // Dim background
+    for(let i = 1; i > 0.05;i -= 0.0001){
+        document.querySelector("main").style.opacity = i;
+    }    
+    
+    // Créer les élements textes 
+    let main = document.querySelector("footer");
+
+    let endScreen = document.createElement("div");
+    let pressAKey = document.createElement("div");
+    let classe = "endGame"
+
+    endScreen.class = classe;
+    // You lost
+    if (state == "LAST_GAME_LOST"){
+        endScreen.id = "youLost";
+        endScreen.innerHTML = "Partie Perdue!";
+        pressAKey.style.color = "rgb(182, 11, 11)";
+        pressAKey.style.textShadow = "0 0 2rem #580f06";
+
+    }
+    // you won
+    else {
+        endScreen.id = "youWon";
+        endScreen.innerHTML = "Partie Gagnée!";
+        pressAKey.style.color = "rgb(11, 144, 11)";
+        pressAKey.style.textShadow = "0 0 2rem  #0f5806";
+    }
+    // press a key
+    pressAKey.innerHTML = "\n(cliquer pour quitter)";
+    pressAKey.id = "pressAKey";
+    pressAKey.class = classe;
+
+    main.append(endScreen);
+    main.append(pressAKey);
+
+    // Ajout des events listeners
+    document.onkeyup = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
+    document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
+
 }
