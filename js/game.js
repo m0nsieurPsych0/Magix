@@ -170,12 +170,12 @@ const updateGameData = (data) =>{
             // case "maxMp" : break;
             case "yourTurn":
                 if (data[key]){ 
-                    document.getElementById("player-background").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
-                    document.getElementById("opponent-background").style.backgroundImage =  "none";
+                    document.getElementById("player-turn").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
+                    document.getElementById("opponent-turn").style.backgroundImage =  "none";
                 }
                 else{
-                    document.getElementById("opponent-background").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
-                    document.getElementById("player-background").style.backgroundImage =  "none";
+                    document.getElementById("opponent-turn").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
+                    document.getElementById("player-turn").style.backgroundImage =  "none";
 
                 }
                 break; //skip

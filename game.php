@@ -49,7 +49,7 @@
                             <div class="hp opponent" ></div>
                             <div class="mp opponent" ></div>
                             <div class="welcomeText opponent"></div>
-                            <div id="opponent-background"></div>
+                            <div id="opponent-turn"></div>
                         </div>
                         <div class="board" id="board">
                             <div id="opponent-board"></div>
@@ -73,7 +73,7 @@
                                     <button class="player-endTurn player" onclick="gameAction({type:'END_TURN'});"> _END_TURN </button>
                                 </div>
                             </div>
-                            <div id="player-background"></div>
+                            <div id="player-turn"></div>
                         </div>
                     </div>
 
