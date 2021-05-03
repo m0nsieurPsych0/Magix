@@ -24,7 +24,7 @@ main{
     
 }
 .scanline {
-    /* On réduit l'intensité sinon le texte des cartes et bouton est illisible */
+    /* On réduit l'intensité sinon le texte des cartes et des boutons est illisible */
     --scanline-itensity: 0.25;
     background: repeating-linear-gradient(0deg, rgba(0, 0, 0, var(--scanline-itensity)), rgba(0, 0, 0, var(--scanline-itensity)) 1px, transparent 1px, transparent 2px);
 }
@@ -58,12 +58,6 @@ footer{
 }
 .username{
     text-align: center;
-}
-.heroclass{
-    /* display: flex; */
-}
-.talent{
-    /* display: flex; */
 }
 #stats{
     
@@ -106,7 +100,6 @@ iframe{
 
 
 /* OPPONENT DASHBOARD  */
-
 #opponent{
     display: grid;
 

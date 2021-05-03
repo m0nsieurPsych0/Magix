@@ -77,22 +77,6 @@
                         </div>
                     </div>
 
-                    <!-- À DÉPLACER ET REFACTOR -->
-                    
-
-                        <!-- <div class="welcomeText" ></div>
-                        <div class="heroClass" ></div>
-                        <div class="talent"></div> -->
-                        
-                        
-                        
-                        <!-- <div class="hand" id="players-hand" ></div>
-                        <div class="heroPowerAlreadyUsed" ></div> -->
-                        
-                        
-                   
-                   
-
                     <!------------- Section Template -------------->
 
                     
