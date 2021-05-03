@@ -2,9 +2,11 @@
 	<html lang="fr">
 		<head>
 			<!-- Global -->
-			<meta charset="UTF-8">	
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">	
 			<script src="js/screenSaver.js"></script>
 			<link href="css/global.css" rel="stylesheet" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			
 			<!-- Specific -->
 			<?php

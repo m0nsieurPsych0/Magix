@@ -166,9 +166,19 @@ const updateGameData = (data) =>{
             // case "talent":      break; //skip 
             // case "welcomeText": break; //skip
             // case "heroPowerAlreadyUsed": break; //skip
-            // case "yourTurn": break; //skip
             // case "maxHp" : break;
             // case "maxMp" : break;
+            case "yourTurn":
+                if (data[key]){ 
+                    document.getElementById("player-background").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
+                    document.getElementById("opponent-background").style.backgroundImage =  "none";
+                }
+                else{
+                    document.getElementById("opponent-background").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
+                    document.getElementById("player-background").style.backgroundImage =  "none";
+
+                }
+                break; //skip
             case "remainingTurnTime": document.querySelector("." + key + ".player").innerHTML = data[key]; break;
             case "remainingCardsCount" : document.querySelector("." + key + ".player").innerHTML = "Deck: " + data[key]; break;
             case "hp": document.querySelector("." + key + ".player").innerHTML = "Hp: " + data[key] + "/" + data["maxHp"]; break;

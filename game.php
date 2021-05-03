@@ -10,6 +10,7 @@
 ?>
 
                 <main>
+
                     <div id="info-wrapper">
                         <div id="opponent-info">
                             <div class="username opponent" ></div>
@@ -48,6 +49,7 @@
                             <div class="hp opponent" ></div>
                             <div class="mp opponent" ></div>
                             <div class="welcomeText opponent"></div>
+                            <div id="opponent-background"></div>
                         </div>
                         <div class="board" id="board">
                             <div id="opponent-board"></div>
@@ -55,6 +57,7 @@
                             <div class="remainingTurnTime player" ></div>
                             <canvas id="board-background"></canvas>
                         </div>
+
                         
                         
                         <div id="player">
@@ -70,6 +73,7 @@
                                     <button class="player-endTurn player" onclick="gameAction({type:'END_TURN'});"> _END_TURN </button>
                                 </div>
                             </div>
+                            <div id="player-background"></div>
                         </div>
                     </div>
 
@@ -104,12 +108,13 @@
                             </div>
                         </div>
                     </template>
-                    
+
                     <template id="chat-template">
                         <iframe onload="applyStyles(this)" 
                                 src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                         </iframe>
                     </template>
+                    
                     
                     
                 </main>
