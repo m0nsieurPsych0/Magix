@@ -1,6 +1,6 @@
 // Initialise une fonction qui va intercepter le retour en arrière du navigateur
 // Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
-(function(global) {catchingBackButtonEvent(global);})(window);
+((global) => {catchingBackButtonEvent(global);})(window);
 
 window.addEventListener("load", () => {
     playVideo(videoSource.enter); // video intro
