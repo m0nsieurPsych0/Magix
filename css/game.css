@@ -95,7 +95,8 @@ iframe{
     padding-left: 1vw;
 
     display: grid;
-    grid-template-rows: 20% 55% 25%;
+    /* grid-template-rows: 20% 55% 25%; */
+    grid-template-rows: 18% 55% 27%;
 }
 
 
@@ -114,7 +115,7 @@ iframe{
         transform: rotate3d(0, 1, 0, 360deg);
     }
 }
-img{
+#brain{
     align-self: center;
     height:250px ;
     width: 250px ;
@@ -188,14 +189,69 @@ canvas{
 
 /* CARDS STYLE */
 :is(.players-hand, .players-card, .opponents-card) {
-    --card-height: 20vh;
-    --card-width: 7vw;
+    position: relative;
+    /* Card size */
 
-    height: var(--card-height);
-    width: var(--card-width);
+    /* ancienne taille des cartes */
+    height: 20vh;
+    width: 7vw;
+
+    /* height: 23vh;
+    width: 8.2vw; */
+
+    /* Font */
     font: var(--font-pref);
-    font-size: 1rem;
-    /* color: black; */
+    font-size: 0.9rem;   
+
+}
+:is(#card-side, #card-center, #card-taunt){
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    
+}
+#card-side{
+    z-index: -3;
+}
+#card-center{
+    z-index: -2;
+}
+#card-taunt{
+    z-index: -1;
+    opacity: 0.50;   
+}
+
+.cost.card{
+    position: absolute;
+    top: 65%;
+    right: 40%;
+}
+.hp.card{
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+.atk.card{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+.mechanics.card{
+    position: absolute;
+    text-align: center;
+    margin-left: 26px;
+    margin-right: 26px;
+    top: 30%;
+    left: 0;
+}
+.state.card{
+    /* color:cyan; */
+    position: absolute;
+    top: 75%;
+    left: 40%;
+    text-align: center;
 }
 
 

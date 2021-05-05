@@ -62,7 +62,18 @@
                         
                         <div id="player">
                             <div id="hand">
-                                
+                                <!-- <div class="players-hand" id="test">
+                                    <div class="atk card">atk:7</div>
+                                    <div class="hp card">hp:2</div>
+                                    <div class="cost card">cost:8</div>
+                                    <div class="mechanics card">
+                                        <div class="mechanics-content">Stealth, At the start of your turn, give +1 HP to a random friendly minion</div>
+                                    </div>
+                                    <div class="state card">sleep</div>
+                                    <img src="asset\cartes\Card-SIDES.png" id="card-side">
+                                    <img id="card-center" src="asset\cartes\Card-CENTER.png">
+                                    <img id="card-taunt" src="asset\cartes\Card-TAUNT.png">
+                                </div> -->
                             </div>
                             <div id="player-dashboard">
                                 <div class="hp player" ></div>
@@ -82,15 +93,17 @@
                     
                     <template class="card-template" id="card-template">
                         <!-- <div class="name"></div> -->
-                        <div class="cost"></div>
-                        <div class="hp"></div>
+                        <div class="atk card"></div>
+                        <div class="hp card"></div>
+                        <div class="cost card"></div>
                         <!-- <div class="baseHP"></div> -->
-                        <div class="atk"></div>
-                        <div class="state"></div>
-                        <div class="mechanics">
-                            <div class="mechanic-content">
-                            </div>
+                        <div class="mechanics card">
+                            <div class="mechanics-content"></div>
                         </div>
+                        <div class="state card"></div>
+                        <img id="card-side" src="asset\cartes\Card-SIDES.png">
+                        <img id="card-center" src="asset\cartes\Card-CENTER-SMALLBORDER.png">
+                        <!-- <img id="card-taunt" src="asset\cartes\Card-TAUNT-SMALLBORDER.png"> -->
                     </template>
 
                     <template id="chat-template">

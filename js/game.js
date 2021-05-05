@@ -66,6 +66,7 @@ const resetAccumulator = () =>{
         destination:''
     } 
 }
+
 // ************************************************************
 
 const gameState = () => {
@@ -75,7 +76,7 @@ const gameState = () => {
     })
     .then(response => response.json())
     .then(data => {
-    // console.log(data); // contient les cartes/état du jeu.
+    console.log(data); // contient les cartes/état du jeu.
         try{
             switch(data){
                 case "LAST_GAME_LOST":
@@ -98,7 +99,7 @@ const gameState = () => {
         }
         catch(e) {
             console.log(e);
-            playVideo(videoSource.exit);
+            // playVideo(videoSource.exit);
         }
     })
 }
@@ -142,7 +143,7 @@ const gameAction = (send) =>{
 const game = (data) => {
     
     updateGameData(data);
-
+    
     cardDestination.map(elem => {
         switch(elem.htmlDestination){
             case "hand": elem.dataRoot = data.hand; break;
@@ -222,18 +223,33 @@ const updateGameData = (data) =>{
 const createCards = (target) => {
 
     document.getElementById(target.htmlDestination).innerHTML = "";
-    
+    // let taunt = false;
+
+    // On crée la carte
     for (let i = 0; i < target.dataRoot.length; i++){
-        let div = document.createElement("button");
+        
+        let div = document.createElement("div");
         div.id = target.dataRoot[i]["uid"];
         div.className = target.className;
         div.innerHTML = document.querySelector("#card-template").innerHTML;
 
+        // On met à jour ses informations
         for (key in target.dataRoot[i]){
             
             if (div.querySelector("."+key) != null){
-                // console.log(div.querySelector("."+key));
-                div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];            
+                console.log(div.querySelector("."+key));
+                
+                switch(key){
+                    case "mechanics": 
+                        if(target.dataRoot[i].mechanics[0] == "Taunt"){
+                            div.innerHTML += '<img id="card-taunt" src="asset/cartes/Card-TAUNT-SMALLBORDER.png">'; 
+                        }
+                    case "state": div.querySelector("."+key).innerText = target.dataRoot[i][key]; break;
+
+                    default:
+                        div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];
+
+                }
             }
         }
         div.setAttribute("onclick", target.functionCall);
