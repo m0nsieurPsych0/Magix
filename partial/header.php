@@ -19,6 +19,7 @@
 				if ($page == "login"){
 					?>
 						<link href="css/login.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<script src="js/login.js"></script>
 						<title>__Login__|\/|agix__OS</title>
 					<?php	
@@ -26,6 +27,7 @@
 				if ($page == "home"){
 					?>
 						<link href="css/home.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<script src="js/chat.js"></script>
 						<script src="js/home.js"></script>
 						<title>__Home__|\/|agix__OS</title>
@@ -46,6 +48,7 @@
 				if ($page == "guide"){
 					?>
 						<link href="css/guide.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<!-- <script src="js/guide.js"></script> -->
 						<title>__Guide__|\/|agix__OS</title>
 					<?php	
