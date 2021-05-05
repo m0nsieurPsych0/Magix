@@ -11,12 +11,12 @@ window.addEventListener("load", () => {
 });
 
 // GLOBAL VARIABLES *****************************************
-let classTalent;
+let opponentInfo;
 const importClassTalentData = () => {
     fetch("asset/classTalent.json")
     .then(response => response.json())
     .then(data => {
-        classTalent = data;
+        opponentInfo = data;
     })
 }
 let cardDestination = [
@@ -161,14 +161,6 @@ const updateGameData = (data) =>{
     for (let key in data){
         switch(key){
             // player
-            // case "board":       break; //skip
-            // case "hand":        break; //skip
-            // case "heroClass":   break; //skip 
-            // case "talent":      break; //skip 
-            // case "welcomeText": break; //skip
-            // case "heroPowerAlreadyUsed": break; //skip
-            // case "maxHp" : break;
-            // case "maxMp" : break;
             case "yourTurn":
                 if (data[key]){ 
                     document.getElementById("player-turn").style.backgroundImage =  "radial-gradient(circle, rgba(255, 255, 255, 0.75), black 50%, transparent)";
@@ -179,7 +171,7 @@ const updateGameData = (data) =>{
                     document.getElementById("player-turn").style.backgroundImage =  "none";
 
                 }
-                break; //skip
+                break;
             case "remainingTurnTime": document.querySelector("." + key + ".player").innerHTML = data[key]; break;
             case "remainingCardsCount" : document.querySelector("." + key + ".player").innerHTML = "Deck: " + data[key]; break;
             case "hp": document.querySelector("." + key + ".player").innerHTML = "Hp: " + data[key] + "/" + data["maxHp"]; break;
@@ -194,13 +186,13 @@ const updateGameData = (data) =>{
                         case "heroClass":
                             document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
                             // Description "heroClass"
-                            document.querySelector("#class-description").innerHTML = classTalent.heroClass[data.opponent[key]];
+                            document.querySelector("#class-description").innerHTML = opponentInfo.heroClass[data.opponent[key]];
                             break;
 
                         case "talent":
                             document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
                             // Description "talent"
-                            document.querySelector("#talent-description").innerHTML = classTalent.talent[data.opponent[key]];
+                            document.querySelector("#talent-description").innerHTML = opponentInfo.talent[data.opponent[key]];
                             break;
 
                         case "hp": document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + opponentMaxHp; break;
@@ -213,7 +205,7 @@ const updateGameData = (data) =>{
                 };
                 break;
             default:
-                break; //skip
+                break; // Si ce n'est pas un des cas évalué on skip
         }
         
     }
@@ -223,7 +215,6 @@ const updateGameData = (data) =>{
 const createCards = (target) => {
 
     document.getElementById(target.htmlDestination).innerHTML = "";
-    // let taunt = false;
 
     // On crée la carte
     for (let i = 0; i < target.dataRoot.length; i++){
@@ -236,9 +227,7 @@ const createCards = (target) => {
         // On met à jour ses informations
         for (key in target.dataRoot[i]){
             
-            if (div.querySelector("."+key) != null){
-                console.log(div.querySelector("."+key));
-                
+            if (div.querySelector("."+key) != null){                
                 switch(key){
                     case "mechanics":
                         target.dataRoot[i].mechanics.map(elem => {
@@ -251,7 +240,6 @@ const createCards = (target) => {
 
                     default:
                         div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];
-
                 }
             }
         }
@@ -282,7 +270,7 @@ const attack = (data) =>{
     }
 }
 
-function playVideo(source) {
+const playVideo = (source) => {
     // Ne rejoue pas la vidéo 'enter' si on reload la page
     // Fonctionne seulement pour Firefox
     if (performance.getEntriesByType("navigation")[0].type == "navigate" || source == videoSource.exit ){
@@ -430,7 +418,7 @@ const endScreen = (state) =>{
     main.append(pressAKey);
 
     // Ajout des events listeners
-    document.onkeyup = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
+    // document.onkeyup = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
     document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
 
 }
