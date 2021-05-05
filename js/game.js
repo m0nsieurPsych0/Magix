@@ -240,10 +240,13 @@ const createCards = (target) => {
                 console.log(div.querySelector("."+key));
                 
                 switch(key){
-                    case "mechanics": 
-                        if(target.dataRoot[i].mechanics[0] == "Taunt"){
-                            div.innerHTML += '<img id="card-taunt" src="asset/cartes/Card-TAUNT-SMALLBORDER.png">'; 
-                        }
+                    case "mechanics":
+                        target.dataRoot[i].mechanics.map(elem => {
+                            if(elem == "Taunt"){
+                                div.innerHTML += '<img id="card-taunt" src="asset/cartes/Card-TAUNT-SMALLBORDER.png">';
+                                return;
+                            }
+                        })
                     case "state": div.querySelector("."+key).innerText = target.dataRoot[i][key]; break;
 
                     default:
