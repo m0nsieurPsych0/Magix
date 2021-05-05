@@ -205,7 +205,7 @@ const updateGameData = (data) =>{
                 };
                 break;
             default:
-                break; // Si ce n'est pas un des cas évalué on skip
+                break; // Si ce n'est pas un des cas évalués on skip
         }
         
     }
