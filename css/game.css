@@ -172,39 +172,47 @@ canvas{
     
 }
 #hand > *{
-    /* Espacement entre les carte */
+    /* Espacement entre les cartes */
     margin-right: clamp(0.01vw, 0.45vw , 1vw);
     margin-left: clamp(0.01vw, 0.45vw, 1vw);
 }
 #player-dashboard{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-#player-button{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    
+#player-dashboard >*{
+    margin-top: clamp(0.01vh, 0.5vh , 1vh);
+    margin-bottom: clamp(0.01vh, 0.5vh, 1vh);
+}
+
+:is(.heroPower, .player-endTurn){
+    margin: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    min-width: clamp(7rem, 10rem, 15rem);
+    max-width: clamp(7rem, 10rem, 15rem);
 }
 
 
 /* CARDS STYLE */
 :is(.players-hand, .players-card, .opponents-card) {
     position: relative;
+    
     /* Card size */
-
-    /* ancienne taille des cartes */
     height: 20vh;
     width: 7vw;
 
-    /* height: 23vh;
-    width: 8.2vw; */
-
+    
     /* Font */
     font: var(--font-pref);
-    font-size: 0.9rem;   
+    font-size: 0.9rem;
+    /* white-space: pre-line; */   
+    /* white-space: pre;
+    word-wrap: break-word; */
 
 }
-:is(#card-side, #card-center, #card-taunt){
+:is(#card-side, #card-center, #card-taunt, #card-stealth){
     position: absolute;
     top:0;
     left:0;
@@ -221,6 +229,10 @@ canvas{
 #card-taunt{
     z-index: -1;
     opacity: 0.50;   
+}
+#card-stealth{
+    z-index: -1;
+    opacity: 1;   
 }
 
 .cost.card{
@@ -245,9 +257,13 @@ canvas{
     margin-right: 26px;
     top: 30%;
     left: 0;
+    max-width: 5vw;
+    white-space: pre;
+    white-space: pre-wrap; 
+    white-space: pre-line; 
+    word-wrap: break-word; 
 }
 .state.card{
-    /* color:cyan; */
     position: absolute;
     top: 75%;
     left: 40%;

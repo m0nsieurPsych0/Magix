@@ -30,3 +30,137 @@
     "handSize":6,
     "remainingCardsCount":21,
     "welcomeText":"None shall pass"}}
+
+    {
+        "remainingTurnTime": 38,
+        "heroPowerAlreadyUsed": false,
+        "yourTurn": true,
+        "hp": 27,
+        "maxHp": 35,
+        "heroClass": "Warlock",
+        "talent": "LifeBoost",
+        "mp": 6,
+        "maxMp": 6,
+        "hand": [
+          {
+            "id": 20,
+            "cost": 4,
+            "hp": 3,
+            "atk": 3,
+            "mechanics": [
+              "Battlecry : Leech 2 HP from the opponent's hero"
+            ],
+            "dedicated": "",
+            "uid": 6,
+            "baseHP": 3
+          },
+          {
+            "id": 63,
+            "cost": 2,
+            "hp": 1,
+            "atk": 2,
+            "mechanics": [
+              "Deathrattle : Draw a card"
+            ],
+            "dedicated": "",
+            "uid": 8,
+            "baseHP": 1
+          },
+          {
+            "id": 33,
+            "cost": 10,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Battlecry : Destroy all minions"
+            ],
+            "dedicated": "",
+            "uid": 9,
+            "baseHP": 1
+          },
+          {
+            "id": 9,
+            "cost": 2,
+            "hp": 2,
+            "atk": 2,
+            "mechanics": [
+              "Battlecry : Leech 1 HP from the opponent's hero"
+            ],
+            "dedicated": "",
+            "uid": 10,
+            "baseHP": 2
+          },
+          {
+            "id": 50,
+            "cost": 2,
+            "hp": 7,
+            "atk": 0,
+            "mechanics": [
+              "At the start of your turn, destroy all minions"
+            ],
+            "dedicated": "Nicochoco (ière place, A2020)",
+            "uid": 11,
+            "baseHP": 7
+          }
+        ],
+        "board": [
+          {
+            "id": 60,
+            "cost": 3,
+            "hp": 1,
+            "atk": 2,
+            "mechanics": [
+              "After using your hero power, deal 1 damage to all enemies"
+            ],
+            "dedicated": "",
+            "uid": 7,
+            "baseHP": 3,
+            "state": "IDLE"
+          },
+          {
+            "id": 61,
+            "cost": 3,
+            "hp": 2,
+            "atk": 3,
+            "mechanics": [
+              "After using your hero power, leech 2 HP from the opponent's hero"
+            ],
+            "dedicated": "",
+            "uid": 2,
+            "baseHP": 2,
+            "state": "IDLE"
+          }
+        ],
+        "remainingCardsCount": 20,
+        "welcomeText": "The worms will crawl through your lungs!",
+        "opponent": {
+          "username": "Assassin-AI",
+          "heroClass": "Rogue",
+          "talent": "ExtraCard",
+          "trophyCount": 0,
+          "winCount": 0,
+          "lossCount": 10,
+          "hp": 23,
+          "mp": 1,
+          "board": [
+            {
+              "id": 91,
+              "cost": 4,
+              "hp": 1,
+              "atk": 1,
+              "mechanics": [
+                "Charge",
+                "Taunt",
+                "Battlecry : Add a random card to your hand"
+              ],
+              "dedicated": "",
+              "uid": 36,
+              "baseHP": 1,
+              "state": "IDLE"
+            }
+          ],
+          "handSize": 5,
+          "remainingCardsCount": 21,
+          "welcomeText": "Quick as an arrow"
+        }
+      }

@@ -52,37 +52,30 @@
                             <div id="opponent-turn"></div>
                         </div>
                         <div class="board" id="board">
-                            <div id="opponent-board"></div>
-                            <div id="player-board"></div>
+                            <div id="opponent-board">
+                                <!-- Remplis par la fonction createCards() -->
+                            </div>
+                            <div id="player-board">
+                                <!-- Remplis par la fonction createCards() -->
+                            </div>
                             <div class="remainingTurnTime player" ></div>
-                            <canvas id="board-background"></canvas>
+                            <canvas id="board-background">
+                                <!-- Remplis par la fonction gameBackground() -->
+                            </canvas>
                         </div>
 
                         
                         
                         <div id="player">
                             <div id="hand">
-                                <!-- <div class="players-hand" id="test">
-                                    <div class="atk card">atk:7</div>
-                                    <div class="hp card">hp:2</div>
-                                    <div class="cost card">cost:8</div>
-                                    <div class="mechanics card">
-                                        <div class="mechanics-content">Stealth, At the start of your turn, give +1 HP to a random friendly minion</div>
-                                    </div>
-                                    <div class="state card">sleep</div>
-                                    <img src="asset\cartes\Card-SIDES.png" id="card-side">
-                                    <img id="card-center" src="asset\cartes\Card-CENTER.png">
-                                    <img id="card-taunt" src="asset\cartes\Card-TAUNT.png">
-                                </div> -->
+                                <!-- Remplis par la fonction createCards() -->
                             </div>
                             <div id="player-dashboard">
                                 <div class="hp player" ></div>
                                 <div class="mp player" ></div>
                                 <div class="remainingCardsCount player" ></div>
-                                <div id="player-button">
-                                    <button class="heroPower player" onclick="gameAction({type:'HERO_POWER'});"> _HERO_POWER </button>
-                                    <button class="player-endTurn player" onclick="gameAction({type:'END_TURN'});"> _END_TURN </button>
-                                </div>
+                                <button class="heroPower player" onclick="gameAction({type:'HERO_POWER'});"> _HERO_POWER </button>
+                                <button class="player-endTurn player" onclick="gameAction({type:'END_TURN'});"> _END_TURN </button>
                             </div>
                             <div id="player-turn"></div>
                         </div>
@@ -101,9 +94,8 @@
                             <div class="mechanics-content"></div>
                         </div>
                         <div class="state card"></div>
-                        <img id="card-side" src="asset\cartes\Card-SIDES.png">
-                        <img id="card-center" src="asset\cartes\Card-CENTER-SMALLBORDER.png">
-                        <!-- <img id="card-taunt" src="asset\cartes\Card-TAUNT-SMALLBORDER.png"> -->
+                        <img id="card-side" src="asset/cartes/Card-SIDES.png">
+                        <img id="card-center" src="asset/cartes/Card-CENTER-SMALLBORDER.png">
                     </template>
 
                     <template id="chat-template">

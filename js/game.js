@@ -233,10 +233,16 @@ const createCards = (target) => {
                         target.dataRoot[i].mechanics.map(elem => {
                             if(elem == "Taunt"){
                                 div.innerHTML += '<img id="card-taunt" src="asset/cartes/Card-TAUNT-SMALLBORDER.png">';
-                                return;
+                            }
+                            if(elem == "Stealth"){
+                                div.innerHTML += '<img id="card-stealth" src="asset/cartes/Card-STEALTH-SMALLBORDER.png">';
                             }
                         })
-                    case "state": div.querySelector("."+key).innerText = target.dataRoot[i][key]; break;
+                    case "state": div.querySelector("."+key).innerText = target.dataRoot[i][key]; 
+                    if(target.dataRoot[i]["id"] == 91){
+                        console.log(target.dataRoot[i][key]);
+                    }
+                    break;
 
                     default:
                         div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];
