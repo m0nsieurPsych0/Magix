@@ -21,13 +21,22 @@
                 }
 
                 $result = parent::callAPI("games/action", $data);
-                return compact("result");
                 
+                foreach (ERRORGAME as $error){
+                    if ($result == $error){
+                        $def = ERRORGAMEDEF["error"];
+                        return compact("def");
+					}
+                    else{
+                        return compact("result");
+                    }
+				}
 
             }
             // GAME STATE //
             else{
                 $result = parent::callAPI("games/state", array("key" => $_SESSION["key"]));
+
                 return compact("result");
             }
             

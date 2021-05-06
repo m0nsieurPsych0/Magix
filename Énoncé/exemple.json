@@ -164,3 +164,430 @@
           "welcomeText": "Quick as an arrow"
         }
       }
+
+      {
+        "remainingTurnTime": 50,
+        "heroPowerAlreadyUsed": false,
+        "yourTurn": true,
+        "hp": 35,
+        "maxHp": 35,
+        "heroClass": "Mage",
+        "talent": "LifeBoost",
+        "mp": 2,
+        "maxMp": 2,
+        "hand": [
+          {
+            "id": 79,
+            "cost": 1,
+            "hp": 4,
+            "atk": 0,
+            "mechanics": [
+              "Taunt"
+            ],
+            "dedicated": "",
+            "uid": 2,
+            "baseHP": 4
+          },
+          {
+            "id": 47,
+            "cost": 8,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Battlecry : Take control of a random enemy minion"
+            ],
+            "dedicated": "",
+            "uid": 3,
+            "baseHP": 1
+          },
+          {
+            "id": 4,
+            "cost": 1,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Charge"
+            ],
+            "dedicated": "",
+            "uid": 4,
+            "baseHP": 1
+          },
+          {
+            "id": 50,
+            "cost": 2,
+            "hp": 7,
+            "atk": 0,
+            "mechanics": [
+              "At the start of your turn, destroy all minions"
+            ],
+            "dedicated": "Nicochoco (ière place, A2020)",
+            "uid": 5,
+            "baseHP": 7
+          },
+          {
+            "id": 73,
+            "cost": 3,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Battlecry : Gain a crystal"
+            ],
+            "dedicated": "",
+            "uid": 6,
+            "baseHP": 1
+          }
+        ],
+        "board": [],
+        "remainingCardsCount": 25,
+        "welcomeText": "The worms will crawl through your lungs!",
+        "opponent": {
+          "username": "Void-AI",
+          "heroClass": "Druid",
+          "talent": "ExtraCard",
+          "trophyCount": 0,
+          "winCount": 0,
+          "lossCount": 10,
+          "hp": 30,
+          "mp": 1,
+          "board": [
+            {
+              "id": 85,
+              "cost": 1,
+              "hp": 2,
+              "atk": 0,
+              "mechanics": [
+                "At the start of your turn, give +1 HP to a random friendly minion"
+              ],
+              "dedicated": "",
+              "uid": 32,
+              "baseHP": 2,
+              "state": "IDLE"
+            },
+            {
+              "id": 79,
+              "cost": 1,
+              "hp": 4,
+              "atk": 0,
+              "mechanics": [
+                "Taunt"
+              ],
+              "dedicated": "",
+              "uid": 33,
+              "baseHP": 4,
+              "state": "IDLE"
+            }
+          ],
+          "handSize": 4,
+          "remainingCardsCount": 24,
+          "welcomeText": "I have control!"
+        }
+      }
+      {
+        "remainingTurnTime": 5,
+        "heroPowerAlreadyUsed": false,
+        "yourTurn": true,
+        "hp": 35,
+        "maxHp": 35,
+        "heroClass": "Mage",
+        "talent": "LifeBoost",
+        "mp": 1,
+        "maxMp": 1,
+        "hand": [
+          {
+            "id": 79,
+            "cost": 1,
+            "hp": 4,
+            "atk": 0,
+            "mechanics": [
+              "Taunt"
+            ],
+            "dedicated": "",
+            "uid": 2,
+            "baseHP": 4
+          },
+          {
+            "id": 47,
+            "cost": 8,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Battlecry : Take control of a random enemy minion"
+            ],
+            "dedicated": "",
+            "uid": 3,
+            "baseHP": 1
+          },
+          {
+            "id": 4,
+            "cost": 1,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Charge"
+            ],
+            "dedicated": "",
+            "uid": 4,
+            "baseHP": 1
+          },
+          {
+            "id": 50,
+            "cost": 2,
+            "hp": 7,
+            "atk": 0,
+            "mechanics": [
+              "At the start of your turn, destroy all minions"
+            ],
+            "dedicated": "Nicochoco (ière place, A2020)",
+            "uid": 5,
+            "baseHP": 7
+          }
+        ],
+        "board": [],
+        "remainingCardsCount": 26,
+        "welcomeText": "The worms will crawl through your lungs!",
+        "opponent": {
+          "username": "Void-AI",
+          "heroClass": "Druid",
+          "talent": "ExtraCard",
+          "trophyCount": 0,
+          "winCount": 0,
+          "lossCount": 10,
+          "hp": 30,
+          "mp": 0,
+          "board": [
+            {
+              "id": 85,
+              "cost": 1,
+              "hp": 1,
+              "atk": 0,
+              "mechanics": [
+                "Stealth",
+                "At the start of your turn, give +1 HP to a random friendly minion"
+              ],
+              "dedicated": "",
+              "uid": 32,
+              "baseHP": 1,
+              "state": "IDLE"
+            }
+          ],
+          "handSize": 4,
+          "remainingCardsCount": 25,
+          "welcomeText": "I have control!"
+        }
+      }
+      {
+        "remainingTurnTime": 25,
+        "heroPowerAlreadyUsed": false,
+        "yourTurn": true,
+        "hp": 13,
+        "maxHp": 35,
+        "heroClass": "Mage",
+        "talent": "LifeBoost",
+        "mp": 10,
+        "maxMp": 10,
+        "hand": [
+          {
+            "id": 61,
+            "cost": 3,
+            "hp": 2,
+            "atk": 3,
+            "mechanics": [
+              "After using your hero power, leech 2 HP from the opponent's hero"
+            ],
+            "dedicated": "",
+            "uid": 3,
+            "baseHP": 2
+          },
+          {
+            "id": 61,
+            "cost": 3,
+            "hp": 2,
+            "atk": 3,
+            "mechanics": [
+              "After using your hero power, leech 2 HP from the opponent's hero"
+            ],
+            "dedicated": "",
+            "uid": 4,
+            "baseHP": 2
+          },
+          {
+            "id": 85,
+            "cost": 1,
+            "hp": 1,
+            "atk": 0,
+            "mechanics": [
+              "Stealth",
+              "At the start of your turn, give +1 HP to a random friendly minion"
+            ],
+            "dedicated": "",
+            "uid": 12,
+            "baseHP": 1
+          },
+          {
+            "id": 91,
+            "cost": 4,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Charge",
+              "Taunt",
+              "Battlecry : Add a random card to your hand"
+            ],
+            "dedicated": "",
+            "uid": 13,
+            "baseHP": 1
+          }
+        ],
+        "board": [
+          {
+            "id": 6,
+            "cost": 2,
+            "hp": 3,
+            "atk": 3,
+            "mechanics": [
+              "Battlecry : Spawn a minion"
+            ],
+            "dedicated": "",
+            "uid": 8,
+            "baseHP": 3,
+            "state": "IDLE"
+          },
+          {
+            "id": 6,
+            "cost": 2,
+            "hp": 3,
+            "atk": 3,
+            "mechanics": [
+              "Battlecry : Spawn a minion"
+            ],
+            "dedicated": "",
+            "uid": 10,
+            "baseHP": 3,
+            "state": "IDLE"
+          },
+          {
+            "id": 63,
+            "cost": 2,
+            "hp": 3,
+            "atk": 3,
+            "mechanics": [
+              "Deathrattle : Draw a card"
+            ],
+            "dedicated": "",
+            "uid": 9,
+            "baseHP": 3,
+            "state": "IDLE"
+          },
+          {
+            "id": 73,
+            "cost": 3,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Battlecry : Gain a crystal"
+            ],
+            "dedicated": "",
+            "uid": 7,
+            "baseHP": 1,
+            "state": "IDLE"
+          },
+          {
+            "id": 73,
+            "cost": 3,
+            "hp": 1,
+            "atk": 1,
+            "mechanics": [
+              "Battlecry : Gain a crystal"
+            ],
+            "dedicated": "",
+            "uid": 2,
+            "baseHP": 1,
+            "state": "IDLE"
+          }
+        ],
+        "remainingCardsCount": 18,
+        "welcomeText": "The worms will crawl through your lungs!",
+        "opponent": {
+          "username": "Barrier-AI",
+          "heroClass": "Warrior",
+          "talent": "ShieldProtection",
+          "trophyCount": 0,
+          "winCount": 0,
+          "lossCount": 10,
+          "hp": 30,
+          "mp": 0,
+          "board": [
+            {
+              "id": 22,
+              "cost": 5,
+              "hp": 3,
+              "atk": 3,
+              "mechanics": [
+                "Taunt"
+              ],
+              "dedicated": "",
+              "uid": 33,
+              "baseHP": 3,
+              "state": "IDLE"
+            },
+            {
+              "id": 68,
+              "cost": 6,
+              "hp": 2,
+              "atk": 3,
+              "mechanics": [
+                "Taunt",
+                "Deathrattle : Deal 2 damage to all characters"
+              ],
+              "dedicated": "",
+              "uid": 35,
+              "baseHP": 3,
+              "state": "IDLE"
+            },
+            {
+              "id": 35,
+              "cost": 7,
+              "hp": 5,
+              "atk": 3,
+              "mechanics": [
+                "Taunt",
+                "Battlecry : Set attack and health of all minions to 3"
+              ],
+              "dedicated": "",
+              "uid": 32,
+              "baseHP": 6,
+              "state": "IDLE"
+            },
+            {
+              "id": 22,
+              "cost": 5,
+              "hp": 6,
+              "atk": 3,
+              "mechanics": [
+                "Taunt"
+              ],
+              "dedicated": "",
+              "uid": 37,
+              "baseHP": 6,
+              "state": "IDLE"
+            },
+            {
+              "id": 11,
+              "cost": 3,
+              "hp": 4,
+              "atk": 1,
+              "mechanics": [
+                "Taunt",
+                "Charge"
+              ],
+              "dedicated": "",
+              "uid": 42,
+              "baseHP": 4,
+              "state": "IDLE"
+            }
+          ],
+          "handSize": 3,
+          "remainingCardsCount": 19,
+          "welcomeText": "None shall pass"
+        }
+      }

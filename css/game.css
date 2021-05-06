@@ -100,6 +100,7 @@ iframe{
 
 /* OPPONENT DASHBOARD  */
 #opponent{
+    position: relative;
     display: grid;
 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
@@ -121,8 +122,14 @@ iframe{
 }
 .welcomeText{
     position: absolute;
-    top: 7vh;
-    left:75vw;
+    top: 30%;
+    left: 62%;
+    max-width: 36%;
+}
+.error-div{
+    position: absolute;
+    top: 40%;
+    left: 0;
 }
 
 /* GAME BOARD */
@@ -334,18 +341,19 @@ canvas{
     left: 65%;
 }
 #opponent-turn{
-    /* position: absolute;
-    z-index: -100000; */
+    position: absolute;
     width: 100%;
-    height: 42%;
-    bottom: 82%;
+    height: 115%;
+    bottom: 0%;
     left: 67%;
 }
 
-@keyframes flashy {
+/* @keyframes flashy {
     0% {filter: brightness(0.5);}
   100% {filter: brightness(1.55);}
 }
 .flashy-flashy{
     animation: 1.5s ease-in-out alternate infinite flashy;
-}
+} */
+
+

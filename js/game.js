@@ -77,7 +77,7 @@ const gameState = () => {
     })
     .then(response => response.json())
     .then(data => {
-    console.log(data); // contient les cartes/état du jeu.
+    // console.log(data); // contient les cartes/état du jeu.
         try{
             switch(data){
                 case "LAST_GAME_LOST":
@@ -135,9 +135,12 @@ const gameAction = (send) =>{
     })
     .then(response => response.json())
     .then(data => {
+        
         console.log('then');
-        console.log(data);
-
+        console.log(typeof data);
+        if (data && data.length != 0){
+            error(data);
+        }
     })
 }
 
@@ -262,19 +265,23 @@ const attack = (data) =>{
         case "players-card":
             console.log("clicked players card");
             // When card clicked make flashy-flashy
-            document.getElementById(data.uid + "card-side").className += "flashy-flashy";
+            // document.getElementById(data.uid + "card-side").className += "flashy-flashy";
             
             Accumulator.source = data.uid; 
             break;
         case "hero": console.log("clicked opponents Hero");
         case "opponents-card": 
             
-            if(Accumulator.source != null){
+            if(Accumulator.source.length != 0 ){
                 console.log("clicked opponents card");
                 Accumulator.destination = data.uid;
                 console.log(Accumulator);
                 gameAction(Accumulator);
                 resetAccumulator(); 
+            }
+            else{
+                // choisir une carte avant d'attaquer
+               error("Choisir une carte avant d'attaquer");
             }
     }
 }
@@ -284,28 +291,29 @@ const checkIfCanPlay = (data) =>{
 
     // Make glowy-glowy
 
-    //'hand' Vérifie le coût des cartes
-    data.hand.map(card => {
-        console.log(card.cost);
-        if(card.cost <= data.mp && data.yourTurn == true){
-            document.getElementById(card.uid).style.boxShadow = "0 0 1rem chartreuse";
-        }
-    })
-    
-    //'board' Vérifie si la carte est 'idle'
-    data.board.map(card =>{
-        if(card.state != "SLEEP" && data.yourTurn == true){
-            document.getElementById(card.uid).style.boxShadow = "0 0 1rem chartreuse";
-        }
-    })
+    if(data.yourTurn == true){
+        //'hand' Vérifie le coût des cartes
+        data.hand.map(card => {
+            if(card.cost <= data.mp){
+                document.getElementById(card.uid).style.boxShadow = "0 0 1rem chartreuse";
+            }
+        })
+        
+        //'board' Vérifie si la carte est 'idle'
+        data.board.map(card =>{
+            if(card.state != "SLEEP"){
+                document.getElementById(card.uid).style.boxShadow = "0 0 1rem chartreuse";
+            }
+        })
 
-    //'hero-Power'
-    if(!data.heroPowerAlreadyUsed && data.mp >= 2 && data.yourTurn == true){
-        document.getElementById("hero-Power").style.boxShadow = "0 0 1rem chartreuse";
-    }
-    else{
-        document.getElementById("hero-Power").style.boxShadow = "none";
-    }
+        //'hero-Power'
+        if(!data.heroPowerAlreadyUsed && data.mp >= 2){
+            document.getElementById("hero-Power").style.boxShadow = "0 0 1rem chartreuse";
+        }
+        else{
+            document.getElementById("hero-Power").style.boxShadow = "none";
+        }
+}
     
 }
 
@@ -459,8 +467,24 @@ const endScreen = (state) =>{
     main.append(endScreen);
     main.append(pressAKey);
 
-    // Ajout des events listeners
-    // document.onkeyup = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
+    // Ajout du events listeners
     document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
 
+}
+
+const error = (message) => {
+    //On enlève le message précédant s'il y a lieu
+    let previousError = document.getElementById("game-error");
+    if(previousError != null){
+        previousError.parentNode.removeChild(previousError);
+    }
+
+    //On crée un message d'erreur
+    let errorDiv =  document.createElement("div");
+    errorDiv.className = "error-div";
+    errorDiv.id = "game-error";
+    errorDiv.innerHTML = message;
+    // On l'ajoute au noeud '#opponent'
+    document.getElementById("opponent").append(errorDiv)
+    setTimeout(() =>{errorDiv.remove()}, 10000);
 }
