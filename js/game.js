@@ -152,7 +152,8 @@ const game = (data) => {
         }
         createCards(elem);
 	});
-    
+
+    checkIfCanPlay(data);
 }
 
 const updateGameData = (data) =>{
@@ -229,6 +230,8 @@ const createCards = (target) => {
             
             if (div.querySelector("."+key) != null){                
                 switch(key){
+                    
+                    case "state": div.querySelector("."+key).innerText = target.dataRoot[i][key]; break;
                     case "mechanics":
                         target.dataRoot[i].mechanics.map(elem => {
                             if(elem == "Taunt"){
@@ -238,12 +241,6 @@ const createCards = (target) => {
                                 div.innerHTML += '<img id="card-stealth" src="asset/cartes/Card-STEALTH-SMALLBORDER.png">';
                             }
                         })
-                    case "state": div.querySelector("."+key).innerText = target.dataRoot[i][key]; 
-                    if(target.dataRoot[i]["id"] == 91){
-                        console.log(target.dataRoot[i][key]);
-                    }
-                    break;
-
                     default:
                         div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];
                 }
@@ -252,15 +249,14 @@ const createCards = (target) => {
         div.setAttribute("onclick", target.functionCall);
         document.getElementById(target.htmlDestination).append(div);
     }
-
 }
 
 const attack = (data) =>{
-    console.log(data);
 
     switch(data.nom){
         case "players-card":
-            console.log("clicked players card"); 
+            console.log("clicked players card");
+            // When card clicked make flashy-flashy 
             Accumulator.source = data.uid; 
             break;
         case "hero": console.log("clicked opponents Hero");
@@ -274,6 +270,36 @@ const attack = (data) =>{
                 resetAccumulator(); 
             }
     }
+}
+
+const checkIfCanPlay = (data) =>{
+    // **NOTE: Le id des cartes dans le html c'est le uid dans la logique du jeu **
+
+    // Make glowy-glowy
+
+    //'hand' Vérifie le coût des cartes
+    data.hand.map(card => {
+        console.log(card.cost);
+        if(card.cost <= data.mp && data.yourTurn == true){
+            document.getElementById(card.uid).style.boxShadow = "0 0 1rem white";
+        }
+    })
+    
+    //'board' Vérifie si la carte est 'idle'
+    data.board.map(card =>{
+        if(card.state != "SLEEP" && data.yourTurn == true){
+            document.getElementById(card.uid).style.boxShadow = "0 0 1rem white";
+        }
+    })
+
+    //'hero-Power'
+    if(!data.heroPowerAlreadyUsed && data.mp >= 2 && data.yourTurn == true){
+        document.getElementById("hero-Power").style.boxShadow = "0 0 1rem chartreuse";
+    }
+    else{
+        document.getElementById("hero-Power").style.boxShadow = "none";
+    }
+    
 }
 
 const playVideo = (source) => {

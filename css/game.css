@@ -8,9 +8,7 @@ video{
     min-height: 100%;
     min-width: 100%;
 }
-/* * {
-    cursor: unset;
-} */
+
 header{
     display: none;
 }
@@ -333,4 +331,12 @@ canvas{
     height: 42%;
     bottom: 82%;
     left: 67%;
+}
+
+
+/* ACTION POSSIBLE */
+
+.action-energy{
+    box-shadow: 0 0 10rem chartreuse;
+    /* #C8C8C8 */
 }

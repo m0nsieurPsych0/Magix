@@ -54,7 +54,7 @@ footer>.typing{
 }
 /* Change le cursor globalement */
 * {
-  cursor: default;
+  cursor: auto;
 }
 ::selection {
   background: white ;

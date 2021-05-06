@@ -74,7 +74,7 @@
                                 <div class="hp player" ></div>
                                 <div class="mp player" ></div>
                                 <div class="remainingCardsCount player" ></div>
-                                <button class="heroPower player" onclick="gameAction({type:'HERO_POWER'});"> _HERO_POWER </button>
+                                <button id="hero-Power" class="heroPower player" onclick="gameAction({type:'HERO_POWER'});"> _HERO_POWER </button>
                                 <button class="player-endTurn player" onclick="gameAction({type:'END_TURN'});"> _END_TURN </button>
                             </div>
                             <div id="player-turn"></div>
