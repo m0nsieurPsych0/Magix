@@ -128,8 +128,10 @@ iframe{
 }
 .error-div{
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 0;
+    max-width: 36%;
+    animation: errorFadeout ease-in-out 5s 1;
 }
 
 /* GAME BOARD */

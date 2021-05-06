@@ -22,15 +22,7 @@
 
                 $result = parent::callAPI("games/action", $data);
                 
-                foreach (ERRORGAME as $error){
-                    if ($result == $error){
-                        $def = ERRORGAMEDEF["error"];
-                        return compact("def");
-					}
-                    else{
-                        return compact("result");
-                    }
-				}
+                return compact("result");
 
             }
             // GAME STATE //

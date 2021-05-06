@@ -5,18 +5,38 @@
 window.addEventListener("load", () => {
     playVideo(videoSource.enter); // video intro
     resetAccumulator(); // initialiser la variable Accumulator
-    importClassTalentData();
+    importJson();
     gameBackground();
     setTimeout(gameState(), 1000);// Appel initial (attendre 1 seconde)
 });
 
 // GLOBAL VARIABLES *****************************************
 let opponentInfo;
-const importClassTalentData = () => {
+let errorDef;
+const importJson = () => {
+    // let path = ["asset/classTalent.json", "asset/errorDef.json"];
+    // for (let file in path){
+    //     fetch(file)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if(file == "asset/classTalent.json"){
+    //             opponentInfo = data;
+    //         }
+    //         else{
+    //             errorDef = data;
+    //         }
+    //     })
+    // }
     fetch("asset/classTalent.json")
     .then(response => response.json())
     .then(data => {
         opponentInfo = data;
+    })
+
+    fetch("asset/errorDef.json")
+    .then(response => response.json())
+    .then(data => {
+        errorDef= data;
     })
 }
 let cardDestination = [
@@ -138,8 +158,8 @@ const gameAction = (send) =>{
         
         console.log('then');
         console.log(typeof data);
-        if (data && data.length != 0){
-            error(data);
+        if (data && data.length != 0 && typeof data != "object"){
+            error(errorDef[data]);
         }
     })
 }
