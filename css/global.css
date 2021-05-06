@@ -54,7 +54,7 @@ footer>.typing{
 }
 /* Change le cursor globalement */
 * {
-  cursor: text;
+  cursor: default;
 }
 ::selection {
   background: white ;
@@ -71,7 +71,7 @@ footer>.typing{
   background: repeating-linear-gradient(0deg, rgba(0, 0, 0, var(--scanline-itensity)), rgba(0, 0, 0, var(--scanline-itensity)) 1px, transparent 1px, transparent 2px);
   /* Permet de ne pas interrompre l'intéraction du pointeur avec le contenu en dessous */
   pointer-events: none;
-  cursor: text;
+  /* cursor: text; */
 
   /* Change le contraste du scanline pour donner l'illusion de mouvement */
   animation: 10s ease alternate infinite contrastScan;

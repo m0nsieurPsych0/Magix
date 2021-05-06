@@ -3,8 +3,7 @@
 		<head>
 			<!-- Global -->
 			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">	
-			<script src="js/screenSaver.js"></script>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<link href="css/global.css" rel="stylesheet" />
 			
 			<!-- Specific -->
@@ -12,6 +11,7 @@
 				if ($page == "index"){
 					?>
 						<link href="css/index.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<script src="js/index.js"></script>
 						<title>__ScreenSaver__|\/|agix__OS</title>
 					<?php	
