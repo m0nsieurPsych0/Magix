@@ -208,6 +208,7 @@ canvas{
     font-size: 0.9rem;
 
 }
+
 :is(.players-hand:hover, .players-card:hover, .opponents-card:hover) {
     transform: translateY(4px);
 }
@@ -341,4 +342,10 @@ canvas{
     left: 67%;
 }
 
-
+@keyframes flashy {
+    0% {filter: brightness(0.5);}
+  100% {filter: brightness(1.55);}
+}
+.flashy-flashy{
+    animation: 1.5s ease-in-out alternate infinite flashy;
+}

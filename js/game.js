@@ -42,8 +42,8 @@ let cardDestination = [
 
 ];
 const videoSource = {
-    enter: String.raw`<source src="asset\video\enter_door1080p60Med.mp4" type="video/mp4">`,
-    exit: String.raw`<source src="asset\video\exit_door1080p60Med.mp4">`
+    enter: String.raw`<source src="asset/video/enter_door1080p60Med.mp4" type="video/mp4">`,
+    exit: String.raw`<source src="asset/video/exit_door1080p60Med.mp4" type="video/mp4">`
 };
 let exitPlayed = false; //Prévenir que la vidéo 'exit' joue deux fois en terminant une partie
 let Accumulator;
@@ -214,6 +214,9 @@ const updateGameData = (data) =>{
 
 }
 
+const checkChange = () =>{
+    //TODO optimisation du réaffichage des cartes et de la mise à jour des informations.
+}
 const createCards = (target) => {
 
     document.getElementById(target.htmlDestination).innerHTML = "";
@@ -258,7 +261,9 @@ const attack = (data) =>{
     switch(data.nom){
         case "players-card":
             console.log("clicked players card");
-            // When card clicked make flashy-flashy 
+            // When card clicked make flashy-flashy
+            document.getElementById(data.uid + "card-side").className += "flashy-flashy";
+            
             Accumulator.source = data.uid; 
             break;
         case "hero": console.log("clicked opponents Hero");
