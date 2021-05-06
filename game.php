@@ -96,6 +96,7 @@
                         <div class="state card"></div>
                         <img id="card-side" src="asset/cartes/Card-SIDES.png">
                         <img id="card-center" src="asset/cartes/Card-CENTER-SMALLBORDER.png">
+                        <!-- <img id="card-center" src="asset/cartes/Card-CENTER-SMALLBORDER-LOWERLINE.png"> -->
                     </template>
 
                     <template id="chat-template">

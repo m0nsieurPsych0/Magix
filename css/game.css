@@ -108,7 +108,7 @@ iframe{
 #opponent > *{
     text-align: center;
 }
-@keyframes BrainRotation {
+@keyframes rotation {
     from {
         transform: rotate3d(0, 1, 0, 360deg);
     }
@@ -117,7 +117,7 @@ iframe{
     align-self: center;
     height:250px ;
     width: 250px ;
-    animation: 10s linear infinite BrainRotation;
+    animation: 10s linear infinite rotation;
 }
 .welcomeText{
     position: absolute;
@@ -135,6 +135,7 @@ iframe{
     align-items: center;
 }
 canvas{
+    animation: unset;
     top: 0;
     left: 0;
     position: absolute;
@@ -205,12 +206,9 @@ canvas{
     /* Font */
     font: var(--font-pref);
     font-size: 0.9rem;
-    /* white-space: pre-line; */   
-    /* white-space: pre;
-    word-wrap: break-word; */
 
 }
-:is(#card-side, #card-center, #card-taunt, #card-stealth){
+:is(#card-side, #card-center, #card-stealth){
     position: absolute;
     top:0;
     left:0;
@@ -226,18 +224,19 @@ canvas{
 }
 #card-taunt{
     z-index: -1;
-    opacity: 0.50;   
+    opacity: 1;
+    position: absolute;
+    bottom:2%;
+    left:6%;
+    height: 25%;
+    width: 29%;
+    /* animation: 0.9s linear infinite rotation; */
 }
 #card-stealth{
     z-index: -1;
     opacity: 1;   
 }
 
-.cost.card{
-    position: absolute;
-    top: 65%;
-    right: 40%;
-}
 .hp.card{
     position: absolute;
     top: 20%;
@@ -260,6 +259,11 @@ canvas{
     white-space: pre-wrap; 
     white-space: pre-line; 
     word-wrap: break-word; 
+}
+.cost.card{
+    position: absolute;
+    top: 65%;
+    right: 40%;
 }
 .state.card{
     position: absolute;

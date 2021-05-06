@@ -59,6 +59,7 @@ const setOpponentMaxMpHp = (data) => {
     }
 }
 const resetAccumulator = () =>{
+    
     Accumulator = 
     {
         type: 'ATTACK',
@@ -235,12 +236,13 @@ const createCards = (target) => {
                     case "mechanics":
                         target.dataRoot[i].mechanics.map(elem => {
                             if(elem == "Taunt"){
-                                div.innerHTML += '<img id="card-taunt" src="asset/cartes/Card-TAUNT-SMALLBORDER.png">';
+                                div.innerHTML += '<img id="card-taunt" src="asset/cartes/TAUNT-ICON.png">';
                             }
                             if(elem == "Stealth"){
                                 div.innerHTML += '<img id="card-stealth" src="asset/cartes/Card-STEALTH-SMALLBORDER.png">';
                             }
                         })
+                        div.querySelector("."+key).innerText = target.dataRoot[i][key]; break;
                     default:
                         div.querySelector("."+key).innerText = key + " " +  target.dataRoot[i][key];
                 }
@@ -344,6 +346,9 @@ const playVideo = (source) => {
         else if (!exitPlayed){
             exitPlayed = true;
             let exit = document.getElementById("exit");
+
+            // Améliore les performance lors de la vidéo 'exit'
+            document.getElementById("board-background").remove();
 
             exit.addEventListener('ended', () =>{window.location.href = "home.php";}, true);
 
