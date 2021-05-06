@@ -208,12 +208,16 @@ canvas{
     font-size: 0.9rem;
 
 }
+:is(.players-hand:hover, .players-card:hover, .opponents-card:hover) {
+    transform: translateY(4px);
+}
 :is(#card-side, #card-center, #card-stealth){
     position: absolute;
     top:0;
     left:0;
     height: 100%;
     width: 100%;
+
     
 }
 #card-side{
@@ -226,7 +230,7 @@ canvas{
     z-index: -1;
     opacity: 1;
     position: absolute;
-    bottom:2%;
+    bottom:3%;
     left:6%;
     height: 25%;
     width: 29%;
@@ -338,9 +342,3 @@ canvas{
 }
 
 
-/* ACTION POSSIBLE */
-
-.action-energy{
-    box-shadow: 0 0 10rem chartreuse;
-    /* #C8C8C8 */
-}

@@ -283,14 +283,14 @@ const checkIfCanPlay = (data) =>{
     data.hand.map(card => {
         console.log(card.cost);
         if(card.cost <= data.mp && data.yourTurn == true){
-            document.getElementById(card.uid).style.boxShadow = "0 0 1rem white";
+            document.getElementById(card.uid).style.boxShadow = "0 0 1rem chartreuse";
         }
     })
     
     //'board' Vérifie si la carte est 'idle'
     data.board.map(card =>{
         if(card.state != "SLEEP" && data.yourTurn == true){
-            document.getElementById(card.uid).style.boxShadow = "0 0 1rem white";
+            document.getElementById(card.uid).style.boxShadow = "0 0 1rem chartreuse";
         }
     })
 
