@@ -8,11 +8,18 @@
 			
 			<!-- Specific -->
 			<?php
+				if ($page == "booting"){
+					?>
+						<link href="css/booting.css" rel="stylesheet" />
+						<script src="js/booting.js"></script>
+						<title>__Booting__|\/|agix__OS</title>
+					<?php	
+				}
 				if ($page == "index"){
 					?>
 						<link href="css/index.css" rel="stylesheet" />
-						<script src="js/screenSaver.js"></script>
 						<script src="js/index.js"></script>
+						<script src="js/screenSaver.js"></script>
 						<title>__ScreenSaver__|\/|agix__OS</title>
 					<?php	
 				}
@@ -65,7 +72,10 @@
 					?><div class="rotate">|\/|agix__OS</div><?php
 				}
 				elseif ($page == "game"){
-					?><div class="typing">|\/|agix__OS____The__G_A_M_E____________________________________________________________________________________________________________________________________________</div><?php
+					?><?php
+				}
+				elseif ($page == "booting"){
+					?><div class="rotate">|\/|agix__OS</div><?php
 				}
 				else {
 					?><div class="typing">|\/|agix__OS_______________________________________________________________________________________________________________________________________________________________</div><?php

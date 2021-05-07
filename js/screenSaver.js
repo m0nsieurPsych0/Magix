@@ -7,8 +7,7 @@ let timeout = null;
 
 function screenSaverTimeout () {
     timeout = setTimeout(() => {
-        destination = "index.php"; //screensaver's page
-        window.location = destination;
+        window.location.href = "index.php";
         
     }, timer);
     document.onclick = () =>{
