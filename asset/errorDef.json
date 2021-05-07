@@ -11,5 +11,6 @@
     "CARD_NOT_FOUND"            : "La carte cherchée (uid) n’est pas présente", 
     "ERROR_PROCESSING_ACTION"   : "Erreur interne, ne devrait pas se produire", 
     "INTERNAL_ACTION_ERROR"     : "Autre erreur interne, ne devrait pas se produire", 
-    "HERO_POWER_ALREADY_USED"   : "Pouvoir déjà utilisé pour ce tour"
+    "HERO_POWER_ALREADY_USED"   : "Pouvoir déjà utilisé pour ce tour",
+    "WRONG_TURN"                : "Ce n'est pas votre tour"
 }

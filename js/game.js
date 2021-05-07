@@ -14,19 +14,6 @@ window.addEventListener("load", () => {
 let opponentInfo;
 let errorDef;
 const importJson = () => {
-    // let path = ["asset/classTalent.json", "asset/errorDef.json"];
-    // for (let file in path){
-    //     fetch(file)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         if(file == "asset/classTalent.json"){
-    //             opponentInfo = data;
-    //         }
-    //         else{
-    //             errorDef = data;
-    //         }
-    //     })
-    // }
     fetch("asset/classTalent.json")
     .then(response => response.json())
     .then(data => {
@@ -156,8 +143,8 @@ const gameAction = (send) =>{
     .then(response => response.json())
     .then(data => {
         
-        console.log('then');
-        console.log(typeof data);
+        // console.log('then');
+        // console.log(data);
         if (data && data.length != 0 && typeof data != "object"){
             error(errorDef[data]);
         }
