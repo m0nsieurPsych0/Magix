@@ -4,12 +4,15 @@ const applyStyles = iframe => {
         fontGoogleName: "Inconsolata",
         backgroundColor : "rgba(0,0,0,0)",
         fontSize:"clamp(1.5rem, 1.326rem + 0.698vw, 3.0rem)",
-        inputBackgroundColor:"transparent",
-        inputFontColor:"white",
+        inputBackgroundColor:"white",
+        inputFontColor:"black",
         hideIcons: true,
 	}
 	
-	iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
+	setTimeout(() =>{
+        console.log(iframe);
+        iframe.contentWindow.postMessage(JSON.stringify(styles), "*")
+    }, 200);
 }
 
 // document.querySelector(".chat-stats").style.backgroundColor = "white";

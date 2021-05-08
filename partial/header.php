@@ -40,6 +40,13 @@
 						<title>__Home__|\/|agix__OS</title>
 					<?php	
 				}
+				if ($page == "deckMaster"){
+					?>
+						<link href="css/deckMaster.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
+						<title>__Deck_Master__|\/|agix__OS</title>
+					<?php	
+				}
 				if ($page == "game"){
 					?>
 						<link href="css/game.css" rel="stylesheet" />
@@ -73,6 +80,9 @@
 				}
 				elseif ($page == "game"){
 					?><?php
+				}
+				elseif ($page == "deckMaster"){
+					?><div class="typing">Deck_Master________________________________________________________________________________________________________________________________________________________________</div><?php
 				}
 				elseif ($page == "booting"){
 					?><div class="rotate">|\/|agix__OS</div><?php

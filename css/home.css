@@ -84,9 +84,9 @@ button:hover, .button-wrapper:hover > button{
     white-space: nowrap;
     
 }
-#chat{
+/* #chat{
     border-bottom: solid;
-}
+} */
 iframe {
     
     position: relative;
