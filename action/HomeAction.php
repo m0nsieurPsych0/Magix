@@ -12,6 +12,7 @@
 			$data = [];
 			$data["key"] = $_SESSION["key"];
 
+			// Vérifie si on veut déconnecter ou si la clef est expiré
 			parent::checkSession($data);
 			
 			// on démarre le match en fonction du type voulu (soit PVP ou PVE(TRAINING))

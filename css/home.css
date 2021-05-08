@@ -37,6 +37,8 @@ main {
 .menu-title {
     text-align: center;
     color:white;
+    /* color:black; */
+
 }
 button, .button-wrapper {
     background-color: transparent;
@@ -80,7 +82,10 @@ button:hover, .button-wrapper:hover > button{
     /* Empêcher le texte de wrapper */
     text-overflow: ellipsis;
     white-space: nowrap;
-    /* border-left-style: solid; */
+    
+}
+#chat{
+    border-bottom: solid;
 }
 iframe {
     
@@ -90,8 +95,7 @@ iframe {
     overflow: none;
     /* iframe frame transparent */
     border: none;
-    /* border-left-style: solid; */
-
+    margin-bottom: -0.50rem;
 }
 iframe:focus{
     outline: none;
@@ -113,8 +117,6 @@ iframe:focus{
 
 .error-div{
     position: relative;
-    padding-left: 2vw;
-    padding-right: 1vw;
-    height: 10%;
-    border-left-style: none;
+    animation: none;
+    opacity: 1;
 }

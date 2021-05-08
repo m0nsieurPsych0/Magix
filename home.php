@@ -25,9 +25,11 @@
                 </div>
                 <div class="chat">
                     <div class="chat-title">°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸</div>
-                    <iframe onload="applyStyles(this)" 
-                            src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
-                    </iframe>
+                    <div id="chat">
+                        <iframe onload="applyStyles(this)" 
+                                src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
+                        </iframe>
+                    </div>
                     <!-- <iframe onload="applyStyles(this)" 
                             src=<?php echo(DECKMASTER . $_SESSION['key']); ?>>
                     </iframe> -->

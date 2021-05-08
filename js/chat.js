@@ -4,8 +4,8 @@ const applyStyles = iframe => {
         fontGoogleName: "Inconsolata",
         backgroundColor : "rgba(0,0,0,0)",
         fontSize:"clamp(1.5rem, 1.326rem + 0.698vw, 3.0rem)",
-        inputBackgroundColor:"white",
-        inputFontColor:"black",
+        inputBackgroundColor:"transparent",
+        inputFontColor:"white",
         hideIcons: true,
 	}
 	
