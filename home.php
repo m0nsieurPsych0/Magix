@@ -18,6 +18,7 @@
                     </div>
                     <div class="button-wrapper" onclick="window.location.href='?pvp=true';"><button id="jouer" >__Jouer</button></div>
                     <div class="button-wrapper" onclick="window.location.href='?pve=true';"><button id="pratiquer" >__Pratiquer</button></div>
+                    <div class="button-wrapper" onclick="window.location.href='#';"><button id="deck" >__Deck_Master</button></div>
                     <div class="button-wrapper" onclick="window.location.href='guide.php';"><button id="guide" >__Guide_Stratégique</button></div>
                     <div class="button-wrapper" onclick="window.location.href='index.php';"><button id="screensaver" >__Écran_de_Veille</button></div>
                     <div class="button-wrapper" onclick="window.location.href='?logout=true';"><button id="quitter" >__Quitter</button></div>
@@ -27,11 +28,27 @@
                     <iframe onload="applyStyles(this)" 
                             src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                     </iframe>
+                    <!-- <iframe onload="applyStyles(this)" 
+                            src=<?php echo(DECKMASTER . $_SESSION['key']); ?>>
+                    </iframe> -->
                     <?php
-					    if (isset($data["hasConnectionError"])){
-						    ?><div class="error-div"> <?php echo("Erreur: " . $data["errorCode"]); ?> </div><?php
-					    }
+					    
 				    ?>
+                    <div id="system-messages-title">Messages_Système_____________________________________________________________________________________________________
+                        <div id="log">
+                            <?php
+                                foreach($data['info'] as $key => $value){
+                                    ?> <li id=><?php echo($key . $value); ?> </li> <?php
+                                }
+                                unset($value); //Détruire par sécurité recommandé ici: https://www.php.net/manual/en/control-structures.foreach.php
+                                if (isset($data["hasConnectionError"])){
+                                    ?><li class="error-div"> <?php echo("Erreur: " . $data["errorCode"]); ?> </li><?php
+                                }
+				            ?>
+                            
+                        </div>
+                    </div>
+
                 </div>
                 
             </main>

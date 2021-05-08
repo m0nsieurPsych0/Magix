@@ -36,6 +36,28 @@
 				header(GAME);
                 exit;
             }
+			
+			// User history
+			$data["allUsers"] = false;
+			$result = parent::callAPI("users-extra", $data);
+
+			foreach($result->users as $content){
+
+				if($content->username == $_SESSION['username']){
+					$info['Dernière Connexion: '] = $content->lastLogin;
+					if($content->lastGameState == "LAST_GAME_LOST"){
+						$info['Dernière Partie: '] = "Perdue";
+					}
+					else{
+						$info['Dernière Partie: '] = "Gagnée";
+					}
+					$info['Parties Gagnées: '] = $content->winCount;
+					$info['Parties Perdues: '] = $content->lossCount;
+					$info['Trophés: '] = $content->trophies;
+					return compact("info");
+
+				}
+			}
 
 		}
 

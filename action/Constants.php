@@ -2,6 +2,7 @@
     /********************************* API *********************************/
     // Chat
     define("CHATURL", "https://magix.apps-de-cours.com/server/#/chat/");
+    define("DECKMASTER","https://magix.apps-de-cours.com/server/#/deck/");
     //API call
 
     //API errors

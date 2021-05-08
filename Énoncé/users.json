@@ -1,0 +1,2570 @@
+C:\Users\psycho\Nextcloud\cegep\2021_session_6_Hiver\Programmation web avancée\Magix\home.php:42:
+array (size=8)
+  'users' => 
+    array (size=125)
+      0 => 
+        object(stdClass)[2]
+          public 'studentCode' => null
+          public 'username' => string 'Arthax' (length=6)
+          public 'welcomeText' => string 'My life for Aiur!' (length=17)
+          public 'winCount' => int 14
+          public 'lossCount' => int 4
+          public 'trophies' => int 150
+          public 'bestTrophyScore' => int 405
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'DemonHunter' (length=11)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2021-05-07 15:58' (length=16)
+          public 'group' => null
+          public 'turnCount' => int 391
+          public 'sumWinHP' => int 256
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      1 => 
+        object(stdClass)[3]
+          public 'studentCode' => null
+          public 'username' => string 'Nicochoco' (length=9)
+          public 'welcomeText' => string 'UwU' (length=3)
+          public 'winCount' => int 12
+          public 'lossCount' => int 5
+          public 'trophies' => int 105
+          public 'bestTrophyScore' => int 240
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Paladin' (length=7)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2021-01-21 16:27' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'A2020' (length=5)
+          public 'turnCount' => int 383
+          public 'sumWinHP' => int 226
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      2 => 
+        object(stdClass)[4]
+          public 'studentCode' => null
+          public 'username' => string 'Antonin-Lotus' (length=13)
+          public 'welcomeText' => string 'N'entrez pas ici pauvre fou!' (length=28)
+          public 'winCount' => int 1
+          public 'lossCount' => int 2
+          public 'trophies' => int 30
+          public 'bestTrophyScore' => int 60
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2020-11-27 16:58' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => null
+          public 'turnCount' => int 220
+          public 'sumWinHP' => int 67
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      3 => 
+        object(stdClass)[5]
+          public 'studentCode' => null
+          public 'username' => string 'Karl Drogo' (length=10)
+          public 'welcomeText' => string 'The worms will crawl through your lungs!' (length=40)
+          public 'winCount' => int 5
+          public 'lossCount' => int 13
+          public 'trophies' => int 30
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean true
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 20:22' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 178
+          public 'sumWinHP' => int 87
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      4 => 
+        object(stdClass)[6]
+          public 'studentCode' => null
+          public 'username' => string 'MagicMan' (length=8)
+          public 'welcomeText' => string 'Je suis prêt à vous battre' (length=28)
+          public 'winCount' => int 1
+          public 'lossCount' => int 8
+          public 'trophies' => int 15
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean true
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2021-05-07 20:26' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 2
+          public 'sumWinHP' => int 30
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      5 => 
+        object(stdClass)[7]
+          public 'studentCode' => null
+          public 'username' => string 'Xilef' (length=5)
+          public 'welcomeText' => string 'Ne me sous-estimez pas...' (length=25)
+          public 'winCount' => int 1
+          public 'lossCount' => int 3
+          public 'trophies' => int 15
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2020-11-27 16:47' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'A2020' (length=5)
+          public 'turnCount' => int 31
+          public 'sumWinHP' => int 25
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      6 => 
+        object(stdClass)[8]
+          public 'studentCode' => null
+          public 'username' => string 'Poletipo' (length=8)
+          public 'welcomeText' => string 'What the f*** was that?' (length=23)
+          public 'winCount' => int 5
+          public 'lossCount' => int 14
+          public 'trophies' => int 15
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2021-04-30 13:14' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'A2020' (length=5)
+          public 'turnCount' => int 385
+          public 'sumWinHP' => int 107
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      7 => 
+        object(stdClass)[9]
+          public 'studentCode' => null
+          public 'username' => string 'O-mercier' (length=9)
+          public 'welcomeText' => string 'Salut!' (length=6)
+          public 'winCount' => int 1
+          public 'lossCount' => int 0
+          public 'trophies' => int 15
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-04 16:31' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 1
+          public 'sumWinHP' => int 35
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      8 => 
+        object(stdClass)[10]
+          public 'studentCode' => null
+          public 'username' => string 'LaVipere' (length=8)
+          public 'welcomeText' => string 'T'es faite mon gars' (length=19)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 165
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2021-02-09 12:23' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      9 => 
+        object(stdClass)[11]
+          public 'studentCode' => null
+          public 'username' => string 'Epona' (length=5)
+          public 'welcomeText' => string 'Tu vas perdre!' (length=14)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 25
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-11-28 12:54' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      10 => 
+        object(stdClass)[12]
+          public 'studentCode' => null
+          public 'username' => string 'KZen' (length=4)
+          public 'welcomeText' => string 'K-Zen' (length=5)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'lastLogin' => string '2020-04-24 15:03' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      11 => 
+        object(stdClass)[13]
+          public 'studentCode' => null
+          public 'username' => string 'Akilea' (length=6)
+          public 'welcomeText' => string 'Hey toi mon poulet!!!' (length=21)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2019-06-12 15:36' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      12 => 
+        object(stdClass)[14]
+          public 'studentCode' => null
+          public 'username' => string 'Sashounet' (length=9)
+          public 'welcomeText' => string 'je vais manger toute ta famille' (length=31)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 50
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2019-07-31 21:25' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      13 => 
+        object(stdClass)[15]
+          public 'studentCode' => null
+          public 'username' => string 'AsianWifey' (length=10)
+          public 'welcomeText' => string 'Ez Win Ez Clap' (length=14)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-04-30 20:45' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      14 => 
+        object(stdClass)[16]
+          public 'studentCode' => null
+          public 'username' => string 'Showgan' (length=7)
+          public 'welcomeText' => string 'Aye tu pues!' (length=12)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-08-18 15:25' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      15 => 
+        object(stdClass)[17]
+          public 'studentCode' => null
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'isConnected' => boolean false
+          public 'lastLogin' => string '--' (length=2)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      16 => 
+        object(stdClass)[18]
+          public 'studentCode' => null
+          public 'username' => string 'yraies' (length=6)
+          public 'welcomeText' => string 'I forgot how to use my keyboard.' (length=32)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-11-12 12:03' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      17 => 
+        object(stdClass)[19]
+          public 'studentCode' => null
+          public 'username' => string 'CapitainV' (length=9)
+          public 'welcomeText' => string 'EzMoney' (length=7)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 55
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2020-07-27 16:52' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      18 => 
+        object(stdClass)[20]
+          public 'studentCode' => null
+          public 'username' => string 'Felixauce' (length=9)
+          public 'welcomeText' => string 'Strappez moi la strap!!!' (length=24)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 40
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-11-20 21:08' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      19 => 
+        object(stdClass)[21]
+          public 'studentCode' => null
+          public 'username' => string 'Genocyber' (length=9)
+          public 'welcomeText' => string 'I will banish you to the shadow realm!' (length=38)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2019-11-11 15:44' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      20 => 
+        object(stdClass)[22]
+          public 'studentCode' => null
+          public 'username' => string 'Javapool' (length=8)
+          public 'welcomeText' => string 'Why can't we be friends?' (length=24)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 55
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2020-10-10 1:43' (length=15)
+          public 'session' => string 'A2019' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      21 => 
+        object(stdClass)[23]
+          public 'studentCode' => null
+          public 'username' => string 'Jolbeen' (length=7)
+          public 'welcomeText' => string 'Ok.' (length=3)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2019-11-11 15:20' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      22 => 
+        object(stdClass)[24]
+          public 'studentCode' => null
+          public 'username' => string 'Nick' (length=4)
+          public 'welcomeText' => string 'YO' (length=2)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 95
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2019-11-11 15:50' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      23 => 
+        object(stdClass)[25]
+          public 'studentCode' => null
+          public 'username' => string 'OGKim' (length=5)
+          public 'welcomeText' => string 'Sup gyal' (length=8)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 45
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2019-11-19 20:09' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      24 => 
+        object(stdClass)[26]
+          public 'studentCode' => null
+          public 'username' => string 'starshiptrooper' (length=15)
+          public 'welcomeText' => string 'it's afraid!' (length=12)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 80
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2019-11-11 15:54' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      25 => 
+        object(stdClass)[27]
+          public 'studentCode' => null
+          public 'username' => string 'leking001' (length=9)
+          public 'welcomeText' => string 'Pour la victoire' (length=16)
+          public 'winCount' => int 0
+          public 'lossCount' => int 2
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 25
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2020-04-29 22:57' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      26 => 
+        object(stdClass)[28]
+          public 'studentCode' => null
+          public 'username' => string 'haumea' (length=6)
+          public 'welcomeText' => string 'Moon Prism Power!' (length=17)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 35
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'lastLogin' => string '2020-04-27 17:15' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      27 => 
+        object(stdClass)[29]
+          public 'studentCode' => null
+          public 'username' => string 'JiciTroy' (length=8)
+          public 'welcomeText' => string 'Groovy!' (length=7)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 50
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2019-11-14 19:27' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      28 => 
+        object(stdClass)[30]
+          public 'studentCode' => null
+          public 'username' => string 'Arkil' (length=5)
+          public 'welcomeText' => string 'No cost too great' (length=17)
+          public 'winCount' => int 0
+          public 'lossCount' => int 2
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2021-05-04 11:22' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      29 => 
+        object(stdClass)[31]
+          public 'studentCode' => null
+          public 'username' => string 'Satashquan' (length=10)
+          public 'welcomeText' => string '...' (length=3)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 65
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-11-12 11:21' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      30 => 
+        object(stdClass)[32]
+          public 'studentCode' => null
+          public 'username' => string 'otn' (length=3)
+          public 'welcomeText' => string 'allo' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-11-11 16:32' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      31 => 
+        object(stdClass)[33]
+          public 'studentCode' => null
+          public 'username' => string 'Yolo_Pogo' (length=9)
+          public 'welcomeText' => string 'Tu vas wipe!' (length=12)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2019-12-27 0:09' (length=15)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      32 => 
+        object(stdClass)[34]
+          public 'studentCode' => null
+          public 'username' => string 'JabbaTheSlat' (length=12)
+          public 'welcomeText' => string 'Bring me Solo and the Wookiee' (length=29)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 65
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2019-11-24 18:08' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      33 => 
+        object(stdClass)[35]
+          public 'studentCode' => null
+          public 'username' => string 'MrYoloSwaggins' (length=14)
+          public 'welcomeText' => string 'Euh... allo?' (length=12)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 70
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-12-02 14:29' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      34 => 
+        object(stdClass)[36]
+          public 'studentCode' => null
+          public 'username' => string 'mrclxndr' (length=8)
+          public 'welcomeText' => string 'PRESS START' (length=11)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'lastLogin' => string '2020-04-30 18:11' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      35 => 
+        object(stdClass)[37]
+          public 'studentCode' => null
+          public 'username' => string 'cbouv' (length=5)
+          public 'welcomeText' => string 'allo' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 70
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2019-11-18 14:39' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      36 => 
+        object(stdClass)[38]
+          public 'studentCode' => null
+          public 'username' => string 'Rex power' (length=9)
+          public 'welcomeText' => string 'Noice' (length=5)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 25
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2019-12-23 22:45' (length=16)
+          public 'session' => string 'A2019' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      37 => 
+        object(stdClass)[39]
+          public 'studentCode' => null
+          public 'username' => string 'motherTheresa' (length=13)
+          public 'welcomeText' => string 'aweille kevin osti continue comme co' (length=36)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2020-04-29 18:27' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      38 => 
+        object(stdClass)[40]
+          public 'studentCode' => null
+          public 'username' => string 'Basile' (length=6)
+          public 'welcomeText' => string 'Do you feel lucky, punk?' (length=24)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-05-06 16:49' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      39 => 
+        object(stdClass)[41]
+          public 'studentCode' => null
+          public 'username' => string 'Hellios' (length=7)
+          public 'welcomeText' => string 'This is the way' (length=15)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-04-30 23:07' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      40 => 
+        object(stdClass)[42]
+          public 'studentCode' => null
+          public 'username' => string 'El nino' (length=7)
+          public 'welcomeText' => string 'The night is dark and full of terrors' (length=37)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 105
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-09-19 20:32' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'H2020' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      41 => 
+        object(stdClass)[43]
+          public 'studentCode' => null
+          public 'username' => string 'kawaiiwawadesune' (length=16)
+          public 'welcomeText' => string 'OTOKO-DESU' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2020-05-19 19:15' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      42 => 
+        object(stdClass)[44]
+          public 'studentCode' => null
+          public 'username' => string 'lajigglysauce' (length=13)
+          public 'welcomeText' => string 'il y a un serpent dans ma botte' (length=31)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Shaman' (length=6)
+          public 'lastLogin' => string '2020-05-01 12:28' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      43 => 
+        object(stdClass)[45]
+          public 'studentCode' => null
+          public 'username' => string 'Almarita' (length=8)
+          public 'welcomeText' => string 'Vive la révolution!' (length=20)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2020-04-29 12:38' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      44 => 
+        object(stdClass)[46]
+          public 'studentCode' => null
+          public 'username' => string 'Thormind' (length=8)
+          public 'welcomeText' => string 'Do, or do not. There is no try.' (length=31)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 105
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-04-30 21:01' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      45 => 
+        object(stdClass)[47]
+          public 'studentCode' => null
+          public 'username' => string 'July' (length=4)
+          public 'welcomeText' => string 'Yo!' (length=3)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 135
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-09-19 14:40' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'H2020' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      46 => 
+        object(stdClass)[48]
+          public 'studentCode' => null
+          public 'username' => string 'pygard' (length=6)
+          public 'welcomeText' => string 'Success is arbitrary' (length=20)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2021-05-01 1:17' (length=15)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      47 => 
+        object(stdClass)[49]
+          public 'studentCode' => null
+          public 'username' => string 'Rantanplan' (length=10)
+          public 'welcomeText' => string 'Hey!' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2020-05-26 21:13' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      48 => 
+        object(stdClass)[50]
+          public 'studentCode' => null
+          public 'username' => string 'Wellan' (length=6)
+          public 'welcomeText' => string 'Every moment is a fresh beginning' (length=33)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2020-05-11 21:25' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      49 => 
+        object(stdClass)[51]
+          public 'studentCode' => null
+          public 'username' => string 'Alex' (length=4)
+          public 'welcomeText' => string 'Sup' (length=3)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2020-04-30 21:26' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      50 => 
+        object(stdClass)[52]
+          public 'studentCode' => null
+          public 'username' => string 'jeffrey' (length=7)
+          public 'welcomeText' => string 'Je recommande la partie nulle' (length=29)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-05-06 17:00' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      51 => 
+        object(stdClass)[53]
+          public 'studentCode' => null
+          public 'username' => string 'B1ng0' (length=5)
+          public 'welcomeText' => string 'Salut' (length=5)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2020-04-28 16:27' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      52 => 
+        object(stdClass)[54]
+          public 'studentCode' => null
+          public 'username' => string 'SamChatouye' (length=11)
+          public 'welcomeText' => string '(U)_( ; ; )_(U)' (length=15)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 105
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-10-12 19:29' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => string 'H2020' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      53 => 
+        object(stdClass)[55]
+          public 'studentCode' => null
+          public 'username' => string 'Afsaneh' (length=7)
+          public 'welcomeText' => string '|^@^|' (length=5)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Shaman' (length=6)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-05-01 14:20' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      54 => 
+        object(stdClass)[56]
+          public 'studentCode' => null
+          public 'username' => string 'qubn' (length=4)
+          public 'welcomeText' => string 'My life for Ner'zhul' (length=20)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2020-01-29 15:46' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      55 => 
+        object(stdClass)[57]
+          public 'studentCode' => null
+          public 'username' => string 'Elisha' (length=6)
+          public 'welcomeText' => string 'Andale' (length=6)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2020-05-17 21:57' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      56 => 
+        object(stdClass)[58]
+          public 'studentCode' => null
+          public 'username' => string 'pherrephatta' (length=12)
+          public 'welcomeText' => string 'IEN IEN EA EA EA' (length=16)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'lastLogin' => string '2020-10-02 14:54' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      57 => 
+        object(stdClass)[59]
+          public 'studentCode' => null
+          public 'username' => string 'laRacaille' (length=10)
+          public 'welcomeText' => string 'CalmeToi' (length=8)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2020-05-01 22:45' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      58 => 
+        object(stdClass)[60]
+          public 'studentCode' => null
+          public 'username' => string 'KingSlayer' (length=10)
+          public 'welcomeText' => string 'veni vedi vici' (length=14)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2020-04-29 18:02' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      59 => 
+        object(stdClass)[61]
+          public 'studentCode' => null
+          public 'username' => string 'LegendOfVCT' (length=11)
+          public 'welcomeText' => string 'EZ Clap' (length=7)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2020-02-04 15:29' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      60 => 
+        object(stdClass)[62]
+          public 'studentCode' => null
+          public 'username' => string 'Guacamole' (length=9)
+          public 'welcomeText' => string '!!' (length=2)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 60
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-07-27 14:46' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      61 => 
+        object(stdClass)[63]
+          public 'studentCode' => null
+          public 'username' => string 'foui' (length=4)
+          public 'welcomeText' => string 'YEAH' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'lastLogin' => string '2020-04-28 12:33' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      62 => 
+        object(stdClass)[64]
+          public 'studentCode' => null
+          public 'username' => string 'Karsh' (length=5)
+          public 'welcomeText' => string 'ez money' (length=8)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'lastLogin' => string '2020-04-29 20:21' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      63 => 
+        object(stdClass)[65]
+          public 'studentCode' => null
+          public 'username' => string 'Valkoinen' (length=9)
+          public 'welcomeText' => string 'Did I win?' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2020-05-03 14:29' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      64 => 
+        object(stdClass)[66]
+          public 'studentCode' => null
+          public 'username' => string 'soldari' (length=7)
+          public 'welcomeText' => string 'watatatow!' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'lastLogin' => string '2020-05-05 16:23' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      65 => 
+        object(stdClass)[67]
+          public 'studentCode' => null
+          public 'username' => string 'nothuman' (length=8)
+          public 'welcomeText' => string 'bleep bleep' (length=11)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2020-05-28 10:02' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      66 => 
+        object(stdClass)[68]
+          public 'studentCode' => null
+          public 'username' => string 'KittnPoop' (length=9)
+          public 'welcomeText' => string 'Everything is 1.61803398875' (length=27)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-05-07 13:48' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      67 => 
+        object(stdClass)[69]
+          public 'studentCode' => null
+          public 'username' => string 'Dralic' (length=6)
+          public 'welcomeText' => string 'Someday I'll find a cool message.' (length=33)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'lastLogin' => string '2020-05-18 17:32' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      68 => 
+        object(stdClass)[70]
+          public 'studentCode' => null
+          public 'username' => string 'Michel-Angelo' (length=13)
+          public 'welcomeText' => string 'Let's rockin roll' (length=17)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-04-21 17:13' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      69 => 
+        object(stdClass)[71]
+          public 'studentCode' => null
+          public 'username' => string 'Ztifou' (length=6)
+          public 'welcomeText' => string 'GLHF MY LITTLE BOY !!!' (length=22)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-04-30 21:45' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      70 => 
+        object(stdClass)[72]
+          public 'studentCode' => null
+          public 'username' => string 'detectiveConan' (length=14)
+          public 'welcomeText' => string 'Devine qui suis-je?' (length=19)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-05-25 15:12' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      71 => 
+        object(stdClass)[73]
+          public 'studentCode' => null
+          public 'username' => string 'jujuly' (length=6)
+          public 'welcomeText' => string 'You die' (length=7)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Paladin' (length=7)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-05-03 16:28' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      72 => 
+        object(stdClass)[74]
+          public 'studentCode' => null
+          public 'username' => string 'Ragelot' (length=7)
+          public 'welcomeText' => string 'RRAAWWWWWWW' (length=11)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 105
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-04-30 20:49' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      73 => 
+        object(stdClass)[75]
+          public 'studentCode' => null
+          public 'username' => string 'jj0309' (length=6)
+          public 'welcomeText' => string 'easy game easy life' (length=19)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 105
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-12-09 16:32' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      74 => 
+        object(stdClass)[76]
+          public 'studentCode' => null
+          public 'username' => string 'Pitapoulet' (length=10)
+          public 'welcomeText' => string 'Wow!' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 105
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-09-09 11:05' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      75 => 
+        object(stdClass)[77]
+          public 'studentCode' => null
+          public 'username' => string 'Vaultiaxe' (length=9)
+          public 'welcomeText' => string 'Vault the axe' (length=13)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2020-04-29 14:12' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      76 => 
+        object(stdClass)[78]
+          public 'studentCode' => null
+          public 'username' => string 'mango' (length=5)
+          public 'welcomeText' => string 'Don't eat me...' (length=15)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-07-24 8:02' (length=15)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      77 => 
+        object(stdClass)[79]
+          public 'studentCode' => null
+          public 'username' => string 'The TANK' (length=8)
+          public 'welcomeText' => string 'Ne pleure pas !!' (length=16)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'lastLogin' => string '2020-05-05 20:40' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      78 => 
+        object(stdClass)[80]
+          public 'studentCode' => null
+          public 'username' => string 'cestmoi' (length=7)
+          public 'welcomeText' => string 'allo les amis :)' (length=16)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-10-07 11:30' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      79 => 
+        object(stdClass)[81]
+          public 'studentCode' => null
+          public 'username' => string 'pcPrincipal' (length=11)
+          public 'welcomeText' => string 'Hello Raph' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 45
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2020-05-01 1:41' (length=15)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      80 => 
+        object(stdClass)[82]
+          public 'studentCode' => null
+          public 'username' => string 'EauShiit' (length=8)
+          public 'welcomeText' => string 'sup' (length=3)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 60
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2020-04-29 20:33' (length=16)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      81 => 
+        object(stdClass)[83]
+          public 'studentCode' => null
+          public 'username' => string 'Inspirate' (length=9)
+          public 'welcomeText' => string 'Patate' (length=6)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2020-04-29 8:28' (length=15)
+          public 'session' => string 'H2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      82 => 
+        object(stdClass)[84]
+          public 'studentCode' => null
+          public 'username' => string 'Zed' (length=3)
+          public 'welcomeText' => string 'Un message epique' (length=17)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Shaman' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2021-05-05 16:46' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'tournamentWinner' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      83 => 
+        object(stdClass)[85]
+          public 'studentCode' => null
+          public 'username' => string 'eyeofthequeen' (length=13)
+          public 'welcomeText' => string 'Ready to die?' (length=13)
+          public 'winCount' => int 1
+          public 'lossCount' => int 11
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-06 9:01' (length=15)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 109
+          public 'sumWinHP' => int 8
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      84 => 
+        object(stdClass)[86]
+          public 'studentCode' => null
+          public 'username' => string 'bigRouss' (length=8)
+          public 'welcomeText' => string 'getting no sleep' (length=16)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2021-04-04 12:34' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      85 => 
+        object(stdClass)[87]
+          public 'studentCode' => null
+          public 'username' => string 'jojoLasticot' (length=12)
+          public 'welcomeText' => string 'ouille ouille ouille' (length=20)
+          public 'winCount' => int 0
+          public 'lossCount' => int 7
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean true
+          public 'className' => string 'DemonHunter' (length=11)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 20:19' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      86 => 
+        object(stdClass)[88]
+          public 'studentCode' => null
+          public 'username' => string 'Solaire' (length=7)
+          public 'welcomeText' => string 'Praise the sun!' (length=15)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 135
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-11-27 15:33' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      87 => 
+        object(stdClass)[89]
+          public 'studentCode' => null
+          public 'username' => string '_VECTORIZE_' (length=11)
+          public 'welcomeText' => string 'Just vectorize' (length=14)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2021-05-06 12:06' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      88 => 
+        object(stdClass)[90]
+          public 'studentCode' => null
+          public 'username' => string 'Raggok' (length=6)
+          public 'welcomeText' => string 'Well Met' (length=8)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Shaman' (length=6)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-11-27 18:57' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      89 => 
+        object(stdClass)[91]
+          public 'studentCode' => null
+          public 'username' => string 'cgen' (length=4)
+          public 'welcomeText' => string 'hey!' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-11-27 15:08' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      90 => 
+        object(stdClass)[92]
+          public 'studentCode' => null
+          public 'username' => string 'Hexen' (length=5)
+          public 'welcomeText' => string 'Oh hai' (length=6)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 75
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Paladin' (length=7)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2021-03-26 0:34' (length=15)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      91 => 
+        object(stdClass)[93]
+          public 'studentCode' => null
+          public 'username' => string 'Pizzle' (length=6)
+          public 'welcomeText' => string 'Trust in the Heart of the Cards' (length=31)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-11-27 13:59' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      92 => 
+        object(stdClass)[94]
+          public 'studentCode' => null
+          public 'username' => string 'nyaniji' (length=7)
+          public 'welcomeText' => string 'Something Something doritos' (length=27)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2020-12-04 14:58' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      93 => 
+        object(stdClass)[95]
+          public 'studentCode' => null
+          public 'username' => string 'alewe1111' (length=9)
+          public 'welcomeText' => string 'Here we go!!' (length=12)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 60
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Hunter' (length=6)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2020-11-27 15:56' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      94 => 
+        object(stdClass)[96]
+          public 'studentCode' => null
+          public 'username' => string 'Vizir' (length=5)
+          public 'welcomeText' => string 'This is our town, scrub.' (length=24)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 90
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2020-12-07 0:31' (length=15)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      95 => 
+        object(stdClass)[97]
+          public 'studentCode' => null
+          public 'username' => string 'Nuoram' (length=6)
+          public 'welcomeText' => string 'Hello there! General Kenobi!' (length=28)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 45
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2020-11-27 15:52' (length=16)
+          public 'session' => string 'A2020' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      96 => 
+        object(stdClass)[98]
+          public 'studentCode' => null
+          public 'username' => string 'PQuevillon' (length=10)
+          public 'welcomeText' => string 'Msg de début de partie (max 40)' (length=32)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2021-03-26 11:27' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      97 => 
+        object(stdClass)[99]
+          public 'studentCode' => null
+          public 'username' => string 'madat' (length=5)
+          public 'welcomeText' => string 'Bonjour' (length=7)
+          public 'winCount' => int 0
+          public 'lossCount' => int 8
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2021-05-07 15:39' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      98 => 
+        object(stdClass)[100]
+          public 'studentCode' => null
+          public 'username' => string 'RicarDIO' (length=8)
+          public 'welcomeText' => string '*God left the chat*' (length=19)
+          public 'winCount' => int 0
+          public 'lossCount' => int 14
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 11:42' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 23
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      99 => 
+        object(stdClass)[101]
+          public 'studentCode' => null
+          public 'username' => string 'Drake' (length=5)
+          public 'welcomeText' => string 'Let's do it!' (length=12)
+          public 'winCount' => int 0
+          public 'lossCount' => int 5
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2021-05-07 8:59' (length=15)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 57
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      100 => 
+        object(stdClass)[102]
+          public 'studentCode' => null
+          public 'username' => string 'john314' (length=7)
+          public 'welcomeText' => string 'john' (length=4)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-05 8:36' (length=15)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      101 => 
+        object(stdClass)[103]
+          public 'studentCode' => null
+          public 'username' => string 'ILikeToasts' (length=11)
+          public 'welcomeText' => string ':)' (length=2)
+          public 'winCount' => int 0
+          public 'lossCount' => int 2
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Shaman' (length=6)
+          public 'initialTalent' => string 'ShieldProtection' (length=16)
+          public 'lastLogin' => string '2021-05-07 11:48' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 54
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      102 => 
+        object(stdClass)[104]
+          public 'studentCode' => null
+          public 'username' => string 'Lampiao' (length=7)
+          public 'welcomeText' => string 'On arrache la peau!' (length=19)
+          public 'winCount' => int 0
+          public 'lossCount' => int 29
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2021-05-01 21:56' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      103 => 
+        object(stdClass)[105]
+          public 'studentCode' => null
+          public 'username' => string 'asiandragonlady' (length=15)
+          public 'welcomeText' => string 'Battle routine, set! Execute!' (length=29)
+          public 'winCount' => int 1
+          public 'lossCount' => int 15
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 10:42' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 1
+          public 'sumWinHP' => int 35
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      104 => 
+        object(stdClass)[106]
+          public 'studentCode' => null
+          public 'username' => string 'blueSlime' (length=9)
+          public 'welcomeText' => string 'idk, deal with it' (length=17)
+          public 'winCount' => int 0
+          public 'lossCount' => int 1
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'ExtraCrystal' (length=12)
+          public 'lastLogin' => string '2021-05-07 9:10' (length=15)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      105 => 
+        object(stdClass)[107]
+          public 'studentCode' => null
+          public 'username' => string 'yohann' (length=6)
+          public 'welcomeText' => string 'c:' (length=2)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'ShieldProtection' (length=16)
+          public 'lastLogin' => string '2021-03-26 9:44' (length=15)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      106 => 
+        object(stdClass)[108]
+          public 'studentCode' => null
+          public 'username' => string 'killua007' (length=9)
+          public 'welcomeText' => string 'The challenger' (length=14)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 19:40' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      107 => 
+        object(stdClass)[109]
+          public 'studentCode' => null
+          public 'username' => string 'Bonjour' (length=7)
+          public 'welcomeText' => string 'Bonjour c'est bonjour' (length=21)
+          public 'winCount' => int 0
+          public 'lossCount' => int 141
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Priest' (length=6)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2021-05-07 14:31' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 1
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      108 => 
+        object(stdClass)[110]
+          public 'studentCode' => null
+          public 'username' => string 'Maya' (length=4)
+          public 'welcomeText' => string 'Bonjour' (length=7)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-04-28 15:01' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      109 => 
+        object(stdClass)[111]
+          public 'studentCode' => null
+          public 'username' => string 'Puachou987' (length=10)
+          public 'welcomeText' => string 'hey papi !' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Rogue' (length=5)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 14:54' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      110 => 
+        object(stdClass)[112]
+          public 'studentCode' => null
+          public 'username' => string 'Valwiler' (length=8)
+          public 'welcomeText' => string 'Bonjour !!' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'ShieldProtection' (length=16)
+          public 'lastLogin' => string '2021-05-02 10:21' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      111 => 
+        object(stdClass)[113]
+          public 'studentCode' => null
+          public 'username' => string 'Mélancolique' (length=13)
+          public 'welcomeText' => string 'LEEETTTSS GOOOOOOOOOOOOOOOO0O0O0O0O0OO' (length=38)
+          public 'winCount' => int 0
+          public 'lossCount' => int 3
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 12:00' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      112 => 
+        object(stdClass)[114]
+          public 'studentCode' => null
+          public 'username' => string 'ColonelSaumon' (length=13)
+          public 'welcomeText' => string 'Let's go !' (length=10)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string '--' (length=2)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-05 17:54' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      113 => 
+        object(stdClass)[115]
+          public 'studentCode' => null
+          public 'username' => string 'ALaMailleSuivante' (length=17)
+          public 'welcomeText' => string 'J'finis mon rang' (length=16)
+          public 'winCount' => int 1
+          public 'lossCount' => int 11
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'ShieldProtection' (length=16)
+          public 'lastLogin' => string '2021-05-06 21:53' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 2
+          public 'sumWinHP' => int 30
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      114 => 
+        object(stdClass)[116]
+          public 'studentCode' => null
+          public 'username' => string 'ChadThundercoq' (length=14)
+          public 'welcomeText' => string 'Do you even lift bro?' (length=21)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-06 1:11' (length=15)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      115 => 
+        object(stdClass)[117]
+          public 'studentCode' => null
+          public 'username' => string 'AmandineGagnon' (length=14)
+          public 'welcomeText' => string 'A va tu se finir s'te session là?!' (length=35)
+          public 'winCount' => int 0
+          public 'lossCount' => int 1
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2021-05-06 21:51' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      116 => 
+        object(stdClass)[118]
+          public 'studentCode' => null
+          public 'username' => string 'Captain Cloud' (length=13)
+          public 'welcomeText' => string 'Yo' (length=2)
+          public 'winCount' => int 0
+          public 'lossCount' => int 4
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ShieldProtection' (length=16)
+          public 'lastLogin' => string '2021-05-06 11:50' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      117 => 
+        object(stdClass)[119]
+          public 'studentCode' => null
+          public 'username' => string 'MadameSweaty' (length=12)
+          public 'welcomeText' => string 'Hello World!' (length=12)
+          public 'winCount' => int 1
+          public 'lossCount' => int 9
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 15
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-06 13:06' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 2
+          public 'sumWinHP' => int 35
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      118 => 
+        object(stdClass)[120]
+          public 'studentCode' => null
+          public 'username' => string 'vankina' (length=7)
+          public 'welcomeText' => string 'Viens danser ma mignone' (length=23)
+          public 'winCount' => int 3
+          public 'lossCount' => int 5
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Druid' (length=5)
+          public 'initialTalent' => string 'Restorer' (length=8)
+          public 'lastLogin' => string '2021-05-07 13:09' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 102
+          public 'sumWinHP' => int 74
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      119 => 
+        object(stdClass)[121]
+          public 'studentCode' => null
+          public 'username' => string 'Covid-19' (length=8)
+          public 'welcomeText' => string 'All you had to do was wash your hands...' (length=40)
+          public 'winCount' => int 0
+          public 'lossCount' => int 2
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Warrior' (length=7)
+          public 'initialTalent' => string 'LifeBoost' (length=9)
+          public 'lastLogin' => string '2021-05-07 17:35' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      120 => 
+        object(stdClass)[122]
+          public 'studentCode' => null
+          public 'username' => string 'shawntvoltaire' (length=14)
+          public 'welcomeText' => string 'Calculating you...' (length=18)
+          public 'winCount' => int 0
+          public 'lossCount' => int 5
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Paladin' (length=7)
+          public 'initialTalent' => string 'ShieldProtection' (length=16)
+          public 'lastLogin' => string '2021-05-07 14:21' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      121 => 
+        object(stdClass)[123]
+          public 'studentCode' => null
+          public 'username' => string 'pomupomu' (length=8)
+          public 'welcomeText' => string ' Nenni, ma foi !' (length=16)
+          public 'winCount' => int 3
+          public 'lossCount' => int 10
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 45
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Paladin' (length=7)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2021-05-07 15:19' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 115
+          public 'sumWinHP' => int 59
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      122 => 
+        object(stdClass)[124]
+          public 'studentCode' => null
+          public 'username' => string 'Atreyu' (length=6)
+          public 'welcomeText' => string 'Coucouche tapis!' (length=16)
+          public 'winCount' => int 0
+          public 'lossCount' => int 0
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 0
+          public 'lastGameState' => string 'LAST_GAME_LOST' (length=14)
+          public 'isConnected' => boolean false
+          public 'className' => string 'Mage' (length=4)
+          public 'initialTalent' => string 'SpawnMinion' (length=11)
+          public 'lastLogin' => string '2021-05-06 12:31' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      123 => 
+        object(stdClass)[125]
+          public 'studentCode' => null
+          public 'username' => string 'Chocobar' (length=8)
+          public 'welcomeText' => string 'Non.' (length=4)
+          public 'winCount' => int 2
+          public 'lossCount' => int 5
+          public 'trophies' => int 0
+          public 'bestTrophyScore' => int 30
+          public 'lastGameState' => string 'LAST_GAME_WON' (length=13)
+          public 'isConnected' => boolean true
+          public 'className' => string 'Warlock' (length=7)
+          public 'initialTalent' => string 'ExtraCard' (length=9)
+          public 'lastLogin' => string '2021-05-07 20:38' (length=16)
+          public 'session' => string 'H2021' (length=5)
+          public 'group' => null
+          public 'turnCount' => int 114
+          public 'sumWinHP' => int 32
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+      124 => 
+        object(stdClass)[126]
+          public 'studentCode' => null
+          public 'isConnected' => boolean false
+          public 'lastLogin' => string '--' (length=2)
+          public 'session' => string 'H2021' (length=5)
+          public 'turnCount' => int 0
+          public 'sumWinHP' => int 0
+          public 'firstName' => null
+          public 'lastName' => null
+          public 'email' => null
+  'life' => int 0
+  'connectedUserCount' => int 4
+  'tournamentMaxGameCount' => int 0
+  'tournamentAttendees' => 
+    array (size=0)
+      empty
+  'tournamentTimer' => int 0
+  'tournamentPendingUsers' => 
+    array (size=0)
+      empty
+  'tournamentEmails' => 
+    array (size=0)
+      empty
