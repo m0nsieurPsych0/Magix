@@ -12,6 +12,8 @@ const applyStyles = iframe => {
 	iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
 }
 
+// document.querySelector(".chat-stats").style.backgroundColor = "white";
+// document.getElementsByClassName("chat-stats").style 
 // tout les messages du chat /chat
 //  /chat/new
 // /chat/new {key : ..., message : "Hello world"}

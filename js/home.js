@@ -5,6 +5,7 @@ window.onload = () => {
 window.addEventListener("load", () => {
     applyStyles();
     // TODO: KbControl();
+    
 })
 
 function KbControl() {

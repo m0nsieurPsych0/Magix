@@ -27,9 +27,10 @@
                     <div class="chat-title">°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸</div>
                     <div id="chat">
                         <iframe onload="applyStyles(this)" 
-                                src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
+                            src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                         </iframe>
                     </div>
+                    <script>test();</script>
                     <!-- <iframe onload="applyStyles(this)" 
                             src=<?php echo(DECKMASTER . $_SESSION['key']); ?>>
                     </iframe> -->
@@ -39,12 +40,14 @@
                     <div id="system-messages-title">Messages_Système_____________________________________________________________________________________________________
                         <div id="log">
                             <?php
-                                foreach($data['info'] as $key => $value){
-                                    ?> <li id=><?php echo($key . $value); ?> </li> <?php
+                                if(isset($data['info'])){
+                                    foreach($data['info'] as $key => $value){
+                                        ?> <li id=><?php echo($key . $value); ?> </li> <?php
+                                    }
+                                    unset($value); //Détruire par sécurité recommandé ici: https://www.php.net/manual/en/control-structures.foreach.php
                                 }
-                                unset($value); //Détruire par sécurité recommandé ici: https://www.php.net/manual/en/control-structures.foreach.php
                                 if (isset($data["hasConnectionError"])){
-                                    ?><li class="error-div"> <?php echo("Erreur: " . $data["errorCode"]); ?> </li><?php
+                                    ?><li class="error-div"> <?php echo("Erreur: " . $data["error"]); ?> </li><?php
                                 }
 				            ?>
                             

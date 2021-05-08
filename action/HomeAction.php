@@ -29,6 +29,7 @@
 
 				foreach (ERRORCODES as $error){
 					if ($result == $error){
+						$hasConnectionError = true;
 						return compact("hasConnectionError", "error");
 					}
 				}
