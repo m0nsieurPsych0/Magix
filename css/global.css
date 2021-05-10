@@ -2,7 +2,7 @@
 :root {
   --font-pref: 0 Inconsolata, monospace;
   --scanline-itensity: 0.40;
-  --text-bleed-intensity: 0.5em;
+  --text-bleed-intensity: 0.5rem;
   --animation-pulsing: 1.25s linear alternate infinite pulsingBG;
 
    /* 

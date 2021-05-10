@@ -5,9 +5,10 @@ main{
     grid-template-columns: 75% 25%;
     
 }
-
+/* ARTICLE */
 #articles{
     padding-left: 1rem;
+    padding-right: 1rem;
     position: relative;
     grid-column: 1;
     overflow-y: scroll;
@@ -18,7 +19,7 @@ main{
 }
 #articles::-webkit-scrollbar {
     display: none;
-  }
+}
 
 /* AJOUT COMMENTAIRE */
 #ajout-commentaire{
@@ -30,9 +31,15 @@ form{
     grid-template-rows: auto;
 }
 
+/* HISTORIQUE */
 #historique{
     position: relative;
     grid-column: 2;
     overflow-y: scroll;
     scrollbar-width: none;
+    border-left: solid white;
+    padding-left: 1rem;
+}
+#historique::-webkit-scrollbar {
+    display: none;
 }

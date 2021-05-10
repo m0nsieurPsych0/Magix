@@ -1,6 +1,10 @@
 iframe{
-    width: 110%;
+    width: 100%;
     height: 100%;
     z-index: 10000000;
     border: none;
+    scrollbar-width: none;
+}
+iframe::-webkit-scrollbar {
+    display: none;
 }

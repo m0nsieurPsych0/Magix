@@ -94,6 +94,7 @@ iframe {
     height: 100%;
     /* overflow: none; */
     /* iframe frame transparent */
+    scrollbar-width: none;
     border: none;
     margin-bottom: -0.50rem;
 }
@@ -106,7 +107,9 @@ iframe:focus{
     height: 100%;
     max-height: 100%;
     overflow: hidden;
+    
 }
+
 #system-messages-title{
     margin-bottom: 1.5rem;
 }
@@ -119,8 +122,13 @@ iframe:focus{
     flex-direction: column;
 
 }
+#log::-webkit-scrollbar {
+    display: none;
+}
 #log li{
     padding: 0.125rem;
+    font-size: 1.75rem;
+
 }
 
 .error-div{
