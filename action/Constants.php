@@ -26,7 +26,8 @@
     // Manipulation base de donnée MySQL
     define("CREATE_DB", "CREATE DATABASE magix_os_db");
 
-    define("CREATE_TAB_ARTICLE", "CREATE TABLE IF NOT EXISTS `articles` (
+    // ARTICLE
+    define("CREATE_TAB_ARTICLE", "CREATE TABLE IF NOT EXISTS `article` (
         `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         `auteur` varchar(40) NOT NULL,
         `titre` varchar(100) NOT NULL,
@@ -37,6 +38,10 @@
 
     ");
     
+    define("INSERT_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
+    define("MODIFY_ARTICLE", "UPDATE `article` SET (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
+    
+    // COMMENT
     define("CREATE_TAB_COMMENT", "CREATE TABLE IF NOT EXISTS `comment` (
         `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
         `id_article` int(10) REFERENCES article(`id`) NOT NULL,
@@ -47,3 +52,6 @@
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
     ");
+
+    define("INSERT_COMMENT", "INSERT INTO `comment` (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
+    define("DEL_ARTICLE", "DELETE `comment` WHERE (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
