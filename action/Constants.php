@@ -1,6 +1,6 @@
 <?php
     /********************************* API *********************************/
-    // Chat
+    // iframe
     define("CHATURL", "https://magix.apps-de-cours.com/server/#/chat/");
     define("DECKMASTER","https://magix.apps-de-cours.com/server/#/deck/");
     //API call
@@ -19,6 +19,31 @@
     /****************************** MY_SQL ******************************/
 
     define("DB_HOST", "localhost");
-    define("DB_DATABASE", "magix_os_db");
+    define("DB_NAME", "magix_os_db");
     define("DB_USER", "magix_user");
     define("DB_PASS", "AAAaaa111");
+
+    // Manipulation base de donnée MySQL
+    define("CREATE_DB", "CREATE DATABASE magix_os_db");
+
+    define("CREATE_TAB_ARTICLE", "CREATE TABLE IF NOT EXISTS `articles` (
+        `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `auteur` varchar(40) NOT NULL,
+        `titre` varchar(100) NOT NULL,
+        `contenu` text NOT NULL,
+        `date` date NOT NULL,
+        PRIMARY KEY (`id`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+    ");
+    
+    define("CREATE_TAB_COMMENT", "CREATE TABLE IF NOT EXISTS `comment` (
+        `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `id_article` int(10) REFERENCES article(`id`) NOT NULL,
+        `auteur` varchar(40) NOT NULL,
+        `contenu` text NOT NULL,
+        `date` date NOT NULL,
+        PRIMARY KEY (`id`,`id_article`
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+    ");

@@ -3,12 +3,10 @@
 main{
     display: grid;
     grid-template-columns: 75% 25%;
-    
 }
 /* ARTICLE */
 #articles{
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
     position: relative;
     grid-column: 1;
     overflow-y: scroll;
@@ -20,25 +18,30 @@ main{
 #articles::-webkit-scrollbar {
     display: none;
 }
-
+#article-wrapper{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 #auteur-date-wrapper{
     display: flex;
     margin-bottom: 2rem;
+    justify-content: space-between;
 }
 :is(#auteur-article, #date-article){
     border-bottom: solid white;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
 }
-#auteur-article{
-    padding-right: 1rem;
+#contenu{
+    text-align: justify;
 }
-#date-article{
-    padding-left: 1rem;
-}
+
+
 /* AJOUT COMMENTAIRE */
 #ajout-commentaire{
     margin-top: 3rem;
     margin-bottom: 1rem;
-    /* position: relative; */
+    position: relative;
     width: 75%;
     height: 30rem;
 
@@ -117,12 +120,16 @@ button:hover{
 
 /* HISTORIQUE */
 #historique{
+
     position: relative;
     grid-column: 2;
     overflow-y: scroll;
     scrollbar-width: none;
     border-left: solid white;
-    padding-left: 1rem;
+    padding-left: 2rem;
+
+    display: flex;
+
 }
 #historique::-webkit-scrollbar {
     display: none;

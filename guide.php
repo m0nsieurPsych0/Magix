@@ -14,23 +14,27 @@
                     <div id="articles">
                                                 
                         <template id="template-article">
-                            <h1 id="titre"></h1>
-                            <div id="auteur-date-wrapper">
-                                <div id="auteur-article"></div>
-                                <div id="date-article"></div>
+                            <div id="article-wrapper">
+                                <h1 id="titre"></h1>
+                                <div id="auteur-date-wrapper">
+                                    <div id="auteur-article"></div>
+                                    <div id="date-article"></div>
+                                </div>
+                                <div id="contenu"></div>
                             </div>
-                            <div id="contenu"></div>
                         </template>
                         <div id="template-article">
-                            <h1 id="titre">LoremIpsum</h1>
-                            <div id="auteur-date-wrapper">
-                                <div id="auteur-article">Karl drogo</div>
-                                <div id="date-article"> 10 avril 2020</div>
+                            <div id="article-wrapper">
+                                <h1 id="titre">LoremIpsum</h1>
+                                <div id="auteur-date-wrapper">
+                                    <div id="auteur-article">Karl drogo</div>
+                                    <div id="date-article"> 10 avril 2020</div>
+                                </div>
+                                <div id="contenu">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse ipsa quis sit ratione, fugiat quas voluptas est iste unde quisquam magni culpa! Earum vero similique quam, optio soluta mollitia doloremque?
+                                Sint labore quam ipsa voluptate provident, delectus dolorum inventore qui maiores reiciendis, necessitatibus possimus natus. Aliquid velit at consequuntur sunt doloribus voluptas nisi tenetur amet quos? Tenetur modi omnis quis.
+                                Laboriosam perferendis debitis saepe natus, porro, optio voluptatum rerum quidem fugit nam doloribus iste repellendus id! Sunt explicabo non quidem reiciendis iste, provident maxime deserunt corporis repellendus omnis recusandae possimus!
+                                Alias nesciunt ratione aspernatur, atque, sint dignissimos quasi perferendis non deserunt facilis eveniet dolore corporis, impedit nostrum nam tenetur. Eum suscipit consequuntur, debitis facere nobis animi dolorem nostrum quis voluptas.</div>
                             </div>
-                            <div id="contenu">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse ipsa quis sit ratione, fugiat quas voluptas est iste unde quisquam magni culpa! Earum vero similique quam, optio soluta mollitia doloremque?
-                            Sint labore quam ipsa voluptate provident, delectus dolorum inventore qui maiores reiciendis, necessitatibus possimus natus. Aliquid velit at consequuntur sunt doloribus voluptas nisi tenetur amet quos? Tenetur modi omnis quis.
-                            Laboriosam perferendis debitis saepe natus, porro, optio voluptatum rerum quidem fugit nam doloribus iste repellendus id! Sunt explicabo non quidem reiciendis iste, provident maxime deserunt corporis repellendus omnis recusandae possimus!
-                            Alias nesciunt ratione aspernatur, atque, sint dignissimos quasi perferendis non deserunt facilis eveniet dolore corporis, impedit nostrum nam tenetur. Eum suscipit consequuntur, debitis facere nobis animi dolorem nostrum quis voluptas.</div>
                         </div>
 
                         <div id="ajout-commentaire">
