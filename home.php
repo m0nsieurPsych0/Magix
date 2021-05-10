@@ -17,7 +17,7 @@
                     </div>
                     <div class="button-wrapper" onclick="window.location.href='?pvp=true';"><button id="jouer" >__Jouer</button></div>
                     <div class="button-wrapper" onclick="window.location.href='?pve=true';"><button id="pratiquer" >__Pratiquer</button></div>
-                    <div class="button-wrapper" onclick="window.location.href='deckMaster.php';"><button id="deck" >__Deck_Master</button></div>
+                    <div class="button-wrapper" onclick="window.location.href='deckmaster.php';"><button id="deck" >__Deck_Master</button></div>
                     <div class="button-wrapper" onclick="window.location.href='guide.php';"><button id="guide" >__Guide_Stratégique</button></div>
                     <div class="button-wrapper" onclick="window.location.href='index.php';"><button id="screensaver" >__Écran_de_Veille</button></div>
                     <div class="button-wrapper" onclick="window.location.href='?logout=true';"><button id="quitter" >__Quitter</button></div>
@@ -30,7 +30,8 @@
                         </iframe>
                     </div>
         
-                    <div id="system-messages-title">Messages_Système_____________________________________________________________________________________________________
+                    <div id="system-messages">
+                        <div id="system-messages-title">Messages_Système_____________________________________________________________________________________________________</div>
                         <div id="log">
                             <script>systemMessage(<?php echo(json_encode($data['info'])); ?>);</script>
                             <?php
@@ -38,7 +39,6 @@
                                     ?><li class="error-div"> <?php echo("Erreur: " . $data["error"]); ?> </li><?php
                                 }
 				            ?>
-                            
                         </div>
                     </div>
 

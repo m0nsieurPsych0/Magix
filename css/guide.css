@@ -1,1 +1,38 @@
 /*************************guide*************************/
+
+main{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    
+}
+
+#articles{
+    padding-left: 1rem;
+    position: relative;
+    grid-column: 1;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    display: flex;
+    flex-direction: column;
+}
+#articles::-webkit-scrollbar {
+    display: none;
+  }
+
+/* AJOUT COMMENTAIRE */
+#ajout-commentaire{
+    position: relative;
+    width: 25vw;
+}
+form{
+    display: grid;
+    grid-template-rows: auto;
+}
+
+#historique{
+    position: relative;
+    grid-column: 2;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

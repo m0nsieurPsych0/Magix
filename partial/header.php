@@ -62,14 +62,13 @@
 				if ($page == "guide"){
 					?>
 						<link href="css/guide.css" rel="stylesheet" />
-						<script src="js/screenSaver.js"></script>
-						<!-- <script src="js/guide.js"></script> -->
+						<!-- <script src="js/screenSaver.js"></script> -->
+						<script src="js/guide.js"></script>
 						<title>__Guide__|\/|agix__OS</title>
 					<?php	
 				}							
 				
 			?>	
-			
 				
 		</head>
 		<body>
@@ -82,10 +81,13 @@
 					?><?php
 				}
 				elseif ($page == "deckMaster"){
-					?><div class="typing">Deck_Master________________________________________________________________________________________________________________________________________________________________</div><?php
+					?><div class="typing">Deck_M4st3r________________________________________________________________________________________________________________________________________________________________</div><?php
 				}
 				elseif ($page == "booting"){
-					?><div class="rotate">|\/|agix__OS</div><?php
+					?><?php
+				}
+				elseif ($page == "guide"){
+					?><div class="typing">Guide_Str4tégiqu3________________________________________________________________________________________________________________________________________________________________</div><?php
 				}
 				else {
 					?><div class="typing">|\/|agix__OS_______________________________________________________________________________________________________________________________________________________________</div><?php
