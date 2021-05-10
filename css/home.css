@@ -106,23 +106,18 @@ iframe:focus{
     height: 100%;
     max-height: 100%;
     overflow: hidden;
-
-    /* display: flex;
-    flex-direction: column; */
 }
 #system-messages-title{
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 #log{
-    /* max-height: 100%; */
     height: 20rem;
     overflow-y: scroll;
     scrollbar-width: none;
 
     display: flex;
     flex-direction: column;
-    /* padding-top: 2rem; */
-    /* overflow-wrap: break-word; */
+
 }
 #log li{
     padding: 0.125rem;
