@@ -21,15 +21,99 @@ main{
     display: none;
 }
 
+#auteur-date-wrapper{
+    display: flex;
+    margin-bottom: 2rem;
+}
+:is(#auteur-article, #date-article){
+    border-bottom: solid white;
+}
+#auteur-article{
+    padding-right: 1rem;
+}
+#date-article{
+    padding-left: 1rem;
+}
 /* AJOUT COMMENTAIRE */
 #ajout-commentaire{
-    position: relative;
-    width: 25vw;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    /* position: relative; */
+    width: 75%;
+    height: 30rem;
+
 }
 form{
+    height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-rows: auto;
+    grid-template-columns: min-content;
+    align-items: center;
+    
 }
+form >*{
+    --text-bleed-intensity: 7px;
+    color: white;
+    font: var(--font-pref);
+    font-size: calc(var(--font-size-res) - 0.5rem);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+    background-color: transparent;
+    border:none;
+    outline:none;
+    animation: var(--animation-pulsing);
+    margin-top: 0.125rem;
+    margin-bottom: 0.125rem;
+
+}
+button:focus-visible {
+    /* met les boutons en surbrillance quand il sont en focus par tab */
+    background: white ; 
+    text-shadow: none;
+    color: black;
+    outline: none;
+}
+button:hover{
+    background-color: white;
+    text-shadow: none;
+    color:black;
+}
+
+#ajout-auteur{
+    height: max(2vh, 1.4rem);
+    border: solid white;
+    width: 75%;
+    
+}
+#ajout-contenu{
+    height: 10vh;
+    border: solid white;
+    /* width:100% */
+}
+#envoyer{
+    width: 40%;
+    border: solid white;
+    height: min-content;
+}
+
+/* AFFICHAGE DES COMMENTAIRES */
+.commentaire-wrapper{
+    margin: 2rem;
+    font-size: calc(var(--font-size-res) - 0.75rem);
+
+}
+.auteur-date-wrapper{
+    display:flex;
+}
+.auteur-commentaire{
+    padding-right: 1rem;
+}
+.date-commentaire{
+    padding-left: 1rem;
+}
+.contenu-commentaire{
+    margin-top: 1rem;
+}
+
 
 /* HISTORIQUE */
 #historique{
