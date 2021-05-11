@@ -41,23 +41,26 @@
 			
 			// User history
 			$data["allUsers"] = false;
-			$result = parent::callAPI("users-extra", $data);
+			$resultbrut = parent::callAPI("users-extra", $data);
+			$result = $resultbrut->users;
+			
+			foreach($result as $content){
+				if(isset($content->username)){
+					if($content->username == $_SESSION["username"]){
 
-			foreach($result->users as $content){
+						$info['Dernière Connexion: '] = $content->lastLogin;
+						if($content->lastGameState == "LAST_GAME_LOST"){
+							$info['Dernière Partie: '] = "Perdue";
+						}
+						else{
+							$info['Dernière Partie: '] = "Gagnée";
+						}
+						$info['Parties Gagnées: '] = $content->winCount;
+						$info['Parties Perdues: '] = $content->lossCount;
+						$info['Trophés: '] = $content->trophies;
+						return compact("info");
 
-				if($content->username == $_SESSION['username']){
-					$info['Dernière Connexion: '] = $content->lastLogin;
-					if($content->lastGameState == "LAST_GAME_LOST"){
-						$info['Dernière Partie: '] = "Perdue";
 					}
-					else{
-						$info['Dernière Partie: '] = "Gagnée";
-					}
-					$info['Parties Gagnées: '] = $content->winCount;
-					$info['Parties Perdues: '] = $content->lossCount;
-					$info['Trophés: '] = $content->trophies;
-					return compact("info");
-
 				}
 			}
 

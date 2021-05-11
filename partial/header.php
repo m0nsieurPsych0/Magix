@@ -43,6 +43,7 @@
 				if ($page == "deckMaster"){
 					?>
 						<link href="css/deckMaster.css" rel="stylesheet" />
+						<script src="js/chat.js"></script>
 						<script src="js/screenSaver.js"></script>
 						<title>__Deck_Master__|\/|agix__OS</title>
 					<?php	

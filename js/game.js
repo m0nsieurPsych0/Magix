@@ -143,10 +143,11 @@ const gameAction = (send) =>{
     .then(response => response.json())
     .then(data => {
         
-        // console.log('then');
-        // console.log(data);
         if (data && data.length != 0 && typeof data != "object"){
             error(errorDef[data]);
+        }
+        else{
+            game(data);
         }
     })
 }

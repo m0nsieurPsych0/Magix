@@ -78,7 +78,7 @@ button:hover, .button-wrapper:hover > button{
 .chat-title{
     position: relative;
     /* padding-bottom: 2vh; */
-    
+    padding-left: -1vw;
     /* Empêcher le texte de wrapper */
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -116,6 +116,7 @@ iframe:focus{
 #log{
     height: 20rem;
     overflow-y: scroll;
+    overflow-x: scroll;
     scrollbar-width: none;
 
     display: flex;

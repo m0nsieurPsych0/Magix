@@ -18,7 +18,6 @@ const saveUsername = (username) => {
 }
 
 const systemMessage = (infoValue) =>{
-    
     for(let key in infoValue){
         let li = document.createElement("li");
         li.innerHTML = key + infoValue[key];

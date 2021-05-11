@@ -12,7 +12,14 @@
 
 ?>
                 <main>
-                    <iframe src=<?php echo(DECKMASTER . $_SESSION['key']); ?>></iframe>
+                    <div id="chat">
+                        <iframe onload="applyStyles(this)" 
+                            src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
+                        </iframe>
+                    </div>
+                    <div id="deck">
+                        <iframe src=<?php echo(DECKMASTER . $_SESSION['key']); ?>></iframe>
+                    </div>   
                 </main>
 <?php
 	require_once("partial/footer.php");
