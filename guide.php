@@ -12,18 +12,8 @@
 ?>
                 <main>
                     <div id="articles">
-                                                
-                        <template id="template-article">
-                            <div id="article-wrapper">
-                                <h1 id="titre"></h1>
-                                <div id="auteur-date-wrapper">
-                                    <div id="auteur-article"></div>
-                                    <div id="date-article"></div>
-                                </div>
-                                <div id="contenu"></div>
-                            </div>
-                        </template>
-                        <div id="template-article">
+                                        
+                        <!-- <div id="template-article">
                             <div id="article-wrapper">
                                 <h1 id="titre">LoremIpsum</h1>
                                 <div id="auteur-date-wrapper">
@@ -35,15 +25,27 @@
                                 Laboriosam perferendis debitis saepe natus, porro, optio voluptatum rerum quidem fugit nam doloribus iste repellendus id! Sunt explicabo non quidem reiciendis iste, provident maxime deserunt corporis repellendus omnis recusandae possimus!
                                 Alias nesciunt ratione aspernatur, atque, sint dignissimos quasi perferendis non deserunt facilis eveniet dolore corporis, impedit nostrum nam tenetur. Eum suscipit consequuntur, debitis facere nobis animi dolorem nostrum quis voluptas.</div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div id="ajout-commentaire">
+                        <template id="template-article">
+                            <div id="article-wrapper">
+                                <h1 id="titre"></h1>
+                                <div id="auteur-date-wrapper">
+                                    <div id="auteur-article"></div>
+                                    <div id="date-article"></div>
+                                </div>
+                                <div id="contenu"></div>
+                            </div>
+                        </template>
+                    
+
+                        <template id="ajout-commentaire">
                             <form action="guide.php" method="post" autocomplete="off">
                                 <textarea id="ajout-auteur"  placeholder="Votre nom" name="auteur"></textarea>
                                 <textarea id="ajout-contenu" placeholder="Votre commentaire" name="contenu"></textarea>
                                 <button id="envoyer">Envoyer</button>
                             </form>
-                        </div>
+                        </template>
                         
                         <template id="template-commentaire">
                             <div class="commentaire-wrapper">
@@ -59,7 +61,7 @@
                     
                     </div>
                     
-                    <div id="historique">historique</div>
+                    <div id="historique"></div>
                     <!-- Pour chaque année en ordre décroissante -->
                     <!-- Pour chaque article en ordre antéchronologique-->
                 </main>

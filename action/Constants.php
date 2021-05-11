@@ -19,12 +19,13 @@
     /****************************** MY_SQL ******************************/
 
     define("DB_HOST", "localhost");
-    define("DB_NAME", "magix_os_db");
-    define("DB_USER", "magix_user");
+    define("DB_NAME", "c55_db");
+    define("DB_USER", "c55_user");
     define("DB_PASS", "AAAaaa111");
+    define("DB_AUTHORIZEDPASS", "");
 
     // Manipulation base de donnée MySQL
-    define("CREATE_DB", "CREATE DATABASE magix_os_db");
+    define("CREATE_DB", "CREATE DATABASE IF NOT EXISTS magix_os_db");
 
     // ARTICLE
     define("CREATE_TAB_ARTICLE", "CREATE TABLE IF NOT EXISTS `article` (
@@ -38,8 +39,10 @@
 
     ");
     
-    define("INSERT_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
-    define("MODIFY_ARTICLE", "UPDATE `article` SET (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
+    define("ADD_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
+    define("GET_ARTICLE", "SELECT * FROM `article` WHERE (`id`) VALUES (?)");
+    define("MOD_ARTICLE", "UPDATE `article` SET (`id`, `titre`, `contenu`) VALUES (?)");
+    define("DEL_ARTICLE", "DELETE `comment` WHERE (`id`) VALUES (?)");
     
     // COMMENT
     define("CREATE_TAB_COMMENT", "CREATE TABLE IF NOT EXISTS `comment` (
@@ -48,10 +51,12 @@
         `auteur` varchar(40) NOT NULL,
         `contenu` text NOT NULL,
         `date` date NOT NULL,
-        PRIMARY KEY (`id`,`id_article`
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        PRIMARY KEY (`id`,`id_article`) 
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
     ");
 
-    define("INSERT_COMMENT", "INSERT INTO `comment` (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
-    define("DEL_ARTICLE", "DELETE `comment` WHERE (`auteur`, `titre`, `contenu`) VALUES (?, ?, ?)");
+    define("INSERT_COMMENT", "INSERT INTO `comment` (`auteur`,`contenu`,`id_article`) VALUES (?, ?, ?)");
+    define("GET_COMMENT", "SELECT * FROM `comment` WHERE `id_article` VALUE (?)");
+    define("DEL_COMMENT", "DELETE * FROM `comment` WHERE `id_article` VALUE (?)");
+  
