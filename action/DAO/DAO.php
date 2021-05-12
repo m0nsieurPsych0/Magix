@@ -12,7 +12,7 @@
 
         public static function addArticle($auteur, $titre, $contenu){
 
-            $statement = connection()->prepare(ADD_ARTICLE);
+            $statement = DAO::connection()->prepare(ADD_ARTICLE);
             $statement->bindParam(1, $auteur);
             $statement->bindParam(2, $titre );
             $statement->bindParam(3, $contenu);
@@ -20,29 +20,33 @@
         }
         
         public static function getArticle($id){
-            
-            $statement = connection()->prepare(GET_ARTICLE);
-            $statement->bindParam(1, $id);
+            $intId = (int) $id;
+        
+            $statement = DAO::connection()->prepare(GET_ARTICLE);
+            $statement->bindParam(1, $intId);
             $statement->setFetchMode(PDO::FETCH_ASSOC);
-            
-            $data = [];
-            $data['article'] = $statement->execute();
-            $data['comment'] = getComment($id);
-
+            $statement->execute();
+           
+            $data = []; 
+            $data['article'] = $statement->fetch();
+            $data['comment'] = DAO::getComment($intId);
             return $data; 
         }
 
         public static function getLatest(){
 
-            $statement = connection()->prepare(GET_LATEST);
+            $statement = DAO::connection()->prepare(GET_LATEST);
             $statement->setFetchMode(PDO::FETCH_ASSOC);
-            getArticle($statement->execute());
+            $statement->execute();
+            $data = $statement->fetch();
+
+           return DAO::getArticle($data);
             
         }
 
         public static function modArticle($id, $titre, $contenu){
 
-            $statement = connection()->prepare(MOD_ARTICLE);
+            $statement = DAO::connection()->prepare(MOD_ARTICLE);
             $statement->bindParam(1, $id);
             $statement->bindParam(2, $titre );
             $statement->bindParam(3, $contenu);
@@ -51,15 +55,15 @@
 
         public static function delArticle($articleid){
             
-            $statement = connection()->prepare(DEL_ARTICLE);
+            $statement = DAO::connection()->prepare(DEL_ARTICLE);
             $statement->bindParam(1, $articleid);
             $statement->execute();
-            delComment($articleid);
+            DAO::delComment($articleid);
         }
 
         public static function addComment($auteur, $contenu, $articleId ){
 
-            $statement = connection()->exec(ADD_COMMENT);
+            $statement = DAO::connection()->prepare(ADD_COMMENT);
             $statement->bindParam(1, $auteur);
             $statement->bindParam(2, $contenu );
             $statement->bindParam(3, $articleId );
@@ -68,7 +72,7 @@
 
         public static function getComment($articleId){
 
-            $statement = connection()->exec(GET_COMMENT);
+            $statement = DAO::connection()->prepare(GET_COMMENT);
             $statement->bindParam(1, $articleId);
             $statement->execute();
             return $statement->fetchAll();
@@ -76,7 +80,7 @@
 
         public static function delComment($articleId){
             
-            $statement = connection()->prepare(DEL_COMMENT);
+            $statement = DAO::connection()->prepare(DEL_COMMENT);
             $statement->bindParam(1, $articleId);
             $statement->execute();
         }

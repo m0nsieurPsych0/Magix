@@ -12,14 +12,21 @@
 ?>
                 <main>
                     <div id="articles">
+                        <?php 
+                            // if($data["db"] == )
+                            var_dump($data['db']);
+                        
+                        ?>
                         <template id="creer-article">
-                        </template>
-                            
                             <form id="creer-article-wrapper" action="guide.php" method="post" autocomplete="off">
+                                    <input type="text" class="type" name="article">
+                                    <input type="text" class="type" name="add">
                                     <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre"></textarea>
-                                    <textarea id="contenu-creer" placeholder="Votre article" name="contenu"></textarea>
+                                    <textarea id="contenu-creer" placeholder="Le contenu de l'article" name="contenu"></textarea>
                                     <button id="creer">Créer</button>
                             </form>
+                        </template>
+                            
                           
                                         
                         <!-- <div id="template-article">
@@ -46,9 +53,6 @@
                                 <div id="contenu"></div>
                             </div>
                         </template>
-                    
-
-                        
                         
                         <template id="ajout-commentaire">
                             <form id="ajout-commentaire-wrapper" action="guide.php" method="post" autocomplete="off">
