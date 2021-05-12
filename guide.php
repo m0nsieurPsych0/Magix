@@ -13,7 +13,9 @@
                 <main>
                     <div id="article">
                         <?php if(isset($_SESSION['username'])){ ?> <button id="create-article" onclick="createArticle();">Créer un article</button> <?php } ?>
-                        <template id="template-creer-article">
+                        
+                    </div>
+                    <template id="template-creer-article">
                             <form id="creer-article-wrapper" action="guide.php" method="post" autocomplete="off">
                                 <!-- Pour passer des arguments supplémentaire -->
                                 <input type="text" class="type" name="article">
@@ -53,14 +55,15 @@
                             <div class="contenu-commentaire"></div>
                         </template>
                         
-                        
-                    
-                    </div>
-                    
                     <div id="historique"></div>
                     <!-- Pour chaque année en ordre décroissante -->
                     <!-- Pour chaque article en ordre antéchronologique-->
                 </main>
+                <!-- Pour afficher les articles -->
                 <script>displayArticle(<?php echo(json_encode($data["db"])); ?>);</script>
+
+                <!-- ----------------------SECTION TEMPLATE------------------------------- -->
+
+                
 <?php
 	require_once("partial/footer.php");

@@ -7,7 +7,7 @@ const displayArticle = (dbData) => {
     // console.log(dbData);
     let article = document.createElement("div");
     article.id = "article-wrapper";
-    article.innerHTML = document.querySelector("#template-article").innerHTML;
+    article.innerHTML = document.getElementById("template-article").innerHTML;
     document.getElementById("article").append(article);
 
     document.querySelector("h1").innerHTML = dbData.article.titre;
@@ -33,14 +33,13 @@ const displayComment = (comments) =>{
     });
 }
 
-
 const commentCreation = (articleId) =>{
     let commentCreation = document.createElement("form");
     commentCreation.id = "ajout-commentaire-wrapper";
     commentCreation.setAttribute("action", "guide.php");
     commentCreation.setAttribute("method", "post");
     commentCreation.setAttribute("autocomplete", "off");
-    commentCreation.innerHTML = document.querySelector("#template-ajout-commentaire").innerHTML;
+    commentCreation.innerHTML = document.getElementById("template-ajout-commentaire").innerHTML;
 
     document.getElementById("article").append(commentCreation);
     
@@ -53,5 +52,6 @@ const loadHistory = () =>{
 }
 
 const createArticle = () =>{
-    //TODO
+    document.getElementById("article").innerHTML = "";
+
 }
