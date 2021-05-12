@@ -12,6 +12,15 @@
 ?>
                 <main>
                     <div id="articles">
+                        <template id="creer-article">
+                        </template>
+                            
+                            <form id="creer-article-wrapper" action="guide.php" method="post" autocomplete="off">
+                                    <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre"></textarea>
+                                    <textarea id="contenu-creer" placeholder="Votre article" name="contenu"></textarea>
+                                    <button id="creer">Créer</button>
+                            </form>
+                          
                                         
                         <!-- <div id="template-article">
                             <div id="article-wrapper">
@@ -39,10 +48,12 @@
                         </template>
                     
 
+                        
+                        
                         <template id="ajout-commentaire">
-                            <form action="guide.php" method="post" autocomplete="off">
+                            <form id="ajout-commentaire-wrapper" action="guide.php" method="post" autocomplete="off">
                                 <textarea id="ajout-auteur"  placeholder="Votre nom" name="auteur"></textarea>
-                                <textarea id="ajout-contenu" placeholder="Votre commentaire" name="contenu"></textarea>
+                                <textarea id="ajout-commentaire" placeholder="Votre commentaire" name="contenu"></textarea>
                                 <button id="envoyer">Envoyer</button>
                             </form>
                         </template>
