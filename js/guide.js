@@ -4,7 +4,6 @@ document.addEventListener("load", () => {
 });
 
 const displayArticle = (dbData) => {
-    // console.log(dbData);
     let article = document.createElement("div");
     article.id = "article-wrapper";
     article.innerHTML = document.getElementById("template-article").innerHTML;
@@ -53,5 +52,15 @@ const loadHistory = () =>{
 
 const createArticle = () =>{
     document.getElementById("article").innerHTML = "";
+
+    let articleCreation = document.createElement("form");
+    articleCreation.id = "creer-article-wrapper";
+    articleCreation.setAttribute("action", "guide.php");
+    articleCreation.setAttribute("method", "post");
+    articleCreation.setAttribute("autocomplete", "off");
+    articleCreation.innerHTML = document.getElementById("template-creer-article").innerHTML;
+    
+    document.getElementById("article").append(articleCreation);
+
 
 }

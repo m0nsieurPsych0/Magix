@@ -102,7 +102,12 @@ input.type{
     width: 20%;
     justify-self: center;
 }
-
+#contenu-creer{
+    scrollbar-width: none;
+}
+#contenu-creer::-webkit-scrollbar {
+    display: none;
+}
 
 /* AJOUT COMMENTAIRE */
 #ajout-commentaire-wrapper{

@@ -7,7 +7,6 @@
     
     require_once("partial/header.php");
     
-    // var_dump($_SESSION);
 
     ?>
                 <main>

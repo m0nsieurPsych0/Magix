@@ -20,9 +20,8 @@
         }
         
         public static function getArticle($id){
-            // Retourne un tableau, on doit typecaster
-            $intId = (int) $id;
-        
+            $intId = $id['id'];
+
             $statement = DAO::connection()->prepare(GET_ARTICLE);
             $statement->bindParam(1, $intId);
             $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -49,7 +48,7 @@
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
             $data = $statement->fetch();
-
+            // var_dump($data);
            return DAO::getArticle($data);
             
         }

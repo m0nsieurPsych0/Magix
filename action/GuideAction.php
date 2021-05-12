@@ -40,6 +40,9 @@
                 elseif(isset($_POST["comment"])){
                     if(isset($_POST['add'])){
                         if(isset($_POST['auteur']) && isset($_POST['contenu']) && isset($_POST['articleId'])){
+                            if(strlen($_POST['auteur']) > 40){
+                                DAO::addComment(substr($_POST['auteur'], 0, 40), $_POST['contenu'], $_POST['articleId']);
+                            }
                             DAO::addComment($_POST['auteur'], $_POST['contenu'], $_POST['articleId']);
                             $db = DAO::getArticle($_POST['articleId']);
                             return compact("db");
