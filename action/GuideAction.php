@@ -40,8 +40,8 @@
                 elseif(isset($_POST["comment"])){
                     
                     if(isset($_POST['add'])){
-                        if(isset($_POST['contenu']) && isset($_POST['articleId'])){
-                            DAO::addComment($_SESSION['username'], $_POST['contenu'], $_POST['articleId']);
+                        if(isset($_POST['auteur']) && isset($_POST['contenu']) && isset($_POST['articleId'])){
+                            DAO::addComment($_POST['auteur'], $_POST['contenu'], $_POST['articleId']);
                         }
                     }
                     elseif(isset($_POST['get'])){

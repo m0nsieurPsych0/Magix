@@ -20,6 +20,7 @@
         }
         
         public static function getArticle($id){
+            // Retourne un tableau, on doit typecaster
             $intId = (int) $id;
         
             $statement = DAO::connection()->prepare(GET_ARTICLE);

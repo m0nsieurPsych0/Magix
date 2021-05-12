@@ -14,10 +14,11 @@
                     <div id="articles">
                         <?php 
                             // if($data["db"] == )
-                            var_dump($data['db']);
+                            // var_dump($data['db']);
                         
                         ?>
-                        <template id="creer-article">
+
+                        <template id="template-creer-article">
                             <form id="creer-article-wrapper" action="guide.php" method="post" autocomplete="off">
                                     <input type="text" class="type" name="article">
                                     <input type="text" class="type" name="add">

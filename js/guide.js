@@ -2,6 +2,11 @@ document.addEventListener("load", () => {
     
 });
 
+const loadLatestArticle = () => {
+    
+}
+
+
 const loadArticle = () => {
 
 }

@@ -40,6 +40,7 @@
 
     ");
     
+    // QUERY ARTICLE
     define("ADD_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES(?, ?, ?)");
     define("GET_ARTICLE", "SELECT * FROM `article` WHERE (`id`) = ?");
     define("GET_ALL_ARTICLE", "SELECT * FROM `article` ORDER BY `creation_time` DESC limit 1");
@@ -59,6 +60,7 @@
 
     ");
 
+    // QUERY COMMENT
     define("ADD_COMMENT", "INSERT INTO `comment` (`auteur`,`contenu`,`id_article`) VALUES(?, ?, ?)");
     define("GET_COMMENT", "SELECT * FROM `comment` WHERE `id_article` = ?");
     define("DEL_COMMENT", "DELETE * FROM `comment` WHERE `id_article` = ?");
