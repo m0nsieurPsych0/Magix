@@ -12,12 +12,13 @@
     ?>
                 <main>
                     <div id="article">
+                        <?php if(isset($_SESSION['username'])){ ?> <button id="create-article" onclick="createArticle();">Créer un article</button> <?php } ?>
                         <template id="template-creer-article">
                             <form id="creer-article-wrapper" action="guide.php" method="post" autocomplete="off">
                                 <!-- Pour passer des arguments supplémentaire -->
                                 <input type="text" class="type" name="article">
                                 <input type="text" class="type" name="add">
-                                
+                                <!-- ---------------------------------------- -->
                                 <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre"></textarea>
                                 <textarea id="contenu-creer" placeholder="Le contenu de l'article" name="contenu"></textarea>
                                 <button id="creer">Créer</button>
@@ -38,7 +39,7 @@
                             <input type="text" class="type" name="comment">
                             <input type="text" class="type" name="add">
                             <input id="articleId" type="text" class="type" name="articleId">
-
+                            <!-- -------------------------------------------------------- -->
                             <textarea id="ajout-auteur"  placeholder="Votre nom" name="auteur"></textarea>
                             <textarea id="ajout-commentaire" placeholder="Votre commentaire" name="contenu"></textarea>
                             <button id="envoyer">Envoyer</button>
@@ -52,7 +53,7 @@
                             <div class="contenu-commentaire"></div>
                         </template>
                         
-                            
+                        
                     
                     </div>
                     

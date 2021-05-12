@@ -1,6 +1,7 @@
 /*************************guide*************************/
 
 main{
+    position: relative;
     display: grid;
     grid-template-columns: 75% 25%;
 }
@@ -63,7 +64,27 @@ button:hover{
 #contenu{
     text-align: justify;
 }
+
 /* CRÉER ARTICLE */
+#create-article{
+    position: absolute;
+    top:0;
+    right:0;
+    margin-right: 1rem;
+    height: 5rem;
+    width: 15%;
+    --text-bleed-intensity: 7px;
+    color: white;
+    font: var(--font-pref);
+    font-size: calc(var(--font-size-res) - 0.5rem);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+    background-color: transparent;
+}
+#create-article:hover{
+    background-color: white;
+    text-shadow: none;
+    color:black;
+}
 input.type{
     display: none;
 }
