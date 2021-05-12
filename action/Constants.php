@@ -42,6 +42,7 @@
     
     define("ADD_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES(?, ?, ?)");
     define("GET_ARTICLE", "SELECT * FROM `article` WHERE (`id`) = ?");
+    define("GET_ALL_ARTICLE", "SELECT * FROM `article` ORDER BY `creation_time` DESC limit 1");
     define("MOD_ARTICLE", "UPDATE `article` SET (`id`, `titre`, `contenu`) VALUE(?)");
     define("DEL_ARTICLE", "DELETE `comment` WHERE (`id`) = ?");
     define("GET_LATEST", "SELECT `id` FROM `article` ORDER BY `creation_time` DESC limit 1");

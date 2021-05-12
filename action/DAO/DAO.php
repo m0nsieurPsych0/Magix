@@ -33,6 +33,15 @@
             return $data; 
         }
 
+        public static function getAllArticle(){
+        
+            $statement = DAO::connection()->prepare(GET_ALL_ARTICLE);
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+            
+            return $statement->fetchall();
+        }
+
         public static function getLatest(){
 
             $statement = DAO::connection()->prepare(GET_LATEST);
