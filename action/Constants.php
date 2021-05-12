@@ -43,6 +43,7 @@
     define("GET_ARTICLE", "SELECT * FROM `article` WHERE (`id`) VALUES (?)");
     define("MOD_ARTICLE", "UPDATE `article` SET (`id`, `titre`, `contenu`) VALUES (?)");
     define("DEL_ARTICLE", "DELETE `comment` WHERE (`id`) VALUES (?)");
+    define("GET_LATEST", "SELECT `id` FROM `article` ORDER BY `date` DESC limit 1");
     
     // COMMENT
     define("CREATE_TAB_COMMENT", "CREATE TABLE IF NOT EXISTS `comment` (
@@ -56,7 +57,7 @@
 
     ");
 
-    define("INSERT_COMMENT", "INSERT INTO `comment` (`auteur`,`contenu`,`id_article`) VALUES (?, ?, ?)");
+    define("ADD_COMMENT", "INSERT INTO `comment` (`auteur`,`contenu`,`id_article`) VALUES (?, ?, ?)");
     define("GET_COMMENT", "SELECT * FROM `comment` WHERE `id_article` VALUE (?)");
     define("DEL_COMMENT", "DELETE * FROM `comment` WHERE `id_article` VALUE (?)");
   
