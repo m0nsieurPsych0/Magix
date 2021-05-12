@@ -20,16 +20,17 @@
         }
         
         public static function getArticle($id){
-            $intId = $id['id'];
+            // var_dump($id);
+            // $id = $id['id'];
 
             $statement = DAO::connection()->prepare(GET_ARTICLE);
-            $statement->bindParam(1, $intId);
+            $statement->bindParam(1, $id);
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
            
             $data = []; 
             $data['article'] = $statement->fetch();
-            $data['comment'] = DAO::getComment($intId);
+            $data['comment'] = DAO::getComment($id);
             return $data; 
         }
 
@@ -48,8 +49,8 @@
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
             $data = $statement->fetch();
-            // var_dump($data);
-           return DAO::getArticle($data);
+            //On doit sortir la variable de son tableau
+            return DAO::getArticle($data['id']);
             
         }
 

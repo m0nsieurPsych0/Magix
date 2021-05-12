@@ -19,16 +19,17 @@ const displayArticle = (dbData) => {
 }
 
 const displayComment = (comments) =>{
+    let i = 0;
     comments.forEach(comment => {
         let commentElem = document.createElement("div");
         commentElem.className = "commentaire-wrapper";
         commentElem.innerHTML = document.getElementById("template-commentaire").innerHTML;
         document.getElementById("article").append(commentElem);
         
-        document.getElementsByClassName("auteur-commentaire")[comment.id-1].innerHTML = comment.auteur;
-        document.getElementsByClassName("date-commentaire")[comment.id-1].innerHTML = comment.creation_time;
-        document.getElementsByClassName("contenu-commentaire")[comment.id-1].innerHTML = comment.contenu;
-        
+        document.getElementsByClassName("auteur-commentaire")[i].innerHTML = comment.auteur;
+        document.getElementsByClassName("date-commentaire")[i].innerHTML = comment.creation_time;
+        document.getElementsByClassName("contenu-commentaire")[i].innerHTML = comment.contenu;
+        i++;
     });
 }
 
