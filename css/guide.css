@@ -33,7 +33,7 @@ button:hover{
 }
 
 /* AFFICHER ARTICLE */
-#articles{
+#article{
     padding: 1rem;
     position: relative;
     grid-column: 1;
@@ -43,7 +43,7 @@ button:hover{
     /* display: flex;
     flex-direction: column; */
 }
-#articles::-webkit-scrollbar {
+#article::-webkit-scrollbar {
     display: none;
 }
 #article-wrapper{
@@ -115,6 +115,7 @@ input.type{
 .commentaire-wrapper{
     margin: 2rem;
     font-size: calc(var(--font-size-res) - 0.75rem);
+    border: white solid;
 
 }
 .auteur-date-wrapper{
