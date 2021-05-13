@@ -10,9 +10,8 @@
 
         protected function executeAction() {
             $db = [];
-
+            // var_dump($_POST);
             if(!empty($_POST)){
-                
                 if (isset($_POST["article"])){
                     
 
@@ -28,7 +27,7 @@
                     }
                     elseif(isset($_POST['get'])){
                         if(isset($_POST['articleId'])){
-                            DAO::getArticle($_POST['articleId']);
+                            $db["article"] = DAO::getArticle($_POST['articleId']);
                         }
                     }
                     elseif(isset($_POST['del'])){
@@ -41,8 +40,7 @@
                     if(isset($_POST['add'])){
                         if(isset($_POST['auteur']) && isset($_POST['contenu']) && isset($_POST['articleId'])){
                             DAO::addComment(substr($_POST['auteur'], 0, 39), $_POST['contenu'], $_POST['articleId']);
-                            $db = DAO::getArticle($_POST['articleId']);
-                            return compact("db");
+                            $db["article"] = DAO::getArticle($_POST['articleId']);
                         }
                     }
                     elseif(isset($_POST['get'])){
@@ -51,12 +49,13 @@
                 }
 
             }
-            else{
-                $db = DAO::getLatest();
-                // $db = DAO::getArticle(1);
-                // var_dump($db);
-                return compact("db");
+            
+            if(!isset($db["article"])){
+                $db["article"] = DAO::getLatest();
             }
+            
+            $db["articleList"] = DAO::getAllArticle();
+            return compact("db");
 
         }
     }

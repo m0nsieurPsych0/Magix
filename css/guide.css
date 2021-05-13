@@ -1,5 +1,7 @@
 /*************************guide*************************/
-
+/* body{
+    overflow-y: scroll;
+} */
 main{
     position: relative;
     display: grid;
@@ -63,10 +65,12 @@ button:hover{
 }
 #contenu{
     text-align: justify;
+    word-wrap: break-word;
 }
 
+
 /* CRÉER ARTICLE */
-#create-article{
+#creer-article{
     position: absolute;
     top:0;
     right:0;
@@ -169,8 +173,23 @@ input.type{
     padding-left: 2rem;
 
     display: flex;
+    flex-direction: column;
 
 }
 #historique::-webkit-scrollbar {
     display: none;
+}
+.article-liste{
+    margin: 1rem;
+}
+:is(.liste-auteur, .liste-date){
+    font-size: calc(var(--font-size-res) - 0.75rem);
+    padding-left: 0.5rem;
+}
+.article-liste form button{
+    position: relative;
+    border: none;
+    text-align: left;
+    width: 100%;
+    font-size: var(--font-size-res);
 }
