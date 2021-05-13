@@ -46,9 +46,7 @@
     define("GET_ALL_ARTICLE", "SELECT * FROM `article` ORDER BY `creation_time` DESC");
 
     define("MOD_ARTICLE", "UPDATE `article` SET `titre` = ?, `contenu` = ? WHERE `article`.`id` = ?");
-    // define("MOD_ARTICLE", "UPDATE `article` WHERE (`id`) VALUE(?) SET (`titre`, `contenu`) VALUE(?, ?)");
     define("DEL_ARTICLE", "DELETE FROM `article` WHERE `article`.`id` = ?");
-
     define("GET_LATEST", "SELECT `id` FROM `article` ORDER BY `creation_time` DESC limit 1");
     
     // COMMENT

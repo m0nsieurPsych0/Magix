@@ -60,8 +60,8 @@
                         <input type="text" class="type" name="add">
                         <input id="articleId-comment" type="text" class="type" name="articleId">
 
-                        <textarea id="ajout-auteur"  placeholder="Votre nom" name="auteur"></textarea>
-                        <textarea id="ajout-commentaire" placeholder="Votre commentaire" name="contenu"></textarea>
+                        <textarea id="ajout-auteur"  placeholder="Votre nom" name="auteur" required></textarea>
+                        <textarea id="ajout-commentaire" placeholder="Votre commentaire" name="contenu" required></textarea>
                         <button id="envoyer">Envoyer</button>
                     </template>
                         
