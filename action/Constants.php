@@ -44,8 +44,11 @@
     define("ADD_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES(?, ?, ?)");
     define("GET_ARTICLE", "SELECT * FROM `article` WHERE (`id`) = ?");
     define("GET_ALL_ARTICLE", "SELECT * FROM `article` ORDER BY `creation_time` DESC");
-    define("MOD_ARTICLE", "UPDATE `article` SET (`id`, `titre`, `contenu`) VALUE(?)");
-    define("DEL_ARTICLE", "DELETE `comment` WHERE (`id`) = ?");
+
+    define("MOD_ARTICLE", "UPDATE `article` SET `titre` = ?, `contenu` = ? WHERE `article`.`id` = ?");
+    // define("MOD_ARTICLE", "UPDATE `article` WHERE (`id`) VALUE(?) SET (`titre`, `contenu`) VALUE(?, ?)");
+    define("DEL_ARTICLE", "DELETE FROM `article` WHERE `article`.`id` = ?");
+
     define("GET_LATEST", "SELECT `id` FROM `article` ORDER BY `creation_time` DESC limit 1");
     
     // COMMENT
@@ -63,5 +66,5 @@
     // QUERY COMMENT
     define("ADD_COMMENT", "INSERT INTO `comment` (`auteur`,`contenu`,`id_article`) VALUES(?, ?, ?)");
     define("GET_COMMENT", "SELECT * FROM `comment` WHERE `id_article` = ?");
-    define("DEL_COMMENT", "DELETE * FROM `comment` WHERE `id_article` = ?");
+    define("DEL_COMMENT", "DELETE FROM `comment` WHERE `comment`.`id_article` = ?");
   

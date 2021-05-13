@@ -20,12 +20,18 @@
 				//call api
 				if (isset($_GET["pvp"])){
 					$data["type"] = "PVP";
+					$result = parent::callAPI("games/auto-match", $data);
 				}
-				else {
+				elseif (isset($_GET["pve"])){
 					$data["type"] = "TRAINING";
+					$result = parent::callAPI("games/auto-match", $data);
 				}
+				// elseif((isset($_GET["observe"]))){
+				// 	$data["username"] = "";
+				// 	$result = parent::callAPI("games/observe", $data);
+				// }
 
-				$result = parent::callAPI("games/auto-match", $data);
+
 
 				foreach (ERRORCODES as $error){
 					if ($result == $error){

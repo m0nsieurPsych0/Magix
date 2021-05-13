@@ -10,6 +10,11 @@
 
         protected function executeAction() {
             $db = [];
+
+            //TODO Intercepter la resoumission du même post data deux fois de suite
+            // Précisement empêcher de recréer le même article plusieur fois en rafraichissant la page
+            //TODO
+
             // var_dump($_POST);
             if(!empty($_POST)){
                 if (isset($_POST["article"])){
@@ -22,7 +27,7 @@
                     }
                     elseif(isset($_POST['mod'])){
                         if(isset($_POST['articleId'], $_POST['titre'], $_POST['contenu'])){
-                            DAO::modArticle($_POST['articleId'], $_POST['titre'], $_POST['contenu']);
+                            DAO::modArticle($_POST['titre'], $_POST['contenu'], $_POST['articleId']);
                         }
                     }
                     elseif(isset($_POST['get'])){
@@ -39,7 +44,7 @@
                 elseif(isset($_POST["comment"])){
                     if(isset($_POST['add'])){
                         if(isset($_POST['auteur']) && isset($_POST['contenu']) && isset($_POST['articleId'])){
-                            DAO::addComment(substr($_POST['auteur'], 0, 39), $_POST['contenu'], $_POST['articleId']);
+                            DAO::addComment(substr($_POST['auteur'], 0, 39), $_POST['contenu'], $_POST['articleId']); //Substring de 40chars pour la base de donnée
                             $db["article"] = DAO::getArticle($_POST['articleId']);
                         }
                     }

@@ -48,7 +48,7 @@ const commentCreation = (articleId) =>{
 
     document.getElementById("article").append(commentCreation);
     
-    document.getElementById("articleId").setAttribute("value", articleId);
+    document.getElementById("articleId-comment").setAttribute("value", articleId);
 }
 
 const createArticle = () =>{
@@ -64,18 +64,37 @@ const createArticle = () =>{
     document.getElementById("article").append(articleCreation);
 
 }
-const modifyArticle = () =>{
+const modifyArticle = (dbData) =>{
     document.getElementById("article").innerHTML = "";
 
+    let modifyArticle = document.createElement("form");
+    modifyArticle.id = "creer-article-wrapper";
+    modifyArticle.setAttribute("action", "guide.php");
+    modifyArticle.setAttribute("method", "post");
+    modifyArticle.setAttribute("autocomplete", "off");
+    modifyArticle.innerHTML = document.getElementById("template-modifier-article").innerHTML;
+    
+    document.getElementById("article").append(modifyArticle);
+
+    document.getElementById("titre-creer").innerHTML = dbData.article.titre;
+    document.getElementById("contenu-creer").innerHTML = dbData.article.contenu;
+
+    document.getElementById("articleId").setAttribute("value", dbData.article.id);
+    
+}
+
+
+const deleteArticle = (dbData) =>{
+
     let articleCreation = document.createElement("form");
-    articleCreation.id = "creer-article-wrapper";
+    // articleCreation.id = "effacer-article";
     articleCreation.setAttribute("action", "guide.php");
     articleCreation.setAttribute("method", "post");
     articleCreation.setAttribute("autocomplete", "off");
-    articleCreation.innerHTML = document.getElementById("template-creer-article").innerHTML;
+    articleCreation.innerHTML = document.getElementById("template-effacer-article").innerHTML;
     
     document.getElementById("article").append(articleCreation);
-
+    document.getElementById("articleId-effacer").setAttribute("value", dbData.article.id);
 }
 
 const loadHistory = (articleList) =>{

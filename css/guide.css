@@ -69,26 +69,41 @@ button:hover{
 }
 
 
-/* CRÉER ARTICLE */
-#creer-article{
-    position: absolute;
-    top:0;
-    right:0;
-    margin-right: 1rem;
+/* CRÉER/MODIFIER/EFFACER ARTICLE */
+
+:where(#creer-article, #modifier-article, #effacer-article){
     height: 5rem;
     width: 15%;
+
     --text-bleed-intensity: 7px;
     color: white;
     font: var(--font-pref);
     font-size: calc(var(--font-size-res) - 0.5rem);
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
     background-color: transparent;
+
 }
-#creer-article:hover{
+:where(#creer-article, #modifier-article, #effacer-article):hover{
     background-color: white;
     text-shadow: none;
     color:black;
 }
+#creer-article{
+    position: absolute;
+    top:0;
+    right:0;
+    margin-right: 1rem;
+}
+/* #modifier-article{
+    position: absolute;
+    top:0;
+    left:20;
+}
+#effacer-article{
+    position: absolute;
+    top:0;
+    left:0;
+} */
 input.type{
     display: none;
 }
@@ -98,11 +113,11 @@ input.type{
     display: grid;
     grid-template-rows: 15% 75% 10%;
 }
-:is(#titre-creer, #contenu-creer, #creer){
+:where(#titre-creer, #contenu-creer, #creer){
     margin: 1rem;
     border: white solid;
 }
-#creer{
+#boutonAction{
     width: 20%;
     justify-self: center;
 }
@@ -123,7 +138,7 @@ input.type{
     grid-template-rows: 15% 70% 15%;
 }
 
-:is(#ajout-auteur, #ajout-commentaire, #envoyer){
+:where(#ajout-auteur, #ajout-commentaire, #envoyer){
     border: solid white;
 }
 #ajout-auteur{
@@ -182,7 +197,7 @@ input.type{
 .article-liste{
     margin: 1rem;
 }
-:is(.liste-auteur, .liste-date){
+:where(.liste-auteur, .liste-date){
     font-size: calc(var(--font-size-res) - 0.75rem);
     padding-left: 0.5rem;
 }

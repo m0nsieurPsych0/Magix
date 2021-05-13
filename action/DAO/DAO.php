@@ -20,8 +20,6 @@
         }
         
         public static function getArticle($id){
-            // var_dump($id);
-            // $id = $id['id'];
 
             $statement = DAO::connection()->prepare(GET_ARTICLE);
             $statement->bindParam(1, $id);
@@ -49,17 +47,17 @@
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
             $data = $statement->fetch();
-            //On doit sortir la variable de son tableau
-            return DAO::getArticle($data['id']);
+            
+            return DAO::getArticle($data['id']); //On doit sortir la variable de son tableau
             
         }
 
-        public static function modArticle($id, $titre, $contenu){
-
+        public static function modArticle($titre, $contenu, $id){
+            
             $statement = DAO::connection()->prepare(MOD_ARTICLE);
-            $statement->bindParam(1, $id);
-            $statement->bindParam(2, $titre );
-            $statement->bindParam(3, $contenu);
+            $statement->bindParam(1, $titre );
+            $statement->bindParam(2, $contenu);
+            $statement->bindParam(3, $id);
             $statement->execute();
         }
 
