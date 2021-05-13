@@ -45,6 +45,9 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.typing{
+  cursor: pointer;
+}
 
 footer>.typing{
   width: 100vw;

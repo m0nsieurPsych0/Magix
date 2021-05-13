@@ -1,3 +1,6 @@
+// Initialise une fonction qui va intercepter le retour en arrière du navigateur
+// Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
+((global) => {catchingBackButtonEvent(global);})(window);
 
 document.addEventListener("load", () => {
 
@@ -97,27 +100,27 @@ const loadHistory = (articleList) =>{
     
 }
 
-// let titre = document.getElementsByClassName("liste-titre")[i];
-// titre.innerHTML = article.titre;
-// titre.innerHTML += document.getElementById("articleList-form").innerHTML;
-// titre.setAttribute("onclick", "postParam(" + article.id + ");");
-const postParam = (articleId) =>{
-    console.log("POST PARAM CALLED!");
+function catchingBackButtonEvent(global){
+    // On override le hash de la page jusqu'à ce qu'on n'y retrouve que des '!'
 
-    let formData = new FormData();
+    global.location.href += "#";
+    global.setTimeout(() => {global.location.href += "!";}, 50);
     
-    formData.append("article", "");
-    formData.append("get", "");
-    formData.append("articleId", articleId);
-    console.log(formData);
-    fetch('guide.php', {
-        method : "POST",
-        credentials: "include",      
-        body: formData
-    })
-    .then( response => response.json());
-    // .then( response => {
-    //         // Do something with response.
-    //         console.log(response);
-    // });
+	let loaded = 0;
+    let _hash = "!";
+
+    // Lorsque qu'un retour en arrière est appelé on intercepte pour empêcher de renvoyer le document précédent
+    // On redirige à home.php
+    global.onhashchange = () => {
+        if (global.location.hash !== _hash && loaded < 5) {
+            global.location.hash = _hash;
+            loaded ++;
+        }
+        else {
+            document.location.href="home.php";
+        }
+    };
+    //Source: 
+    // https://stackoverflow.com/questions/12381563/how-can-i-stop-the-browser-back-button-using-javascript
+    // Demo: https://output.jsbin.com/yaqaho#!
 }

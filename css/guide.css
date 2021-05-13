@@ -84,7 +84,7 @@ button:hover{
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
     background-color: transparent;
 }
-#create-article:hover{
+#creer-article:hover{
     background-color: white;
     text-shadow: none;
     color:black;
