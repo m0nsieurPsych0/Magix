@@ -21,6 +21,7 @@ const displayArticle = (dbData) => {
 
     commentCreation(dbData.article.id);
     displayComment(dbData.comment);
+
 }
 
 const displayComment = (comments) =>{
@@ -65,6 +66,7 @@ const createArticle = () =>{
 
 }
 const modifyArticle = (dbData) =>{
+    console.log(dbData);
     document.getElementById("article").innerHTML = "";
 
     let modifyArticle = document.createElement("form");
@@ -86,14 +88,14 @@ const modifyArticle = (dbData) =>{
 
 const deleteArticle = (dbData) =>{
 
-    let articleCreation = document.createElement("form");
-    // articleCreation.id = "effacer-article";
-    articleCreation.setAttribute("action", "guide.php");
-    articleCreation.setAttribute("method", "post");
-    articleCreation.setAttribute("autocomplete", "off");
-    articleCreation.innerHTML = document.getElementById("template-effacer-article").innerHTML;
+    let deleteArticle = document.createElement("form");
+    deleteArticle.id = "effacer-article-form";
+    deleteArticle.setAttribute("action", "guide.php");
+    deleteArticle.setAttribute("method", "post");
+    deleteArticle.setAttribute("autocomplete", "off");
+    deleteArticle.innerHTML = document.getElementById("template-effacer-article").innerHTML;
     
-    document.getElementById("article").append(articleCreation);
+    document.getElementById("article").append(deleteArticle);
     document.getElementById("articleId-effacer").setAttribute("value", dbData.article.id);
 }
 

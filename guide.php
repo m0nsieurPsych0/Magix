@@ -92,20 +92,18 @@
 
 
                     <div id="article">
-                        <?php if(isset($_SESSION['username'])){ 
-                                    ?> 
-                                    <button id="creer-article" onclick='createArticle();'>Créer un article</button> 
-                                    
-                                    
-                                    <?php if(isset($data["db"]["article"])){ ?>
-                                        
-                                        <button id="modifier-article" onclick='modifyArticle( <?php echo(json_encode($data["db"]["article"])); ?> );'> Modifier</button> 
-                                        <script> deleteArticle( <?php echo(json_encode($data["db"]["article"])); ?> ); </script> 
-                                        
-                                    <?php
-                                    } ?>
-                                <?php 
-                                } ?>
+                        <?php 
+                        if(isset($_SESSION['username'])){ 
+                            ?> 
+                            <button id="creer-article" onclick='createArticle();'>Créer un article</button>                                     
+                            <?php if(isset($data["db"]["article"])){ ?>
+                                
+                                <button id="modifier-article" onclick='modifyArticle( <?php echo(json_encode($data["db"]["article"])); ?> );'> Modifier</button> 
+                                <script> deleteArticle( <?php echo(json_encode($data["db"]["article"])); ?> ); </script> 
+                            <?php
+                            } ?>
+                        <?php 
+                        } ?>
                         
                     </div>
 
