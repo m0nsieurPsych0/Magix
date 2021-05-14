@@ -11,14 +11,18 @@
         protected function executeAction() {
             $db = [];
 
-            //TODO Intercepter la resoumission du même post data deux fois de suite
-            // Précisement empêcher de recréer le même article plusieur fois en rafraichissant la page
-            //TODO
-
-            // var_dump($_POST);
             if(!empty($_POST)){
+                //On prévient la ressoumission de formulaire
+                if (!empty($_SESSION['oldpost'])){
+                    if ($_SESSION['oldpost'] == $_POST){
+                        unset($_POST);
+                        unset($_SESSION['oldpost']);
+                        header(GUIDE);
+                        exit;
+                    }
+                }
+                $_SESSION['oldpost'] = $_POST;
                 if (isset($_POST["article"])){
-                    
 
                     if(isset($_POST['add'])){
                         if(isset($_POST['contenu']) && isset($_POST['titre'])){
@@ -44,17 +48,15 @@
                 elseif(isset($_POST["comment"])){
                     if(isset($_POST['add'])){
                         if(isset($_POST['auteur']) && isset($_POST['contenu']) && isset($_POST['articleId'])){
-                            DAO::addComment(substr($_POST['auteur'], 0, 39), $_POST['contenu'], $_POST['articleId']); //Substring de 40chars pour la base de donnée
+                            //Substring de 40chars pour satisfaire la limite de la base de donnée
+                            DAO::addComment(substr($_POST['auteur'], 0, 39), $_POST['contenu'], $_POST['articleId']); 
                             $db["article"] = DAO::getArticle($_POST['articleId']);
                         }
-                    }
-                    elseif(isset($_POST['get'])){
-                        DAO::getComment($_POST['articleId']);
                     }
                 }
 
             }
-            
+            // Si aucun article dans la variable 'db' on va chercher le plus récent
             if(!isset($db["article"])){
                 $db["article"] = DAO::getLatest();
             }

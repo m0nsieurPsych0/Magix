@@ -15,6 +15,7 @@
     define("LOGIN", "location:login.php");
     define("INDEX", "location:index.php");
     define("GAME", "location:game.php");
+    define("GUIDE", "location:guide.php");
 
     /****************************** MY_SQL ******************************/
 

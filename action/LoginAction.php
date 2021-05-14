@@ -34,6 +34,7 @@
                     $hasConnectionError = true;
                 }
                 else {
+                    // On ajoute la clef API à la variable de session
                     $_SESSION["username"] = $_POST["username"];
 					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
                     $_SESSION["key"] = $result->key;

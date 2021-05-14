@@ -47,9 +47,12 @@
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
             $data = $statement->fetch();
-            
-            return DAO::getArticle($data['id']); //On doit sortir la variable de son tableau
-            
+            if(!$data){
+                return false;
+            }
+            else{
+                return DAO::getArticle($data['id']); //On doit sortir la variable de son tableau
+            }
         }
 
         public static function modArticle($titre, $contenu, $id){

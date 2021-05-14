@@ -7,7 +7,6 @@
     
     require_once("partial/header.php");
 
-    // var_dump($data['db']['articleList']);
     ?>
                 <main>
                     <!-- ----------------------SECTION TEMPLATE------------------------------- -->
@@ -92,7 +91,12 @@
 
 
                     <div id="article">
-                        <?php 
+                        <?php
+                        if(!$data["db"]["article"]){
+                            ?> 
+                            <div>Aucun article disponible...&nbsp&nbsp&nbspVeuillez en créer un --></div>
+                            <?php
+                        } 
                         if(isset($_SESSION['username'])){ 
                             ?> 
                             <button id="creer-article" onclick='createArticle();'>Créer un article</button>                                     
