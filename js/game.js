@@ -113,7 +113,6 @@ const gameState = () => {
 }
 
 const gameAction = (send) =>{
-    // console.log(send);
 
     let formData = new FormData();
 
@@ -225,9 +224,6 @@ const updateGameData = (data) =>{
 
 }
 
-const checkChange = () =>{
-    //TODO optimisation du réaffichage des cartes et de la mise à jour des informations.
-}
 const createCards = (target) => {
 
     document.getElementById(target.htmlDestination).innerHTML = "";

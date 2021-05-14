@@ -6,16 +6,17 @@
         public static function getConnection() {
             if (empty(Connection::$connection)) {
                 // try{
+                    // Connection::$connection = new PDO("mysql:host=" . "TEST". ";dbname=" . DB_NAME, DB_USER, DB_PASS);
                     Connection::$connection = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
                     Connection::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     Connection::$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
                 // }
-                // catch{
+                // catch (PDOException $e){
 
                 //     // DBhost
                 //     $host = DB_HOST;
                 //     // Utilisateur authoriser à créer une base de donnée
-                //     $authorizedUser = "root"
+                //     $authorizedUser = "root";
                 //     $authorizedPass = DB_AUTHORIZEDPASS;
                     
                 //     // Les infos de l'utilisateur à utiliser la nouvelle base de donnée 
@@ -24,16 +25,18 @@
 
                 //     // Les infos de la nouvelle base de donnée
                 //     $db = DB_NAME;
-                //     $createDB = CREATE_DB;
+                //     $createDB = "CREATE DATABASE `TEST`";
 
                 //     try {
                 //         Connection::$connection = new PDO("mysql:host=" . DB_HOST , $authorizedUser , $authorizedPass);
-                
-                //         Connection::$connection->exec("`$createDB`;
-                //                 CREATE USER '$user'@'$host' IDENTIFIED BY '$pass';
-                //                 GRANT ALL ON `$db`.* TO '$user'@'$host';
-                //                 FLUSH PRIVILEGES;")
-                //         or die(print_r($dbh->errorInfo(), true));
+                //         Connection::$connection = setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                //         Connection::$connection->exec(`$createDB`);
+                        
+                //         // $PDO->exec("`$createDB`;
+                //         //         CREATE USER '$user'@'$host' IDENTIFIED BY '$pass';
+                //         //         GRANT ALL ON `$db`.* TO '$user'@'$host';
+                //         //         FLUSH PRIVILEGES;")
+                //         // or die(print_r($dbh->errorInfo(), true));
                 
                 //     }
                 //     catch (PDOException $e) {
