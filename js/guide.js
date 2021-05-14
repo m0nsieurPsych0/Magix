@@ -2,12 +2,7 @@
 // Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
 ((global) => {catchingBackButtonEvent(global);})(window);
 
-document.addEventListener("load", () => {
-
-});
-
 const displayArticle = (dbData) => {
-    // console.log(dbData)
 
     let article = document.createElement("div");
     article.id = "article-wrapper";
@@ -100,7 +95,7 @@ const deleteArticle = (dbData) =>{
 }
 
 const loadHistory = (articleList) =>{
-    // console.log(articleList);
+    
     let i = 0;
     articleList.forEach(article => {
 

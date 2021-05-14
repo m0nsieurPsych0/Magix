@@ -56,9 +56,9 @@ footer>.typing{
   overflow: hidden;
 }
 /* Change le cursor globalement */
-* {
+/* * {
   cursor: auto;
-}
+} */
 ::selection {
   background: white ;
   text-shadow: none;

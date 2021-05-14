@@ -1,8 +1,11 @@
 /*************************login*************************/
+main{
+    position: relative;
+}
 .login-form-frame {
+    position: relative;
     margin: auto;
-    align-items: center;
-    
+    align-items: center; 
 }
 .form-label {
     display: inline;
@@ -31,7 +34,18 @@ button {
     display: none;
 }
 .error-div {
-    
-    bottom: 35vh;
     position:absolute;
+    bottom: 0;
+}
+#guide-strat{
+    font-size: calc(var(--font-size-res) - 0.75rem);
+    position: absolute;
+    right: 2rem;
+    bottom: 0;
+}
+#guide-strat:hover{
+    cursor: pointer;
+    transition: border ease-in-out 1s ;
+    border-bottom: solid white 1px;
+    
 }

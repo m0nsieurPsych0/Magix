@@ -41,7 +41,7 @@
 							}
 						?>
 				</div>
-				
+				<div id="guide-strat" onclick="document.location.href='guide.php'">Guide Stratégique</div>
 			</main>
 		
 
