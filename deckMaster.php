@@ -6,14 +6,12 @@
     $page = "deckMaster";
     
     require_once("partial/header.php");
-    //test
-    
-    // var_dump($_SESSION);
 
 ?>
                 <main>
                     <div id="chat">
-                        <iframe onload="applyStyles(this)" 
+                        <button id="toggle" onclick="hideShowChat();"></button>
+                        <iframe id="chatIframe" onload="applyStyles(this)" 
                             src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                         </iframe>
                     </div>

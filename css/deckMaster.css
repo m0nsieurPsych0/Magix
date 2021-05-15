@@ -12,7 +12,6 @@ iframe::-webkit-scrollbar {
     display: none;
 }
 #deck{
-    /* grid-column: 2; */
     z-index: 10000000;
     width:110%;
 }
@@ -20,11 +19,34 @@ iframe::-webkit-scrollbar {
     position: absolute;
     top:25%;
     left:0;
-    /* grid-column: 1; */
     height: 100rem;
     width: 25%;
     z-index: 10000001;
 }
-/* .scanline{
-    z-index: ;
+/* #chatIframe{
+    opacity: 0;
 } */
+:is(#toggle){
+    position: relative;
+
+    background-color: transparent;
+    --text-bleed-intensity: 7px;
+    border: white solid 1px;
+    color: white;
+    font: var(--font-pref);
+    font-size: calc(var(--font-size-res) - 1.5rem);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+    transition-duration: 0.10s ;
+}
+:is(#toggle:focus-visible) {
+    /* met les boutons en surbrillance quand il sont en focus par tab */
+    background: white ; 
+    text-shadow: none;
+    color: black;
+    outline: none;
+}
+#toggle:hover{
+    background-color: white;
+    text-shadow: none;
+    color:black;
+}

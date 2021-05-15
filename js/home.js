@@ -2,14 +2,6 @@ window.onload = () => {
     screenSaverTimeout();
 }
 
-window.addEventListener("load", () => {    
-    // TODO: KbControl();
-})
-
-function KbControl() {
-    // TODO
-}
-
 // On sauvegarde le nom d'utilisateur dans LocalStorage
 const saveUsername = (username) => {
     if (username != null){
@@ -23,5 +15,4 @@ const systemMessage = (infoValue) =>{
         li.innerHTML = key + infoValue[key];
         document.getElementById("log").append(li);
     }
-
 }
