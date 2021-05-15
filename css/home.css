@@ -73,7 +73,6 @@ input#username{
     animation: var(--animation-pulsing);
     opacity: 0;
     height: 2rem;
-    resize: none;
 }
 #observer:hover > input#username{
     opacity: 1;

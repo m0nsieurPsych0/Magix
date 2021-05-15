@@ -20,6 +20,7 @@ form >*{
     animation: var(--animation-pulsing);
     margin-top: 0.125rem;
     margin-bottom: 0.125rem;
+    resize: none;
 
 }
 button:focus-visible {
@@ -81,7 +82,7 @@ button:hover{
     font-size: calc(var(--font-size-res) - 0.5rem);
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
     background-color: transparent;
-
+    resize: none;
 }
 :where(#creer-article, #modifier-article, #effacer-article):hover{
     background-color: white;
@@ -142,6 +143,7 @@ input.type{
 
 :where(#ajout-auteur, #ajout-commentaire, #envoyer){
     border: solid white;
+    resize: none;
 }
 #ajout-auteur{
     grid-row: 1;
