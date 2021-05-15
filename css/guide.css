@@ -1,7 +1,4 @@
 /*************************guide*************************/
-/* body{
-    overflow-y: scroll;
-} */
 main{
     position: relative;
     display: grid;
@@ -15,7 +12,6 @@ form >*{
     font-size: calc(var(--font-size-res) - 0.5rem);
     text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
     background-color: transparent;
-    /* border:none; */
     outline:none;
     animation: var(--animation-pulsing);
     margin-top: 0.125rem;
@@ -62,8 +58,6 @@ button:hover{
 }
 :is(#auteur-article, #date-article){
     border-bottom: solid white;
-    /* margin-left: 1rem;
-    margin-right: 1rem; */
 }
 #contenu{
     text-align: justify;
@@ -93,7 +87,6 @@ button:hover{
     position: absolute;
     top:0;
     right:2rem;
-    /* margin-right: 2rem; */
 }
 #modifier-article{
     position: absolute;
@@ -133,7 +126,6 @@ input.type{
 
 /* AJOUT COMMENTAIRE */
 #ajout-commentaire-wrapper{
-    /* padding-top: 1rem; */
     height: 20rem ;
     width: 50%;
     
@@ -147,17 +139,14 @@ input.type{
 }
 #ajout-auteur{
     grid-row: 1;
-    /* height: max(2vh, 1.4rem); */
 }
 #ajout-commentaire{
     grid-row: 2;
-    /* height: 15%; */
 }
 #envoyer{
     grid-row: 3;
     width:25%;
     justify-self: right;
-    
 }
 
 /* AFFICHAGE DES COMMENTAIRES */
