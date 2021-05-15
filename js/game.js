@@ -433,9 +433,9 @@ const splitWords = (str) =>{
 
 const endScreen = (state) =>{
 
-    let enter = document.getElementById("enter");
+    
 
-    enter.addEventListener('ended', () =>{
+   
 
         // Dim background
         for(let i = 1; i > 0.05;i -= 0.0001){
@@ -458,14 +458,16 @@ const endScreen = (state) =>{
             pressAKey.style.textShadow = "0 0 2rem #580f06";
             
         }
-        // you won
+        // You won
         else if (state == "LAST_GAME_WON"){
             endScreen.id = "youWon";
             endScreen.innerHTML = "Partie Gagnée!";
             pressAKey.style.color = "rgb(11, 144, 11)";
             pressAKey.style.textShadow = "0 0 2rem  #0f5806";
         }
+        // Pas de partie en cours
         else{
+            
             endScreen.id = "noPlayer";
             endScreen.innerHTML = "Pas de partie en cours!";
             pressAKey.style.color = "rgb(202, 190, 23)";
@@ -476,14 +478,23 @@ const endScreen = (state) =>{
         pressAKey.id = "pressAKey";
         pressAKey.class = classe;
         
-        main.append(endScreen);
-        main.append(pressAKey);
+        if(document.getElementById("enter") != null || document.getElementById("enter") != undefined){
+            let enter = document.getElementById("enter");
+            enter.addEventListener('ended', () =>{
+                main.append(endScreen);
+                main.append(pressAKey);
+            }, true);
+        }
+        else{
+            main.append(endScreen);
+            main.append(pressAKey);
+        }
         
         // Ajout du events listeners
         document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
         document.onkeydown = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
         
-    }, true);
+    
 }
 
 const error = (message) => {
