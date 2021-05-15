@@ -7,6 +7,8 @@
             parent::__construct(CommonAction::$VISIBILITY_MEMBER);
         }
         protected function executeAction() {
+
+
             // GAME ACTION //
             if (isset($_POST["type"])){
                 $data["key"] = $_SESSION["key"];
@@ -25,10 +27,14 @@
                 return compact("result");
 
             }
+            // OBSERVE //
+            elseif(isset($_SESSION["observe"])){
+                $result = parent::callAPI("games/observe", array("key" => $_SESSION["key"], "username" => $_SESSION["observe"]));
+                return compact("result");
+            }
             // GAME STATE //
             else{
                 $result = parent::callAPI("games/state", array("key" => $_SESSION["key"]));
-
                 return compact("result");
             }
             

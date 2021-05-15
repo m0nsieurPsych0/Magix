@@ -12,16 +12,16 @@
             $hasConnectionError = false;
             // Si on entre le url login.php et qu'on a déjà été identifié par l'API.
             // On redirige a home.php
-            if(isset($_SESSION['key'])){
+            if(isset($_SESSION["key"])){
                 header(HOME);
                 exit;
             }
             // Previent de resoumettre les mêmes données lorsqu'on rafraîchit la page
             // Et d'afficher le message d'erreur pour les même données erronées.
-            if (!empty($_SESSION['oldpost'])){
-                if ($_SESSION['oldpost'] == $_POST){
+            if (!empty($_SESSION["oldpost"])){
+                if ($_SESSION["oldpost"] == $_POST){
                     unset($_POST);
-                    unset($_SESSION['oldpost']);
+                    unset($_SESSION["oldpost"]);
                     header(LOGIN);
                     exit;
                 }
@@ -30,7 +30,7 @@
                 $result = parent::callAPI("signin", $_POST);
                 
                 if ($result == "INVALID_USERNAME_PASSWORD") {                    
-                    $_SESSION['oldpost'] = $_POST;
+                    $_SESSION["oldpost"] = $_POST;
                     $hasConnectionError = true;
                 }
                 else {
@@ -38,7 +38,7 @@
                     $_SESSION["username"] = $_POST["username"];
 					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
                     $_SESSION["key"] = $result->key;
-                    unset($_SESSION['oldpost']);
+                    unset($_SESSION["oldpost"]);
                     header(HOME);
                     exit;
                 }

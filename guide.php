@@ -119,9 +119,6 @@
                 <!-- Pour afficher les articles en passant une variable PHP -->
                 <script>displayArticle( <?php echo(json_encode($data["db"]["article"])); ?> );</script>
                 <script>loadHistory( <?php echo(json_encode($data["db"]["articleList"])); ?> );</script>
-                
-                
-
-                
+                      
 <?php
 	require_once("partial/footer.php");

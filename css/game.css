@@ -301,7 +301,7 @@ canvas{
     from {opacity: 0;}
     to{opacity: 1;}
 }
-:is(#youLost, #youWon, #pressAKey) {
+:is(#youLost, #youWon, #pressAKey, #noPlayer) {
     position: relative;
     top: calc(50vh - 20rem);
     align-self: center;
@@ -317,6 +317,11 @@ canvas{
 #youWon {
     color: rgb(16, 122, 16);
     text-shadow: 0 0 2rem  #0f5806;
+    font-size: 15rem ;
+}
+#noPlayer {
+    color: rgb(202, 190, 23);
+    text-shadow: 0 0 2rem  #afac03;
     font-size: 15rem ;
 }
 #pressAKey {

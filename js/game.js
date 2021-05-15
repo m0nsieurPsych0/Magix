@@ -84,9 +84,10 @@ const gameState = () => {
     })
     .then(response => response.json())
     .then(data => {
-    // console.log(data); // contient les cartes/état du jeu.
+    console.log(data); // contient les cartes/état du jeu.
         try{
             switch(data){
+                case "NOT_IN_GAME":
                 case "LAST_GAME_LOST":
                 case "LAST_GAME_WON" :
                     endScreen(data);
@@ -97,7 +98,6 @@ const gameState = () => {
                     playVideo(videoSource.exit);
                     break;
                 case "WAITING": 
-                    console.log("I see waiting");
                     setTimeout(gameState, 1000);
                     break;
                 default:
@@ -107,7 +107,7 @@ const gameState = () => {
         }
         catch(e) {
             console.log(e);
-            // playVideo(videoSource.exit);
+            playVideo(videoSource.exit);
         }
     })
 }
@@ -268,9 +268,6 @@ const attack = (data) =>{
     switch(data.nom){
         case "players-card":
             console.log("clicked players card");
-            // When card clicked make flashy-flashy
-            // document.getElementById(data.uid + "card-side").className += "flashy-flashy";
-            
             Accumulator.source = data.uid; 
             break;
         case "hero": console.log("clicked opponents Hero");
@@ -291,7 +288,7 @@ const attack = (data) =>{
 }
 
 const checkIfCanPlay = (data) =>{
-    // **NOTE: Le id des cartes dans le html c'est le uid dans la logique du jeu **
+    // **NOTE: Le 'id' des cartes dans le html c'est le 'uid' dans la logique du jeu **
 
     // Make glowy-glowy
 
@@ -435,45 +432,58 @@ const splitWords = (str) =>{
 }
 
 const endScreen = (state) =>{
-    // Dim background
-    for(let i = 1; i > 0.05;i -= 0.0001){
-        document.querySelector("main").style.opacity = i;
-    }    
-    
-    // Créer les élements textes 
-    let main = document.querySelector("footer");
 
-    let endScreen = document.createElement("div");
-    let pressAKey = document.createElement("div");
-    let classe = "endGame"
+    let enter = document.getElementById("enter");
 
-    endScreen.class = classe;
-    // You lost
-    if (state == "LAST_GAME_LOST"){
-        endScreen.id = "youLost";
-        endScreen.innerHTML = "Partie Perdue!";
-        pressAKey.style.color = "rgb(182, 11, 11)";
-        pressAKey.style.textShadow = "0 0 2rem #580f06";
+    enter.addEventListener('ended', () =>{
 
-    }
-    // you won
-    else {
-        endScreen.id = "youWon";
-        endScreen.innerHTML = "Partie Gagnée!";
-        pressAKey.style.color = "rgb(11, 144, 11)";
-        pressAKey.style.textShadow = "0 0 2rem  #0f5806";
-    }
-    // press a key
-    pressAKey.innerHTML = "\n(cliquer pour quitter)";
-    pressAKey.id = "pressAKey";
-    pressAKey.class = classe;
-
-    main.append(endScreen);
-    main.append(pressAKey);
-
-    // Ajout du events listeners
-    document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
-
+        // Dim background
+        for(let i = 1; i > 0.05;i -= 0.0001){
+            document.querySelector("main").style.opacity = i;
+        }    
+        
+        // Créer les élements textes 
+        let main = document.querySelector("footer");
+        
+        let endScreen = document.createElement("div");
+        let pressAKey = document.createElement("div");
+        let classe = "endGame"
+        
+        endScreen.class = classe;
+        // You lost
+        if (state == "LAST_GAME_LOST"){
+            endScreen.id = "youLost";
+            endScreen.innerHTML = "Partie Perdue!";
+            pressAKey.style.color = "rgb(182, 11, 11)";
+            pressAKey.style.textShadow = "0 0 2rem #580f06";
+            
+        }
+        // you won
+        else if (state == "LAST_GAME_WON"){
+            endScreen.id = "youWon";
+            endScreen.innerHTML = "Partie Gagnée!";
+            pressAKey.style.color = "rgb(11, 144, 11)";
+            pressAKey.style.textShadow = "0 0 2rem  #0f5806";
+        }
+        else{
+            endScreen.id = "noPlayer";
+            endScreen.innerHTML = "Pas de partie en cours!";
+            pressAKey.style.color = "rgb(202, 190, 23)";
+            pressAKey.style.textShadow = "0 0 2rem #afac03";
+        }
+        // press a key
+        pressAKey.innerHTML = "\n(cliquer/Appuyer pour quitter)";
+        pressAKey.id = "pressAKey";
+        pressAKey.class = classe;
+        
+        main.append(endScreen);
+        main.append(pressAKey);
+        
+        // Ajout du events listeners
+        document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
+        document.onkeydown = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
+        
+    }, true);
 }
 
 const error = (message) => {

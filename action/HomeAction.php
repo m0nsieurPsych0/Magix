@@ -11,11 +11,11 @@
 			$hasConnectionError = false;
 			$data = [];
 			$data["key"] = $_SESSION["key"];
-
+			
 			// Vérifie si on veut déconnecter ou si la clef est expiré
 			parent::checkSession($data);
 			
-			// on démarre le match en fonction du type voulu (soit PVP ou PVE(TRAINING))
+			// on démarre le match en fonction du type voulu (soit PVP ou PVE(TRAINING) ou observe)
 			if(!empty($_GET)){
 				//call api
 				if (isset($_GET["pvp"])){
@@ -26,12 +26,11 @@
 					$data["type"] = "TRAINING";
 					$result = parent::callAPI("games/auto-match", $data);
 				}
-				// elseif((isset($_GET["observe"]))){
-				// 	$data["username"] = "";
-				// 	$result = parent::callAPI("games/observe", $data);
-				// }
-
-
+				elseif ((isset($_GET["observe"]))){
+					$data["username"] = $_GET["userToObserve"];
+					$_SESSION["observe"] = $_GET["userToObserve"];
+					$result = parent::callAPI("games/observe", $data);
+				}
 
 				foreach (ERRORCODES as $error){
 					if ($result == $error){
@@ -40,11 +39,14 @@
 					}
 				}
 				
-				$_SESSION["gameType"] = $result;
 				header(GAME);
                 exit;
             }
 			
+			// Unset observe variable
+			if (!empty($_SESSION['observe']) || isset($_SESSION['observe'])){
+				unset($_SESSION['observe']);
+			}
 			// User history
 			$data["allUsers"] = false;
 			$resultbrut = parent::callAPI("users-extra", $data);

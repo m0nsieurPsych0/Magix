@@ -17,6 +17,11 @@
                     </div>
                     <div class="button-wrapper" onclick="window.location.href='?pvp=true';"><button id="jouer" >__Jouer</button></div>
                     <div class="button-wrapper" onclick="window.location.href='?pve=true';"><button id="pratiquer" >__Pratiquer</button></div>
+                    <form class="button-wrapper" action="home.php" method="get" autocomplete="off" id="observer">
+                        <textarea type="text" class="type" name="observe"></textarea>
+                        <button>__Observer</button>
+                        <input id="username" placeholder="nom d'usager" name="userToObserve" required>
+                    </form>
                     <div class="button-wrapper" onclick="window.location.href='deckmaster.php';"><button id="deck" >__Deck_Master</button></div>
                     <div class="button-wrapper" onclick="window.location.href='guide.php';"><button id="guide" >__Guide_Stratégique</button></div>
                     <div class="button-wrapper" onclick="window.location.href='index.php';"><button id="screensaver" >__Écran_de_Veille</button></div>

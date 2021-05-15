@@ -591,3 +591,26 @@
           "welcomeText": "None shall pass"
         }
       }
+
+      {
+        "0": {},
+        "1": {},
+        "2": {},
+        "3": {},
+        "2": {},
+        "3": {}
+      }
+      HTMLCollection { 0: div#2.players-hand, 1: div#3.players-hand, 2: div#4.players-hand, length: 3, … }
+​
+0: <div id="2" class="players-hand" onclick="gameAction({type: 'PLAY', uid: this.id});">
+​
+1: <div id="3" class="players-hand" onclick="gameAction({type: 'PLAY', uid: this.id});">
+​
+2: <div id="4" class="players-hand" onclick="gameAction({type: 'PLAY', uid: this.id});">
+​
+3: <div id="5" class="players-hand" onclick="gameAction({type: 'PLAY', uid: this.id});">
+​
+length: 4
+​
+<prototype>: HTMLCollectionPrototype { item: item(), namedItem: namedItem(), length: Getter, … }
+game.js:234:17
