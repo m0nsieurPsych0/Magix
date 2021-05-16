@@ -91,13 +91,13 @@ button:hover{
 #modifier-article{
     position: absolute;
     right:2rem;
-    top: 5rem;
+    top: 7rem;
    
 }
 #effacer-article-form{
     position: absolute;
     right:2rem;
-    top: 10rem;
+    top: 12rem;
 }
 input.type{
     display: none;

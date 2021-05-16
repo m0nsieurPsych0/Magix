@@ -11,7 +11,7 @@ const displayArticle = (dbData) => {
 
     document.querySelector("h1").innerHTML = dbData.article.titre;
     document.getElementById("auteur-article").innerHTML = dbData.article.auteur;
-    document.getElementById("date-article").innerHTML = dbData.article.modification_time != null ? dbData.article.modification_time : dbData.article.creation_time;
+    document.getElementById("date-article").innerHTML = dbData.article.modification_time != null ? dbData.article.modification_time + "(modifié)" : dbData.article.creation_time;
     document.getElementById("contenu").innerHTML = dbData.article.contenu;
 
     commentCreation(dbData.article.id);

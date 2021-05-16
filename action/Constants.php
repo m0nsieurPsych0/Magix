@@ -44,11 +44,11 @@
     // QUERY ARTICLE
     define("ADD_ARTICLE", "INSERT INTO `article` (`auteur`, `titre`, `contenu`) VALUES(?, ?, ?)");
     define("GET_ARTICLE", "SELECT * FROM `article` WHERE (`id`) = ?");
-    define("GET_ALL_ARTICLE", "SELECT * FROM `article` ORDER BY `creation_time` DESC");
+    define("GET_ALL_ARTICLE", "SELECT * FROM `article`ORDER BY COALESCE(`modification_time`, `creation_time`) DESC");
 
     define("MOD_ARTICLE", "UPDATE `article` SET `titre` = ?, `contenu` = ? WHERE `article`.`id` = ?");
     define("DEL_ARTICLE", "DELETE FROM `article` WHERE `article`.`id` = ?");
-    define("GET_LATEST", "SELECT `id` FROM `article` ORDER BY `creation_time` DESC limit 1");
+    define("GET_LATEST", "SELECT `id` FROM `article`ORDER BY COALESCE(`modification_time`, `creation_time`) DESC limit 1");
     
     // COMMENT
     define("CREATE_TAB_COMMENT", "CREATE TABLE IF NOT EXISTS `comment` (

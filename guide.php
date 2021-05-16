@@ -101,7 +101,7 @@
                         if(isset($_SESSION['username'])){ 
                             ?> 
                             <button id="creer-article" onclick='createArticle();'>Créer un article</button>                                     
-                            <?php if(isset($data["db"]["article"])){ ?>
+                            <?php if($data["db"]["article"]){ ?>
                                 
                                 <button id="modifier-article" onclick='modifyArticle( <?php echo(htmlentities(json_encode($data["db"]["article"]))); ?> );'> Modifier</button> 
                                 <script> deleteArticle( <?php echo(json_encode($data["db"]["article"])); ?> ); </script> 
