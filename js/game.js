@@ -474,7 +474,7 @@ const endScreen = (state) =>{
             pressAKey.style.textShadow = "0 0 2rem #afac03";
         }
         // press a key
-        pressAKey.innerHTML = "\n(cliquer/Appuyer pour quitter)";
+        pressAKey.innerHTML = "\n(cliquer pour quitter)";
         pressAKey.id = "pressAKey";
         pressAKey.class = classe;
         
@@ -491,9 +491,7 @@ const endScreen = (state) =>{
         }
         
         // Ajout du events listeners
-        document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
-        document.onkeydown = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};
-        
+        document.onclick = () =>{endScreen.remove(); pressAKey.remove(); playVideo(videoSource.exit)};        
     
 }
 
