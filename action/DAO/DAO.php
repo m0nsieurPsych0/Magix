@@ -11,10 +11,14 @@
         }
 
         public static function addArticle($auteur, $titre, $contenu){
+            // On encode les guillemets pour éviter les problème dans le HTML
+            $auteur = htmlentities($auteur, ENT_QUOTES);
+            $titre= htmlentities($titre, ENT_QUOTES);
+            $contenu = htmlentities($contenu, ENT_QUOTES);
 
             $statement = DAO::connection()->prepare(ADD_ARTICLE);
             $statement->bindParam(1, $auteur);
-            $statement->bindParam(2, $titre );
+            $statement->bindParam(2, $titre);
             $statement->bindParam(3, $contenu);
             $statement->execute();
         }
@@ -56,7 +60,10 @@
         }
 
         public static function modArticle($titre, $contenu, $id){
-            
+            // On encode les guillemets pour éviter les problème dans le HTML
+            $titre= htmlentities($titre, ENT_QUOTES);
+            $contenu = htmlentities($contenu, ENT_QUOTES);
+
             $statement = DAO::connection()->prepare(MOD_ARTICLE);
             $statement->bindParam(1, $titre );
             $statement->bindParam(2, $contenu);
@@ -73,11 +80,14 @@
         }
 
         public static function addComment($auteur, $contenu, $articleId ){
+            // On encode les guillemets pour éviter les problème dans le HTML
+            $auteur = htmlentities($auteur, ENT_QUOTES);
+            $contenu = htmlentities($contenu, ENT_QUOTES);
 
             $statement = DAO::connection()->prepare(ADD_COMMENT);
             $statement->bindParam(1, $auteur);
-            $statement->bindParam(2, $contenu );
-            $statement->bindParam(3, $articleId );
+            $statement->bindParam(2, $contenu);
+            $statement->bindParam(3, $articleId);
             $statement->execute();
         }
 

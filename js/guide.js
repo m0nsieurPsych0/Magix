@@ -1,7 +1,7 @@
 // Initialise une fonction qui va intercepter le retour en arrière du navigateur
 // Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
 ((global) => {catchingBackButtonEvent(global);})(window);
-
+let currentContent;
 const displayArticle = (dbData) => {
 
     let article = document.createElement("div");
@@ -11,7 +11,7 @@ const displayArticle = (dbData) => {
 
     document.querySelector("h1").innerHTML = dbData.article.titre;
     document.getElementById("auteur-article").innerHTML = dbData.article.auteur;
-    document.getElementById("date-article").innerHTML = dbData.article.creation_time;
+    document.getElementById("date-article").innerHTML = dbData.article.modification_time != null ? dbData.article.modification_time : dbData.article.creation_time;
     document.getElementById("contenu").innerHTML = dbData.article.contenu;
 
     commentCreation(dbData.article.id);
@@ -45,9 +45,11 @@ const commentCreation = (articleId) =>{
     document.getElementById("article").append(commentCreation);
     
     document.getElementById("articleId-comment").setAttribute("value", articleId);
+
 }
 
 const createArticle = () =>{
+    currentContent = document.getElementById("article").innerHTML;
     document.getElementById("article").innerHTML = "";
 
     let articleCreation = document.createElement("form");
@@ -59,10 +61,16 @@ const createArticle = () =>{
     
     document.getElementById("article").append(articleCreation);
 
+    createCancelButton();
+
 }
 const modifyArticle = (dbData) =>{
-    console.log(dbData);
+    currentContent = document.getElementById("article").innerHTML;
     document.getElementById("article").innerHTML = "";
+
+    let modifyWrapper = document.createElement("div");
+    modifyWrapper.id = "modifyWrapper";
+    document.getElementById("article").append(modifyWrapper);
 
     let modifyArticle = document.createElement("form");
     modifyArticle.id = "creer-article-wrapper";
@@ -71,15 +79,27 @@ const modifyArticle = (dbData) =>{
     modifyArticle.setAttribute("autocomplete", "off");
     modifyArticle.innerHTML = document.getElementById("template-modifier-article").innerHTML;
     
-    document.getElementById("article").append(modifyArticle);
+    document.getElementById("modifyWrapper").append(modifyArticle);
 
     document.getElementById("titre-creer").innerHTML = dbData.article.titre;
     document.getElementById("contenu-creer").innerHTML = dbData.article.contenu;
-
     document.getElementById("articleId").setAttribute("value", dbData.article.id);
+
+    createCancelButton();
     
 }
+const createCancelButton = () => {
+    let button = document.createElement("button");
+    button.id = "boutonAnnuler";
+    button.innerHTML = "Annuler";
+    button.setAttribute("onclick", 'restoreCurrentPage();');
+    document.getElementById("creer-article-wrapper").append(button);
+}
 
+const restoreCurrentPage = () =>{
+    document.getElementById("article").innerHTML = "";
+    document.getElementById("article").innerHTML = currentContent;
+}
 
 const deleteArticle = (dbData) =>{
 

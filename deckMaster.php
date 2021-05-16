@@ -9,8 +9,8 @@
 
 ?>
                 <main>
+                    <button id="toggle" onclick="hideShowChat();"></button>
                     <div id="chat">
-                        <button id="toggle" onclick="hideShowChat();"></button>
                         <iframe id="chatIframe" onload="applyStyles(this)" 
                             src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
                         </iframe>

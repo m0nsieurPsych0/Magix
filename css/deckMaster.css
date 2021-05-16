@@ -1,6 +1,8 @@
+:root{
+    --scanline-itensity: 0.25;
+}
 main{
     position: relative;
-    /* grid-template-columns: 25% 75%; */
 }
 iframe{
     width: 100%;
@@ -12,7 +14,7 @@ iframe::-webkit-scrollbar {
     display: none;
 }
 #deck{
-    z-index: 10000000;
+    /* z-index: 10000000; */
     width:110%;
 }
 #chat{
@@ -21,14 +23,15 @@ iframe::-webkit-scrollbar {
     left:0;
     height: 100rem;
     width: 25%;
-    z-index: 10000001;
 }
-/* #chatIframe{
-    opacity: 0;
-} */
 :is(#toggle){
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
+    width:12rem;
+    height: 2rem;
 
+    opacity: 0.75;
     background-color: transparent;
     --text-bleed-intensity: 7px;
     border: white solid 1px;

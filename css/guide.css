@@ -66,7 +66,7 @@ button:hover{
 
 /* CRÉER/MODIFIER/EFFACER ARTICLE */
 
-:where(#creer-article, #modifier-article, #effacer-article){
+:where(#creer-article, #modifier-article, #effacer-article, #boutonAnnuler){
     height: 5rem;
     width: 15rem;
 
@@ -78,7 +78,7 @@ button:hover{
     background-color: transparent;
     resize: none;
 }
-:where(#creer-article, #modifier-article, #effacer-article):hover{
+:where(#creer-article, #modifier-article, #effacer-article, #boutonAnnuler):hover{
     background-color: white;
     text-shadow: none;
     color:black;
@@ -98,22 +98,40 @@ button:hover{
     position: absolute;
     right:2rem;
     top: 10rem;
-    
 }
 input.type{
     display: none;
+}
+#modifyWrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 #creer-article-wrapper{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 15% 75% 10%;
+    grid-template-rows: 15% 65% 10% 10%;
 }
-:where(#titre-creer, #contenu-creer, #creer){
+:where(#titre-creer, #contenu-creer){
     margin: 1rem;
     border: white solid;
 }
+#titre-creer{
+    grid-row: 1;
+}
+#contenu-creer{
+    grid-row: 2;
+}
 #boutonAction{
+    grid-row: 3;
+    margin: 1rem;
+    width: 20%;
+    justify-self: center;
+}
+#boutonAnnuler{
+    grid-row: 4;
+    margin: 1rem;
     width: 20%;
     justify-self: center;
 }

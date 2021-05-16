@@ -201,7 +201,29 @@ canvas{
     min-width: clamp(7rem, 10rem, 15rem);
     max-width: clamp(7rem, 10rem, 15rem);
 }
-
+button {
+    background-color: transparent;
+    --text-bleed-intensity: 7px;
+    border: white solid 1px;
+    color: white;
+    font: var(--font-pref);
+    font-size: calc(var(--font-size-res) - 1.25rem);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+    transition-duration: 0.10s ;
+}
+button:focus-visible {
+    /* met les boutons en surbrillance quand il sont en focus par tab */
+    background: white ; 
+    text-shadow: none;
+    color: black;
+    outline: none;
+}
+button:hover{
+    background-color: white;
+    text-shadow: none;
+    color:black;
+    transform: translateY(2px);
+}
 
 /* CARDS STYLE */
 :is(.players-hand, .players-card, .opponents-card) {

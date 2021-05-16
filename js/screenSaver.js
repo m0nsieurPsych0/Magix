@@ -190,12 +190,12 @@ function exitScreenSaver() {
       starCounter++;
     }
     
-    function init() {
+    const init = () => {
       myCanvas.focus();
       window.requestAnimationFrame(draw);
     }
     
-    function draw() {
+    const draw = () => {
       // Apparence du fond
       ctx.fillStyle = "rgba(0,0,0,0.2)";
       

@@ -17,8 +17,8 @@
                         <input type="text" class="type" id="article" name="article">
                         <input type="text" class="type" id="add" name="add">
 
-                        <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre"></textarea>
-                        <textarea id="contenu-creer" placeholder="Le contenu de l'article" name="contenu"></textarea>
+                        <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre" required></textarea>
+                        <textarea id="contenu-creer" placeholder="Le contenu de l'article" name="contenu" required></textarea>
                         <button id="boutonAction">Créer</button>
                     </template>
 
@@ -37,10 +37,11 @@
                         <input type="text" class="type" id="mod" name="mod">
                         <input type="text" class="type" id="articleId" name="articleId">
 
-                        <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre"></textarea>
-                        <textarea id="contenu-creer" placeholder="Le contenu de l'article" name="contenu"></textarea>
+                        <textarea id="titre-creer"  placeholder="Titre de l'article" name="titre" required></textarea>
+                        <textarea id="contenu-creer" placeholder="Le contenu de l'article" name="contenu" required></textarea>
                         <button id="boutonAction">Modifier</button>
                     </template>
+
 
                     <!-- AFFICHER ARTICLE -->
                     <template id="template-article">
@@ -102,7 +103,7 @@
                             <button id="creer-article" onclick='createArticle();'>Créer un article</button>                                     
                             <?php if(isset($data["db"]["article"])){ ?>
                                 
-                                <button id="modifier-article" onclick='modifyArticle( <?php echo(json_encode($data["db"]["article"])); ?> );'> Modifier</button> 
+                                <button id="modifier-article" onclick='modifyArticle( <?php echo(htmlentities(json_encode($data["db"]["article"]))); ?> );'> Modifier</button> 
                                 <script> deleteArticle( <?php echo(json_encode($data["db"]["article"])); ?> ); </script> 
                             <?php
                             } ?>
