@@ -1,6 +1,11 @@
+window.onload = () =>{
+    screenSaverTimeout("guide.php");
+};
 // Initialise une fonction qui va intercepter le retour en arrière du navigateur
 // Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
 ((global) => {catchingBackButtonEvent(global);})(window);
+
+
 let currentContent;
 const displayArticle = (dbData) => {
 

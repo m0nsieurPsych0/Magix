@@ -43,9 +43,9 @@
 				if ($page == "deckMaster"){
 					?>
 						<link href="css/deckMaster.css" rel="stylesheet" />
+						<script src="js/screenSaver.js"></script>
 						<script src="js/deckMaster.js"></script>
 						<script src="js/chat.js"></script>
-						<script src="js/screenSaver.js"></script>
 						<title>__Deck_Master__|\/|agix__OS</title>
 					<?php	
 				}
@@ -64,7 +64,7 @@
 				if ($page == "guide"){
 					?>
 						<link href="css/guide.css" rel="stylesheet" />
-						<!-- <script src="js/screenSaver.js"></script> -->
+						<script src="js/screenSaver.js"></script>
 						<script src="js/guide.js"></script>
 						<title>__Guide__|\/|agix__OS</title>
 					<?php	

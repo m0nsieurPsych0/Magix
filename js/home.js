@@ -1,9 +1,10 @@
-window.onload = () => {
-    screenSaverTimeout();
-}
+window.addEventListener("load", () => {
+    screenSaverTimeout("home.php");
+});
 
 // On sauvegarde le nom d'utilisateur dans LocalStorage
 const saveUsername = (username) => {
+    console.log(username);
     if (username != null){
         localStorage["Username"] = username;
     }

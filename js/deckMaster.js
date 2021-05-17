@@ -1,6 +1,8 @@
+
 window.addEventListener("load", () => {
     document.getElementById("chatIframe").style.opacity = 0;
     document.getElementById("toggle").innerHTML = "Afficher le chat";
+    screenSaverTimeout("deckMaster.php");
 });
 
 const hideShowChat = () => {

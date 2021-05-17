@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    screenSaverTimeout();
+    screenSaverTimeout("home.php");
     loadUsername();
     SetFocus();
 })
