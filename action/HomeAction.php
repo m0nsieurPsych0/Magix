@@ -31,23 +31,25 @@
 					$_SESSION["observe"] = $_GET["userToObserve"];
 					$result = parent::callAPI("games/observe", $data);
 				}
-
+				// On vérifie si on a des erreurs retourner par l'API
 				foreach (ERRORCODES as $error){
 					if ($result == $error){
 						$hasConnectionError = true;
 						return compact("hasConnectionError", "error");
 					}
 				}
-				
+				// Tout va bien on démarre le mode voulu
 				header(GAME);
                 exit;
             }
 			
-			// Unset observe variable
+			// Unset $_SESSION["observe"]
 			if (!empty($_SESSION['observe']) || isset($_SESSION['observe'])){
 				unset($_SESSION['observe']);
 			}
-			// User history
+
+			// Section message Système
+			// On extrait nos informations
 			$data["allUsers"] = false;
 			$resultbrut = parent::callAPI("users-extra", $data);
 			$result = $resultbrut->users;
