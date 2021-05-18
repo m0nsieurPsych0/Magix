@@ -29,9 +29,10 @@
 				elseif ((isset($_GET["observe"]))){
 					$data["username"] = $_GET["userToObserve"];
 					$_SESSION["observe"] = $_GET["userToObserve"];
+					$_SESSION["firstCall"] = true;
 					$result = parent::callAPI("games/observe", $data);
 				}
-				// On vérifie si on a des erreurs retourner par l'API
+				// On vérifie si on a des erreurs retourné par l'API
 				foreach (ERRORCODES as $error){
 					if ($result == $error){
 						$hasConnectionError = true;
@@ -46,6 +47,7 @@
 			// Unset $_SESSION["observe"]
 			if (!empty($_SESSION['observe']) || isset($_SESSION['observe'])){
 				unset($_SESSION['observe']);
+				unset($_SESSION["firstCall"]);
 			}
 
 			// Section message Système
@@ -59,6 +61,8 @@
 					if($content->username == $_SESSION["username"]){
 
 						$info['Dernière Connexion: '] = $content->lastLogin;
+						$info['Classe de Héro: '] = $content->className;
+						$info['Adage: '] = $content->welcomeText;
 						if($content->lastGameState == "LAST_GAME_LOST"){
 							$info['Dernière Partie: '] = "Perdue";
 						}
@@ -67,7 +71,8 @@
 						}
 						$info['Parties Gagnées: '] = $content->winCount;
 						$info['Parties Perdues: '] = $content->lossCount;
-						$info['Trophés: '] = $content->trophies;
+						$info['Trophés Actuel: '] = $content->trophies;
+						$info['Meilleure Quantitée de Trophés: '] = $content->bestTrophyScore;
 						return compact("info");
 
 					}

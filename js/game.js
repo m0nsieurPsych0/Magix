@@ -84,7 +84,7 @@ const gameState = () => {
     })
     .then(response => response.json())
     .then(data => {
-    console.log(data); // contient les cartes/état du jeu.
+    // console.log(data); // contient les cartes/état du jeu.
         try{
             switch(data){
                 case "NOT_IN_GAME":

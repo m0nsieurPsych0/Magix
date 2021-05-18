@@ -59,8 +59,8 @@ const screenSaver = () => {
   myCanvas.width = innerWidth;
   myCanvas.height = innerHeight;
     
-  // Si on détecte un changement de taille on réajuste la taille du canevas
-  window.onresize = function(){
+  // Si on détecte un changement de taille on réajuste la taille du canvas
+  window.onresize = () => {
     myCanvas.width = innerWidth;
     myCanvas.height = innerHeight;
   };
@@ -175,6 +175,7 @@ const screenSaver = () => {
       }
 
     }
+
     updateColor() {
       if (this.myColor < 255) {
         this.myColor += 5;
@@ -183,6 +184,7 @@ const screenSaver = () => {
         this.myColor = 255;
       }
     }
+    
   }
     
     
@@ -199,9 +201,8 @@ const screenSaver = () => {
     
   const draw = () => {
     // Apparence du fond
-    ctx.fillStyle = "rgba(0,0,0,0.2)";
+    ctx.fillStyle = "rgba(0,0,0,0.3)";
     
-    //Apparence des étoiles
     ctx.fillRect(0,0,innerWidth,innerHeight);
     
     for (let i = 0; i < starField.length; i++) {
