@@ -97,7 +97,8 @@ const gameState = () => {
                 case null: 
                     playVideo(videoSource.exit);
                     break;
-                case "WAITING": 
+                case "WAITING":
+                    error("En attente d'un adversaire");
                     setTimeout(gameState, 1000);
                     break;
                 default:
@@ -133,7 +134,6 @@ const gameAction = (send) =>{
     }
 
     //Envoi les requêtes à l'API
-    console.log(formData);
     fetch("ajax.php", { 
         method : "POST",       
         credentials: "include",
