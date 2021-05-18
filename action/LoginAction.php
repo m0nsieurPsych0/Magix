@@ -7,7 +7,7 @@
         public function __construct() {
             parent::__construct(CommonAction::$VISIBILITY_PUBLIC);
         }
-
+        
         protected function executeAction() {
             $hasConnectionError = false;
             // Si on entre le url login.php et qu'on a déjà été identifié par l'API.
