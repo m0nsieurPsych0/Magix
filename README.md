@@ -100,15 +100,14 @@
 </p>
 <h3>game.php</h3>
 <p>
-    
+    Sur la barre de gauche nous avons les détails de la classe et du talent choisit. En dessous, nous avons des statistiques du joeur. Sur cette même barre nous avons aussi le chat.
+    À droite, nous avons le gameboard au dessus les status de l'ennemie. Au centre, le jeu et en dessous le status du joeur.
+
 </p>
 <br>
 <br>
 <br>
 
-<p>
-    Magix est un serveur d’un jeu de cartes basé sur la technologie PHP, HTML, Node, JavaScript, MongoDB et AJAX. Celui-ci peut être joué contre l’ordinateur ou un autre joueur. L’API, qui est disponible aux étudiants, permet de concevoir un jeu avec une interface graphique au choix. Voici un exemple d’interface.
-</p>
 
 
 

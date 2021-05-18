@@ -1,11 +1,14 @@
-@keyframes rotation {
-    from {
-        transform: rotate3d(0, 1, 0,90deg);
-    }
+header{
+    display: none;
 }
-.rotate {
-    animation: 2s linear alternate infinite rotation;
+footer{
+    display: none;
+}
+
+#myCanvas{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100000000;
+    /* background-color: tomato; */
 }
