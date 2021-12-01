@@ -1,11 +1,11 @@
 <h1>|\/|agix__OS</h1>
 <br>
-
+<img src="asset\\readme\\booting\\booting.gif"/>
+<h1></h1>
 <h2>Présentation Générale</h2>
 <p>
 Comme ce projet est un front-end à l'API de MAGIX, mon objectif à été de faire comme si c'était un système d'exploitation d'où la partie «OS» au titre. Mon inspiration pour l'apparence est basée sur de vieux système d'exploitation en ligne de commande avec une touche de moderne. Pour reproduire le sentiment de l'époque, j'ai tenté de reproduire l'effet d'un écran cathodique en appliquant un filtre scanline sur toute la page. De plus, si on est attentif on pourra observer des variations de luminosité -- plus visible sur le texte -- rappelant l'apparence dansante de ces écrans.
 </p>
-<img src="asset\\readme\\booting\\booting.gif"/>
 <h2>Navigation</h2>
 <p>Il y a 6 pages différentes:</p>
 <li>index.php</li>
@@ -39,15 +39,11 @@ Vous pouvez aussi accéder à la page du guide stratégique en cliquant sur le l
     Les trois premier mène à game.php:
     <li>__Jouer -> Partie contre un autre joueur</li>
     <li>__Pratiquer -> Partie contre l'ordinnateur</li>
-    <li>__Observer -> Observer une partie du point de vue d'un joueur qu'on choisit</li><br>
-    __Deck_Master mène à deckMaster.php: <br>
-    <li>Permet de faire des modifications à son jeu de carte</li><br>
-    __Guide__Stratégique:<br>
-    <li>Permet de créer des articles </li><br>
-    __Écran__de__Veille:<br>
-    <li>Permet d'activer l'écran de veille</li><br>
-    __Quitter: <br>
-    <li>Permet de se déconnecter en détruisant la clef de session de l'API et celle du serveur PHP</li>
+    <li>__Observer -> Observer une partie du point de vue d'un joueur qu'on choisit</li>
+    <li>__Deck_Master mène à deckMaster.php -> Permet de faire des modifications à son jeu de carte</li>
+    <li>__Guide__Stratégique: Permet de créer des articles </li>
+    <li>__Écran__de__Veille:Permet d'activer l'écran de veille</li>
+    <li>__Quitter:Permet de se déconnecter en détruisant la clef de session de l'API et celle du serveur PHP</li>
 </p>
 <h4>Section chat et messages système</h4>
 <p>
