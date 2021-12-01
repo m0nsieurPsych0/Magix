@@ -5,7 +5,7 @@
 <p>
 Comme ce projet est un front-end à l'API de MAGIX, mon objectif à été de faire comme si c'était un système d'exploitation d'où la partie «OS» au titre. Mon inspiration pour l'apparence est basée sur de vieux système d'exploitation en ligne de commande avec une touche de moderne. Pour reproduire le sentiment de l'époque, j'ai tenté de reproduire l'effet d'un écran cathodique en appliquant un filtre scanline sur toute la page. De plus, si on est attentif on pourra observer des variations de luminosité -- plus visible sur le texte -- rappelant l'apparence dansante de ces écrans.
 </p>
-<br>
+<img src="asset\\readme\\booting\\booting.gif"/>
 <h2>Navigation</h2>
 <p>Il y a 6 pages différentes:</p>
 <li>index.php</li>
@@ -18,9 +18,8 @@ Comme ce projet est un front-end à l'API de MAGIX, mon objectif à été de fai
 <h3>index.php</h3>
 <p>
 On est dans le mode écran de veille. On peut intérragir avec la page en bougeant la souris dans différentes partie de la fenêtre pour changer la direction des étoiles. Plus on est dans un coin, plus les étoiles bouge vite dans cette direction. Comme pour les écrans de veille traditionnels, quand on pèse sur une touche du clavier ou qu'on clique quelque part sur la page on sort du mode. Si on est connecté on est dirigé vers home.php, sinon on est dirigé vers login.php. L'écran de veille est activé après 5 minutes d'inactivité sur toutes les pages à part celle de game.php.
-<!-- ![Alt Text]() -->
+<img src="asset/readme/screensaver/screensaver.gif"/>
 </p>
-<br>
 <h3>login.php</h3>
 <p>
 La page de login malgré son apparence simpliste est particulière, puisque c'est de là que j'ai établis le style et l'atmostphère global de |\/|agix__OS. Ainsi on peut observer le fond d'écran clairement et voir l'effet arrondi qui ajoute à la simulation de l'écran cathodique.
@@ -31,7 +30,7 @@ Vous pourrez constater que malgré le formulaire pour envoyer nos informations d
 <p>
 Vous pouvez aussi accéder à la page du guide stratégique en cliquant sur le liens situé le coin inférieur droit. Si vous accédez au guide stratégique par ce liens, vous êtes considéré comme un invité et vous ne pourrez pas écrire d'article. Cependant, vous pourrez consulter ceux existant et y écrire des commentaires.
 </p>
-<br>
+<img src="asset/readme/login/login.gif"/>
 <h3>home.php</h3>
 <h4>Barre d'accès</h4>
 <p>
@@ -59,16 +58,16 @@ Vous pouvez aussi accéder à la page du guide stratégique en cliquant sur le l
     <li>Le nombre de partie perdue</li>
     <li>Le nombre de trophée </li>
 </p>
-<br>
+<img src="asset\\readme\\home\\home.gif"/>
 <h4>Fonctionnement Action</h4>
 <p>
 Pour faire la sélection d'un mode de jeu, nous envoyons une requête «GET» avec une clef. Cette clef est évaluée dans homeAction et dépendemment de celle-ci on sera redirigé vers le mode de jeu approprié. Pour la section où nous extrayons les données pour les messages systèmes nous avons porté une attention particulière à la séparation MVC et au lieu d'afficher directement avec php nous utilisons JavaScript pour le faire.
 </p>
-<br>
-<h3>deckMaster.php</h3>
+<h3>deckmaster.php</h3>
 <p>
 La page deckMaster contient deux Iframes communiquant avec l'API. Le premier est celui du chat comme pour la page home.php et game.php, nous pouvons sur cette page le cacher ou l'afficher à notre guise. Au centre, nous avons l'autre Iframe permettant de modifier notre jeu de carte.
 </p>
+<img src="asset\\readme\\deckmaster\\deckmaster.gif"/>
 <h3>guide.php</h3>
 <p>
 Sur cette page nous pouvons écrire des articles en interragissant avec une base de donnée Mysql. Au centre de la page est chargé par défaut l'article le plus récent créé ou modifié. À droite, nous avons la liste de tout les articles en ordre antéchronologique.
@@ -76,6 +75,7 @@ Sur cette page nous pouvons écrire des articles en interragissant avec une base
 <p>
 Si l'utilisateur est authentifié au travers de l'API, il a la possibilité d'ajouter, de modifier ou d'effacer les articles. Si l'utilisateur est un invité il peut seulement écrire des commentaires. Les commentaires sont permanent à chaque article. C'est-à-dire qu'on ne pourra les effacer que si on efface un article. Ce choix est par design.
 </p>
+<img src="asset\\readme\\guide\\guide.gif"/>
 <h4>Le fonctionnement</h4>
 <p>
 Tous les boutons sont des formulaire qui envoient des données en «GET» lorsqu'on pèse dessus. Seul les boutons «créer» et «modifer» modifie la page sur le champs sans automatiquement envoyer de formulaire. Donc si on pèse sur un des deux on modifie le contenu pour afficher des formulaires soit de création, soit de modification. Si on est dans le mode «modifier» les champs «textarea» sont préremplient avec le contenu de l'article. Enfin, on peut retourner à l'état précédant en appuyant sur «annuler». <br>
@@ -86,8 +86,8 @@ Une autre spécification, avant d'envoyer l'information entrée (commentaire ou 
 <h3>game.php</h3>
 <p>
 Sur la barre de gauche nous avons les détails de la classe et du talent choisit. En dessous, nous avons les statistiques du joueur. Sur cette même barre nous avons aussi le chat. À droite, nous avons la zone de jeu et au dessus les status de l'ennemie. Au centre, la plateforme du jeu et en dessous les éléments du joueur.
-
 </p>
+<img src="asset\\readme\\game\\game.gif"/>
 <br>
 <br>
 <br>
