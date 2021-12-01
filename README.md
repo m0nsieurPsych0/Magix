@@ -10,8 +10,8 @@ Comme ce projet est un front-end à l'API de MAGIX, mon objectif à été de fai
 <h3>index.php</h3>
 <p>
 On est dans le mode écran de veille. On peut intérragir avec la page en bougeant la souris dans différentes partie de la fenêtre pour changer la direction des étoiles. Plus on est dans un coin, plus les étoiles bouge vite dans cette direction. Comme pour les écrans de veille traditionnels, quand on pèse sur une touche du clavier ou qu'on clique quelque part sur la page on sort du mode. Si on est connecté on est dirigé vers home.php, sinon on est dirigé vers login.php. L'écran de veille est activé après 5 minutes d'inactivité sur toutes les pages à part celle de game.php.
-<img src="asset/readme/screensaver/screensaverMouvement.gif"/>
 </p>
+<img src="asset/readme/screensaver/screensaverMouvement.gif"/>
 <h3>login.php</h3>
 <p>
 La page de login malgré son apparence simpliste est particulière, puisque c'est de là que j'ai établis le style et l'atmostphère global de |\/|agix__OS. Ainsi on peut observer le fond d'écran clairement et voir l'effet arrondi qui ajoute à la simulation de l'écran cathodique.
