@@ -18,7 +18,7 @@ Comme ce projet est un front-end à l'API de MAGIX, mon objectif à été de fai
 <h3>index.php</h3>
 <p>
 On est dans le mode écran de veille. On peut intérragir avec la page en bougeant la souris dans différentes partie de la fenêtre pour changer la direction des étoiles. Plus on est dans un coin, plus les étoiles bouge vite dans cette direction. Comme pour les écrans de veille traditionnels, quand on pèse sur une touche du clavier ou qu'on clique quelque part sur la page on sort du mode. Si on est connecté on est dirigé vers home.php, sinon on est dirigé vers login.php. L'écran de veille est activé après 5 minutes d'inactivité sur toutes les pages à part celle de game.php.
-<img src="asset/readme/screensaver/screensaver.gif"/>
+<img src="asset/readme/screensaver/screensaverMouvement.gif"/>
 </p>
 <h3>login.php</h3>
 <p>
@@ -39,11 +39,11 @@ Vous pouvez aussi accéder à la page du guide stratégique en cliquant sur le l
     Les trois premier mène à game.php:
     <li>__Jouer -> Partie contre un autre joueur</li>
     <li>__Pratiquer -> Partie contre l'ordinnateur</li>
-    <li>__Observer -> Observer une partie du point de vue d'un joueur qu'on choisit</li>
-    <li>__Deck_Master mène à deckMaster.php -> Permet de faire des modifications à son jeu de carte</li>
-    <li>__Guide__Stratégique: Permet de créer des articles </li>
-    <li>__Écran__de__Veille:Permet d'activer l'écran de veille</li>
-    <li>__Quitter:Permet de se déconnecter en détruisant la clef de session de l'API et celle du serveur PHP</li>
+    <li>__Observer -> Observer une partie du point de vue d'un joueur qu'on choisit</li><br>
+    <li>__Deck_Master -> Permet de faire des modifications à son jeu de carte</li>
+    <li>__Guide__Stratégique -> Permet de créer des articles </li>
+    <li>__Écran__de__Veille -> Permet d'activer l'écran de veille</li>
+    <li>__Quitter -> Permet de se déconnecter en détruisant la clef de session de l'API et celle du serveur PHP</li>
 </p>
 <h4>Section chat et messages système</h4>
 <p>
@@ -96,5 +96,3 @@ Note**
 <br>
 Navigation générale -> la barre de titre dans les pages __Deck_Master et __Guide_Stratégique dirige à home.php.
 </footer>
-
-<!-- ![Alt Text]() -->
