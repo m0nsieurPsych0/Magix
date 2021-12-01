@@ -1,20 +1,12 @@
 <h1>|\/|agix__OS</h1>
 <br>
 <img src="asset\\readme\\booting\\booting.gif"/>
-<h1></h1>
 <h2>Présentation Générale</h2>
 <p>
 Comme ce projet est un front-end à l'API de MAGIX, mon objectif à été de faire comme si c'était un système d'exploitation d'où la partie «OS» au titre. Mon inspiration pour l'apparence est basée sur de vieux système d'exploitation en ligne de commande avec une touche de moderne. Pour reproduire le sentiment de l'époque, j'ai tenté de reproduire l'effet d'un écran cathodique en appliquant un filtre scanline sur toute la page. De plus, si on est attentif on pourra observer des variations de luminosité -- plus visible sur le texte -- rappelant l'apparence dansante de ces écrans.
 </p>
 <h2>Navigation</h2>
-<p>Il y a 6 pages différentes:</p>
-<li>index.php</li>
-<li>login.php</li>
-<li>home.php</li>
-<li>game.php</li>
-<li>deckMaster.php</li>
-<li>guide.php</li>
-<br>
+
 <h3>index.php</h3>
 <p>
 On est dans le mode écran de veille. On peut intérragir avec la page en bougeant la souris dans différentes partie de la fenêtre pour changer la direction des étoiles. Plus on est dans un coin, plus les étoiles bouge vite dans cette direction. Comme pour les écrans de veille traditionnels, quand on pèse sur une touche du clavier ou qu'on clique quelque part sur la page on sort du mode. Si on est connecté on est dirigé vers home.php, sinon on est dirigé vers login.php. L'écran de veille est activé après 5 minutes d'inactivité sur toutes les pages à part celle de game.php.
@@ -54,7 +46,7 @@ Vous pouvez aussi accéder à la page du guide stratégique en cliquant sur le l
     <li>Le nombre de trophée </li>
 </p>
 <img src="asset\\readme\\home\\home.gif"/>
-<h4>Fonctionnement Action</h4>
+<h4>Fonctionnement de homeAction</h4>
 <p>
 Pour faire la sélection d'un mode de jeu, nous envoyons une requête «GET» avec une clef. Cette clef est évaluée dans homeAction et dépendemment de celle-ci on sera redirigé vers le mode de jeu approprié. Pour la section où nous extrayons les données pour les messages systèmes nous avons porté une attention particulière à la séparation MVC et au lieu d'afficher directement avec php nous utilisons JavaScript pour le faire.
 </p>
