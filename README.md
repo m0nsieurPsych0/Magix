@@ -35,11 +35,10 @@ Vous pouvez aussi accéder à la page du guide stratégique en cliquant sur le l
 <h4>Barre d'accès</h4>
 <p>
     La page d'accès pour tout les services que |\/|agix__OS offre. <br>
-    Dans la barre de gauche vous allez trouver tous les liens pour accéder aux différentes parties du système. <br><br>
-    Les trois premier mène à game.php:
+    Dans la barre de gauche vous allez trouver tous les liens pour accéder aux différentes parties du système. <br>
     <li>__Jouer -> Partie contre un autre joueur</li>
     <li>__Pratiquer -> Partie contre l'ordinnateur</li>
-    <li>__Observer -> Observer une partie du point de vue d'un joueur qu'on choisit</li><br>
+    <li>__Observer -> Observer une partie du point de vue d'un joueur qu'on choisit</li>
     <li>__Deck_Master -> Permet de faire des modifications à son jeu de carte</li>
     <li>__Guide__Stratégique -> Permet de créer des articles </li>
     <li>__Écran__de__Veille -> Permet d'activer l'écran de veille</li>
@@ -84,15 +83,3 @@ Une autre spécification, avant d'envoyer l'information entrée (commentaire ou 
 Sur la barre de gauche nous avons les détails de la classe et du talent choisit. En dessous, nous avons les statistiques du joueur. Sur cette même barre nous avons aussi le chat. À droite, nous avons la zone de jeu et au dessus les status de l'ennemie. Au centre, la plateforme du jeu et en dessous les éléments du joueur.
 </p>
 <img src="asset\\readme\\game\\game.gif"/>
-<br>
-<br>
-<br>
-
-
-
-<footer>
-Note**
-<br>
-<br>
-Navigation générale -> la barre de titre dans les pages __Deck_Master et __Guide_Stratégique dirige à home.php.
-</footer>
