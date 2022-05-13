@@ -185,6 +185,7 @@ const updateGameData = (data) =>{
                 for (let key in data.opponent){
                     switch(key){
                         case "board": break; //skip
+                        case "maxHp": break; //skip
 
                         case "heroClass":
                             document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
@@ -198,7 +199,7 @@ const updateGameData = (data) =>{
                             document.querySelector("#talent-description").innerHTML = opponentInfo.talent[data.opponent[key]];
                             break;
 
-                        case "hp": document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + opponentMaxHp; break;
+                        case "hp": document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + data.opponent["maxHp"]; break;
                         case "mp": document.querySelector("." + key + ".opponent").innerHTML = "Mp: " + data.opponent[key] + "/" + opponentMaxMp; break;
                         case "maxHp": opponentMaxHp = data.opponent[key]; break;
                         case "maxMp": opponentMaxMp = data.opponent[key]; break;

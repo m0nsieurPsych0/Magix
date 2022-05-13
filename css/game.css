@@ -107,13 +107,15 @@ iframe{
 #opponent > *{
     text-align: center;
 }
+/* Bug dans firefox, le fichier svg change de dimension */
 @keyframes rotation {
     from {
         transform: rotate3d(0, 1, 0, 360deg);
     }
 }
 #brain{
-    align-self: center;
+    /* align-self: center; */
+    /* display: block; */
     height:250px ;
     width: 250px ;
     animation: 10s linear infinite rotation;
