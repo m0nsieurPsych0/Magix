@@ -57,14 +57,6 @@ let Accumulator;
 let opponentMaxHp = 0;
 let opponentMaxMp = 0;
 
-const setOpponentMaxMpHp = (data) => {
-    if (data.opponent.hp > opponentMaxHp){
-        opponentMaxHp = data.opponent.hp;
-    }
-    if (data.opponent.mp > opponentMaxMp){
-        opponentMaxMp = data.opponent.mp;
-    }
-}
 const resetAccumulator = () =>{
     
     Accumulator = 
@@ -168,7 +160,6 @@ const game = (data) => {
 }
 
 const updateGameData = (data) =>{
-    setOpponentMaxMpHp(data);
 
     for (let key in data){
         switch(key){
@@ -209,10 +200,17 @@ const updateGameData = (data) =>{
 
                         case "hp": document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + opponentMaxHp; break;
                         case "mp": document.querySelector("." + key + ".opponent").innerHTML = "Mp: " + data.opponent[key] + "/" + opponentMaxMp; break;
+                        case "maxHp": opponentMaxHp = data.opponent[key]; break;
+                        case "maxMp": opponentMaxMp = data.opponent[key]; break;
                         case "remainingCardsCount" : document.querySelector("." + key + ".opponent").innerHTML = "Deck: " + data.opponent[key]; break;
                         case "handSize" : document.querySelector("." + key + ".opponent").innerHTML = "Hand: " + data.opponent[key]; break;
+                        case "welcomeText" : document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key]; break;
+                        case "username" : document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key]; break;
+                        case "trophyCount" : document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key]; break;
+                        case "winCount" : document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key]; break;
+                        case "lossCount" : document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key]; break;
                         default: 
-                            document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key];
+                            break;
                     }
                 };
                 break;
