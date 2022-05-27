@@ -61,9 +61,6 @@ const type = () =>{
     
 }
 
-
-
-
 const canvasSize = () =>{
     canvas.width = innerWidth;
     canvas.height = innerHeight;
@@ -81,7 +78,7 @@ const canvasConstructor = () =>{
 }
 
 const isBooted = () => {
-    if (localStorage["booted"] == null || localStorage["booted"] == "false"  || localStorage["booted"] == undefined || localStorage["booted"] == "undefined"){
+    if (localStorage["booted"] != "true"){
         localStorage["booted"] = "true";
         bootingAnimation();
         setTimeout(()=>{window.location.href = "home.php"}, 7000);
