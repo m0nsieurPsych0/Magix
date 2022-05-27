@@ -184,25 +184,18 @@ const updateGameData = (data) =>{
             case "opponent":
                 for (let key in data.opponent){
                     switch(key){
-                        case "board": break; //skip
-                        case "maxHp": break; //skip
-
                         case "heroClass":
                             document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
                             // Description "heroClass"
                             document.querySelector("#class-description").innerHTML = opponentInfo.heroClass[data.opponent[key]];
                             break;
-
                         case "talent":
                             document.querySelector("." + key + ".opponent").innerHTML = splitWords(data.opponent[key]) + ":";
                             // Description "talent"
                             document.querySelector("#talent-description").innerHTML = opponentInfo.talent[data.opponent[key]];
                             break;
-
                         case "hp": document.querySelector("." + key + ".opponent").innerHTML = "Hp: " + data.opponent[key] + "/" + data.opponent["maxHp"]; break;
-                        case "mp": document.querySelector("." + key + ".opponent").innerHTML = "Mp: " + data.opponent[key] + "/" + opponentMaxMp; break;
-                        case "maxHp": opponentMaxHp = data.opponent[key]; break;
-                        case "maxMp": opponentMaxMp = data.opponent[key]; break;
+                        case "mp": document.querySelector("." + key + ".opponent").innerHTML = "Mp: " + data.opponent[key] + "/" + data.opponent["maxMp"]; break;
                         case "remainingCardsCount" : document.querySelector("." + key + ".opponent").innerHTML = "Deck: " + data.opponent[key]; break;
                         case "handSize" : document.querySelector("." + key + ".opponent").innerHTML = "Hand: " + data.opponent[key]; break;
                         case "welcomeText" : document.querySelector("." + key + ".opponent").innerHTML = data.opponent[key]; break;
