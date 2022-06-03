@@ -28,7 +28,8 @@
             $result = file_get_contents($apiURL, false, $context);
             // !== false ou == true ??
             if (strpos($result, "<br") !== false) {
-                var_dump($result);
+                echo("Server Down... Try again later.");
+                // var_dump($result);
                 exit;
             }
             
