@@ -22,7 +22,7 @@
                     }
                 }
                 $_SESSION['oldpost'] = $_POST;
-                if (isset($_POST["article"])){
+                if (isset($_POST["article"]) && isset($_SESSION["username"])){
 
                     if(isset($_POST['add'])){
                         if(isset($_POST['contenu']) && isset($_POST['titre'])){
