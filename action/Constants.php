@@ -1,4 +1,11 @@
 <?php
+
+    /****************************** Visibility ******************************/
+    define("VISIBILITY_PUBLIC", 0);
+    define("VISIBILITY_MEMBER", 1);
+    define("VISIBILITY_MODERATOR", 2);
+    define("VISIBILITY_ADMINISTRATOR", 3);
+
     /********************************* API *********************************/
     // iframe
     define("CHATURL", "https://magix.apps-de-cours.com/server/#/chat/");
@@ -18,12 +25,28 @@
     define("GUIDE", "location:guide.php");
 
     /****************************** MY_SQL ******************************/
+    // PHP VARIABLES:
+    // SetEnv ARTICLE_DB_HOST 
+    // SetEnv ARTICLE_DB_NAME 
+    // SetEnv ARTICLE_DB_USER 
+    // SetEnv ARTICLE_DB_PASS 
+    // SetEnv USERPASS_DB_HOST
+    // SetEnv USERPASS_DB_NAME
+    // SetEnv USERPASS_DB_USER
+    // SetEnv USERPASS_DB_PASS
 
-    define("DB_HOST", "localhost");
-    define("DB_NAME", "c55_db");
-    define("DB_USER", "c55_user");
-    define("DB_PASS", "AAAaaa111");
-    define("DB_AUTHORIZEDPASS", "");
+    // Article
+    define("DB_ARTICLE_HOST", getenv("ARTICLE_DB_HOST"));
+    define("DB_ARTICLE", getenv("ARTICLE_DB_NAME"));
+    define("DB_ARTICLE_USER", getenv("ARTICLE_DB_USER"));
+    define("DB_ARTICLE_PASS", getenv("ARTICLE_DB_PASS"));
+    // Userpass
+    define("DB_USERPASS_HOST", getenv("USERPASS_DB_HOST"));
+    define("DB_USERPASS", getenv("USERPASS_DB_NAME"));
+    define("DB_USERPASS_USER", getenv("USERPASS_DB_USER"));
+    define("DB_USERPASS_PASS", getenv("USERPASS_DB_PASS"));
+
+
 
     // Manipulation base de donnée MySQL
     define("CREATE_DB", "CREATE DATABASE IF NOT EXISTS magix_os_db");
@@ -67,3 +90,6 @@
     define("GET_COMMENT", "SELECT * FROM `comment` WHERE `id_article` = ?");
     define("DEL_COMMENT", "DELETE FROM `comment` WHERE `comment`.`id_article` = ?");
   
+    // QUERY USER_PASSWORD
+    define("GET_USER_PASSWORD", "SELECT * FROM `user_password` WHERE `username` = ? AND `password` = ?");
+    define("GET_ALL_USER_PASSWORD", "SELECT * FROM `user_password`");
