@@ -1,7 +1,7 @@
 {
     "INVALID_ACTION"            : "Action invalide", 
     "ACTION_IS_NOT_AN_OBJECT"   : "Mauvaise structure de données", 
-    "NOT_ENOUGH_ENERGY"         : "La carte coûte trop cher à jouer", 
+    "NOT_ENOUGH_ENERGY"         : "Pas assez de MP", 
     "BOARD_IS_FULL"             : "Pas assez de place pour la carte", 
     "CARD_NOT_IN_HAND"          : "La carte n’est pas dans votre main", 
     "CARD_IS_SLEEPING"          : "Carte ne peut être jouée ce tour-ci", 

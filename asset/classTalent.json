@@ -12,7 +12,7 @@
 		"Mage": "Randomly deal 3 HP to enemies"
 	},
 	"talent": {
-		"Restorer": "Every time you use your hero power, restore 1HP",
+		"Restorer": "Every time you use your hero power, restore 1 HP",
 		"LifeBoost": "Start with 5 more HP",
 		"ExtraCard": "Start with an extra card",
 		"SpawnMinion": "Start with a 1/2 minion with taunt and charge",
