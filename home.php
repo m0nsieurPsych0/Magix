@@ -31,8 +31,16 @@
                     <div class="chat-title">°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸</div>
                     <div id="chat">
                         <iframe onload="applyStyles(this)" 
-                            src=<?php echo(CHATURL . $_SESSION['key'] . "/large"); ?>>
+                            src=<?php
+                            if($_SESSION["visibility"]>=VISIBILITY_MODERATOR)
+                                echo(CHATURL . $_SESSION['key'] . "/large");
+                            else{
+                                //TODO Set proper message
+                                echo(CHATURL . "demoaccount/large");
+                            }    
+                            ?>>
                         </iframe>
+
                     </div>
         
                     <div id="system-messages">
@@ -54,4 +62,4 @@
 
 
 <?php
-	require_once("partial/footer.php");   
+	require_once("partial/footer.php");

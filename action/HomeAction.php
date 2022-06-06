@@ -18,7 +18,7 @@
 			// on démarre le match en fonction du type voulu (soit PVP ou PVE(TRAINING) ou observe)
 			if(!empty($_GET)){
 				//call api
-				if (isset($_GET["pvp"])){
+				if (isset($_GET["pvp"]) && $_SESSION["visibility"]>=VISIBILITY_MODERATOR){
 					$data["type"] = "PVP";
 					$result = parent::callAPI("games/auto-match", $data);
 				}
@@ -26,11 +26,15 @@
 					$data["type"] = "TRAINING";
 					$result = parent::callAPI("games/auto-match", $data);
 				}
-				elseif ((isset($_GET["observe"]))){
+				elseif (isset($_GET["observe"]) && $_SESSION["visibility"]>=VISIBILITY_MODERATOR){
 					$data["username"] = $_GET["userToObserve"];
 					$_SESSION["observe"] = $_GET["userToObserve"];
 					$_SESSION["firstCall"] = true;
 					$result = parent::callAPI("games/observe", $data);
+				}
+				else{
+					header(HOME);
+					exit;
 				}
 				// On vérifie si on a des erreurs retourné par l'API
 				foreach (ERRORCODES as $error){

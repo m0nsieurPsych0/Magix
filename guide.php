@@ -98,7 +98,7 @@
                             <div>Aucun article disponible...&nbsp&nbsp&nbspVeuillez en créer un --></div>
                             <?php
                         } 
-                        if(isset($_SESSION['username'])){ 
+                        if(isset($_SESSION['username']) && $_SESSION["visibility"]>=VISIBILITY_MODERATOR){
                             ?> 
                             <button id="creer-article" onclick='createArticle();'>Créer un article</button>                                     
                             <?php if($data["db"]["article"]){ ?>

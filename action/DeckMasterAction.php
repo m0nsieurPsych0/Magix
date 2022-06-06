@@ -4,7 +4,7 @@
     class DeckMasterAction extends CommonAction {
 
         public function __construct() {
-            parent::__construct(CommonAction::$VISIBILITY_MEMBER);
+            parent::__construct(CommonAction::$VISIBILITY_MODERATOR);
         }
 
         protected function executeAction() {
