@@ -3,7 +3,7 @@
 
     class DAO {
         private static function connection(){
-            $connection = Connection::getConnection();
+            $connection = Connection::getConnection(DB_ARTICLE_HOST, DB_ARTICLE, DB_ARTICLE_USER, DB_ARTICLE_PASS);
             $connection->exec(CREATE_TAB_ARTICLE);
             $connection->exec(CREATE_TAB_COMMENT);
 
@@ -105,5 +105,7 @@
             $statement->bindParam(1, $articleId);
             $statement->execute();
         }
+
+
         
     }
