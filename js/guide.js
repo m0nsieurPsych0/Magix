@@ -5,9 +5,23 @@ window.onload = () =>{
 // Lorsqu'on capte un retour en arrière on appel la fonction de vidéo 'exit' puis on retourne à home.php
 ((global) => {catchingBackButtonEvent(global);})(window);
 
-
 let currentContent;
 const displayArticle = (dbData) => {
+
+    let article = document.createElement("div");
+    article.id = "article-wrapper";
+    article.innerHTML = document.getElementById("template-article").innerHTML;
+    document.getElementById("article").append(article);
+
+    document.querySelector("h1").innerHTML = dbData.article.titre;
+    document.getElementById("auteur-article").innerHTML = dbData.article.auteur;
+    document.getElementById("date-article").innerHTML = dbData.article.modification_time != null ? dbData.article.modification_time + "(modifié)" : dbData.article.creation_time;
+    document.getElementById("contenu").innerHTML = dbData.article.contenu;
+
+    displayComment(dbData.comment);
+}
+
+const displayArticleCommentsCreation = (dbData) => {
 
     let article = document.createElement("div");
     article.id = "article-wrapper";

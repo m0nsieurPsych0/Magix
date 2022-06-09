@@ -70,5 +70,4 @@
 
         protected abstract function executeAction();
 
-
     }

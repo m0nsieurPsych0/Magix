@@ -58,6 +58,11 @@ button:hover, .button-wrapper:hover > button{
     text-shadow: none;
     color:black;
 }
+button:hover, .button-wrapper.demo:hover > button{
+    background-color: red;
+    text-shadow: none;
+    color:white;
+}
 :is(textarea.type){
     display: none;
 }
@@ -127,7 +132,7 @@ iframe > *{
     position: relative;
     height: 100%;
     max-height: 100%;
-    overflow: hidden;
+    overflow: clip;
     
 }
 
@@ -136,8 +141,9 @@ iframe > *{
 }
 #log{
     height: 20rem;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    /* overflow-y: scroll;
+    overflow-x: scroll; */
+    overflow: scroll;
     scrollbar-width: none;
 
     display: flex;

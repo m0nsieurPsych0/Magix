@@ -6,6 +6,45 @@
 		public function __construct() {
 			parent::__construct(CommonAction::$VISIBILITY_MEMBER);
 		}
+
+		private function systemMessage($data){
+			
+			if($_SESSION["visibility"]>=VISIBILITY_MODERATOR){
+				// Section message Système
+				// On extrait nos informations
+				$data["allUsers"] = false;
+				$resultbrut = parent::callAPI("users-extra", $data);
+				$result = $resultbrut->users;
+				
+				foreach($result as $content){
+					if(isset($content->username)){
+						if($content->username == $_SESSION["username"]){
+	
+							$info['Dernière Connexion: '] = $content->lastLogin;
+							$info['Classe de Héro: '] = $content->className;
+							$info['Adage: '] = $content->welcomeText;
+							if($content->lastGameState == "LAST_GAME_LOST"){
+								$info['Dernière Partie: '] = "Perdue";
+							}
+							else{
+								$info['Dernière Partie: '] = "Gagnée";
+							}
+							$info['Parties Gagnées: '] = $content->winCount;
+							$info['Parties Perdues: '] = $content->lossCount;
+							$info['Trophés Actuel: '] = $content->trophies;
+							$info['Meilleure Quantitée de Trophés: '] = $content->bestTrophyScore;
+							return compact("info");
+	
+						}
+					}
+				}
+			}
+			else{
+				$info['This is a demo version of the site. '] = "Please consult the «__ Guide_Stratégique» for more information!";
+				$info['Just want to jump in and play ?! '] = "Go to «__Pratiquer» and have fun!";
+				return compact("info");
+			}
+		}
 		
 		protected function executeAction() {
 			$hasConnectionError = false;
@@ -54,34 +93,7 @@
 				unset($_SESSION["firstCall"]);
 			}
 
-			// Section message Système
-			// On extrait nos informations
-			$data["allUsers"] = false;
-			$resultbrut = parent::callAPI("users-extra", $data);
-			$result = $resultbrut->users;
-			
-			foreach($result as $content){
-				if(isset($content->username)){
-					if($content->username == $_SESSION["username"]){
-
-						$info['Dernière Connexion: '] = $content->lastLogin;
-						$info['Classe de Héro: '] = $content->className;
-						$info['Adage: '] = $content->welcomeText;
-						if($content->lastGameState == "LAST_GAME_LOST"){
-							$info['Dernière Partie: '] = "Perdue";
-						}
-						else{
-							$info['Dernière Partie: '] = "Gagnée";
-						}
-						$info['Parties Gagnées: '] = $content->winCount;
-						$info['Parties Perdues: '] = $content->lossCount;
-						$info['Trophés Actuel: '] = $content->trophies;
-						$info['Meilleure Quantitée de Trophés: '] = $content->bestTrophyScore;
-						return compact("info");
-
-					}
-				}
-			}
+			return HomeAction::systemMessage($data);
 
 		}
 
