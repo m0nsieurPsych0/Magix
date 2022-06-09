@@ -50,12 +50,14 @@
                             <div id="auteur-article"></div>
                             <div id="date-article"></div>
                         </div>
-                        <div id="contenu"></div>
+                        <!-- <div id="contenu"></div> -->
+                        <pre id="contenu"></pre>
                     </template>
                         
                         <!-- AJOUT COMMENTAIRE -->
                     <template id="template-ajout-commentaire">
                         <!-- Pour passer des arguments supplémentaire -->
+                        
                         <input type="text" class="type" name="comment">
                         <input type="text" class="type" name="add">
                         <input id="articleId-comment" type="text" class="type" name="articleId">
@@ -118,7 +120,17 @@
                 </main>
 
                 <!-- Pour afficher les articles en passant une variable PHP -->
-                <script>displayArticle( <?php echo(json_encode($data["db"]["article"])); ?> );</script>
+                <?php if(isset($_SESSION['username']) && $_SESSION["visibility"]>=VISIBILITY_MEMBER){
+                    ?>
+                    <script>displayArticleCommentsCreation( <?php echo(json_encode($data["db"]["article"])); ?> );</script>
+                    <?php
+                }
+                else{
+                    ?>
+                    <script>displayArticle( <?php echo(json_encode($data["db"]["article"])); ?> );</script>
+                    <?php
+                }
+                ?>
                 <script>loadHistory( <?php echo(json_encode($data["db"]["articleList"])); ?> );</script>
                       
 <?php
