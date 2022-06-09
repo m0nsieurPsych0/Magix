@@ -2,7 +2,7 @@
     // header('Location: login.php'); // On redirige vers login.php pour l'instant
 ?> -->
 <?php
-    require_once("action/bootingAction.php");
+    require_once("action/BootingAction.php");
 
     $action = new BootingAction();
     $data = $action->execute();
