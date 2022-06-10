@@ -50,7 +50,6 @@
                             <div id="auteur-article"></div>
                             <div id="date-article"></div>
                         </div>
-                        <!-- <div id="contenu"></div> -->
                         <pre id="contenu"></pre>
                     </template>
                         
