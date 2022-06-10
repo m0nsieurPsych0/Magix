@@ -34,6 +34,8 @@
     // SetEnv USERPASS_DB_NAME
     // SetEnv USERPASS_DB_USER
     // SetEnv USERPASS_DB_PASS
+    // SetEnv API_USER
+    // SetEnv API_PASSWORD
 
     // Article
     define("DB_ARTICLE_HOST", getenv("ARTICLE_DB_HOST"));
