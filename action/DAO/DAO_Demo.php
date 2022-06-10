@@ -28,6 +28,18 @@
             $data = $statement->fetch();
             return $data;
         }
+
+        public static function addUser($username, $password, $visibility){
+            $username = password_hash($username, PASSWORD_DEFAULT);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            $statement = DAO_Demo::connection()->prepare(ADD_USER);
+            $statement->bindParam(1, $username);
+            $statement->bindParam(2, $password);
+            $statement->bindParam(3, $visibility);
+            return $statement->execute();
+
+        }
                
         
     }

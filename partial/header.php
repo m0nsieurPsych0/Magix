@@ -59,7 +59,7 @@
 						<script src="js/chat.js"></script>
 						<script src="js/game.js"></script>
 						<title>__Game__|\/|agix__OS</title>
-					<?php	
+				<?php	
 				}
 				if ($page == "guide"){
 					?>
@@ -67,6 +67,13 @@
 						<script src="js/screenSaver.js"></script>
 						<script src="js/guide.js"></script>
 						<title>__Guide__|\/|agix__OS</title>
+						<?php	
+				}
+				if ($page == "admin"){
+					?>
+						<link href="css/admin.css" rel="stylesheet" />
+						<script src="js/admin.js"></script>
+						<title>__Admin__|\/|agix__OS</title>
 					<?php	
 				}							
 				
@@ -91,8 +98,11 @@
 				elseif ($page == "guide"){
 					?><div class="typing" onclick="window.location.href='home.php';" >Guide__Stratégique________________________________________________________________________________________________________________________________________________________________</div><?php
 				}
+				elseif ($page == "admin"){
+					?><div class="typing" onclick="window.location.href='home.php';">Administration_______________________________________________________________________________________________________________________________________________________________</div><?php
+				}
 				else {
-					?><div class="typing">|\/|agix__OS_______________________________________________________________________________________________________________________________________________________________</div><?php
+					?><div class="typing" onclick="window.location.href='home.php';">|\/|agix__OS_______________________________________________________________________________________________________________________________________________________________</div><?php
 				}
 				?>
 			</header>

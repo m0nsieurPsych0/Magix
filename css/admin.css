@@ -1,0 +1,43 @@
+/*************************login*************************/
+main{
+    position: relative;
+}
+.login-form-frame {
+    position: relative;
+    margin: auto;
+    align-items: center; 
+}
+.form-label {
+    display: inline;
+}
+.form-separator {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.form-input {
+    display: inline;
+}
+/* Rends le form input transparent */
+.form-input > *{
+    --text-bleed-intensity: 7px;
+    color: white;
+    font: var(--font-pref);
+    font-size: var(--font-size-res);
+    text-shadow: 0 0 var(--text-bleed-intensity) #C8C8C8;
+    background-color: red;
+    border:none;
+    outline:none;
+    animation: var(--animation-pulsing);
+}
+/* Cache le bouton de connexion */
+button {
+    display: none;
+}
+.error-div {
+    position:absolute;
+    bottom: 0;
+}
+#confirmation {
+    width: var(--font-size-res);
+    height: var(--font-size-res);
+}

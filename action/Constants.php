@@ -93,3 +93,6 @@
     // QUERY USER_PASSWORD
     define("GET_USER_PASSWORD", "SELECT * FROM `user_password` WHERE `username` = ? AND `password` = ?");
     define("GET_ALL_USER_PASSWORD", "SELECT * FROM `user_password`");
+
+    // Add a user
+    define("ADD_USER", "INSERT INTO `user_password` (`username`,`password`, `visibility`) VALUES(?, ?, ?)");
